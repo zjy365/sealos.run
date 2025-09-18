@@ -1,0 +1,40 @@
+'use client';
+import { create } from '@orama/orama';
+import { createTokenizer } from '@orama/tokenizers/mandarin';
+import { useDocsSearch } from 'fumadocs-core/search/client';
+import { SearchDialog, type SharedProps } from 'fumadocs-ui/components/dialog/search';
+import { useParams } from 'next/navigation';
+import { useCallback } from 'react';
+
+export function DefaultSearchDialog(props: SharedProps) {
+	const params = useParams<{ lang: string }>();
+
+	const { search, setSearch, query } = useDocsSearch(
+		{
+			type: 'static',
+			initOrama: useCallback(
+				() =>
+					create({
+						schema: { _: 'string' },
+						components: {
+							tokenizer: createTokenizer(),
+						},
+					}),
+				[],
+			),
+		},
+		// We filter tags for i18n search support for now.
+		undefined,
+		params.lang,
+	);
+
+	return (
+		<SearchDialog
+			search={search}
+			onSearchChange={setSearch}
+			isLoading={query.isLoading}
+			results={query.data ?? []}
+			{...props}
+		/>
+	);
+}

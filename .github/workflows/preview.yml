@@ -1,0 +1,81 @@
+name: Preview Sealos Website
+
+on:
+  workflow_dispatch:
+  pull_request_target:
+    branches:
+      - "main"
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    permissions:
+        actions: read # Only required for private GitHub Repo
+        contents: read
+        deployments: write
+        pull-requests: write
+    runs-on: ubuntu-latest
+
+    # Job outputs
+    outputs:
+      url: ${{ steps.deploy.outputs.preview-url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          submodules: recursive # Fetch submodules
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull environment variables
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build
+        run: vercel build --local-config ./vercel.json
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        id: deploy
+        with:
+          vercel-version: "41.4.1"
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} #Required
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} #Required
+          github-comment: false
+          # vercel-args: '--local-config vercel.json' # Optional
+          vercel-args: '--local-config ./vercel.json --archive=tgz --prebuilt'
+          working-directory: ./
+
+      - name: Create deployment status comment
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+          PREVIEW_URL: ${{ steps.deploy.outputs.preview-url }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const success = process.env.JOB_STATUS === 'success';
+            const deploymentUrl = `${process.env.PREVIEW_URL}`;
+            const status = success ? '✅ Success' : '❌ Failed';
+            console.log(process.env.JOB_STATUS);
+  
+            const commentBody = `**Deployment Status: ${status}**
+            ${success ? `🔗 Preview URL: ${deploymentUrl}` : ''}`;
+  
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: context.payload.pull_request.number,
+              body: commentBody
+            });
