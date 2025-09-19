@@ -34,10 +34,14 @@
 					"level": "error",
 					"options": {
 						"paths": {
-							"next/link": "Use <Link> exported from @libs/i18n/navigation to get i18n support.",
-							"next/navigation": "Use navigation utils from @libs/i18n/navigation to get i18n support."
+							"next/link": "Use <Link> exported from @/libs/i18n/navigation to get i18n support."
 						},
 						"patterns": [
+							{
+								"group": "next/navigation",
+								"importNamePattern": "redirect|usePathname|useRouter|getPathname",
+								"message": "Use navigation utils from @/libs/i18n/navigation to get i18n support."
+							},
 							{
 								"group": "react",
 								"importNamePattern": "default",

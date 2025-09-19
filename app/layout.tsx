@@ -1,7 +1,8 @@
+import { RootProvider } from 'fumadocs-ui/provider';
 import { Inter } from 'next/font/google';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import type React from 'react';
-
+import { i18nUIProvider } from '@/libs/i18n/fumadocs';
 import { routing } from '@/libs/i18n/routing';
 
 import './global.css';
@@ -140,7 +141,9 @@ export default async function RootLayout({ children, params }: Props) {
 				/>
 			</head>
 			<body className='flex min-h-screen flex-col overflow-x-hidden'>
-				<NextIntlClientProvider>{children}</NextIntlClientProvider>
+				<NextIntlClientProvider>
+					<RootProvider i18n={i18nUIProvider(actualLoacle)}>{children}</RootProvider>
+				</NextIntlClientProvider>
 			</body>
 		</html>
 	);

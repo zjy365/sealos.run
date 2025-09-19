@@ -2,7 +2,7 @@ import { remarkNpm } from 'fumadocs-core/mdx-plugins';
 import { defineCollections, defineConfig, defineDocs, frontmatterSchema } from 'fumadocs-mdx/config';
 import { z } from 'zod';
 
-export const { docs, meta } = defineDocs({
+export const docs = defineDocs({
 	dir: 'content/docs',
 });
 

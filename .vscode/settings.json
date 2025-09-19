@@ -6,6 +6,8 @@
 		"source.fixAll.biome": "explicit"
 	},
 
+	"i18n-ally.localesPaths": ["libs/i18n", "libs/i18n/messages"],
+
 	"[typescriptreact]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
