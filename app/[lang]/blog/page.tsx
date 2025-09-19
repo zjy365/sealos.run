@@ -6,8 +6,8 @@ import BlogGrid from './components/BlogGrid';
 import BlogHeader from './components/BlogHeader';
 
 interface BlogIndexProps {
-	params: { lang: languagesType };
-	searchParams: { [key: string]: string | string[] | undefined };
+	params: Promise<{ lang: languagesType }>;
+	searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const translations: Record<languagesType, Record<'title' | 'description', string>> = {
@@ -21,7 +21,12 @@ const translations: Record<languagesType, Record<'title' | 'description', string
 	},
 };
 
-export default async function BlogIndex({ params: { lang }, searchParams }: BlogIndexProps) {
+export default async function BlogIndex(props: BlogIndexProps) {
+	const searchParams = await props.searchParams;
+	const params = await props.params;
+
+	const { lang } = params;
+
 	const categories = await getCategories();
 	const tags = await getAllTags(undefined, lang);
 

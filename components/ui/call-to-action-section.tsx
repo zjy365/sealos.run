@@ -31,7 +31,9 @@ export function CallToActionSection({
 		>
 			{showImage && (
 				<Image
-					src={''}
+					src={'/logo.svg'}
+					width={32}
+					height={32}
 					alt='Quick Start'
 					className='pointer-events-none absolute top-0 right-0 z-0 hidden h-full w-auto object-cover lg:block'
 					style={{ maxHeight: 400, minWidth: 320 }}

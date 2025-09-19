@@ -25,7 +25,11 @@ export async function generateStaticParams() {
 	}));
 }
 
-export default function LocaleLayout({ children, params }: { children: ReactNode; params: { lang: string } }) {
+export default async function LocaleLayout(props: { children: ReactNode; params: Promise<{ lang: string }> }) {
+	const params = await props.params;
+
+	const { children } = props;
+
 	const htmlLang = params.lang || 'en';
 	const homepageSchema = generateHomepageSchema(htmlLang);
 

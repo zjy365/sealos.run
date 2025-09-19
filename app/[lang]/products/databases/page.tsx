@@ -25,7 +25,8 @@ const translations = {
 };
 
 // Generate metadata function that supports internationalization
-export function generateMetadata({ params }: { params: { lang: languagesType } }) {
+export async function generateMetadata(props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
 	const t = translations[params.lang] || translations.en;
 	return generatePageMetadata({
 		title: 'Cloud Databases' + ' | ' + t.title.sub,
@@ -35,7 +36,8 @@ export function generateMetadata({ params }: { params: { lang: languagesType } }
 	});
 }
 
-export default function DatabasesPage({ params }: { params: { lang: languagesType } }) {
+export default async function DatabasesPage(props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
 	const t = translations[params.lang] || translations.en;
 
 	return (

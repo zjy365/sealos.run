@@ -26,7 +26,8 @@ export const metadata = generatePageMetadata({
 	pathname: '/pricing',
 });
 
-export default function PricingPage({ params }: { params: { lang: languagesType } }) {
+export default async function PricingPage(props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
 	return (
 		<div className='h-full bg-gradient-to-b from-[#EBF2FF] to-white'>
 			<Header lang={params.lang} />

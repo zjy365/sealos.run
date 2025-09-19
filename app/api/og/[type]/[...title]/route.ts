@@ -33,7 +33,8 @@ export async function generateStaticParams() {
 	return params;
 }
 
-export async function GET(request: NextRequest, { params }: { params: { type: string; title: string[] } }) {
+export async function GET(request: NextRequest, props: { params: Promise<{ type: string; title: string[] }> }) {
+	const params = await props.params;
 	try {
 		const { type, title } = params;
 

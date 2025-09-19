@@ -4,7 +4,11 @@ import Header from '@/components/header';
 import type { languagesType } from '@/lib/i18n';
 import styles from './blog.module.css';
 
-export default function BlogLayout({ params, children }: { params: { lang: languagesType }; children: ReactNode }) {
+export default async function BlogLayout(props: { params: Promise<{ lang: languagesType }>; children: ReactNode }) {
+	const params = await props.params;
+
+	const { children } = props;
+
 	return (
 		<div className={`h-full ${styles.blog_layout}`}>
 			<Header lang={params.lang} />

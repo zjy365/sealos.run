@@ -28,7 +28,8 @@ function getGithubFilePath(filePath: string, language: string): string {
 	}
 }
 
-export default async function Page({ params }: { params: { lang: languagesType; slug?: string[] } }) {
+export default async function Page(props0: { params: Promise<{ lang: languagesType; slug?: string[] }> }) {
+	const params = await props0.params;
 	const page = source.getPage(params.slug, params.lang);
 	if (!page) notFound();
 

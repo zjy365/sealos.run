@@ -2,13 +2,14 @@ import type { ReactNode } from 'react';
 import Header from '@/components/header';
 import type { languagesType } from '@/lib/i18n';
 
-export default function CaseStudyLayout({
-	params,
-	children,
-}: {
-	params: { lang: languagesType };
+export default async function CaseStudyLayout(props: {
+	params: Promise<{ lang: languagesType }>;
 	children: ReactNode;
 }) {
+	const params = await props.params;
+
+	const { children } = props;
+
 	return (
 		<div className='h-full'>
 			<Header lang={params.lang} />

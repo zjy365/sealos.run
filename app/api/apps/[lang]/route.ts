@@ -8,7 +8,8 @@ export async function generateStaticParams(): Promise<Array<{ lang: languagesTyp
 	return LANGUAGES.map((lang) => ({ lang }));
 }
 
-export async function GET(request: Request, { params }: { params: { lang: languagesType } }) {
+export async function GET(request: Request, props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
 	const { lang } = params;
 	const language = lang || 'en';
 

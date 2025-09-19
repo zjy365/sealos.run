@@ -4,11 +4,11 @@ export type languagesType = 'en' | 'zh-cn';
 
 export const LANGUAGES: Array<languagesType> = ['en', 'zh-cn'];
 
-export const i18n: I18nConfig = {
-	defaultLanguage: process.env.NEXT_PUBLIC_DEFAULT_LOCALE || 'en',
+export const i18n = {
+	defaultLanguage: (process.env.NEXT_PUBLIC_DEFAULT_LOCALE || 'en') as languagesType,
 	languages: LANGUAGES,
 	hideLocale: 'default-locale',
-};
+} as const satisfies I18nConfig;
 
 export const locales: Array<{ name: string; locale: languagesType }> = [
 	{ name: 'English', locale: 'en' },

@@ -38,13 +38,14 @@ function getAdjacentBlog(page: ReturnType<typeof blog.getPage>, lang: languagesT
 			: undefined,
 	};
 }
-export default async function BlogLayout({
-	params,
-	children,
-}: {
-	params: { lang: languagesType; slug: string };
+export default async function BlogLayout(props: {
+	params: Promise<{ lang: languagesType; slug: string }>;
 	children: ReactNode;
 }) {
+	const params = await props.params;
+
+	const { children } = props;
+
 	const page = blog.getPage([params.slug], params.lang);
 
 	if (!page) notFound();

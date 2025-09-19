@@ -15,10 +15,10 @@ import AppUseCases from './components/UseCases';
 import WhyThisSoftware from './components/WhyThisSoftware';
 
 interface AppDeployPageProps {
-	params: {
+	params: Promise<{
 		slug: string;
 		lang: languagesType;
-	};
+	}>;
 }
 
 // Generate static params for all apps
@@ -30,7 +30,8 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: AppDeployPageProps): Promise<Metadata> {
+export async function generateMetadata(props: AppDeployPageProps): Promise<Metadata> {
+	const params = await props.params;
 	const app = await getAppBySlug(params.slug);
 
 	if (!app) {
@@ -85,7 +86,8 @@ const translations = {
 	},
 };
 
-export default async function AppDeployPage({ params }: AppDeployPageProps) {
+export default async function AppDeployPage(props: AppDeployPageProps) {
+	const params = await props.params;
 	const app = await getAppBySlug(params.slug);
 	const t = translations[params.lang] || translations.en;
 

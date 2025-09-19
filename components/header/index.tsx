@@ -87,7 +87,7 @@ const Header = memo<HeaderProps>(({ lang }) => {
 
 					<div className='hidden items-center gap-4 text-sm font-medium lg:flex'>
 						<GetStartedButton
-							title={translations.getStarted}
+							title={translations?.getStarted}
 							link={appDomain}
 							location='navbar'
 						/>

@@ -32,7 +32,8 @@ const translations = {
 	},
 };
 
-export async function generateMetadata({ params }: { params: { lang: languagesType } }) {
+export async function generateMetadata(props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
 	const t = translations[params.lang];
 
 	return generatePageMetadata({
@@ -42,7 +43,8 @@ export async function generateMetadata({ params }: { params: { lang: languagesTy
 	});
 }
 
-export default function ContactPage({ params }: { params: { lang: languagesType } }) {
+export default async function ContactPage(props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
 	const t = translations[params.lang];
 
 	return (

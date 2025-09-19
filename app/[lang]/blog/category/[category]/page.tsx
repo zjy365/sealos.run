@@ -6,7 +6,8 @@ import BlogContainer from '../../components/BlogContainer';
 import BlogGrid from '../../components/BlogGrid';
 import BlogHeader from '../../components/BlogHeader';
 
-export default async function CategoryPage({ params }: { params: { category: string; lang: languagesType } }) {
+export default async function CategoryPage(props: { params: Promise<{ category: string; lang: languagesType }> }) {
+	const params = await props.params;
 	const categories = await getCategories();
 	const { category, lang } = params;
 

@@ -8,7 +8,7 @@ import ScrollProgressWrapper from '@/components/scroll-progress-wrapper';
 import { TailwindIndicator } from '@/components/tailwind-indicator';
 import { CallToActionSection } from '@/components/ui/call-to-action-section';
 import { appDomain } from '@/config/site';
-import type { languagesType } from '@/lib/i18n';
+import { i18n, type languagesType } from '@/lib/i18n';
 import Desktop from './components/desktop';
 import HeroBenefits from './components/hero-benefits';
 import ProblemsAndSolutions from './components/problems-solutions';
@@ -52,12 +52,14 @@ const translations = {
 	},
 };
 
-export default function HomePage({ params }: { params: { lang: languagesType } }) {
-	const t = translations[params.lang] || translations.en;
+export default async function HomePage(props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
+	const lang = i18n.languages.includes(params.lang) ? params.lang : i18n.defaultLanguage;
+	const t = translations[lang] || translations.en;
 
 	return (
 		<div className='h-full bg-[#EBF2FF]'>
-			<Header lang={params.lang} />
+			<Header lang={lang} />
 			<ScrollProgressWrapper />
 
 			<main className='custom-container px-8 pt-14 pb-20 md:px-[15%]'>
@@ -65,7 +67,7 @@ export default function HomePage({ params }: { params: { lang: languagesType } }
 					title={t.title}
 					mainTitleEmphasis={2}
 					getStartedLink={appDomain}
-					lang={params.lang}
+					lang={lang}
 				>
 					<div className='mx-auto hidden max-w-7xl sm:block'>
 						<Suspense
@@ -80,34 +82,34 @@ export default function HomePage({ params }: { params: { lang: languagesType } }
 					</div>
 
 					<div className='mt-12'>
-						<HeroBenefits lang={params.lang} />
+						<HeroBenefits lang={lang} />
 					</div>
 				</Hero>
 			</main>
 
 			<div className='space-y-20'>
 				<div className='custom-container px-8 md:px-[15%]'>
-					<ProblemsAndSolutions lang={params.lang} />
+					<ProblemsAndSolutions lang={lang} />
 				</div>
 
 				<div className='custom-container px-8 md:px-[15%]'>
-					<DevBoxShowcase lang={params.lang} />
+					<DevBoxShowcase lang={lang} />
 				</div>
 
 				<div className='custom-container px-8 md:px-[15%]'>
-					<Trusted lang={params.lang} />
+					<Trusted lang={lang} />
 				</div>
 
 				<div className='custom-container px-8 md:px-[15%]'>
-					<WorkflowShowcase lang={params.lang} />
+					<WorkflowShowcase lang={lang} />
 				</div>
 
 				<div className='custom-container px-8 md:px-[15%]'>
-					<WhyChooseUs lang={params.lang} />
+					<WhyChooseUs lang={lang} />
 				</div>
 
 				<div className='custom-container px-8 md:px-[15%]'>
-					<FAQ lang={params.lang} />
+					<FAQ lang={lang} />
 				</div>
 
 				<div className='custom-container px-8 md:px-[15%]'>
@@ -119,7 +121,7 @@ export default function HomePage({ params }: { params: { lang: languagesType } }
 			</div>
 
 			<div className='mt-[140px] h-[1px] bg-[#DDE7F7]'></div>
-			<Footer lang={params.lang} />
+			<Footer lang={lang} />
 			<TailwindIndicator />
 			<RedirectSuggest />
 		</div>

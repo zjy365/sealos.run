@@ -38,7 +38,8 @@ const translations = {
 };
 
 // Generate metadata function that supports internationalization
-export function generateMetadata({ params }: { params: { lang: languagesType } }) {
+export async function generateMetadata(props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
 	const t = translations[params.lang] || translations.en;
 	return generatePageMetadata({
 		title: 'Sealos DevBox — ' + t.title.sub,
@@ -48,7 +49,8 @@ export function generateMetadata({ params }: { params: { lang: languagesType } }
 	});
 }
 
-export default function HomePage({ params }: { params: { lang: languagesType } }) {
+export default async function HomePage(props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
 	const t = translations[params.lang] || translations.en;
 
 	// Generate structured data for DevBox product

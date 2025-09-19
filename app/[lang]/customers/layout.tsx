@@ -3,7 +3,11 @@ import Footer from '@/components/footer';
 import Header from '@/components/header';
 import type { languagesType } from '@/lib/i18n';
 
-export default function CaseLayout({ params, children }: { params: { lang: languagesType }; children: ReactNode }) {
+export default async function CaseLayout(props: { params: Promise<{ lang: languagesType }>; children: ReactNode }) {
+	const params = await props.params;
+
+	const { children } = props;
+
 	return (
 		<div className='h-full bg-gradient-to-b from-[#EBF2FF] via-[#F0F7FF] to-[#FFF8F0]'>
 			{/* Warm gradient background */}

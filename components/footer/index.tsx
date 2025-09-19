@@ -1,6 +1,6 @@
 import Link from 'fumadocs-core/link';
 import type React from 'react';
-import { siteConfig, templateDomain } from '@/config/site';
+import { siteConfig } from '@/config/site';
 import { i18n, type languagesType } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
 import { CustomButton } from '../ui/button-custom';
@@ -202,45 +202,45 @@ const getFooterLinks = (lang: languagesType) => {
 
 	return {
 		resources: {
-			title: FooterLinksData.resources.titleKey ? translations[FooterLinksData.resources.titleKey] : '',
+			title: FooterLinksData.resources.titleKey ? translations?.[FooterLinksData.resources.titleKey] : '',
 			links: FooterLinksData.resources.links.map((link) => ({
-				text: translations[link.textKey],
-				url: translations[link.urlKey],
+				text: translations?.[link.textKey],
+				url: translations?.[link.urlKey],
 				isExternal: link.isExternal,
 			})),
 		},
 		products: {
-			title: FooterLinksData.products.titleKey ? translations[FooterLinksData.products.titleKey] : '',
+			title: FooterLinksData.products.titleKey ? translations?.[FooterLinksData.products.titleKey] : '',
 			links: FooterLinksData.products.links.map((link) => ({
-				text: translations[link.textKey],
-				url: translations[link.urlKey],
+				text: translations?.[link.textKey],
+				url: translations?.[link.urlKey],
 				isExternal: link.isExternal,
 			})),
 		},
 		services: {
-			title: FooterLinksData.services.titleKey ? translations[FooterLinksData.services.titleKey] : '',
+			title: FooterLinksData.services.titleKey ? translations?.[FooterLinksData.services.titleKey] : '',
 			links: servicesLinks.map((link) => ({
-				text: translations[link.textKey],
-				url: translations[link.urlKey],
+				text: translations?.[link.textKey],
+				url: translations?.[link.urlKey],
 				isExternal: link.isExternal,
 			})),
 		},
 		support: {
-			title: FooterLinksData.support.titleKey ? translations[FooterLinksData.support.titleKey] : '',
+			title: FooterLinksData.support.titleKey ? translations?.[FooterLinksData.support.titleKey] : '',
 			links: supportLinks.map((link) => ({
-				text: translations[link.textKey],
-				url: translations[link.urlKey],
+				text: translations?.[link.textKey],
+				url: translations?.[link.urlKey],
 				isExternal: link.isExternal,
 			})),
 		},
 		legal: {
 			links: FooterLinksData.legal.links.map((link) => ({
-				text: translations[link.textKey],
-				url: translations[link.urlKey],
+				text: translations?.[link.textKey],
+				url: translations?.[link.urlKey],
 				isExternal: link.isExternal,
 			})),
 		},
-		copyright: translations.copyright,
+		copyright: translations?.copyright,
 	};
 };
 

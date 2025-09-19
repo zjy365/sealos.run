@@ -10,7 +10,11 @@ import { getLanguageSlug } from '@/lib/i18n';
 import { source } from '@/lib/source';
 import { generateBreadcrumbSchema } from '@/lib/utils/structured-data';
 
-export default function Layout({ children, params }: { children: ReactNode; params: { lang: string } }) {
+export default async function Layout(props: { children: ReactNode; params: Promise<{ lang: string }> }) {
+	const params = await props.params;
+
+	const { children } = props;
+
 	const tree = source.pageTree[params.lang];
 
 	// Only render banner for Chinese language

@@ -19,7 +19,8 @@ const translations = {
 	},
 };
 
-export async function generateMetadata({ params }: { params: { lang: languagesType } }) {
+export async function generateMetadata(props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
 	const t = translations[params.lang];
 
 	return generatePageMetadata({
@@ -29,7 +30,8 @@ export async function generateMetadata({ params }: { params: { lang: languagesTy
 	});
 }
 
-export default function CasePage({ params }: { params: { lang: languagesType } }) {
+export default async function CasePage(props: { params: Promise<{ lang: languagesType }> }) {
+	const params = await props.params;
 	return (
 		<main className='px-8 pt-20 md:px-[15%]'>
 			<div className='space-y-16'>

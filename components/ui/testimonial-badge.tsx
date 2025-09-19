@@ -62,7 +62,7 @@ export const TestimonialBadge = React.forwardRef<HTMLDivElement, TestimonialBadg
 					/>
 				</div>
 				<p className='ml-2 text-xs text-gray-600'>
-					{t.trusted} <strong className='font-medium text-black'>{count}</strong> {t.developers}
+					{t?.trusted} <strong className='font-medium text-black'>{count}</strong> {t?.developers}
 				</p>
 			</div>
 		);
