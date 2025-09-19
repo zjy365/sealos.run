@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
 import Hero from '@/components/header/hero';
@@ -8,20 +9,11 @@ import { TailwindIndicator } from '@/components/tailwind-indicator';
 import { CallToActionSection } from '@/components/ui/call-to-action-section';
 import { appDomain } from '@/config/site';
 import type { languagesType } from '@/lib/i18n';
+import Desktop from './components/desktop';
 import HeroBenefits from './components/hero-benefits';
 import ProblemsAndSolutions from './components/problems-solutions';
 import Trusted from './components/trusted';
 import WhyChooseUs from './components/why-choose-us';
-
-// Dynamic imports for heavy components
-const Desktop = dynamic(() => import('./components/desktop'), {
-	loading: () => (
-		<div className='flex min-h-[600px] items-center justify-center'>
-			<div className='animate-pulse text-gray-500'>Loading desktop experience...</div>
-		</div>
-	),
-	ssr: false,
-});
 
 const FAQ = dynamic(() => import('./components/faq'), {
 	loading: () => <div className='min-h-[400px]' />,
@@ -76,7 +68,15 @@ export default function HomePage({ params }: { params: { lang: languagesType } }
 					lang={params.lang}
 				>
 					<div className='mx-auto hidden max-w-7xl sm:block'>
-						<Desktop />
+						<Suspense
+							fallback={
+								<div className='flex min-h-[600px] items-center justify-center'>
+									<div className='animate-pulse text-gray-500'>Loading desktop experience...</div>
+								</div>
+							}
+						>
+							<Desktop />
+						</Suspense>
 					</div>
 
 					<div className='mt-12'>
