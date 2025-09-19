@@ -4,17 +4,18 @@
 	"rsc": true,
 	"tsx": true,
 	"tailwind": {
-		"config": "tailwind.config.js",
-		"css": "app/global.css",
+		"config": "",
+		"css": "app/globals.css",
 		"baseColor": "neutral",
 		"cssVariables": true,
 		"prefix": ""
 	},
 	"aliases": {
-		"components": "@/components",
-		"utils": "@/lib/utils",
-		"ui": "@/components/ui",
-		"lib": "@/lib",
-		"hooks": "@/hooks"
-	}
+		"components": "@/libs/components",
+		"utils": "@/libs/utils",
+		"ui": "@/libs/components/ui",
+		"lib": "@/libs",
+		"hooks": "@/libs/hooks"
+	},
+	"iconLibrary": "lucide"
 }
