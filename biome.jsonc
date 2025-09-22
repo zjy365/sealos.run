@@ -1,0 +1,72 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"includes": ["**/*"]
+	},
+	"formatter": {
+		"enabled": true,
+		"useEditorconfig": true,
+		"indentStyle": "tab",
+		"indentWidth": 4,
+		"lineWidth": 120,
+		"lineEnding": "lf",
+		"attributePosition": "multiline",
+		"expand": "auto",
+		"bracketSameLine": false,
+		"bracketSpacing": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"suspicious": {
+				// Tailwind uses some non-standard at-rules.
+				"noUnknownAtRules": "off"
+			},
+			"style": {
+				"noRestrictedImports": {
+					"level": "error",
+					"options": {
+						"paths": {
+							"next/link": "Use <Link> exported from @/libs/i18n/navigation to get i18n support."
+						},
+						"patterns": [
+							{
+								"group": "next/navigation",
+								"importNamePattern": "redirect|usePathname|useRouter|getPathname",
+								"message": "Use navigation utils from @/libs/i18n/navigation to get i18n support."
+							},
+							{
+								"group": "react",
+								"importNamePattern": "default",
+								"invertImportNamePattern": true,
+								"message": "Use \"import React from 'react'\" instead."
+							}
+						]
+					}
+				}
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"jsxQuoteStyle": "single",
+			"trailingCommas": "all"
+		}
+	},
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	}
+}
