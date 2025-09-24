@@ -19,7 +19,10 @@ export async function PartnersSection() {
 			</div>
 
 			<div className='absolute inset-0 z-10 -m-5 flex items-center justify-center bg-gray-50/50 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100'>
-				<span className='text-center text-4xl font-semibold'>{t('overlay.text')}</span>
+				<span className='text-center text-4xl font-semibold'>
+					{t('overlay.text')}
+					<span className='text-blue-600'>{t('overlay.emphasis-text')}</span>
+				</span>
 			</div>
 		</section>
 	);

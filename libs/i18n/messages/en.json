@@ -120,7 +120,8 @@
 			},
 			"partners": {
 				"overlay": {
-					"text": "Cooperative enterprise"
+					"text": "Cooperative ",
+					"emphasis-text": "enterprise"
 				}
 			}
 		}

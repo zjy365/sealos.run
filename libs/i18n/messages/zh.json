@@ -120,7 +120,8 @@
 			},
 			"partners": {
 				"overlay": {
-					"text": "我们的合作伙伴"
+					"text": "我们的 ",
+					"emphasis-text": "合作伙伴"
 				}
 			}
 		}
