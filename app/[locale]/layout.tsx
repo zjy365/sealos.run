@@ -140,7 +140,7 @@ export default async function RootLayout({ children, params }: Props) {
 					content={actualLoacle}
 				/>
 			</head>
-			<body className='flex min-h-screen flex-col overflow-x-hidden'>
+			<body className='bg-background flex min-h-screen flex-col overflow-x-hidden'>
 				<NextIntlClientProvider>
 					<RootProvider i18n={i18nUIProvider(actualLoacle)}>{children}</RootProvider>
 				</NextIntlClientProvider>

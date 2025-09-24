@@ -4,21 +4,21 @@ on:
   workflow_dispatch:
   pull_request_target:
     branches:
-      - "main"
+      - 'main'
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
   deploy:
     permissions:
-        actions: read # Only required for private GitHub Repo
-        contents: read
-        deployments: write
-        pull-requests: write
+      actions: read # Only required for private GitHub Repo
+      contents: read
+      deployments: write
+      pull-requests: write
     runs-on: ubuntu-latest
 
     # Job outputs
@@ -49,7 +49,7 @@ jobs:
         uses: amondnet/vercel-action@v25
         id: deploy
         with:
-          vercel-version: "41.4.1"
+          vercel-version: '41.4.1'
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} #Required
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} #Required
@@ -70,10 +70,10 @@ jobs:
             const deploymentUrl = `${process.env.PREVIEW_URL}`;
             const status = success ? '✅ Success' : '❌ Failed';
             console.log(process.env.JOB_STATUS);
-  
+
             const commentBody = `**Deployment Status: ${status}**
             ${success ? `🔗 Preview URL: ${deploymentUrl}` : ''}`;
-  
+
             await github.rest.issues.createComment({
               ...context.repo,
               issue_number: context.payload.pull_request.number,

@@ -1,3 +1,197 @@
 {
-	"test": "测试"
+	"pages": {
+		"home": {
+			"hero": {
+				"title": {
+					"meet": "认识",
+					"sealosBrain": "Sealos Brain",
+					"subtitle": "您的AI驱动项目伙伴"
+				},
+				"description": "轻松可视化、管理和故障排除您的项目，AI始终陪伴在您身边。",
+				"input": {
+					"placeholder": "我想构建一个健身追踪的移动应用..."
+				},
+				"button": {
+					"tryNow": "立即尝试"
+				}
+			},
+			"cta": {
+				"title": "更智能地构建，而非更努力",
+				"description": "注册即可立即解锁下一代AI驱动的云管理。",
+				"input": {
+					"placeholder": "邮箱"
+				},
+				"button": {
+					"getPriorityAccess": "获取优先访问权限"
+				},
+				"privacy": "我们承诺保护您的隐私，绝不会向第三方披露您的信息"
+			},
+			"faq": {
+				"title": {
+					"any": "任何",
+					"questions": "问题",
+					"weGotYou": "我们都能为您解答。"
+				},
+				"items": {
+					"kubernetes": {
+						"question": "我需要了解Kubernetes吗？",
+						"answer": "不需要。Sealos Brain专为您处理复杂性而设计。您只需描述想要构建的内容，AI会将其转换为生产就绪的部署。您可以'查看内部结构'来学习，但这不是成功的前提条件。"
+					},
+					"aiIntegration": {
+						"question": "Sealos Brain如何与AI集成？",
+						"answer": "集成在Sealos Brain中的AI代理可以从头到尾作为优秀的部署助手。它可以帮助您设置基本资源、调整使用量和调试。只需与Brain聊天，一切都会为您的部署做好准备。"
+					},
+					"freeTrial": {
+						"question": "Sealos Brain有免费试用吗？",
+						"answer": "是的。Sealos Brain将分享Sealos的免费试用。您将获得7天免费试用，包含一些固定的AI积分来尝试Sealos Brain的所有功能。尽情使用吧！"
+					}
+				}
+			},
+			"why": {
+				"title": {
+					"why": "为什么",
+					"sealosBrain": "选择Sealos Brain"
+				},
+				"description": "我们正在构建开发者运行应用的最简单方式 - 无需接触云端。",
+				"features": {
+					"aiTranslator": {
+						"title": "AI作为翻译器",
+						"description": "Sealos Brain不是简单地添加聊天AI - 它将您的意图转换为真实的基础设施。",
+						"imageAlt": "AI翻译器插图，展示AI如何将用户意图转换为基础设施"
+					},
+					"visualOrchestration": {
+						"title": "可视化编排",
+						"description": "了解您的应用是如何连接的。Brain可视化服务、依赖关系和数据流 - 不仅仅是日志或YAML。",
+						"imageAlt": "可视化编排图表，展示应用架构和数据流"
+					},
+					"noCliff": {
+						"title": "无悬崖，只有提升",
+						"description": "从简单开始，自然扩展。从一键部署到高级自定义 - 都在同一个平台内。",
+						"imageAlt": "无悬崖插图，展示从简单到高级功能的无缝扩展"
+					}
+				}
+			},
+			"who": {
+				"title": {
+					"who": "谁",
+					"isThisFor": "适合使用"
+				},
+				"description": "从想法到部署应用，Sealos Brain在每一步都为您提供指导。",
+				"targets": {
+					"backendDeveloper": {
+						"title": "适合后端开发者",
+						"description": "\"无需编写网络策略即可立即配置和连接数据库到您的API。\"",
+						"imageAlt": "后端开发者插图，展示数据库和API连接"
+					},
+					"fullStackTeam": {
+						"title": "适合全栈团队",
+						"description": "\"在一个地方可视化管理您的整个应用堆栈，从前端到数据库。\"",
+						"imageAlt": "全栈团队插图，展示完整应用堆栈管理"
+					},
+					"morePossibilities": {
+						"title": "更多可能性...",
+						"imageAlt": "更多可能性插图，展示额外的用例和机会"
+					}
+				}
+			},
+			"carousel": {
+				"items": {
+					"input": {
+						"title": "用简单的英语输入您的镜像名称",
+						"description": "只需几句话。无需提示。Brain将在几秒钟内完成部署。",
+						"imageAlt": "输入界面，展示用于镜像部署的简单英语文本输入"
+					},
+					"view": {
+						"title": "项目视图让一切变得清晰",
+						"description": "用户可以从整体项目视图中查看不同的开发部分。点击应用卡片，获得您需要的一切。",
+						"imageAlt": "项目视图界面，展示全面的应用概览和管理"
+					},
+					"resource": {
+						"title": "按您想要的方式调整资源",
+						"description": "通过简短的自然对话，Brain可以帮助用户轻松调整资源。",
+						"imageAlt": "资源调整界面，展示通过对话轻松管理资源"
+					},
+					"alert": {
+						"title": "错误警报和即时解决方案",
+						"description": "Brain将显示您项目每个组件的健康状态。错误信息清晰，AI将帮助您解决每个问题。",
+						"imageAlt": "错误警报界面，展示组件健康状态和AI驱动的问题解决"
+					}
+				}
+			},
+			"partners": {
+				"overlay": {
+					"text": "我们的合作伙伴"
+				}
+			}
+		}
+	},
+	"components": {
+		"footer": {
+			"title": "Sealos Brain",
+			"tagline": "在一个无缝的云平台上开发、部署和扩展。",
+			"menuItems": {
+				"resources": {
+					"title": "资源",
+					"links": {
+						"docs": "文档",
+						"education": "教育",
+						"blog": "博客"
+					}
+				},
+				"products": {
+					"title": "产品",
+					"links": {
+						"devbox": "DevBox",
+						"databases": "数据库",
+						"blog": "博客"
+					}
+				},
+				"services": {
+					"title": "服务",
+					"links": {
+						"pricing": "定价",
+						"fastgpt": "FastGPT"
+					}
+				},
+				"support": {
+					"title": "支持",
+					"links": {
+						"contactUs": "联系我们",
+						"customers": "客户"
+					}
+				}
+			},
+			"copyright": "版权所有 © 2025 Sealos。保留所有权利。",
+			"bottomLinks": {
+				"termsOfService": "服务条款",
+				"privacyPolicy": "隐私政策",
+				"cookiePolicy": "Cookie 政策"
+			}
+		},
+		"navbar": {
+			"brand": "Sealos Brain",
+			"buttons": {
+				"contact": "联系",
+				"community": "社区",
+				"getStarted": "开始使用"
+			},
+			"community": {
+				"discord": {
+					"title": "Discord",
+					"description": "从 4000+ 用户那里获得技巧和支持"
+				},
+				"xCommunity": {
+					"title": "X 社区",
+					"description": "关注最新消息"
+				},
+				"community": {
+					"title": "社区",
+					"description": "成为大使并跟踪活动"
+				}
+			}
+		},
+		"logo": {
+			"title": "Sealos Brain 标志"
+		}
+	}
 }
