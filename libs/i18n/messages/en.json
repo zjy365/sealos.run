@@ -1,134 +1,10 @@
 {
 	"pages": {
-		"home": {
-			"hero": {
-				"title": {
-					"meet": "Meet",
-					"sealosBrain": "Sealos Brain",
-					"subtitle": "Your AI-Powered Project Companion"
-				},
-				"description": "Visualize, manage, and troubleshoot your projects effortlessly, with AI by your side.",
-				"input": {
-					"placeholder": "I want to build a mobile app for fitness tracking..."
-				},
-				"button": {
-					"tryNow": "Try Now"
-				}
-			},
-			"cta": {
-				"title": "Build Smarter, Not Harder",
-				"description": "Register to instantly unlock next-gen AI-driven cloud management.",
-				"input": {
-					"placeholder": "Email"
-				},
-				"button": {
-					"getPriorityAccess": "Get Priority Access"
-				},
-				"privacy": "We promise to protect your privacy and will never disclose your information to third parties"
-			},
-			"faq": {
-				"title": {
-					"any": "Any",
-					"questions": "questions",
-					"weGotYou": "We got you."
-				},
-				"items": {
-					"kubernetes": {
-						"question": "Do I need Kubernetes knowledge?",
-						"answer": "No. Sealos Brain is designed to handle the complexities for you. You describe what you want to build, and the AI translates it into a production-ready deployment. You can 'look under the hood' to learn as you go, but it's not a prerequisite to be successful."
-					},
-					"aiIntegration": {
-						"question": "How is Sealos Brain integrated with AI?",
-						"answer": "The AI Agent integrated in Sealos Brain can work as a good deployment assistant from the beginning to the end. It can help you set the basic resources, adjust the usage and debug. Just chat with Brain and then everything will be well-prepared for your deployment."
-					},
-					"freeTrial": {
-						"question": "Does Sealos Brain have a free trial?",
-						"answer": "Yes. Sealos Brain will share the free trial of Sealos. You will have a 7-day free trial containing some fixed AI credits to try all the features of Sealos Brain. Enjoy your use!"
-					}
-				}
-			},
-			"why": {
-				"title": {
-					"why": "Why",
-					"sealosBrain": "Sealos Brain"
-				},
-				"description": "We're building the simplest way for developers to run apps - without touching the cloud.",
-				"features": {
-					"aiTranslator": {
-						"title": "AI as a Translator",
-						"description": "Sealos Brain doesn't bolt on chat AI - it translates your intent into real infrastructure.",
-						"imageAlt": "AI Translator illustration showing how AI translates user intent into infrastructure"
-					},
-					"visualOrchestration": {
-						"title": "Visual Orchestration",
-						"description": "See how your app is wired. Brain visualizes services, dependencies, and data flow - not just logs or YAML.",
-						"imageAlt": "Visual Orchestration diagram showing application architecture and data flow"
-					},
-					"noCliff": {
-						"title": "No Cliff, Just Lift",
-						"description": "Start simple, scale naturally. From one-click deploys to advanced customization - all within the same platform.",
-						"imageAlt": "No Cliff illustration showing seamless scaling from simple to advanced features"
-					}
-				}
-			},
-			"who": {
-				"title": {
-					"who": "Who",
-					"isThisFor": "is this for"
-				},
-				"description": "From idea to deployed app, Sealos Brain guides you every step of the way.",
-				"targets": {
-					"backendDeveloper": {
-						"title": "For the Backend Developer",
-						"description": "\"Instantly provision and connect a database to your API without writing network policies.\"",
-						"imageAlt": "Backend developer illustration showing database and API connections"
-					},
-					"fullStackTeam": {
-						"title": "For the Full-Stack Team",
-						"description": "\"Visually manage your entire application stack, from frontend to database, in one place.\"",
-						"imageAlt": "Full-stack team illustration showing complete application stack management"
-					},
-					"morePossibilities": {
-						"title": "More possibilities ...",
-						"imageAlt": "More possibilities illustration showing additional use cases and opportunities"
-					}
-				}
-			},
-			"carousel": {
-				"items": {
-					"input": {
-						"title": "Input your image name in plain English",
-						"description": "Drop a sentence or two. No prompts required. Brain will complete the deployment in seconds.",
-						"imageAlt": "Input interface showing plain English text input for image deployment"
-					},
-					"view": {
-						"title": "Project view makes everything clear",
-						"description": "Users can check the different developing parts from a whole-project view. Click the app card and get everything you need.",
-						"imageAlt": "Project view interface showing comprehensive application overview and management"
-					},
-					"resource": {
-						"title": "Adjust the resource as you want",
-						"description": "Through a short, natural conversation, Brain can help users to adjust the resources easily.",
-						"imageAlt": "Resource adjustment interface showing easy resource management through conversation"
-					},
-					"alert": {
-						"title": "Errors alert and immediate solution",
-						"description": "Brain will show the health status of each components of your project. The error message is clear and AI will help you to solve every problem.",
-						"imageAlt": "Error alert interface showing component health status and AI-powered problem solving"
-					}
-				}
-			},
-			"partners": {
-				"overlay": {
-					"text": "Cooperative ",
-					"emphasis-text": "enterprise"
-				}
-			}
-		}
+		"home": {}
 	},
 	"components": {
 		"footer": {
-			"title": "Sealos Brain",
+			"title": "Sealos",
 			"tagline": "Develop, deploy, and scale in one seamless cloud platform.",
 			"menuItems": {
 				"resources": {
@@ -170,7 +46,7 @@
 			}
 		},
 		"navbar": {
-			"brand": "Sealos Brain",
+			"brand": "Sealos",
 			"buttons": {
 				"contact": "Contact",
 				"community": "Community",
@@ -192,7 +68,7 @@
 			}
 		},
 		"logo": {
-			"title": "Sealos Brain Logo"
+			"title": "Sealos Logo"
 		}
 	}
 }
