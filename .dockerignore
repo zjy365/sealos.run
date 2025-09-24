@@ -6,6 +6,3 @@ README.md
 .next
 .env.local
 config.yaml
-
-.yalc/
-yalc.lock

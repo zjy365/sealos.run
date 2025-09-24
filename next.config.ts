@@ -14,6 +14,7 @@ const config: NextConfig = {
 					}
 				: false,
 	},
+	output: 'standalone',
 };
 
 const withNextIntl = createNextIntlPlugin('./libs/i18n/request.ts');

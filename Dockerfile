@@ -1,70 +1,58 @@
-FROM node:20-alpine AS base
+FROM node:24-alpine AS base
+
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
+# Ignore postinstall scripts here, we do not have sources copied here.
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile --ignore-scripts; \
+  elif [ -f package-lock.json ]; then npm ci --ignore-scripts; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile --ignore-scripts; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
 
 FROM base AS builder
-RUN apk add --no-cache \
-    libc6-compat \
-    git \
-    build-base \
-    g++ \
-    cairo-dev \
-    jpeg-dev \
-    pango-dev \
-    giflib-dev \
-    librsvg-dev \
-    freetype-dev \
-    harfbuzz-dev \
-    fribidi-dev \
-    udev \
-    ttf-opensans \
-    fontconfig \
-    curl
 WORKDIR /app
-
-ARG NEXT_PUBLIC_APP_URL
-ARG NEXT_PUBLIC_OPEN_SOURCE_URL
-ARG NEXT_PUBLIC_DEFAULT_LOCALE
-
-ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
-ENV NEXT_PUBLIC_OPEN_SOURCE_URL=$NEXT_PUBLIC_OPEN_SOURCE_URL
-ENV NEXT_PUBLIC_DEFAULT_LOCALE=$NEXT_PUBLIC_DEFAULT_LOCALE
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV DOCKER_BUILD=true
-
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# Replace relative image paths with CDN URLs
-RUN chmod +x ./scripts/replace-image-paths.sh && ./scripts/replace-image-paths.sh
-RUN npm install && npm run build
+
+# Disable telemetry during the build.
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NEXT_PRIVATE_STANDALONE=true
+
+RUN \
+  if [ -f yarn.lock ]; then yarn run build; \
+  elif [ -f package-lock.json ]; then npm run build; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
 
 FROM base AS runner
-RUN apk add --no-cache curl cairo-dev \
-    pango-dev \
-    libjpeg-turbo \
-    giflib-dev \
-    librsvg-dev \
-    build-base
-ENV NODE_ENV=production
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
 WORKDIR /app
 
-COPY ./package*.json ./
-COPY ./next* ./
-COPY ./postcss.config.js ./
-COPY ./tsconfig.json ./
-COPY ./source.config.ts ./
+ENV NODE_ENV=production
+# Disable telemetry during the build.
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NEXT_PRIVATE_STANDALONE=true
 
-# Install only production dependencies
-RUN npm ci --only=production && npm cache clean --force
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Copy built application
-COPY --from=builder --chown=nextjs:nodejs /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+COPY --from=builder /app/public ./public
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# Ensuring no unnecessary permissions are given and add necessary permissions for it to run server.js properly.
+RUN chmod -R a-w+x . && chmod -R a+x .next node_modules
 
 USER nextjs
 
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
-
 EXPOSE 3000
 
-CMD ["npm", "start"]
+ENV PORT=3000
+
+ENV HOSTNAME="0.0.0.0"
+CMD ["node", "server.js"]
