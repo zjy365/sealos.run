@@ -1,7 +1,5 @@
 {
-	"pages": {
-		"home": {}
-	},
+	"pages": {},
 	"components": {
 		"footer": {
 			"title": "Sealos",
@@ -20,7 +18,7 @@
 					"links": {
 						"devbox": "DevBox",
 						"databases": "Databases",
-						"blog": "Blog"
+						"appstore": "App Store"
 					}
 				},
 				"services": {
@@ -46,7 +44,7 @@
 			}
 		},
 		"navbar": {
-			"brand": "Sealos",
+			"brand": "Sealos Brain",
 			"buttons": {
 				"contact": "Contact",
 				"community": "Community",
@@ -57,8 +55,8 @@
 					"title": "Discord",
 					"description": "Get tips and support from 4000+ users"
 				},
-				"xCommunity": {
-					"title": "X Community",
+				"twitter": {
+					"title": "Twitter",
 					"description": "Stay tuned for the latest news"
 				},
 				"community": {
@@ -68,7 +66,7 @@
 			}
 		},
 		"logo": {
-			"title": "Sealos Logo"
+			"title": "Sealos Brain Logo"
 		}
 	}
 }

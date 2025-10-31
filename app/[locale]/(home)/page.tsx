@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Footer } from '@/libs/components/Footer';
 import { Navbar } from '@/libs/components/Navbar';
+import { Config } from '@/libs/config';
 import FooterHexagonalPattern from './images/footer-hexagonal-pattern.svg';
 
 export default async function HomePage() {
@@ -13,7 +14,7 @@ export default async function HomePage() {
 			<main className='relative'></main>
 
 			<footer className='relative'>
-				<Footer />
+				<Footer config={Config.components.footer} />
 
 				<div className='pointer-events-none absolute bottom-0 w-full'>
 					<Image

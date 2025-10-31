@@ -1,7 +1,5 @@
 {
-	"pages": {
-		"home": {}
-	},
+	"pages": {},
 	"components": {
 		"footer": {
 			"title": "Sealos",
@@ -20,7 +18,7 @@
 					"links": {
 						"devbox": "DevBox",
 						"databases": "数据库",
-						"blog": "博客"
+						"appstore": "App Store"
 					}
 				},
 				"services": {
@@ -46,7 +44,7 @@
 			}
 		},
 		"navbar": {
-			"brand": "Sealos",
+			"brand": "Sealos Brain",
 			"buttons": {
 				"contact": "联系",
 				"community": "社区",
@@ -57,8 +55,8 @@
 					"title": "Discord",
 					"description": "从 4000+ 用户那里获得技巧和支持"
 				},
-				"xCommunity": {
-					"title": "X 社区",
+				"twitter": {
+					"title": "Twitter",
 					"description": "关注最新消息"
 				},
 				"community": {
@@ -68,7 +66,7 @@
 			}
 		},
 		"logo": {
-			"title": "Sealos 标志"
+			"title": "Sealos Brain 标志"
 		}
 	}
 }
