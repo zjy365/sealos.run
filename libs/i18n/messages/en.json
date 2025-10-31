@@ -43,6 +43,14 @@
 			}
 		},
 		"navbar": {
+			"links": {
+				"products": "产品",
+				"solutions": "解决方案",
+				"pricing": "定价",
+				"docs": "文档",
+				"appstore": "App Store",
+				"about-us": "关于我们"
+			},
 			"buttons": {
 				"contact": "联系",
 				"community": "社区",

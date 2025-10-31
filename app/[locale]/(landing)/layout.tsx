@@ -2,16 +2,16 @@ import Image from 'next/image';
 import { Footer } from '@/libs/components/Footer';
 import { Navbar } from '@/libs/components/Navbar';
 import { Config } from '@/libs/config';
-import FooterHexagonalPattern from './images/footer-hexagonal-pattern.svg';
+import FooterHexagonalPattern from './assets/footer-hexagonal-pattern.svg';
 
-export default async function HomePage() {
+export default async function LandingLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<>
 			<header className='sticky top-0 z-50'>
 				<Navbar />
 			</header>
 
-			<main className='relative'></main>
+			<main className='relative min-h-screen'>{children}</main>
 
 			<footer className='relative'>
 				<Footer config={Config.components.footer} />

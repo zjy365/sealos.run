@@ -1,13 +1,8 @@
-import { ChevronDown, MessagesSquare, Users } from 'lucide-react';
+import { MessagesSquare } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import { Button } from '@/libs/components/ui/button';
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-} from '@/libs/components/ui/dropdown-menu';
 import { Config } from '@/libs/config';
+import { Link } from '@/libs/i18n/navigation';
 import { Logo } from './Logo';
 import { BigRightArrow } from './ui/sealos-icons';
 
@@ -15,18 +10,31 @@ export async function Navbar() {
 	const t = await getTranslations();
 
 	return (
-		<div className='mx-auto w-full'>
-			<div className='bg-background flex h-16 items-center justify-between px-3 shadow-sm md:px-4'>
+		<div className='w-full shadow-sm'>
+			<div className='bg-background container mx-auto grid h-16 grid-cols-[1fr_auto_1fr] items-center justify-between'>
 				{/* Brand */}
-				<a
+				<Link
 					href='/'
 					className='flex items-center gap-3'
 				>
 					<Logo withLogotype />
-				</a>
+				</Link>
+
+				{/* Links */}
+				<nav className='mx-auto hidden gap-12 md:flex'>
+					{Config.components.navbar.links.map((item) => (
+						<Link
+							key={item.href}
+							href={item.href}
+							className='hover:text-foreground text-sm text-zinc-600 transition-colors'
+						>
+							{t(item.textI18nKey as unknown as string)}
+						</Link>
+					))}
+				</nav>
 
 				{/* Actions */}
-				<nav className='flex items-center gap-3'>
+				<div className='flex items-center justify-end gap-3'>
 					<Button
 						variant='secondary'
 						className='h-10 min-w-32 rounded-full border-none bg-white px-4 py-2 hover:bg-white hover:shadow'
@@ -40,41 +48,6 @@ export async function Navbar() {
 							{t('components.navbar.buttons.contact')}
 						</a>
 					</Button>
-					<DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<Button
-								variant='secondary'
-								className='h-10 min-w-32 rounded-full border-none border-black/10 bg-white px-4 py-2 hover:bg-white hover:shadow'
-							>
-								<Users className='h-5 w-5 stroke-2' />
-								{t('components.navbar.buttons.community')}
-								<ChevronDown className='ml-1 h-4 w-4' />
-							</Button>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent
-							align='end'
-							className='bg-background flex w-100 flex-col rounded-none p-8'
-						>
-							{Config.components.navbar.communityItems.map((item) => (
-								<DropdownMenuItem
-									asChild
-									key={item.name}
-									className='flex cursor-pointer items-start gap-3 py-2.5 text-gray-600'
-								>
-									<a
-										href={item.link}
-										target='_blank'
-									>
-										<div className='mr-2 size-5'>{item.icon}</div>
-										<div>
-											<div>{t(item.titleI18nKey)}</div>
-											<div className='mt-1 text-gray-400'>{t(item.descriptionI18nKey)}</div>
-										</div>
-									</a>
-								</DropdownMenuItem>
-							))}
-						</DropdownMenuContent>
-					</DropdownMenu>
 
 					<Button
 						className='group flex h-10 w-40 items-center justify-center rounded-full px-0 text-white shadow'
@@ -87,7 +60,7 @@ export async function Navbar() {
 							<BigRightArrow className='pointer-events-none absolute size-auto h-[18px] w-[113px] opacity-0 transition-opacity group-hover:opacity-100' />
 						</a>
 					</Button>
-				</nav>
+				</div>
 			</div>
 		</div>
 	);

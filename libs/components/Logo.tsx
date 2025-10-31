@@ -18,7 +18,7 @@ export async function Logo(
 	return (
 		<div
 			{...{ ...props, withLogotype: undefined }}
-			className={cn('h-[1.5em] flex items-center', props.className?.wrapper)}
+			className={cn('flex h-[1.5em] items-center', props.className?.wrapper)}
 		>
 			<Image
 				src={SealosLogoImage}

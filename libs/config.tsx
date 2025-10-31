@@ -22,27 +22,30 @@ export const Config = (() => {
 			navbar: {
 				contactLink: 'https://sealos.io/contact',
 				getStartedLink: 'https://usw.sealos.io/?openapp=system-brain',
-				communityItems: [
+				links: [
 					{
-						name: 'discord',
-						icon: <SimpleIcon d={siDiscord.path} />,
-						titleI18nKey: t('components.navbar.community.discord.title'),
-						descriptionI18nKey: t('components.navbar.community.discord.description'),
-						link: 'https://discord.gg/kWqbpstw6M',
+						textI18nKey: t('components.navbar.links.products'),
+						href: '/products',
 					},
 					{
-						name: 'twitter',
-						icon: <SimpleIcon d={siX.path} />,
-						titleI18nKey: t('components.navbar.community.twitter.title'),
-						descriptionI18nKey: t('components.navbar.community.twitter.description'),
-						link: 'https://x.com/Sealos_io',
+						textI18nKey: t('components.navbar.links.solutions'),
+						href: '/solutions',
 					},
 					{
-						name: 'community',
-						icon: <Globe className='size-full' />,
-						titleI18nKey: t('components.navbar.community.community.title'),
-						descriptionI18nKey: t('components.navbar.community.community.description'),
-						link: 'https://github.com/labring/sealos',
+						textI18nKey: t('components.navbar.links.pricing'),
+						href: '/pricing',
+					},
+					{
+						textI18nKey: t('components.navbar.links.docs'),
+						href: '/docs',
+					},
+					{
+						textI18nKey: t('components.navbar.links.appstore'),
+						href: '/appstore',
+					},
+					{
+						textI18nKey: t('components.navbar.links.about-us'),
+						href: '/about-us',
 					},
 				],
 			},
