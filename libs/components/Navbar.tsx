@@ -22,10 +22,7 @@ export async function Navbar() {
 					href='/'
 					className='flex items-center gap-3'
 				>
-					<Logo className='h-7 w-7' />
-					<span className='text-foreground text-lg font-semibold tracking-tight'>
-						{t('components.navbar.brand')}
-					</span>
+					<Logo withLogotype />
 				</a>
 
 				{/* Actions */}

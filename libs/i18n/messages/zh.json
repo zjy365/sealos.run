@@ -2,8 +2,7 @@
 	"pages": {},
 	"components": {
 		"footer": {
-			"title": "Sealos",
-			"tagline": "在一个无缝的云平台上开发、部署和扩展。",
+			"tagline": "以应用为中心的智能云操作系统",
 			"menuItems": {
 				"resources": {
 					"title": "资源",
@@ -44,7 +43,6 @@
 			}
 		},
 		"navbar": {
-			"brand": "Sealos Brain",
 			"buttons": {
 				"contact": "联系",
 				"community": "社区",
@@ -66,7 +64,8 @@
 			}
 		},
 		"logo": {
-			"title": "Sealos Brain 标志"
+			"title": "Sealos",
+			"alt": "Sealos 标志"
 		}
 	}
 }

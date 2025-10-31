@@ -2,71 +2,70 @@
 	"pages": {},
 	"components": {
 		"footer": {
-			"title": "Sealos",
-			"tagline": "Develop, deploy, and scale in one seamless cloud platform.",
+			"tagline": "以应用为中心的智能云操作系统",
 			"menuItems": {
 				"resources": {
-					"title": "Resources",
+					"title": "资源",
 					"links": {
-						"docs": "Docs",
-						"education": "Education",
-						"blog": "Blog"
+						"docs": "文档",
+						"education": "教育",
+						"blog": "博客"
 					}
 				},
 				"products": {
-					"title": "Products",
+					"title": "产品",
 					"links": {
 						"devbox": "DevBox",
-						"databases": "Databases",
+						"databases": "数据库",
 						"appstore": "App Store"
 					}
 				},
 				"services": {
-					"title": "Services",
+					"title": "服务",
 					"links": {
-						"pricing": "Pricing",
+						"pricing": "定价",
 						"fastgpt": "FastGPT"
 					}
 				},
 				"support": {
-					"title": "Support",
+					"title": "支持",
 					"links": {
-						"contactUs": "Contact Us",
-						"customers": "Customers"
+						"contactUs": "联系我们",
+						"customers": "客户"
 					}
 				}
 			},
-			"copyright": "Copyright © 2025 Sealos. All rights reserved.",
+			"copyright": "版权所有 © 2025 Sealos。保留所有权利。",
 			"bottomLinks": {
-				"termsOfService": "Terms of Service",
-				"privacyPolicy": "Privacy Policy",
-				"cookiePolicy": "Cookie Policy"
+				"termsOfService": "服务条款",
+				"privacyPolicy": "隐私政策",
+				"cookiePolicy": "Cookie 政策"
 			}
 		},
 		"navbar": {
-			"brand": "Sealos Brain",
 			"buttons": {
-				"contact": "Contact",
-				"community": "Community",
-				"getStarted": "Get started"
+				"contact": "联系",
+				"community": "社区",
+				"getStarted": "开始使用"
 			},
 			"community": {
 				"discord": {
 					"title": "Discord",
-					"description": "Get tips and support from 4000+ users"
+					"description": "从 4000+ 用户那里获得技巧和支持"
 				},
 				"twitter": {
 					"title": "Twitter",
-					"description": "Stay tuned for the latest news"
+					"description": "关注最新消息"
 				},
 				"community": {
-					"title": "Community",
-					"description": "Become an ambassador and track events"
+					"title": "社区",
+					"description": "成为大使并跟踪活动"
 				}
 			}
 		},
 		"logo": {
-			"title": "Sealos Brain Logo"
+			"title": "Sealos",
+			"alt": "Sealos 标志"
 		}
 	}
 }
