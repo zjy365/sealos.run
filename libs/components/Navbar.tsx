@@ -10,8 +10,8 @@ export async function Navbar() {
 	const t = await getTranslations();
 
 	return (
-		<div className='w-full shadow-sm'>
-			<div className='bg-background container mx-auto grid h-16 grid-cols-[1fr_auto_1fr] items-center justify-between'>
+		<div className='w-full bg-white/5 shadow-sm backdrop-blur-lg'>
+			<div className='container mx-auto grid h-16 grid-cols-[1fr_auto_1fr] items-center justify-between'>
 				{/* Brand */}
 				<Link
 					href='/'
@@ -26,7 +26,7 @@ export async function Navbar() {
 						<Link
 							key={item.href}
 							href={item.href}
-							className='hover:text-foreground text-sm text-zinc-600 transition-colors'
+							className='hover:text-foreground text-sidebar-foreground text-sm transition-colors'
 						>
 							{t(item.textI18nKey as unknown as string)}
 						</Link>
