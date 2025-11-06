@@ -40,10 +40,12 @@ export function Callout({ children, type = 'info', title }: CalloutProps) {
 							)}
 						/>
 					</svg>
-					<p className='text-foreground text-base font-medium'>{title}</p>
+					<p className='text-foreground mt-0 mb-0 text-base font-medium'>{title}</p>
 				</div>
 			)}
-			<div className='text-muted-foreground text-sm leading-5'>{children}</div>
+			<div className='text-muted-foreground text-sm leading-5 [&>*]:mt-1 [&>*]:mb-1 [&>*:last-child]:mb-0 [&>:first-child]:mt-0'>
+				{children}
+			</div>
 		</div>
 	);
 }

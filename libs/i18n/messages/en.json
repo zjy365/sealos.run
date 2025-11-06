@@ -1,5 +1,71 @@
 {
-	"pages": {},
+	"pages": {
+		"blog": {
+			"post": {
+				"readingTime": "{minutes} min read",
+				"views": "{views} views"
+			},
+			"sections": {
+				"hero": {
+					"title": "Sealos Technical Blog",
+					"description": "Cloud-native technology sharing, best practices, and product updates to help developers quickly master the Kubernetes ecosystem"
+				},
+				"hotAndSubscribe": {
+					"hotUpdatesTitle": "Hot Updates This Week",
+					"newsletterTitle": "Tech Newsletter",
+					"newsletterDescription": "Weekly curated cloud-native technology articles to get the latest industry trends",
+					"emailPlaceholder": "Enter your email address",
+					"subscribeButtonText": "Subscribe Now"
+				},
+				"hotPosts": {
+					"title": "Hot Posts",
+					"views": "{views} views"
+				},
+				"categoriesAndList": {
+					"searchPlaceholder": "Search articles...",
+					"allCategories": "All",
+					"noResultsFound": "No articles found related to \"{query}\"",
+					"noPostsInCategory": "No articles in this category",
+					"tryDifferentKeywords": "Try different keywords or clear the search",
+					"searching": "Searching...",
+					"readingTime": "{minutes} min read",
+					"views": "{views} views"
+				},
+				"ctaBanner": {
+					"title": "Sealos",
+					"description": "Easily achieve complex development workflows, making creativity within reach",
+					"buttonText": "Get Started"
+				}
+			},
+			"sharePosts": {
+				"title": "Share Article",
+				"weibo": "Share to Weibo",
+				"wechat": "Share to WeChat",
+				"qq": "Share to QQ",
+				"copyLink": "Copy Link",
+				"linkCopied": "Link copied",
+				"wechatHint": "Please use WeChat to scan QR code and share"
+			},
+			"sidebar": {
+				"relatedPosts": {
+					"title": "Related Posts"
+				},
+				"resources": {
+					"title": "Related Resources",
+					"description": "More Sealos and Kubernetes related resources:",
+					"guide": {
+						"title": "High Availability Cluster Deployment Guide"
+					},
+					"bestPractices": {
+						"title": "Kubernetes Best Practices"
+					}
+				}
+			},
+			"tableOfContents": {
+				"title": "Table of Contents"
+			}
+		}
+	},
 	"components": {
 		"footer": {
 			"tagline": "以应用为中心的智能云操作系统",

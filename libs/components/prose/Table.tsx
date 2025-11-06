@@ -3,9 +3,9 @@ import { cn } from '@/libs/utils/styling';
 
 export function Table({ children, className, ...props }: React.HTMLAttributes<HTMLTableElement>) {
 	return (
-		<div className='border-border my-6 overflow-hidden rounded-lg border'>
+		<div className='overflow-hidden rounded-lg'>
 			<table
-				className={cn('w-full text-sm', className)}
+				className={cn('mt-0 mb-0 w-full text-sm', className)}
 				{...props}
 			>
 				{children}

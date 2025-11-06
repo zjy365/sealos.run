@@ -5,24 +5,21 @@ import type { BlogCategory, BlogPost } from './types';
 import { BLOG_CATEGORIES } from './types';
 
 /**
- * 获取所有博客文章
+ * Get all blog posts for a specific locale.
+ * Filters posts by file extension to ensure only posts for the specified locale are returned.
+ *
+ * @param locale - The locale to filter posts by
+ * @returns Array of blog posts sorted by date (newest first)
  */
 export function getAllPosts(locale: string = 'zh'): BlogPost[] {
-	// fumadocs i18n: getPages(locale) 默认会 fallback 到 defaultLanguage
-	// 我们需要根据文件名过滤，只保留真正属于当前语言的文章
 	const allPages = blog.getPages(locale);
 
-	// 过滤逻辑：
-	// - en locale: 只保留 .en.mdx 文件
-	// - zh locale: 只保留 .zh.mdx 或没有语言后缀的 .mdx 文件
 	const pages = allPages.filter((page) => {
 		const filePath = page.file?.path || '';
 
 		if (locale === 'en') {
-			// en 只要 .en.mdx
 			return filePath.endsWith('.en.mdx');
 		}
-		// zh 要 .zh.mdx 或普通 .mdx（不是 .en.mdx）
 		return filePath.endsWith('.zh.mdx') || (filePath.endsWith('.mdx') && !filePath.endsWith('.en.mdx'));
 	});
 
@@ -56,7 +53,11 @@ export function getAllPosts(locale: string = 'zh'): BlogPost[] {
 }
 
 /**
- * 获取热门文章（根据浏览量）
+ * Get hot posts sorted by view count.
+ *
+ * @param locale - The locale to filter posts by
+ * @param limit - Maximum number of posts to return
+ * @returns Array of hot posts
  */
 export function getHotPosts(locale: string = 'zh', limit: number = 3): BlogPost[] {
 	const posts = getAllPosts(locale);
@@ -64,7 +65,11 @@ export function getHotPosts(locale: string = 'zh', limit: number = 3): BlogPost[
 }
 
 /**
- * 获取精选文章
+ * Get featured posts.
+ *
+ * @param locale - The locale to filter posts by
+ * @param limit - Maximum number of posts to return
+ * @returns Array of featured posts
  */
 export function getFeaturedPosts(locale: string = 'zh', limit: number = 3): BlogPost[] {
 	const posts = getAllPosts(locale);
@@ -72,7 +77,11 @@ export function getFeaturedPosts(locale: string = 'zh', limit: number = 3): Blog
 }
 
 /**
- * 按分类获取文章
+ * Get posts by category.
+ *
+ * @param category - The category name to filter by
+ * @param locale - The locale to filter posts by
+ * @returns Array of posts in the specified category
  */
 export function getPostsByCategory(category: string, locale: string = 'zh'): BlogPost[] {
 	const posts = getAllPosts(locale);
@@ -80,7 +89,10 @@ export function getPostsByCategory(category: string, locale: string = 'zh'): Blo
 }
 
 /**
- * 获取所有分类及文章数
+ * Get all categories with post counts.
+ *
+ * @param locale - The locale to filter posts by
+ * @returns Array of categories with post counts
  */
 export function getAllCategories(locale: string = 'zh'): BlogCategory[] {
 	const posts = getAllPosts(locale);
@@ -103,7 +115,11 @@ export function getAllCategories(locale: string = 'zh'): BlogCategory[] {
 }
 
 /**
- * 按标签获取文章
+ * Get posts by tag.
+ *
+ * @param tag - The tag to filter by
+ * @param locale - The locale to filter posts by
+ * @returns Array of posts with the specified tag
  */
 export function getPostsByTag(tag: string, locale: string = 'zh'): BlogPost[] {
 	const posts = getAllPosts(locale);
@@ -111,7 +127,10 @@ export function getPostsByTag(tag: string, locale: string = 'zh'): BlogPost[] {
 }
 
 /**
- * 获取所有标签
+ * Get all unique tags from all posts.
+ *
+ * @param locale - The locale to filter posts by
+ * @returns Array of unique tags sorted alphabetically
  */
 export function getAllTags(locale: string = 'zh'): string[] {
 	const posts = getAllPosts(locale);
@@ -127,7 +146,12 @@ export function getAllTags(locale: string = 'zh'): string[] {
 }
 
 /**
- * 搜索文章
+ * Search posts by query string.
+ * Searches in title, description, and tags.
+ *
+ * @param query - The search query
+ * @param locale - The locale to filter posts by
+ * @returns Array of matching posts
  */
 export function searchPosts(query: string, locale: string = 'zh'): BlogPost[] {
 	const posts = getAllPosts(locale);
@@ -141,29 +165,13 @@ export function searchPosts(query: string, locale: string = 'zh'): BlogPost[] {
 	);
 }
 
-/**
- * 格式化日期
- */
-export function formatDate(dateString: string, locale: string = 'zh'): string {
-	const date = new Date(dateString);
-
-	if (locale === 'zh') {
-		return date.toLocaleDateString('zh-CN', {
-			year: 'numeric',
-			month: '2-digit',
-			day: '2-digit',
-		});
-	}
-
-	return date.toLocaleDateString('en-US', {
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-	});
-}
+// formatDate has been moved to date-utils.ts to avoid server-only import issues
 
 /**
- * 将字符串转换为 slug
+ * Convert string to URL-friendly slug.
+ *
+ * @param text - The text to convert
+ * @returns URL-friendly slug
  */
 function slugify(text: string): string {
 	return text
@@ -176,15 +184,19 @@ function slugify(text: string): string {
 }
 
 /**
- * 计算预估阅读时间（中文按字数，英文按单词数）
+ * Calculate estimated reading time in minutes.
+ * Chinese: 300 characters per minute
+ * English: 200 words per minute
+ *
+ * @param content - The content to calculate reading time for
+ * @param locale - The locale ('zh' or 'en')
+ * @returns Estimated reading time in minutes
  */
 export function calculateReadingTime(content: string, locale: string = 'zh'): number {
 	if (locale === 'zh') {
-		// 中文按每分钟 300 字计算
 		const chineseChars = content.replace(/[^\u4e00-\u9fa5]/g, '').length;
 		return Math.ceil(chineseChars / 300);
 	}
-	// 英文按每分钟 200 单词计算
 	const words = content.trim().split(/\s+/).length;
 	return Math.ceil(words / 200);
 }

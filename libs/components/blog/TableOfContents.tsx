@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import React from 'react';
 import { cn } from '@/libs/utils/styling';
 
@@ -10,11 +11,11 @@ interface TOCItem {
 }
 
 export function TableOfContents() {
+	const t = useTranslations('pages.blog.tableOfContents');
 	const [toc, setToc] = React.useState<TOCItem[]>([]);
 	const [activeId, setActiveId] = React.useState<string>('');
 
 	React.useEffect(() => {
-		// 从文章内容中提取标题
 		const headings = document.querySelectorAll('article h2, article h3');
 		const items: TOCItem[] = Array.from(headings).map((heading) => ({
 			id: heading.id,
@@ -23,7 +24,6 @@ export function TableOfContents() {
 		}));
 		setToc(items);
 
-		// 监听滚动以高亮当前标题
 		const observer = new IntersectionObserver(
 			(entries) => {
 				for (const entry of entries) {
@@ -53,7 +53,7 @@ export function TableOfContents() {
 					fill='none'
 					xmlns='http://www.w3.org/2000/svg'
 				>
-					<title>目录</title>
+					<title>{t('title')}</title>
 					<path
 						d='M2 3h12M2 8h12M2 13h12'
 						stroke='currentColor'
@@ -61,7 +61,7 @@ export function TableOfContents() {
 						strokeLinecap='round'
 					/>
 				</svg>
-				<h2 className='text-foreground text-xl font-semibold'>目录</h2>
+				<h2 className='text-foreground text-xl font-semibold'>{t('title')}</h2>
 			</div>
 			<ol className='border-border relative space-y-2 border-l-2 pl-4 text-base'>
 				{toc.map((item, index) => (

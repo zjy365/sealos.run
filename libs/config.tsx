@@ -1,5 +1,6 @@
 import 'server-only';
-import { siDiscord, siGithub, siRss, siX, siYoutube } from 'simple-icons';
+import { Copy } from 'lucide-react';
+import { siDiscord, siGithub, siQq, siRss, siSinaweibo, siWechat, siX, siYoutube } from 'simple-icons';
 import { SimpleIcon } from './components/ui/SimpleIcon';
 
 /**
@@ -162,7 +163,6 @@ export const Config = (() => {
 				],
 			},
 			blog: {
-				// 博客分类配置（多语言）
 				categories: {
 					zh: [
 						'Kubernetes 教程',
@@ -187,6 +187,30 @@ export const Config = (() => {
 						'Troubleshooting',
 					],
 				} satisfies Record<string, string[]>,
+				shareButtons: [
+					{
+						icon: <SimpleIcon d={siSinaweibo.path} />,
+						textI18nKey: t('pages.blog.sharePosts.weibo'),
+						linkTemplate: 'http://service.weibo.com/share/share.php?url={link}&title={title}',
+					},
+					{
+						icon: <SimpleIcon d={siWechat.path} />,
+						textI18nKey: t('pages.blog.sharePosts.wechat'),
+						linkTemplate: '#',
+						onClick: 'copy' as const,
+					},
+					{
+						icon: <SimpleIcon d={siQq.path} />,
+						textI18nKey: t('pages.blog.sharePosts.qq'),
+						linkTemplate: 'http://connect.qq.com/widget/shareqq/index.html?url={link}&title={title}',
+					},
+					{
+						icon: <Copy className='size-full' />,
+						textI18nKey: t('pages.blog.sharePosts.copyLink'),
+						linkTemplate: '#',
+						onClick: 'copy' as const,
+					},
+				],
 			},
 		},
 	};
