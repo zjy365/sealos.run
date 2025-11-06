@@ -2,67 +2,67 @@
 	"pages": {
 		"blog": {
 			"post": {
-				"readingTime": "{minutes} min read",
-				"views": "{views} views"
+				"readingTime": "{minutes} 分钟阅读",
+				"views": "{views} 次查看"
 			},
 			"sections": {
 				"hero": {
-					"title": "Sealos Technical Blog",
-					"description": "Cloud-native technology sharing, best practices, and product updates to help developers quickly master the Kubernetes ecosystem"
+					"title": "<brand>Sealos</brand> 技术博客",
+					"description": "云原生技术分享、最佳实践和产品更新，助力开发者快速掌握 Kubernetes 生态"
 				},
 				"hotAndSubscribe": {
-					"hotUpdatesTitle": "Hot Updates This Week",
-					"newsletterTitle": "Tech Newsletter",
-					"newsletterDescription": "Weekly curated cloud-native technology articles to get the latest industry trends",
-					"emailPlaceholder": "Enter your email address",
-					"subscribeButtonText": "Subscribe Now"
+					"hotUpdatesTitle": "本周<brand>热门更新</brand>",
+					"newsletterTitle": "技术周刊<brand>订阅</brand>",
+					"newsletterDescription": "每周精选云原生技术文章，获取最新行业动态",
+					"emailPlaceholder": "请输入邮箱地址",
+					"subscribeButtonText": "立即订阅"
 				},
 				"hotPosts": {
-					"title": "Hot Posts",
-					"views": "{views} views"
+					"title": "<brand>热门</brand>文章",
+					"views": "{views} 次查看"
 				},
 				"categoriesAndList": {
-					"searchPlaceholder": "Search articles...",
-					"allCategories": "All",
-					"noResultsFound": "No articles found related to \"{query}\"",
-					"noPostsInCategory": "No articles in this category",
-					"tryDifferentKeywords": "Try different keywords or clear the search",
-					"searching": "Searching...",
-					"readingTime": "{minutes} min read",
-					"views": "{views} views"
+					"searchPlaceholder": "搜索文章...",
+					"allCategories": "全部",
+					"noResultsFound": "没有找到与 \"{query}\" 相关的文章",
+					"noPostsInCategory": "该分类下暂无文章",
+					"tryDifferentKeywords": "尝试使用不同的关键词或清除搜索",
+					"searching": "搜索中...",
+					"readingTime": "{minutes} 分钟阅读",
+					"views": "{views} 次查看"
 				},
 				"ctaBanner": {
 					"title": "Sealos",
-					"description": "Easily achieve complex development workflows, making creativity within reach",
-					"buttonText": "Get Started"
+					"description": "轻松实现复杂开发流程，让创意<brand>触手可及</brand>",
+					"buttonText": "立即体验"
 				}
 			},
 			"sharePosts": {
-				"title": "Share Article",
-				"weibo": "Share to Weibo",
-				"wechat": "Share to WeChat",
-				"qq": "Share to QQ",
-				"copyLink": "Copy Link",
-				"linkCopied": "Link copied",
-				"wechatHint": "Please use WeChat to scan QR code and share"
+				"title": "分享文章",
+				"weibo": "分享到微博",
+				"wechat": "分享到微信",
+				"qq": "分享到 QQ",
+				"copyLink": "复制链接",
+				"linkCopied": "链接已复制",
+				"wechatHint": "请使用微信扫码分享"
 			},
 			"sidebar": {
 				"relatedPosts": {
-					"title": "Related Posts"
+					"title": "相关文章"
 				},
 				"resources": {
-					"title": "Related Resources",
-					"description": "More Sealos and Kubernetes related resources:",
+					"title": "相关资源",
+					"description": "更多 Sealos 和 Kubernetes 相关资源：",
 					"guide": {
-						"title": "High Availability Cluster Deployment Guide"
+						"title": "高可用集群部署指南"
 					},
 					"bestPractices": {
-						"title": "Kubernetes Best Practices"
+						"title": "Kubernetes 最佳实践"
 					}
 				}
 			},
 			"tableOfContents": {
-				"title": "Table of Contents"
+				"title": "目录"
 			}
 		}
 	},
@@ -118,9 +118,9 @@
 				"about-us": "关于我们"
 			},
 			"buttons": {
-				"contact": "联系",
+				"contact": "联系我们",
 				"community": "社区",
-				"getStarted": "开始使用"
+				"signin": "登录"
 			},
 			"community": {
 				"discord": {

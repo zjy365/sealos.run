@@ -7,18 +7,18 @@
 			},
 			"sections": {
 				"hero": {
-					"title": "Sealos 技术博客",
+					"title": "<brand>Sealos</brand> 技术博客",
 					"description": "云原生技术分享、最佳实践和产品更新，助力开发者快速掌握 Kubernetes 生态"
 				},
 				"hotAndSubscribe": {
-					"hotUpdatesTitle": "本周热门更新",
-					"newsletterTitle": "技术周刊订阅",
+					"hotUpdatesTitle": "本周<brand>热门更新</brand>",
+					"newsletterTitle": "技术周刊<brand>订阅</brand>",
 					"newsletterDescription": "每周精选云原生技术文章，获取最新行业动态",
 					"emailPlaceholder": "请输入邮箱地址",
 					"subscribeButtonText": "立即订阅"
 				},
 				"hotPosts": {
-					"title": "热门文章",
+					"title": "<brand>热门</brand>文章",
 					"views": "{views} 次查看"
 				},
 				"categoriesAndList": {
@@ -33,7 +33,7 @@
 				},
 				"ctaBanner": {
 					"title": "Sealos",
-					"description": "轻松实现复杂开发流程，让创意触手可及",
+					"description": "轻松实现复杂开发流程，让创意<brand>触手可及</brand>",
 					"buttonText": "立即体验"
 				}
 			},
@@ -118,9 +118,9 @@
 				"about-us": "关于我们"
 			},
 			"buttons": {
-				"contact": "联系",
+				"contact": "联系我们",
 				"community": "社区",
-				"getStarted": "开始使用"
+				"signin": "登录"
 			},
 			"community": {
 				"discord": {

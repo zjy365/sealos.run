@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server';
+import { getTRich } from '@/libs/i18n/server';
 import type React from 'react';
 import { Logo } from './Logo';
 
@@ -34,7 +34,7 @@ interface FooterConfig {
 }
 
 export async function Footer({ config }: { config: FooterConfig }) {
-	const t = await getTranslations();
+	const t = await getTRich();
 
 	const footerTagline = t(config.taglineI18nKey);
 	const footerCopyright = t(config.copyrightI18nKey);

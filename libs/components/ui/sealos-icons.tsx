@@ -37,10 +37,7 @@ export const BigRightArrow = (props: React.DetailedHTMLProps<React.SVGAttributes
 		role='graphics-symbol'
 		{...props}
 	>
-		<path
-			stroke='#fff'
-			d='M0 11.5h110.5L91.5.53'
-		></path>
+		<path d='M0 11.5h110.5L91.5.53'></path>
 	</svg>
 );
 

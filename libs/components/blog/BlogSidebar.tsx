@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server';
+import { getTRich } from '@/libs/i18n/server';
 import type { BlogPost } from '@/libs/blog/types';
 import { RelatedPostsSection } from './RelatedPostsSection';
 import { RelatedResourcesSection } from './RelatedResourcesSection';
@@ -10,7 +10,7 @@ interface BlogSidebarProps {
 }
 
 export async function BlogSidebar({ currentPost, locale }: BlogSidebarProps) {
-	const t = await getTranslations({ locale, namespace: 'pages.blog' });
+	const t = await getTRich({ locale, namespace: 'pages.blog' });
 
 	const defaultResources = [
 		{

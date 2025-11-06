@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server';
+import { getTRich } from '@/libs/i18n/server';
 import { Config } from '@/libs/config';
 import { SharePostsView } from './SharePostsView';
 import type { ShareButtonConfig } from './useSharePosts';
@@ -14,7 +14,7 @@ export async function SharePostsSection({ locale }: SharePostsSectionProps) {
 		return null;
 	}
 
-	const t = await getTranslations({ locale, namespace: 'pages.blog' });
+	const t = await getTRich({ locale, namespace: 'pages.blog' });
 	const title = t('sharePosts.title');
 
 	const shareButtons: ShareButtonConfig[] = shareConfig.map((button) => ({

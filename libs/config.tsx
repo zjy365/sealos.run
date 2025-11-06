@@ -21,7 +21,7 @@ export const Config = (() => {
 		components: {
 			navbar: {
 				contactLink: 'https://sealos.io/contact',
-				getStartedLink: 'https://usw.sealos.io/?openapp=system-brain',
+				signinLink: 'https://usw.sealos.io/?openapp=system-brain',
 				links: [
 					{
 						textI18nKey: t('components.navbar.links.products'),

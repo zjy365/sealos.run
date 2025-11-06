@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTRich } from '@/libs/i18n/client';
 import React from 'react';
 import { cn } from '@/libs/utils/styling';
 import TocBackgroundSVG from './TocBackgroundSVG';
@@ -9,7 +9,7 @@ import { useTocHeadings } from './useTocHeadings';
 import { useTocSvg } from './useTocSvg';
 
 export function TableOfContents() {
-	const t = useTranslations('pages.blog.tableOfContents');
+	const t = useTRich('pages.blog.tableOfContents');
 	const containerRef = React.useRef<HTMLOListElement>(null);
 	const containerWrapperRef = React.useRef<HTMLDivElement>(null);
 	const gradientIdRef = React.useRef(`highlight-gradient-${Math.random().toString(36).substring(2, 9)}`);
@@ -52,7 +52,7 @@ export function TableOfContents() {
 					fill='none'
 					xmlns='http://www.w3.org/2000/svg'
 				>
-					<title>{t('title')}</title>
+                    <title>{t('title')}</title>
 					<path
 						d='M2 3h12M2 8h12M2 13h12'
 						stroke='currentColor'
@@ -60,7 +60,7 @@ export function TableOfContents() {
 						strokeLinecap='round'
 					/>
 				</svg>
-				<h2 className='text-foreground text-xl font-semibold'>{t('title')}</h2>
+                <h2 className='text-foreground text-xl font-semibold'>{t('title')}</h2>
 			</div>
 			<div
 				ref={containerWrapperRef}

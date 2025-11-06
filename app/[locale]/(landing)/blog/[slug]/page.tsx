@@ -1,7 +1,7 @@
 import type { MDXComponents } from 'mdx/types';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
+import { getTRich } from '@/libs/i18n/server';
 import type React from 'react';
 import DefaultBlogCoverImage from '@/assets/default-blog-cover.svg';
 import { formatDate } from '@/libs/blog/date-utils';
@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 			featured?: boolean;
 		};
 	const MDX = body as React.ComponentType<{ components?: MDXComponents }>;
-	const t = await getTranslations({ locale });
+	const t = await getTRich({ locale });
 
 	const normalizedUrl = page.url.replace(new RegExp(`^/${locale}`), '');
 	const currentPost: BlogPost = {

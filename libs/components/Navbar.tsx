@@ -1,16 +1,16 @@
 import { MessagesSquare } from 'lucide-react';
-import { getTranslations } from 'next-intl/server';
 import { Button } from '@/libs/components/ui/button';
 import { Config } from '@/libs/config';
 import { Link } from '@/libs/i18n/navigation';
+import { getTRich } from '@/libs/i18n/server';
 import { Logo } from './Logo';
 import { BigRightArrow } from './ui/sealos-icons';
 
 export async function Navbar() {
-	const t = await getTranslations();
+	const t = await getTRich();
 
 	return (
-		<div className='w-full bg-white/5 shadow-sm backdrop-blur-lg'>
+		<div className='w-full bg-background/5 shadow-sm backdrop-blur-lg'>
 			<div className='container mx-auto grid h-16 grid-cols-[1fr_auto_1fr] items-center justify-between'>
 				{/* Brand */}
 				<Link
@@ -28,7 +28,7 @@ export async function Navbar() {
 							href={item.href}
 							className='hover:text-foreground text-sidebar-foreground text-sm transition-colors'
 						>
-							{t(item.textI18nKey as unknown as string)}
+							{t(item.textI18nKey)}
 						</Link>
 					))}
 				</nav>
@@ -37,7 +37,7 @@ export async function Navbar() {
 				<div className='flex items-center justify-end gap-3'>
 					<Button
 						variant='secondary'
-						className='h-10 min-w-32 rounded-full border-none bg-white px-4 py-2 hover:bg-white hover:shadow'
+						className='h-10 min-w-32 rounded-full border-none bg-transparent px-4 py-2 hover:bg-white/15'
 						asChild
 					>
 						<a
@@ -50,14 +50,14 @@ export async function Navbar() {
 					</Button>
 
 					<Button
-						className='group flex h-10 w-40 items-center justify-center rounded-full px-0 text-white shadow'
+						className='group flex h-10 w-24 items-center justify-center rounded-full px-0 shadow bg-primary text-primary-foreground'
 						asChild
 					>
-						<a href={Config.components.navbar.getStartedLink}>
+						<a href={Config.components.navbar.signinLink}>
 							<span className='absolute transition-opacity group-hover:pointer-events-none group-hover:opacity-0'>
-								{t('components.navbar.buttons.getStarted')}
+								{t('components.navbar.buttons.signin')}
 							</span>
-							<BigRightArrow className='pointer-events-none absolute size-auto h-[18px] w-[113px] opacity-0 transition-opacity group-hover:opacity-100' />
+							<BigRightArrow className='pointer-events-none absolute size-auto h-[18px] w-16 opacity-0 transition-opacity group-hover:opacity-100 text-primary-foreground' />
 						</a>
 					</Button>
 				</div>
