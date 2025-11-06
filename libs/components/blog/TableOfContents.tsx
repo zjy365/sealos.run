@@ -52,7 +52,7 @@ export function TableOfContents() {
 					fill='none'
 					xmlns='http://www.w3.org/2000/svg'
 				>
-                    <title>{t('title')}</title>
+					<title>{t('title')}</title>
 					<path
 						d='M2 3h12M2 8h12M2 13h12'
 						stroke='currentColor'
@@ -60,7 +60,7 @@ export function TableOfContents() {
 						strokeLinecap='round'
 					/>
 				</svg>
-                <h2 className='text-foreground text-xl font-semibold'>{t('title')}</h2>
+				<h2 className='text-foreground text-xl font-semibold'>{t('title')}</h2>
 			</div>
 			<div
 				ref={containerWrapperRef}

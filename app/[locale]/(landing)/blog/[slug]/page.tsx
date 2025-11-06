@@ -1,7 +1,6 @@
 import type { MDXComponents } from 'mdx/types';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getTRich } from '@/libs/i18n/server';
 import type React from 'react';
 import DefaultBlogCoverImage from '@/assets/default-blog-cover.svg';
 import { formatDate } from '@/libs/blog/date-utils';
@@ -10,6 +9,7 @@ import type { BlogPost } from '@/libs/blog/types';
 import { BlogSidebar } from '@/libs/components/blog/BlogSidebar';
 import { TableOfContents } from '@/libs/components/blog/TableOfContents';
 import { CalendarIcon, ClockIcon, EyeIcon, PersonIcon } from '@/libs/components/ui/sealos-icons';
+import { getTRich } from '@/libs/i18n/server';
 import { getMDXComponents } from '@/mdx-components';
 
 export async function generateStaticParams() {
@@ -89,7 +89,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 	};
 
 	return (
-		<main className='bg-background flex min-h-screen justify-center'>
+		<main className='flex min-h-screen justify-center'>
 			<div className='grid grid-cols-1 py-14 xl:grid-cols-[20rem_56rem] xl:gap-8 2xl:grid-cols-[20rem_56rem_20rem] 2xl:gap-16'>
 				<div className='hidden pl-4 xl:block'>
 					<TableOfContents />

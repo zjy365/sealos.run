@@ -10,7 +10,7 @@ export async function Navbar() {
 	const t = await getTRich();
 
 	return (
-		<div className='w-full bg-background/5 shadow-sm backdrop-blur-lg'>
+		<div className='bg-background/5 w-full shadow-sm backdrop-blur-lg'>
 			<div className='container mx-auto grid h-16 grid-cols-[1fr_auto_1fr] items-center justify-between'>
 				{/* Brand */}
 				<Link
@@ -50,14 +50,14 @@ export async function Navbar() {
 					</Button>
 
 					<Button
-						className='group flex h-10 w-24 items-center justify-center rounded-full px-0 shadow bg-primary text-primary-foreground'
+						className='group bg-primary text-primary-foreground flex h-10 w-24 items-center justify-center rounded-full px-0 shadow'
 						asChild
 					>
 						<a href={Config.components.navbar.signinLink}>
 							<span className='absolute transition-opacity group-hover:pointer-events-none group-hover:opacity-0'>
 								{t('components.navbar.buttons.signin')}
 							</span>
-							<BigRightArrow className='pointer-events-none absolute size-auto h-[18px] w-16 opacity-0 transition-opacity group-hover:opacity-100 text-primary-foreground' />
+							<BigRightArrow className='text-primary-foreground pointer-events-none absolute size-auto h-[18px] w-16 opacity-0 transition-opacity group-hover:opacity-100' />
 						</a>
 					</Button>
 				</div>

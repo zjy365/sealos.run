@@ -9,7 +9,7 @@ export default async function CTABannerSection() {
 				<div className='flex items-center justify-between'>
 					<div>
 						<h2 className='mb-3 text-2xl font-medium'>{t('title')}</h2>
-                        <p className='text-3xl font-semibold'>{t('description')}</p>
+						<p className='text-3xl font-semibold'>{t('description')}</p>
 					</div>
 					<LandingOutlineButton href='/'>{t('buttonText')}</LandingOutlineButton>
 				</div>

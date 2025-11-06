@@ -22,7 +22,9 @@ export function getColorRichMapper(overrides?: Partial<RichMapper>): RichMapper 
  * 使用方式：renderRich(t, 'key') 或 renderRich(t, 'key', customMap, values)
  */
 export function renderRich(
-	t: { rich: (key: string, values?: Record<string, string | number | Date>, mapper?: RichMapper) => React.ReactNode },
+	t: {
+		rich: (key: string, values?: Record<string, string | number | Date>, mapper?: RichMapper) => React.ReactNode;
+	},
 	key: string,
 	mapperOverrides?: Partial<RichMapper>,
 	values?: Record<string, string | number | Date>,
@@ -36,7 +38,7 @@ export function renderRich(
 		key: string,
 		...args: [Record<string, string | number | Date>, RichMapper] | [RichMapper]
 	) => React.ReactNode;
-	
+
 	if (values) {
 		return richFn(key, values, mapper);
 	} else {
@@ -48,4 +50,3 @@ export function renderRich(
  * Alias for `renderRich`
  */
 export const r = renderRich;
-
