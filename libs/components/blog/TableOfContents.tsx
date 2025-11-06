@@ -3,43 +3,42 @@
 import { useTranslations } from 'next-intl';
 import React from 'react';
 import { cn } from '@/libs/utils/styling';
-
-interface TOCItem {
-	id: string;
-	text: string;
-	level: number;
-}
+import TocBackgroundSVG from './TocBackgroundSVG';
+import TocHighlightSVG from './TocHighlightSVG';
+import { useTocHeadings } from './useTocHeadings';
+import { useTocSvg } from './useTocSvg';
 
 export function TableOfContents() {
 	const t = useTranslations('pages.blog.tableOfContents');
-	const [toc, setToc] = React.useState<TOCItem[]>([]);
-	const [activeId, setActiveId] = React.useState<string>('');
+	const containerRef = React.useRef<HTMLOListElement>(null);
+	const containerWrapperRef = React.useRef<HTMLDivElement>(null);
+	const gradientIdRef = React.useRef(`highlight-gradient-${Math.random().toString(36).substring(2, 9)}`);
+
+	const { toc, activeId, visibleHeadings } = useTocHeadings();
+	const { svg, highlightSvg } = useTocSvg(toc, activeId, visibleHeadings, containerRef);
+
+	// Calculate container height based on viewport
+	const [containerHeight, setContainerHeight] = React.useState<number | undefined>(undefined);
 
 	React.useEffect(() => {
-		const headings = document.querySelectorAll('article h2, article h3');
-		const items: TOCItem[] = Array.from(headings).map((heading) => ({
-			id: heading.id,
-			text: heading.textContent || '',
-			level: Number(heading.tagName.charAt(1)),
-		}));
-		setToc(items);
+		const updateHeight = () => {
+			if (containerWrapperRef.current) {
+				const rect = containerWrapperRef.current.getBoundingClientRect();
+				const viewportHeight = window.innerHeight;
+				const topOffset = rect.top;
+				const availableHeight = viewportHeight - topOffset - 20; // 20px padding
+				setContainerHeight(Math.max(200, availableHeight));
+			}
+		};
 
-		const observer = new IntersectionObserver(
-			(entries) => {
-				for (const entry of entries) {
-					if (entry.isIntersecting) {
-						setActiveId(entry.target.id);
-					}
-				}
-			},
-			{ rootMargin: '-80px 0px -80% 0px' },
-		);
+		updateHeight();
+		window.addEventListener('resize', updateHeight);
+		window.addEventListener('scroll', updateHeight, { passive: true });
 
-		for (const heading of headings) {
-			observer.observe(heading);
-		}
-
-		return () => observer.disconnect();
+		return () => {
+			window.removeEventListener('resize', updateHeight);
+			window.removeEventListener('scroll', updateHeight);
+		};
 	}, []);
 
 	if (toc.length === 0) return null;
@@ -63,25 +62,54 @@ export function TableOfContents() {
 				</svg>
 				<h2 className='text-foreground text-xl font-semibold'>{t('title')}</h2>
 			</div>
-			<ol className='border-border relative space-y-2 border-l-2 pl-4 text-base'>
-				{toc.map((item, index) => (
-					<li
-						key={item.id}
-						className={cn(item.level === 3 && 'ml-4')}
-					>
-						<a
-							href={`#${item.id}`}
-							className={cn(
-								'text-muted-foreground hover:text-foreground block transition-colors',
-								activeId === item.id && 'text-primary font-medium',
-							)}
+			<div
+				ref={containerWrapperRef}
+				className='relative overflow-visible overflow-y-auto pr-2'
+				style={{
+					paddingLeft: '16px',
+					maxHeight: containerHeight ? `${containerHeight}px` : undefined,
+				}}
+			>
+				{svg && (
+					<TocBackgroundSVG
+						path={svg.path}
+						width={svg.width}
+						height={svg.height}
+					/>
+				)}
+				{highlightSvg && (
+					<TocHighlightSVG
+						path={highlightSvg.path}
+						width={highlightSvg.width}
+						height={highlightSvg.height}
+						gradientId={gradientIdRef.current}
+						gradientStart={highlightSvg.gradientStart}
+						gradientEnd={highlightSvg.gradientEnd}
+					/>
+				)}
+				<ol
+					ref={containerRef}
+					className='relative space-y-2 pl-4 text-base'
+					style={{ paddingLeft: '1rem' }}
+				>
+					{toc.map((item) => (
+						<li
+							key={item.id}
+							className={cn(item.level === 3 && 'ml-4')}
 						>
-							{item.level === 2 && `${index + 1}. `}
-							{item.text}
-						</a>
-					</li>
-				))}
-			</ol>
+							<a
+								href={`#${item.id}`}
+								className={cn(
+									'text-muted-foreground hover:text-foreground block py-1.5 transition-colors',
+									activeId === item.id && 'text-primary font-medium',
+								)}
+							>
+								{item.text}
+							</a>
+						</li>
+					))}
+				</ol>
+			</div>
 		</nav>
 	);
 }
