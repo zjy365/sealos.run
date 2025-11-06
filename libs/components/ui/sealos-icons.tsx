@@ -135,3 +135,21 @@ export const SearchIcon = (props: React.DetailedHTMLProps<React.SVGAttributes<SV
 		<path d='M12.85714 13.90457L22.85714 19.61886' />
 	</svg>
 );
+
+export const XIcon = (props: React.DetailedHTMLProps<React.SVGAttributes<SVGSVGElement>, SVGSVGElement>) => (
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		fill='none'
+		stroke='currentColor'
+		viewBox='0 0 24 24'
+		role='graphics-symbol'
+		{...props}
+	>
+		<path
+			d='M18 6L6 18M6 6l12 12'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
+		/>
+	</svg>
+);

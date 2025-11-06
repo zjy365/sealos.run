@@ -1,4 +1,3 @@
-import React from 'react';
 import LandingOutlineButton from '@/libs/components/LandingOutlineButton';
 
 export default function CTABannerSection() {

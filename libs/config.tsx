@@ -1,5 +1,4 @@
 import 'server-only';
-import { Globe } from 'lucide-react';
 import { siDiscord, siGithub, siRss, siX, siYoutube } from 'simple-icons';
 import { SimpleIcon } from './components/ui/SimpleIcon';
 
@@ -161,6 +160,33 @@ export const Config = (() => {
 						url: 'https://sealos.io/rss.xml',
 					},
 				],
+			},
+			blog: {
+				// 博客分类配置（多语言）
+				categories: {
+					zh: [
+						'Kubernetes 教程',
+						'Docker 容器技术',
+						'DevOps 实践',
+						'微服务架构',
+						'数据库管理',
+						'监控告警',
+						'安全加固',
+						'性能优化',
+						'故障排查',
+					],
+					en: [
+						'Kubernetes',
+						'Docker',
+						'DevOps',
+						'Microservices',
+						'Databases',
+						'Monitoring',
+						'Security',
+						'Performance',
+						'Troubleshooting',
+					],
+				} satisfies Record<string, string[]>,
 			},
 		},
 	};
