@@ -1,4 +1,5 @@
-import { useTranslations } from 'next-intl';
+// biome-ignore lint: this is the only exception
+import { useTranslations as usePlainTranslations } from 'next-intl';
 import type React from 'react';
 import { renderRich } from './rich';
 
@@ -36,8 +37,9 @@ export function withRich<T extends HasRich & ((key: string, ...args: unknown[]) 
 	return proxy;
 }
 
-export function useTRich(...args: Parameters<typeof useTranslations>): TRich<ReturnType<typeof useTranslations>> {
-	const t = useTranslations(...args);
+type PlainUseTFunc = typeof usePlainTranslations;
+export function useTranslations(...args: Parameters<PlainUseTFunc>): TRich<ReturnType<PlainUseTFunc>> {
+	const t = usePlainTranslations(...args);
 	const rich = withRich(t as unknown as HasRich & ((key: string, ...args: unknown[]) => unknown));
-	return rich as TRich<ReturnType<typeof useTranslations>>;
+	return rich as TRich<ReturnType<PlainUseTFunc>>;
 }

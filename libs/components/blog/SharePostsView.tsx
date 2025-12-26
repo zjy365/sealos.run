@@ -1,6 +1,6 @@
 'use client';
 
-import { useTRich } from '@/libs/i18n/client';
+import { useTranslations } from '@/libs/i18n/client';
 import { type ShareButtonConfig, useSharePosts } from './useSharePosts';
 
 interface SharePostsViewProps {
@@ -9,8 +9,8 @@ interface SharePostsViewProps {
 }
 
 export function SharePostsView({ title, shareButtons = [] }: SharePostsViewProps) {
-	const t = useTRich();
-	const tBlog = useTRich('pages.blog');
+	const t = useTranslations();
+	const tBlog = useTranslations('pages.blog');
 	const { handleShare } = useSharePosts();
 
 	if (shareButtons.length === 0) {

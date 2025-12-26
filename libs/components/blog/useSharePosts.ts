@@ -1,7 +1,7 @@
 'use client';
 
-import { useTRich } from '@/libs/i18n/client';
 import type React from 'react';
+import { useTranslations } from '@/libs/i18n/client';
 
 export interface ShareButtonConfig {
 	/** Icon component (ReactNode) */
@@ -21,7 +21,7 @@ export interface ShareButtonConfig {
  * @returns Object with handleShare and handleCopyLink functions
  */
 export function useSharePosts() {
-	const t = useTRich('pages.blog');
+	const t = useTranslations('pages.blog');
 
 	const handleShare = (linkTemplate: string, onClick?: 'share' | 'copy') => {
 		if (typeof window === 'undefined') {

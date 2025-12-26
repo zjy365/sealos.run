@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { formatDate } from '@/libs/blog/date-utils';
 import type { BlogCategory, BlogPost } from '@/libs/blog/types';
 import { CalendarIcon, ClockIcon, EyeIcon, PersonIcon, SearchIcon, XIcon } from '@/libs/components/ui/sealos-icons';
-import { useTRich } from '@/libs/i18n/client';
+import { useTranslations } from '@/libs/i18n/client';
 import { Link } from '@/libs/i18n/navigation';
 import { cn } from '@/libs/utils/styling';
 import { useCategoriesAndList } from './useCategoriesAndList';
@@ -28,7 +28,7 @@ function SearchBox({
 	onClose: () => void;
 	onQueryChange: (query: string) => void;
 }) {
-	const t = useTRich('pages.blog.sections.categoriesAndList');
+	const t = useTranslations('pages.blog.sections.categoriesAndList');
 	if (!isOpen) {
 		return (
 			<button
@@ -70,7 +70,7 @@ function CategoryFilter({
 	selectedCategory: string | null;
 	onSelectCategory: (category: string | null) => void;
 }) {
-	const t = useTRich('pages.blog.sections.categoriesAndList');
+	const t = useTranslations('pages.blog.sections.categoriesAndList');
 	return (
 		<aside className='w-40 shrink-0'>
 			<nav className='sticky top-20 flex flex-col gap-5'>
@@ -117,7 +117,7 @@ function PostList({
 	isSearching: boolean;
 	searchQuery: string;
 }) {
-	const t = useTRich('pages.blog.sections.categoriesAndList');
+	const t = useTranslations('pages.blog.sections.categoriesAndList');
 	if (posts.length === 0) {
 		return (
 			<div className='py-16 text-center'>
@@ -206,7 +206,7 @@ export default function CategoriesAndListView({ initialCategories, initialPosts,
 		handleCloseSearch,
 		handleSelectCategory,
 	} = useCategoriesAndList({ initialCategories, initialPosts, locale });
-	const t = useTRich('pages.blog.sections.categoriesAndList');
+	const t = useTranslations('pages.blog.sections.categoriesAndList');
 
 	return (
 		<section className='container pt-18 pb-32'>

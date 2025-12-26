@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { getTRich } from '@/libs/i18n/server';
 import type React from 'react';
+import { getTranslations } from '@/libs/i18n/server';
 import { cn } from '@/libs/utils/styling';
 import SealosLogoImage from './assets/sealos.svg';
 
@@ -14,7 +14,7 @@ export async function Logo(
 		};
 	},
 ) {
-	const t = await getTRich('components.logo');
+	const t = await getTranslations('components.logo');
 	return (
 		<div
 			{...{ ...props, withLogotype: undefined }}

@@ -1,4 +1,5 @@
-import { getTranslations } from 'next-intl/server';
+// biome-ignore lint: this is the only exception
+import { getTranslations as getPlainTranslations } from 'next-intl/server';
 import type React from 'react';
 import { renderRich } from './rich';
 
@@ -36,20 +37,21 @@ export function withRich<T extends HasRich & ((key: string, ...args: unknown[]) 
 	return proxy;
 }
 
-export async function getTRich(): Promise<TRich<Awaited<ReturnType<typeof getTranslations>>>>;
-export async function getTRich(namespace: string): Promise<TRich<Awaited<ReturnType<typeof getTranslations>>>>;
-export async function getTRich(options: {
+type PlainGetTFunc = typeof getPlainTranslations;
+export async function getTranslations(): Promise<TRich<Awaited<ReturnType<PlainGetTFunc>>>>;
+export async function getTranslations(namespace: string): Promise<TRich<Awaited<ReturnType<PlainGetTFunc>>>>;
+export async function getTranslations(options: {
 	locale: string;
 	namespace?: string;
-}): Promise<TRich<Awaited<ReturnType<typeof getTranslations>>>>;
-export async function getTRich(
+}): Promise<TRich<Awaited<ReturnType<PlainGetTFunc>>>>;
+export async function getTranslations(
 	arg?: string | { locale: string; namespace?: string },
-): Promise<TRich<Awaited<ReturnType<typeof getTranslations>>>> {
+): Promise<TRich<Awaited<ReturnType<PlainGetTFunc>>>> {
 	const t = await (arg === undefined
-		? getTranslations()
+		? getPlainTranslations()
 		: typeof arg === 'string'
-			? getTranslations(arg)
-			: getTranslations(arg));
+			? getPlainTranslations(arg)
+			: getPlainTranslations(arg));
 	const rich = withRich(t as unknown as HasRich & ((key: string, ...args: unknown[]) => unknown));
-	return rich as TRich<Awaited<ReturnType<typeof getTranslations>>>;
+	return rich as TRich<Awaited<ReturnType<PlainGetTFunc>>>;
 }

@@ -1,7 +1,7 @@
 'use client';
 
-import { useTRich } from '@/libs/i18n/client';
 import React from 'react';
+import { useTranslations } from '@/libs/i18n/client';
 import { cn } from '@/libs/utils/styling';
 import TocBackgroundSVG from './TocBackgroundSVG';
 import TocHighlightSVG from './TocHighlightSVG';
@@ -9,7 +9,7 @@ import { useTocHeadings } from './useTocHeadings';
 import { useTocSvg } from './useTocSvg';
 
 export function TableOfContents() {
-	const t = useTRich('pages.blog.tableOfContents');
+	const t = useTranslations('pages.blog.tableOfContents');
 	const containerRef = React.useRef<HTMLOListElement>(null);
 	const containerWrapperRef = React.useRef<HTMLDivElement>(null);
 	const gradientIdRef = React.useRef(`highlight-gradient-${Math.random().toString(36).substring(2, 9)}`);

@@ -1,5 +1,5 @@
-import { getTRich } from '@/libs/i18n/server';
 import type React from 'react';
+import { getTranslations } from '@/libs/i18n/server';
 import { Logo } from './Logo';
 
 export interface MenuLink {
@@ -34,7 +34,7 @@ interface FooterConfig {
 }
 
 export async function Footer({ config }: { config: FooterConfig }) {
-	const t = await getTRich();
+	const t = await getTranslations();
 
 	const footerTagline = t(config.taglineI18nKey);
 	const footerCopyright = t(config.copyrightI18nKey);

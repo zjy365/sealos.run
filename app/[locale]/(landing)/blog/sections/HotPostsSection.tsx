@@ -1,13 +1,13 @@
 import Image from 'next/image';
-import { getTRich } from '@/libs/i18n/server';
 import { formatDate } from '@/libs/blog/date-utils';
 import { getHotPosts } from '@/libs/blog/utils';
 import { Card } from '@/libs/components/ui/card';
 import { CalendarIcon, EyeIcon } from '@/libs/components/ui/sealos-icons';
 import { Link } from '@/libs/i18n/navigation';
+import { getTranslations } from '@/libs/i18n/server';
 
 export default async function HotPostsSection({ locale }: { locale: string }) {
-	const t = await getTRich('pages.blog.sections.hotPosts');
+	const t = await getTranslations('pages.blog.sections.hotPosts');
 	const hotPosts = getHotPosts(locale, 3);
 
 	return (

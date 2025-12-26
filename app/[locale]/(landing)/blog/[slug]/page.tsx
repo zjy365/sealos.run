@@ -9,7 +9,7 @@ import type { BlogPost } from '@/libs/blog/types';
 import { BlogSidebar } from '@/libs/components/blog/BlogSidebar';
 import { TableOfContents } from '@/libs/components/blog/TableOfContents';
 import { CalendarIcon, ClockIcon, EyeIcon, PersonIcon } from '@/libs/components/ui/sealos-icons';
-import { getTRich } from '@/libs/i18n/server';
+import { getTranslations } from '@/libs/i18n/server';
 import { getMDXComponents } from '@/mdx-components';
 
 export async function generateStaticParams() {
@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 			featured?: boolean;
 		};
 	const MDX = body as React.ComponentType<{ components?: MDXComponents }>;
-	const t = await getTRich({ locale });
+	const t = await getTranslations({ locale });
 
 	const normalizedUrl = page.url.replace(new RegExp(`^/${locale}`), '');
 	const currentPost: BlogPost = {

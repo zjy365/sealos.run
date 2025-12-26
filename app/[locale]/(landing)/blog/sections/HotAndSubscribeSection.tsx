@@ -1,12 +1,12 @@
-import { getTRich } from '@/libs/i18n/server';
 import { getAllPosts } from '@/libs/blog/utils';
 import LandingOutlineButton from '@/libs/components/LandingOutlineButton';
 import { Input } from '@/libs/components/ui/input';
 import { BoxIcon, HotIcon } from '@/libs/components/ui/sealos-icons';
 import { Link } from '@/libs/i18n/navigation';
+import { getTranslations } from '@/libs/i18n/server';
 
 export default async function HotAndSubscribeSection({ locale }: { locale: string }) {
-	const t = await getTRich('pages.blog.sections.hotAndSubscribe');
+	const t = await getTranslations('pages.blog.sections.hotAndSubscribe');
 	const recentPosts = getAllPosts(locale).slice(0, 3);
 
 	return (

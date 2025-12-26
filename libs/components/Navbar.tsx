@@ -2,12 +2,12 @@ import { MessagesSquare } from 'lucide-react';
 import { Button } from '@/libs/components/ui/button';
 import { Config } from '@/libs/config';
 import { Link } from '@/libs/i18n/navigation';
-import { getTRich } from '@/libs/i18n/server';
+import { getTranslations } from '@/libs/i18n/server';
 import { Logo } from './Logo';
 import { BigRightArrow } from './ui/sealos-icons';
 
 export async function Navbar() {
-	const t = await getTRich();
+	const t = await getTranslations();
 
 	return (
 		<div className='bg-background/5 w-full shadow-sm backdrop-blur-lg'>

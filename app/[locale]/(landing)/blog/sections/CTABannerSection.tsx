@@ -1,8 +1,8 @@
 import LandingOutlineButton from '@/libs/components/LandingOutlineButton';
-import { getTRich } from '@/libs/i18n/server';
+import { getTranslations } from '@/libs/i18n/server';
 
 export default async function CTABannerSection() {
-	const t = await getTRich('pages.blog.sections.ctaBanner');
+	const t = await getTranslations('pages.blog.sections.ctaBanner');
 	return (
 		<section className='bg-muted py-18'>
 			<div className='container px-20'>
