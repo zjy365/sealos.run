@@ -1,0 +1,13 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+>
+  <path
+    fill="color-mix(in oklab, currentColor 5%, transparent)"
+    d="m8.91 7.455-6.365 3.668v7.208L8.91 22l6.364-3.669v-7.208zM18.364 2l-3.091 1.834v3.604l3.09 1.835 3.092-1.835V3.834z"
+  />
+</svg>

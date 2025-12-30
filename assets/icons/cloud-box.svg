@@ -1,0 +1,17 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+>
+  <path
+    fill="color-mix(in oklab, currentColor 5%, transparent)"
+    d="m2 17.851 3.318 1.916 3.244-1.873L12 19.767l3.244-1.873 3.439 1.873L22 17.851v-3.773l-3.317-1.916V8.174l-6.825-3.941-6.54 3.777v4.152L2 14.078z"
+  />
+  <path
+    stroke="color-mix(in oklab, currentColor 50%, transparent)"
+    d="m6.757 15.189-1.65.953v1.49m8.446-2.443-1.65.953v1.49m8.447-2.443-1.651.953v1.49m-3.204-7.392L12 12.258v1.49"
+  />
+</svg>
