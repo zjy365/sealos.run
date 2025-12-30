@@ -1,9 +1,10 @@
 'use client';
 
 import Image from 'next/image';
+import { FramedCalendarIcon, FramedClockIcon, EyeIcon, PersonIcon, SearchIcon, XIcon } from '@/assets/icons';
 import { formatDate } from '@/libs/blog/date-utils';
 import type { BlogCategory, BlogPost } from '@/libs/blog/types';
-import { CalendarIcon, ClockIcon, EyeIcon, PersonIcon, SearchIcon, XIcon } from '@/libs/components/ui/sealos-icons';
+import { Icon } from '@/libs/components/ui/icon';
 import { useTranslations } from '@/libs/i18n/client';
 import { Link } from '@/libs/i18n/navigation';
 import { cn } from '@/libs/utils/styling';
@@ -36,7 +37,10 @@ function SearchBox({
 				className='flex size-10 items-center justify-center rounded-full border'
 				type='button'
 			>
-				<SearchIcon className='text-brand size-5' />
+				<Icon
+					src={SearchIcon}
+					className='text-brand size-5'
+				/>
 			</button>
 		);
 	}
@@ -55,7 +59,10 @@ function SearchBox({
 				className='flex size-10 items-center justify-center rounded-full'
 				type='button'
 			>
-				<XIcon className='text-brand size-5' />
+				<Icon
+					src={XIcon}
+					className='text-brand size-5'
+				/>
 			</button>
 		</div>
 	);
@@ -121,7 +128,10 @@ function PostList({
 	if (posts.length === 0) {
 		return (
 			<div className='py-16 text-center'>
-				<SearchIcon className='text-muted-foreground mx-auto mb-4 size-16 opacity-50' />
+				<Icon
+					src={SearchIcon}
+					className='text-muted-foreground mx-auto mb-4 size-16 opacity-50'
+				/>
 				<p className='text-muted-foreground text-lg'>
 					{isSearching ? t('noResultsFound', { query: searchQuery }) : t('noPostsInCategory')}
 				</p>
@@ -145,7 +155,7 @@ function PostList({
 								<p className='text-muted-foreground line-clamp-2 text-base'>{post.description}</p>
 							</div>
 
-							<div className='relative aspect-[5/3] overflow-hidden border-zinc-200'>
+							<div className='relative aspect-5/3 overflow-hidden border-zinc-200'>
 								<Image
 									src={post.thumbnail || '/sealos.svg'}
 									alt={post.title}
@@ -156,19 +166,31 @@ function PostList({
 
 							<div className='text-muted-foreground flex flex-wrap items-center gap-x-4 gap-y-2 px-6 pt-4 pb-2 text-sm'>
 								<div className='flex items-center gap-1.5'>
-									<PersonIcon className='text-brand size-4' />
+									<Icon
+										src={PersonIcon}
+										className='text-brand size-4'
+									/>
 									<span>{post.author}</span>
 								</div>
 								<div className='flex items-center gap-1.5'>
-									<CalendarIcon className='text-brand size-4' />
+									<Icon
+										src={FramedCalendarIcon}
+										className='text-brand size-4'
+									/>
 									<span>{formatDate(post.date, locale)}</span>
 								</div>
 								<div className='flex items-center gap-1.5'>
-									<ClockIcon className='text-brand size-4' />
+									<Icon
+										src={FramedClockIcon}
+										className='text-brand size-4'
+									/>
 									<span>{t('readingTime', { minutes: post.readingTime })}</span>
 								</div>
 								<div className='flex items-center gap-1.5'>
-									<EyeIcon className='text-brand size-4' />
+									<Icon
+										src={EyeIcon}
+										className='text-brand size-4'
+									/>
 									<span>{t('views', { views: post.views })}</span>
 								</div>
 							</div>

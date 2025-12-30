@@ -2,13 +2,14 @@ import type { MDXComponents } from 'mdx/types';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import type React from 'react';
-import DefaultBlogCoverImage from '@/assets/default-blog-cover.svg';
+import { DefaultBlogCoverImage } from '@/assets';
+import { FramedCalendarIcon, FramedClockIcon, EyeIcon, PersonIcon } from '@/assets/icons';
 import { formatDate } from '@/libs/blog/date-utils';
 import { blog } from '@/libs/blog/source';
 import type { BlogPost } from '@/libs/blog/types';
 import { BlogSidebar } from '@/libs/components/blog/BlogSidebar';
 import { TableOfContents } from '@/libs/components/blog/TableOfContents';
-import { CalendarIcon, ClockIcon, EyeIcon, PersonIcon } from '@/libs/components/ui/sealos-icons';
+import { Icon } from '@/libs/components/ui/icon';
 import { getTranslations } from '@/libs/i18n/server';
 import { getMDXComponents } from '@/mdx-components';
 
@@ -103,19 +104,28 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 							<div className='text-foreground flex flex-wrap items-center gap-4 text-sm'>
 								{!!author && (
 									<div className='flex items-center gap-1'>
-										<PersonIcon className='text-brand size-5' />
+										<Icon
+											src={PersonIcon}
+											className='text-brand size-5'
+										/>
 										<span>{author}</span>
 									</div>
 								)}
 								{!!date && (
 									<div className='flex items-center gap-1'>
-										<CalendarIcon className='text-brand size-5' />
+										<Icon
+											src={FramedCalendarIcon}
+											className='text-brand size-5'
+										/>
 										<span>{formatDate(date, locale)}</span>
 									</div>
 								)}
 								{!!readingTime && (
 									<div className='flex items-center gap-1'>
-										<ClockIcon className='text-brand size-5' />
+										<Icon
+											src={FramedClockIcon}
+											className='text-brand size-5'
+										/>
 										<span>
 											{t('pages.blog.post.readingTime', {
 												minutes: readingTime,
@@ -125,7 +135,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 								)}
 								{!!views && (
 									<div className='flex items-center gap-1'>
-										<EyeIcon className='text-brand size-5' />
+										<Icon
+											src={EyeIcon}
+											className='text-brand size-5'
+										/>
 										<span>{t('pages.blog.post.views', { views })}</span>
 									</div>
 								)}

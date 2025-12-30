@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import { FramedCalendarIcon, EyeIcon } from '@/assets/icons';
 import { formatDate } from '@/libs/blog/date-utils';
 import { getHotPosts } from '@/libs/blog/utils';
+import { Icon } from '@/libs/components/ui/icon';
 import { Card } from '@/libs/components/ui/card';
-import { CalendarIcon, EyeIcon } from '@/libs/components/ui/sealos-icons';
 import { Link } from '@/libs/i18n/navigation';
 import { getTranslations } from '@/libs/i18n/server';
 
@@ -34,11 +35,17 @@ export default async function HotPostsSection({ locale }: { locale: string }) {
 								<h3 className='mb-2 line-clamp-2 flex-1 font-medium'>{post.title}</h3>
 								<div className='text-muted-foreground flex items-center gap-4 text-sm'>
 									<div className='flex items-center gap-1'>
-										<CalendarIcon className='text-brand size-4' />
+										<Icon
+											src={FramedCalendarIcon}
+											className='text-brand size-4'
+										/>
 										<span>{formatDate(post.date, locale)}</span>
 									</div>
 									<div className='flex items-center gap-1'>
-										<EyeIcon className='text-brand size-4' />
+										<Icon
+											src={EyeIcon}
+											className='text-brand size-4'
+										/>
 										<span>{t('views', { views: post.views })}</span>
 									</div>
 								</div>

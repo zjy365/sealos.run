@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import BlogHeaderImage from '@/assets/blog-header.svg';
+import { BlogHeaderImage } from '@/assets';
 
 export default async function BlogLayout({ children }: { children: React.ReactNode }) {
 	return (

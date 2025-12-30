@@ -1,10 +1,11 @@
 import { MessagesSquare } from 'lucide-react';
+import BigRightArrow from '@/assets/big-right-arrow.svg';
 import { Button } from '@/libs/components/ui/button';
 import { Config } from '@/libs/config';
+import { Icon } from '@/libs/components/ui/icon';
 import { Link } from '@/libs/i18n/navigation';
 import { getTranslations } from '@/libs/i18n/server';
 import { Logo } from './Logo';
-import { BigRightArrow } from './ui/sealos-icons';
 
 export async function Navbar() {
 	const t = await getTranslations();
@@ -57,7 +58,10 @@ export async function Navbar() {
 							<span className='absolute transition-opacity group-hover:pointer-events-none group-hover:opacity-0'>
 								{t('components.navbar.buttons.signin')}
 							</span>
-							<BigRightArrow className='text-primary-foreground pointer-events-none absolute size-auto h-[18px] w-16 opacity-0 transition-opacity group-hover:opacity-100' />
+							<Icon
+								src={BigRightArrow}
+								className='text-primary-foreground pointer-events-none absolute size-auto h-[18px] w-16 opacity-0 transition-opacity group-hover:opacity-100'
+							/>
 						</a>
 					</Button>
 				</div>

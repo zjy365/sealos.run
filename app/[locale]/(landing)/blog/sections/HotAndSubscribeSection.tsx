@@ -1,7 +1,8 @@
+import { BoxIcon, FireIcon } from '@/assets/icons';
 import { getAllPosts } from '@/libs/blog/utils';
 import LandingOutlineButton from '@/libs/components/LandingOutlineButton';
+import { Icon } from '@/libs/components/ui/icon';
 import { Input } from '@/libs/components/ui/input';
-import { BoxIcon, HotIcon } from '@/libs/components/ui/sealos-icons';
 import { Link } from '@/libs/i18n/navigation';
 import { getTranslations } from '@/libs/i18n/server';
 
@@ -14,7 +15,10 @@ export default async function HotAndSubscribeSection({ locale }: { locale: strin
 			<div className='flex items-start'>
 				<div className='w-[60%]'>
 					<div className='mb-8 flex items-center gap-2'>
-						<HotIcon className='text-brand size-11' />
+						<Icon
+							src={FireIcon}
+							className='text-brand size-11'
+						/>
 						<h2 className='text-3xl font-semibold'>{t('hotUpdatesTitle')}</h2>
 					</div>
 					<ul className='space-y-3'>
@@ -33,7 +37,10 @@ export default async function HotAndSubscribeSection({ locale }: { locale: strin
 
 				<div className='w-[100%]'>
 					<div className='mb-8 flex items-center gap-2'>
-						<BoxIcon className='text-brand size-11' />
+						<Icon
+							src={BoxIcon}
+							className='text-brand size-11'
+						/>
 						<h2 className='text-3xl font-semibold'>{t('newsletterTitle')}</h2>
 					</div>
 					<p className='text-muted-foreground mb-5 text-lg'>{t('newsletterDescription')}</p>

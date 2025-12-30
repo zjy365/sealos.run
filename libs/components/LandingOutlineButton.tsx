@@ -1,6 +1,7 @@
+import { FlatArrowRightIcon } from '@/assets/icons';
 import { Link } from '../i18n/navigation';
+import { Icon } from './ui/icon';
 import { Button } from './ui/button';
-import { RightArrow } from './ui/sealos-icons';
 
 export default function LandingOutlineButton({ children, href }: { children: React.ReactNode; href: string }) {
 	return (
@@ -12,7 +13,10 @@ export default function LandingOutlineButton({ children, href }: { children: Rea
 			<Link href={href}>
 				<span>{children}</span>
 				<div className='bg-foreground text-background flex aspect-square h-10 w-10 items-center justify-center rounded-full'>
-					<RightArrow className='size-6' />
+					<Icon
+						src={FlatArrowRightIcon}
+						className='size-6'
+					/>
 				</div>
 			</Link>
 		</Button>
