@@ -1,11 +1,12 @@
 import { MessagesSquare } from 'lucide-react';
-import BigRightArrow from '@/assets/big-right-arrow.svg';
+import { BigRightArrowImage } from '@/assets';
 import { Button } from '@/libs/components/ui/button';
-import { Config } from '@/libs/config';
 import { Icon } from '@/libs/components/ui/icon';
+import { Config } from '@/libs/config';
 import { Link } from '@/libs/i18n/navigation';
 import { getTranslations } from '@/libs/i18n/server';
 import { Logo } from './Logo';
+import { NavPanel } from './NavPanel';
 
 export async function Navbar() {
 	const t = await getTranslations();
@@ -22,16 +23,22 @@ export async function Navbar() {
 				</Link>
 
 				{/* Links */}
-				<nav className='mx-auto hidden gap-12 md:flex'>
-					{Config.components.navbar.links.map((item) => (
-						<Link
-							key={item.href}
-							href={item.href}
-							className='hover:text-foreground text-sidebar-foreground text-sm transition-colors'
-						>
-							{t(item.textI18nKey)}
-						</Link>
-					))}
+				<nav className='mx-auto hidden items-center gap-12 md:flex'>
+					{Config.components.navbar.links.map((item) => {
+						// 如果是产品链接，使用 NavPanel
+						if (item.href === '/products') {
+							return <NavPanel key={item.href} />;
+						}
+						return (
+							<Link
+								key={item.href}
+								href={item.href}
+								className='hover:text-foreground text-sidebar-foreground text-sm transition-colors'
+							>
+								{t(item.textI18nKey)}
+							</Link>
+						);
+					})}
 				</nav>
 
 				{/* Actions */}
@@ -59,8 +66,8 @@ export async function Navbar() {
 								{t('components.navbar.buttons.signin')}
 							</span>
 							<Icon
-								src={BigRightArrow}
-								className='text-primary-foreground pointer-events-none absolute size-auto h-[18px] w-16 opacity-0 transition-opacity group-hover:opacity-100'
+								src={BigRightArrowImage}
+								className='text-primary-foreground pointer-events-none absolute size-auto h-4.5 w-16 opacity-0 transition-opacity group-hover:opacity-100'
 							/>
 						</a>
 					</Button>
