@@ -1,7 +1,7 @@
 import { Config } from '@/libs/config';
 import { getTranslations } from '@/libs/i18n/server';
-import { SharePostsView } from './SharePostsView';
-import type { ShareButtonConfig } from './useSharePosts';
+import { SharePostsView } from '../components/SharePostsView';
+import type { ShareButtonConfig } from '../utils/useSharePosts';
 
 interface SharePostsSectionProps {
 	locale: string;

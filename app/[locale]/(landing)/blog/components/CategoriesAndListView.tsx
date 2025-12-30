@@ -1,14 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import { FramedCalendarIcon, FramedClockIcon, EyeIcon, PersonIcon, SearchIcon, XIcon } from '@/assets/icons';
+import { EyeIcon, FramedCalendarIcon, FramedClockIcon, PersonIcon, SearchIcon, XIcon } from '@/assets/icons';
 import { formatDate } from '@/libs/blog/date-utils';
 import type { BlogCategory, BlogPost } from '@/libs/blog/types';
 import { Icon } from '@/libs/components/ui/icon';
 import { useTranslations } from '@/libs/i18n/client';
 import { Link } from '@/libs/i18n/navigation';
 import { cn } from '@/libs/utils/styling';
-import { useCategoriesAndList } from './useCategoriesAndList';
+import { useCategoriesAndList } from '../utils/useCategoriesAndList';
 
 interface CategoriesAndListViewProps {
 	initialCategories: BlogCategory[];

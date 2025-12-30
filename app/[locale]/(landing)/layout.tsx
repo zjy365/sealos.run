@@ -1,8 +1,8 @@
 import Image from 'next/image';
+import { FooterHexagonalPattern } from '@/assets';
 import { Footer } from '@/libs/components/Footer';
 import { Navbar } from '@/libs/components/Navbar';
 import { Config } from '@/libs/config';
-import FooterHexagonalPattern from './assets/footer-hexagonal-pattern.svg';
 
 export default async function LandingLayout({ children }: { children: React.ReactNode }) {
 	return (

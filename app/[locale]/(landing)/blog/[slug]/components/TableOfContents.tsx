@@ -3,10 +3,10 @@
 import React from 'react';
 import { useTranslations } from '@/libs/i18n/client';
 import { cn } from '@/libs/utils/styling';
+import { useTocHeadings } from '../utils/useTocHeadings';
+import { useTocSvg } from '../utils/useTocSvg';
 import TocBackgroundSVG from './TocBackgroundSVG';
 import TocHighlightSVG from './TocHighlightSVG';
-import { useTocHeadings } from './useTocHeadings';
-import { useTocSvg } from './useTocSvg';
 
 export function TableOfContents() {
 	const t = useTranslations('pages.blog.tableOfContents');

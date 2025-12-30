@@ -3,15 +3,15 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import type React from 'react';
 import { DefaultBlogCoverImage } from '@/assets';
-import { FramedCalendarIcon, FramedClockIcon, EyeIcon, PersonIcon } from '@/assets/icons';
+import { EyeIcon, FramedCalendarIcon, FramedClockIcon, PersonIcon } from '@/assets/icons';
 import { formatDate } from '@/libs/blog/date-utils';
 import { blog } from '@/libs/blog/source';
 import type { BlogPost } from '@/libs/blog/types';
-import { BlogSidebar } from '@/libs/components/blog/BlogSidebar';
-import { TableOfContents } from '@/libs/components/blog/TableOfContents';
 import { Icon } from '@/libs/components/ui/icon';
 import { getTranslations } from '@/libs/i18n/server';
 import { getMDXComponents } from '@/mdx-components';
+import { BlogSidebar } from './components/BlogSidebar';
+import { TableOfContents } from './components/TableOfContents';
 
 export async function generateStaticParams() {
 	const posts = blog.getPages();

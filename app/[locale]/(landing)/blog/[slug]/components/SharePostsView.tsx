@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from '@/libs/i18n/client';
-import { type ShareButtonConfig, useSharePosts } from './useSharePosts';
+import { type ShareButtonConfig, useSharePosts } from '../utils/useSharePosts';
 
 interface SharePostsViewProps {
 	title?: string;

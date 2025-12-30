@@ -1,8 +1,8 @@
 import type { BlogPost } from '@/libs/blog/types';
 import { getTranslations } from '@/libs/i18n/server';
-import { RelatedPostsSection } from './RelatedPostsSection';
-import { RelatedResourcesSection } from './RelatedResourcesSection';
-import { SharePostsSection } from './SharePostsSection';
+import { RelatedPostsSection } from '../sections/RelatedPostsSection';
+import { RelatedResourcesSection } from '../sections/RelatedResourcesSection';
+import { SharePostsSection } from '../sections/SharePostsSection';
 
 interface BlogSidebarProps {
 	currentPost: BlogPost;

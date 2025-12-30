@@ -1,7 +1,7 @@
 import { FlatArrowRightIcon } from '@/assets/icons';
 import { Link } from '../i18n/navigation';
-import { Icon } from './ui/icon';
 import { Button } from './ui/button';
+import { Icon } from './ui/icon';
 
 export default function LandingOutlineButton({ children, href }: { children: React.ReactNode; href: string }) {
 	return (

@@ -1,5 +1,5 @@
 import { getAllCategories, getAllPosts } from '@/libs/blog/utils';
-import CategoriesAndListView from './CategoriesAndListView';
+import CategoriesAndListView from '../components/CategoriesAndListView';
 
 export default function CategoriesAndListSection({ locale }: { locale: string }) {
 	const categories = getAllCategories(locale);

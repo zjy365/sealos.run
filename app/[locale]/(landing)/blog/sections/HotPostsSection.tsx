@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import { FramedCalendarIcon, EyeIcon } from '@/assets/icons';
+import { EyeIcon, FramedCalendarIcon } from '@/assets/icons';
 import { formatDate } from '@/libs/blog/date-utils';
 import { getHotPosts } from '@/libs/blog/utils';
-import { Icon } from '@/libs/components/ui/icon';
 import { Card } from '@/libs/components/ui/card';
+import { Icon } from '@/libs/components/ui/icon';
 import { Link } from '@/libs/i18n/navigation';
 import { getTranslations } from '@/libs/i18n/server';
 
