@@ -1,7 +1,7 @@
 import 'server-only';
 import { Copy } from 'lucide-react';
 import { siDiscord, siGithub, siQq, siRss, siSinaweibo, siWechat, siX, siYoutube } from 'simple-icons';
-import { SimpleIcon } from './components/ui/SimpleIcon';
+import { SimpleIcon } from './components/ui/simple-icon';
 
 /**
  * Server only config file for the site.

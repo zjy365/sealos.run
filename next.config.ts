@@ -14,6 +14,18 @@ const config: NextConfig = {
 					}
 				: false,
 	},
+	turbopack: {
+		rules: {
+			'*.svg': {
+				loaders: ['turbopack-inline-svg-loader'],
+				condition: {
+					// 4KB or smaller
+					content: /^[\s\S]{0,4000}$/,
+				},
+				as: '*.js',
+			},
+		},
+	},
 	output: 'standalone',
 };
 
