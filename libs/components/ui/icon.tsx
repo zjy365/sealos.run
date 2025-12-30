@@ -19,7 +19,6 @@ export function Icon({ src, width, height, style, ...props }: IconProps) {
 			width={width ?? src.width}
 			height={height ?? src.height}
 			src={EMPTY_SVG}
-			// @ts-expect-error csstype issue
 			style={{
 				...style,
 				backgroundColor: 'currentcolor',
