@@ -107,10 +107,10 @@ export function PrivateDeploySection() {
 										variant='outline'
 										size='sm'
 									>
-										<span className='text-sm'>详情</span>
+										详情
 										<Icon
 											src={FlatArrowRightIcon}
-											className='size-5'
+											className='size-4'
 										/>
 									</Button>
 								</div>
@@ -146,7 +146,7 @@ export function PrivateDeploySection() {
 						className='pointer-events-none absolute bottom-0 left-0 right-0'
 						style={{
 							height: '70%',
-							background: 'linear-gradient(to bottom, transparent, var(--color-background))',
+							background: 'linear-gradient(to bottom, transparent, var(--color-background) 70%)',
 						}}
 					/>
 				</div>
