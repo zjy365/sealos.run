@@ -80,4 +80,3 @@ export function TocHighlightSVG({
 }
 
 export default TocHighlightSVG;
-

@@ -31,4 +31,3 @@ export async function SharePostsSection({ locale }: SharePostsSectionProps) {
 		/>
 	);
 }
-

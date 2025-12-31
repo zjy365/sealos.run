@@ -37,7 +37,7 @@ export function SecuritySection() {
 						</div>
 						<div className='relative flex w-full flex-col items-start gap-2 px-8 whitespace-pre-wrap'>
 							<h3 className='w-full text-xl font-medium'>{feature.title}</h3>
-							<p className='w-full text-sm text-muted-foreground'>{feature.description}</p>
+							<p className='text-muted-foreground w-full text-sm'>{feature.description}</p>
 						</div>
 					</div>
 					<div className='z-10 -mb-64 h-64 w-full border border-zinc-100 bg-zinc-100' />

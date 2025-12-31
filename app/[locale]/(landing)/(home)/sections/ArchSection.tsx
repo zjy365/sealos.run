@@ -211,8 +211,8 @@ const archLayers: ArchLayer[] = [
 
 function ItemBox({ children }: { children: React.ReactNode }) {
 	return (
-		<div className='flex flex-1 items-center justify-center border border-zinc-300 px-4 py-1 min-w-0'>
-			<span className='text-sidebar-foreground text-base leading-6 text-center break-all'>{children}</span>
+		<div className='flex min-w-0 flex-1 items-center justify-center border border-zinc-300 px-4 py-1'>
+			<span className='text-sidebar-foreground text-center text-base leading-6 break-all'>{children}</span>
 		</div>
 	);
 }
@@ -369,12 +369,12 @@ function renderContent(decoration: ArchLayerItem) {
 						<div
 							key={column.title}
 							className={cn(
-								'flex flex-1 flex-col items-center gap-1.5 min-w-0',
+								'flex min-w-0 flex-1 flex-col items-center gap-1.5',
 								column.border && 'relative',
 								column.className,
 							)}
 						>
-							<p className='text-base leading-6 font-medium text-center'>{column.title}</p>
+							<p className='text-center text-base leading-6 font-medium'>{column.title}</p>
 							<div className='flex w-full flex-1 flex-col items-stretch gap-2'>
 								{rows.map((row, rowIdx) => (
 									<div
@@ -458,13 +458,13 @@ export function ArchSection() {
 					的能力，远不止于此
 				</p>
 			</div>
-			<div className='flex flex-col w-full'>
+			<div className='flex w-full flex-col'>
 				{archLayers.map((layer) => (
 					<div
 						key={layer.label}
-						className='grid w-full grid-cols-[max-content_1fr] gap-0 items-center'
+						className='grid w-full grid-cols-[max-content_1fr] items-center gap-0'
 					>
-						<p className='w-20 text-xl font-medium whitespace-nowrap pr-36'>{layer.label}</p>
+						<p className='w-20 pr-36 text-xl font-medium whitespace-nowrap'>{layer.label}</p>
 						<div className={cn('w-full', layer.content.border && 'relative')}>
 							{renderContent(layer.content)}
 							{layer.content.border && <CornerBorder border={layer.content.border} />}

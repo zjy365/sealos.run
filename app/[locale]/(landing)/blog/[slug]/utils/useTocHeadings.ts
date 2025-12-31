@@ -134,4 +134,3 @@ export function useTocHeadings() {
 
 	return { toc, activeId, visibleHeadings };
 }
-

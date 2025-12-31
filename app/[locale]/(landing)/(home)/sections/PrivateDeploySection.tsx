@@ -31,7 +31,7 @@ export function PrivateDeploySection() {
 					<div className='relative z-10 flex max-w-96 flex-col items-start gap-4 border border-zinc-200 bg-zinc-50 p-8 shadow-sm'>
 						{/* Vertical dashed line connecting to image below */}
 						<svg
-							className='absolute left-1/2 top-full -translate-x-1/2'
+							className='absolute top-full left-1/2 -translate-x-1/2'
 							width='1'
 							height='192'
 							fill='none'
@@ -66,7 +66,7 @@ export function PrivateDeploySection() {
 								>
 									<Icon
 										src={CheckIcon}
-										className='size-4 shrink-0 text-brand'
+										className='text-brand size-4 shrink-0'
 									/>
 									<span className='text-muted-foreground text-sm'>{feature}</span>
 								</div>
@@ -78,7 +78,7 @@ export function PrivateDeploySection() {
 					<div className='relative top-24 -left-6 z-20 flex max-w-96 flex-col items-start gap-4 border border-zinc-200 bg-zinc-100 p-8 shadow-sm'>
 						{/* Vertical dashed line connecting to image below */}
 						<svg
-							className='absolute left-10 top-full'
+							className='absolute top-full left-10'
 							width='1'
 							height='160'
 							fill='none'
@@ -98,7 +98,7 @@ export function PrivateDeploySection() {
 						<div className='flex w-full items-start gap-3'>
 							<Icon
 								src={PrivateCloudIcon}
-								className='size-8 shrink-0 text-brand'
+								className='text-brand size-8 shrink-0'
 							/>
 							<div className='flex flex-1 flex-col items-start gap-1'>
 								<div className='flex w-full items-center justify-between'>
@@ -125,7 +125,7 @@ export function PrivateDeploySection() {
 								>
 									<Icon
 										src={CheckIcon}
-										className='size-4 shrink-0 text-brand'
+										className='text-brand size-4 shrink-0'
 									/>
 									<span className='text-muted-foreground text-sm'>{feature}</span>
 								</div>
@@ -135,7 +135,7 @@ export function PrivateDeploySection() {
 				</div>
 
 				{/* Image - below the cards */}
-				<div className='relative z-20 left-8 top-12 overflow-hidden'>
+				<div className='relative top-12 left-8 z-20 overflow-hidden'>
 					<Image
 						src={SealosPrivateDeployBoxImage}
 						alt='Sealos 私有部署架构'
@@ -143,7 +143,7 @@ export function PrivateDeploySection() {
 					/>
 					{/* Gradient mask on bottom half blending into background */}
 					<div
-						className='pointer-events-none absolute bottom-0 left-0 right-0'
+						className='pointer-events-none absolute right-0 bottom-0 left-0'
 						style={{
 							height: '70%',
 							background: 'linear-gradient(to bottom, transparent, var(--color-background) 70%)',

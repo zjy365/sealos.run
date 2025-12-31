@@ -42,16 +42,9 @@ import {
 	RocketIcon,
 } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
-import {
-	NavigationMenu,
-	NavigationMenuContent,
-	NavigationMenuItem,
-	NavigationMenuList,
-	NavigationMenuTrigger,
-} from '@/libs/components/ui/navigation-menu';
 import { cn } from '@/libs/utils/styling';
-import { Badge } from './ui/badge';
-import { Button } from './ui/button';
+import { Badge } from '../ui/badge';
+import { Button } from '../ui/button';
 
 interface NavMenuItem {
 	id: string;
@@ -754,94 +747,79 @@ function AppStoreFeatures() {
 	);
 }
 
-export function NavPanel() {
+export function ProductsPanel() {
 	const [selectedItem, setSelectedItem] = React.useState<NavMenuItem | null>(
 		navMenuItems.find((item) => item.content) || null,
 	);
 
 	return (
-		<NavigationMenu viewport={false}>
-			<NavigationMenuList>
-				<NavigationMenuItem>
-					<NavigationMenuTrigger className='data-[state=open]:bg-accent/50 h-auto px-3 py-2 text-sm font-normal'>
-						产品
-					</NavigationMenuTrigger>
-					<NavigationMenuContent className='bg-background! rounded-none! shadow-none!'>
-						<div className='bg-card flex w-200 border border-dashed border-blue-400 p-0'>
-							{/* Left Sidebar */}
-							<div className='flex w-40 flex-col gap-2 border-r border-dashed border-blue-400 px-4 py-6'>
-								{navMenuItems.map((item) => {
-									const isSelected = selectedItem?.id === item.id;
-									return (
-										<button
-											key={item.id}
-											type='button'
-											onClick={() => setSelectedItem(item)}
-											className={cn(
-												'flex items-center gap-2 rounded-md px-2 py-2 text-sm transition-colors',
-												isSelected
-													? 'text-foreground font-medium'
-													: 'text-muted-foreground hover:text-foreground',
-											)}
-										>
-											<div
-												className={cn(
-													'flex size-4 items-center justify-center',
-													isSelected ? 'text-primary' : 'text-muted-foreground',
-												)}
-											>
-												{item.icon}
-											</div>
-											<span>{item.label}</span>
-										</button>
-									);
-								})}
+		<div className='bg-card flex w-200 border border-dashed border-blue-400 p-0'>
+			{/* Left Sidebar */}
+			<div className='flex w-40 flex-col gap-2 border-r border-dashed border-blue-400 px-4 py-6'>
+				{navMenuItems.map((item) => {
+					const isSelected = selectedItem?.id === item.id;
+					return (
+						<button
+							key={item.id}
+							type='button'
+							onClick={() => setSelectedItem(item)}
+							className={cn(
+								'flex items-center gap-2 rounded-md px-2 py-2 text-sm transition-colors',
+								isSelected
+									? 'text-foreground font-medium'
+									: 'text-muted-foreground hover:text-foreground',
+							)}
+						>
+							<div
+								className={cn(
+									'flex size-4 items-center justify-center',
+									isSelected ? 'text-primary' : 'text-muted-foreground',
+								)}
+							>
+								{item.icon}
 							</div>
+							<span>{item.label}</span>
+						</button>
+					);
+				})}
+			</div>
 
-							{/* Right Content */}
-							{selectedItem?.content && (
-								<div className='flex flex-1 flex-col'>
-									{/* Header */}
-									<div className='flex items-center justify-between px-8 pt-10 pb-5'>
-										<div className='flex items-center gap-4'>
-											{selectedItem.largeImage && (
-												<div className='flex size-12 shrink-0 items-center justify-center'>
-													{selectedItem.largeImage}
-												</div>
-											)}
-											<div className='flex flex-col gap-1'>
-												<h3 className='text-foreground text-base font-normal'>
-													{selectedItem.content.title}
-												</h3>
-												<p className='text-muted-foreground text-xs'>
-													{selectedItem.content.description}
-												</p>
-											</div>
-										</div>
-										{selectedItem.content.detailHref && (
-											<Button
-												asChild
-												variant='outline'
-											>
-												<a href={selectedItem.content.detailHref}>
-													<span>详情</span>
-													<Icon
-														src={FlatArrowRightIcon}
-														className='size-5 stroke-2'
-													/>
-												</a>
-											</Button>
-										)}
-									</div>
-
-									{/* Features Content */}
-									{selectedItem.content.features}
+			{/* Right Content */}
+			{selectedItem?.content && (
+				<div className='flex flex-1 flex-col'>
+					{/* Header */}
+					<div className='flex items-center justify-between px-8 pt-10 pb-5'>
+						<div className='flex items-center gap-4'>
+							{selectedItem.largeImage && (
+								<div className='flex size-12 shrink-0 items-center justify-center'>
+									{selectedItem.largeImage}
 								</div>
 							)}
+							<div className='flex flex-col gap-1'>
+								<h3 className='text-foreground text-base font-normal'>{selectedItem.content.title}</h3>
+								<p className='text-muted-foreground text-xs'>{selectedItem.content.description}</p>
+							</div>
 						</div>
-					</NavigationMenuContent>
-				</NavigationMenuItem>
-			</NavigationMenuList>
-		</NavigationMenu>
+						{selectedItem.content.detailHref && (
+							<Button
+								asChild
+								variant='outline'
+							>
+								<a href={selectedItem.content.detailHref}>
+									<span>详情</span>
+									<Icon
+										src={FlatArrowRightIcon}
+										className='size-5 stroke-2'
+									/>
+								</a>
+							</Button>
+						)}
+					</div>
+
+					{/* Features Content */}
+					{selectedItem.content.features}
+				</div>
+			)}
+		</div>
 	);
 }

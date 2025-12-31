@@ -5,8 +5,8 @@ import { Icon } from '@/libs/components/ui/icon';
 import { Config } from '@/libs/config';
 import { Link } from '@/libs/i18n/navigation';
 import { getTranslations } from '@/libs/i18n/server';
-import { Logo } from './Logo';
-import { NavPanel } from './NavPanel';
+import { Logo } from '../Logo';
+import { NavbarClient } from './NavbarClient';
 
 export async function Navbar() {
 	const t = await getTranslations();
@@ -24,21 +24,7 @@ export async function Navbar() {
 
 				{/* Links */}
 				<nav className='mx-auto hidden items-center gap-12 md:flex'>
-					{Config.components.navbar.links.map((item) => {
-						// 如果是产品链接，使用 NavPanel
-						if (item.href === '/products') {
-							return <NavPanel key={item.href} />;
-						}
-						return (
-							<Link
-								key={item.href}
-								href={item.href}
-								className='hover:text-foreground text-sidebar-foreground text-sm transition-colors'
-							>
-								{t(item.textI18nKey)}
-							</Link>
-						);
-					})}
+					<NavbarClient links={Config.components.navbar.links} />
 				</nav>
 
 				{/* Actions */}

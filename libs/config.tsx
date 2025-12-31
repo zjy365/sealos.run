@@ -1,6 +1,8 @@
 import 'server-only';
 import { Copy } from 'lucide-react';
+import type React from 'react';
 import { siDiscord, siGithub, siQq, siRss, siSinaweibo, siWechat, siX, siYoutube } from 'simple-icons';
+import { ProductsPanel } from './components/Navbar/ProductsPanel';
 import { SimpleIcon } from './components/ui/simple-icon';
 
 /**
@@ -26,6 +28,7 @@ export const Config = (() => {
 					{
 						textI18nKey: t('components.navbar.links.products'),
 						href: '/products',
+						panel: <ProductsPanel />,
 					},
 					{
 						textI18nKey: t('components.navbar.links.solutions'),
@@ -47,7 +50,11 @@ export const Config = (() => {
 						textI18nKey: t('components.navbar.links.about-us'),
 						href: '/about-us',
 					},
-				],
+				] as Array<{
+					textI18nKey: string;
+					href: string;
+					panel?: React.ReactNode;
+				}>,
 			},
 			footer: {
 				titleI18nKey: t('components.footer.title'),

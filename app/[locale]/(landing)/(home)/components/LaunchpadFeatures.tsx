@@ -49,7 +49,7 @@ const features: Array<{
 		icon: (
 			<Icon
 				src={MonitorIcon}
-				className='size-4 text-brand'
+				className='text-brand size-4'
 			/>
 		),
 		title: '公网测试',
@@ -59,7 +59,7 @@ const features: Array<{
 		icon: (
 			<Icon
 				src={ScaleIcon}
-				className='size-4 text-brand'
+				className='text-brand size-4'
 			/>
 		),
 		title: '弹性伸缩',
@@ -69,7 +69,7 @@ const features: Array<{
 		icon: (
 			<Icon
 				src={IsolateIcon}
-				className='size-4 text-brand'
+				className='text-brand size-4'
 			/>
 		),
 		title: '资源隔离',
@@ -125,7 +125,7 @@ export function LaunchpadFeatures() {
 			<div className='flex w-full items-center justify-between'>
 				<div className='flex flex-col gap-4'>
 					<h2 className='text-3xl font-semibold'>企业级智能云平台</h2>
-					<p className='text-base text-muted-foreground'>
+					<p className='text-muted-foreground text-base'>
 						集应用管理、云开发、数据服务、AI
 						模型四大核心能力，提供开发到运维的全链路解决方案，让应用构建、部署和管理变得更简单。
 					</p>
@@ -140,7 +140,7 @@ export function LaunchpadFeatures() {
 				<div className='flex flex-1 flex-col gap-6'>
 					<div className='flex flex-col gap-2'>
 						<div className='flex items-center gap-3'>
-							<span className='text-base text-muted-foreground'>应用管理</span>
+							<span className='text-muted-foreground text-base'>应用管理</span>
 							<Button
 								variant='outline'
 								size='sm'
@@ -159,7 +159,7 @@ export function LaunchpadFeatures() {
 					</div>
 
 					<div className='flex w-full items-start gap-8'>
-						<div className='flex flex-col gap-8 pt-8 w-1/3'>
+						<div className='flex w-1/3 flex-col gap-8 pt-8'>
 							{features.map((feature) => (
 								<div
 									key={feature.title}
@@ -174,7 +174,7 @@ export function LaunchpadFeatures() {
 							))}
 						</div>
 
-						<div className='min-w-96 flex-1 flex flex-col items-center gap-1.5'>
+						<div className='flex min-w-96 flex-1 flex-col items-center gap-1.5'>
 							{engineFeatures.map((feature, idx) => {
 								if (feature.type === 'arrow') {
 									const hasTitle = !!feature.title;
@@ -183,12 +183,12 @@ export function LaunchpadFeatures() {
 										<div
 											// biome-ignore lint/suspicious/noArrayIndexKey: static content
 											key={idx}
-											className='flex flex-col items-center gap-0.5 w-full'
+											className='flex w-full flex-col items-center gap-0.5'
 										>
 											{hasTitle ? (
-												<div className='relative flex items-center justify-center w-full h-8'>
+												<div className='relative flex h-8 w-full items-center justify-center'>
 													<div
-														className='absolute inset-0 flex items-center justify-center text-brand'
+														className='text-brand absolute inset-0 flex items-center justify-center'
 														style={{
 															clipPath:
 																'polygon(0 0, 100% 0, 100% calc(50% - 0.5rem), 0 calc(50% - 0.75rem), 0 calc(50% + 0.75rem), 100% calc(50% + 0.5rem), 100% 100%, 0 100%)',
@@ -200,14 +200,14 @@ export function LaunchpadFeatures() {
 														/>
 													</div>
 													<div className='relative z-10 flex items-center justify-center'>
-														<p className='text-xs text-center whitespace-nowrap px-1.5'>
+														<p className='px-1.5 text-center text-xs whitespace-nowrap'>
 															{feature.title}
 														</p>
 													</div>
 												</div>
 											) : (
-												<div className='flex h-4 items-center justify-center w-0'>
-													<div className='flex-none text-brand'>
+												<div className='flex h-4 w-0 items-center justify-center'>
+													<div className='text-brand flex-none'>
 														<ArrowIcon size={16} />
 													</div>
 												</div>
@@ -233,10 +233,10 @@ export function LaunchpadFeatures() {
 										<div
 											// biome-ignore lint/suspicious/noArrayIndexKey: static content
 											key={idx}
-											className='flex flex-col items-center gap-2 rounded border border-dashed border-zinc-400 p-2 w-full'
+											className='flex w-full flex-col items-center gap-2 rounded border border-dashed border-zinc-400 p-2'
 										>
 											<span className='text-xs'>{feature.title}</span>
-											<div className='flex flex-col gap-1.5 w-full'>
+											<div className='flex w-full flex-col gap-1.5'>
 												{rows.map((row, rowIdx) => (
 													<div
 														// biome-ignore lint/suspicious/noArrayIndexKey: static content
