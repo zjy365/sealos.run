@@ -218,8 +218,8 @@ function ItemBox({ children }: { children: React.ReactNode }) {
 }
 
 function CornerBorder({ border, className }: { border: BorderConfig; className?: string }) {
-	const horizontalLength = 'min(60px, 40%)'; // Fixed horizontal line length in pixels
-	const verticalLength = 'min(40px, 40%)'; // Fixed vertical line length in pixels
+	const horizontalLength = 'min(40px, 8%)'; // Fixed horizontal line length in pixels
+	const verticalLength = 'min(24px, 30%)'; // Fixed vertical line length in pixels
 	const strokeWidth = 1.5;
 	const strokeColor = 'var(--color-brand)';
 	const dashArray = '4 4';
