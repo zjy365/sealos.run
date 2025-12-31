@@ -226,7 +226,7 @@ function CornerBorder({ border, className }: { border: BorderConfig; className?:
 
 	return (
 		<svg
-			className={cn('pointer-events-none absolute inset-0 size-full z-50', className)}
+			className={cn('pointer-events-none absolute inset-0 size-full', className)}
 			preserveAspectRatio='none'
 			aria-hidden='true'
 		>
