@@ -1,4 +1,6 @@
+export { default as AlibabaCloudIcon } from './alibaba-cloud.svg';
 export { default as GolangIcon } from './golang.svg';
+export { default as GoogleCloudIcon } from './google-cloud.svg';
 export { default as JavaIcon } from './java.svg';
 export { default as KafkaIcon } from './kafka.svg';
 export { default as MilvusIcon } from './milvus.svg';
@@ -10,3 +12,5 @@ export { default as PostgresIcon } from './postgres.svg';
 export { default as PythonIcon } from './python.svg';
 export { default as RedisIcon } from './redis.svg';
 export { default as RustIcon } from './rust.svg';
+export { default as TencentCloudIcon } from './tencent-cloud.svg';
+export { default as VolcanoEngineIcon } from './volcano-engine.svg';

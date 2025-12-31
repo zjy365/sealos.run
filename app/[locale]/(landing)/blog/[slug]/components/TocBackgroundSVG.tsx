@@ -31,3 +31,4 @@ export function TocBackgroundSVG({ path, width, height }: BackgroundSvgProps) {
 }
 
 export default TocBackgroundSVG;
+

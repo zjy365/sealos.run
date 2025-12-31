@@ -268,3 +268,4 @@ export default function CategoriesAndListView({ initialCategories, initialPosts,
 		</section>
 	);
 }
+

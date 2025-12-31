@@ -32,3 +32,4 @@ export function RelatedResourcesSection({ title, description, resources }: Relat
 		</section>
 	);
 }
+

@@ -91,3 +91,4 @@ export function RelatedPostsSection({ currentPost, locale, limit = 5, title }: R
 		</section>
 	);
 }
+

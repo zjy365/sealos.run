@@ -268,8 +268,8 @@ function LaunchpadFeatures() {
 					>
 						<div className='text-primary size-6 shrink-0'>{feature.icon}</div>
 						<div className='flex flex-1 flex-col gap-1'>
-							<h4 className='text-foreground text-sm leading-5 font-normal'>{feature.title}</h4>
-							<p className='text-muted-foreground text-xs leading-4'>{feature.description}</p>
+							<h4 className='text-foreground text-sm font-normal'>{feature.title}</h4>
+							<p className='text-muted-foreground text-xs'>{feature.description}</p>
 						</div>
 					</div>
 				))}
@@ -283,60 +283,60 @@ function DatabaseFeatures() {
 		{
 			name: 'PostgreSQL',
 			icon: (
-				<Image
+				<Icon
 					src={PostgresIcon}
-					alt='PostgreSQL'
 					className='size-8'
+					colorful
 				/>
 			),
 		},
 		{
 			name: 'MongoDB',
 			icon: (
-				<Image
+				<Icon
 					src={MongodbIcon}
-					alt='MongoDB'
 					className='size-8'
+					colorful
 				/>
 			),
 		},
 		{
 			name: 'MySQL',
 			icon: (
-				<Image
+				<Icon
 					src={MysqlIcon}
-					alt='MySQL'
 					className='size-8'
+					colorful
 				/>
 			),
 		},
 		{
 			name: 'Redis',
 			icon: (
-				<Image
+				<Icon
 					src={RedisIcon}
-					alt='Redis'
 					className='size-8'
+					colorful
 				/>
 			),
 		},
 		{
 			name: 'Kafka',
 			icon: (
-				<Image
+				<Icon
 					src={KafkaIcon}
-					alt='Kafka'
 					className='size-8'
+					colorful
 				/>
 			),
 		},
 		{
 			name: 'Milvus',
 			icon: (
-				<Image
+				<Icon
 					src={MilvusIcon}
-					alt='Milvus'
 					className='size-8'
+					colorful
 				/>
 			),
 		},
@@ -351,7 +351,7 @@ function DatabaseFeatures() {
 						className='border-border flex flex-1 flex-col items-start gap-2 border p-5'
 					>
 						<div className='flex size-8 items-center justify-center'>{db.icon}</div>
-						<p className='text-foreground text-xs leading-4'>{db.name}</p>
+						<p className='text-foreground text-xs'>{db.name}</p>
 					</div>
 				))}
 			</div>
@@ -403,8 +403,8 @@ function OSSFeatures() {
 					>
 						<div className='text-primary size-6 shrink-0'>{type.icon}</div>
 						<div className='flex flex-1 flex-col gap-1'>
-							<h4 className='text-foreground text-sm leading-5 font-normal'>{type.title}</h4>
-							<p className='text-muted-foreground text-xs leading-4'>{type.description}</p>
+							<h4 className='text-foreground text-sm font-normal'>{type.title}</h4>
+							<p className='text-muted-foreground text-xs'>{type.description}</p>
 						</div>
 					</div>
 				))}
@@ -418,50 +418,50 @@ function DevBoxFeatures() {
 		{
 			name: 'Java',
 			icon: (
-				<Image
+				<Icon
 					src={JavaIcon}
-					alt='Java'
 					className='size-6'
+					colorful
 				/>
 			),
 		},
 		{
 			name: 'Python',
 			icon: (
-				<Image
+				<Icon
 					src={PythonIcon}
-					alt='Python'
 					className='size-6'
+					colorful
 				/>
 			),
 		},
 		{
 			name: 'Node.js',
 			icon: (
-				<Image
+				<Icon
 					src={NodejsIcon}
-					alt='Node.js'
 					className='size-6'
+					colorful
 				/>
 			),
 		},
 		{
 			name: 'Go',
 			icon: (
-				<Image
+				<Icon
 					src={GolangIcon}
-					alt='Go'
 					className='size-6'
+					colorful
 				/>
 			),
 		},
 		{
 			name: 'Rust',
 			icon: (
-				<Image
+				<Icon
 					src={RustIcon}
-					alt='Rust'
 					className='size-6'
+					colorful
 				/>
 			),
 		},
@@ -469,10 +469,10 @@ function DevBoxFeatures() {
 		{
 			name: 'PHP',
 			icon: (
-				<Image
+				<Icon
 					src={PhpIcon}
-					alt='PHP'
 					className='size-6'
+					colorful
 				/>
 			),
 		},
@@ -501,7 +501,7 @@ function DevBoxFeatures() {
 						) : (
 							<div className='size-6' />
 						)}
-						<p className='text-foreground text-xs leading-4'>{lang.name}</p>
+						<p className='text-foreground text-xs'>{lang.name}</p>
 					</div>
 				))}
 			</div>
@@ -594,7 +594,7 @@ function AIProxyFeatures() {
 							key={model.name}
 							className='flex items-center gap-3'
 						>
-							<p className='text-foreground text-xs leading-4 whitespace-nowrap'>{model.name}</p>
+							<p className='text-foreground text-xs whitespace-nowrap'>{model.name}</p>
 							<div className='flex flex-wrap gap-2'>
 								{model.tags.map((tag, tagIndex) => (
 									<Badge
@@ -745,7 +745,7 @@ function AppStoreFeatures() {
 							className='border-border flex items-center gap-2 border px-3 py-4'
 						>
 							<div className='size-6' />
-							<p className='text-foreground text-xs leading-4'>{app.name}</p>
+							<p className='text-foreground text-xs'>{app.name}</p>
 						</div>
 					))}
 				</div>
@@ -810,10 +810,10 @@ export function NavPanel() {
 												</div>
 											)}
 											<div className='flex flex-col gap-1'>
-												<h3 className='text-foreground text-base leading-6 font-normal'>
+												<h3 className='text-foreground text-base font-normal'>
 													{selectedItem.content.title}
 												</h3>
-												<p className='text-muted-foreground text-xs leading-4'>
+												<p className='text-muted-foreground text-xs'>
 													{selectedItem.content.description}
 												</p>
 											</div>

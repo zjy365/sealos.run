@@ -6,12 +6,26 @@ import type { StaticImageData } from 'next/image';
 import type React from 'react';
 
 type IconProps = Omit<React.ComponentProps<'img'>, 'src'> & {
+	colorful?: boolean;
 	src: StaticImageData;
 };
 
 const EMPTY_SVG = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E`;
 
-export function Icon({ src, width, height, style, ...props }: IconProps) {
+export function Icon({ src, width, height, style, colorful = false, ...props }: IconProps) {
+	if (colorful) {
+		return (
+			// biome-ignore lint/a11y/useAltText: this is for icon only.
+			// biome-ignore lint/performance/noImgElement: SVGs are inlined here.
+			<img
+				width={width ?? src.width}
+				height={height ?? src.height}
+				src={src.src}
+				{...props}
+			/>
+		);
+	}
+
 	return (
 		// biome-ignore lint/a11y/useAltText: this is for icon only.
 		// biome-ignore lint/performance/noImgElement: SVGs are inlined here.

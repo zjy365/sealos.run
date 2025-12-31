@@ -166,3 +166,4 @@ export function useTocSvg(
 
 	return { svg, highlightSvg };
 }
+
