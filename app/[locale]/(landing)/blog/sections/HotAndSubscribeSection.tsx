@@ -1,6 +1,6 @@
 import { BoxIcon, FireIcon } from '@/assets/icons';
 import { getAllPosts } from '@/libs/blog/utils';
-import LandingOutlineButton from '@/libs/components/LandingOutlineButton';
+import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { Icon } from '@/libs/components/ui/icon';
 import { Input } from '@/libs/components/ui/input';
 import { Link } from '@/libs/i18n/navigation';
@@ -50,7 +50,12 @@ export default async function HotAndSubscribeSection({ locale }: { locale: strin
 							className='bg-muted h-14 flex-1 rounded-none border-none'
 						/>
 
-						<LandingOutlineButton href='/'>{t('subscribeButtonText')}</LandingOutlineButton>
+						<LandingOutlineButton
+							href='/'
+							size='lg'
+						>
+							{t('subscribeButtonText')}
+						</LandingOutlineButton>
 					</div>
 				</div>
 			</div>

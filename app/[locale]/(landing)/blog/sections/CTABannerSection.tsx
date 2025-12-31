@@ -1,4 +1,4 @@
-import LandingOutlineButton from '@/libs/components/LandingOutlineButton';
+import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { getTranslations } from '@/libs/i18n/server';
 
 export default async function CTABannerSection() {
@@ -11,7 +11,12 @@ export default async function CTABannerSection() {
 						<h2 className='mb-3 text-2xl font-medium'>{t('title')}</h2>
 						<p className='text-3xl font-semibold'>{t('description')}</p>
 					</div>
-					<LandingOutlineButton href='/'>{t('buttonText')}</LandingOutlineButton>
+					<LandingOutlineButton
+						href='/'
+						size='lg'
+					>
+						{t('buttonText')}
+					</LandingOutlineButton>
 				</div>
 			</div>
 		</section>

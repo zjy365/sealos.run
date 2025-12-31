@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { DefaultBlogCoverImage } from '@/assets';
 import { EyeIcon, FramedCalendarIcon, FramedClockIcon, PersonIcon, SearchIcon, XIcon } from '@/assets/icons';
 import { formatDate } from '@/libs/blog/date-utils';
 import type { BlogCategory, BlogPost } from '@/libs/blog/types';
@@ -157,7 +158,7 @@ function PostList({
 
 							<div className='relative aspect-5/3 overflow-hidden border-zinc-200'>
 								<Image
-									src={post.thumbnail || '/sealos.svg'}
+									src={post.thumbnail || DefaultBlogCoverImage}
 									alt={post.title}
 									fill
 									className='object-cover'
@@ -268,4 +269,3 @@ export default function CategoriesAndListView({ initialCategories, initialPosts,
 		</section>
 	);
 }
-

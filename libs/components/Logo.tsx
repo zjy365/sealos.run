@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import type React from 'react';
+import SealosLogoImage from '@/assets/sealos.svg';
 import { getTranslations } from '@/libs/i18n/server';
 import { cn } from '@/libs/utils/styling';
-import SealosLogoImage from './assets/sealos.svg';
 
 export async function Logo(
 	props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {

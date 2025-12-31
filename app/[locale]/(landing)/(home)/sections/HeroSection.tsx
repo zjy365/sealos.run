@@ -1,7 +1,7 @@
 import type React from 'react';
 import { siGithub } from 'simple-icons';
 import { AlibabaCloudIcon, GoogleCloudIcon, TencentCloudIcon, VolcanoEngineIcon } from '@/assets/app-icons';
-import LandingOutlineButton from '@/libs/components/LandingOutlineButton';
+import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
 import { SimpleIcon } from '@/libs/components/ui/simple-icon';
@@ -81,7 +81,12 @@ export function HeroSection() {
 						className='size-6'
 					/>
 				</Button>
-				<LandingOutlineButton href=''>开始体验</LandingOutlineButton>
+				<LandingOutlineButton
+					href=''
+					size='lg'
+				>
+					开始体验
+				</LandingOutlineButton>
 			</div>
 		</div>
 	);

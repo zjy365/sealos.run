@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { DefaultBlogCoverImage } from '@/assets';
 import { EyeIcon, FramedCalendarIcon } from '@/assets/icons';
 import { formatDate } from '@/libs/blog/date-utils';
 import { getHotPosts } from '@/libs/blog/utils';
@@ -22,9 +23,9 @@ export default async function HotPostsSection({ locale }: { locale: string }) {
 						className='block h-full'
 					>
 						<Card className='flex h-full flex-col gap-0 overflow-hidden rounded-none p-0 shadow-none transition-shadow hover:shadow-md'>
-							<div className='border-border relative aspect-[5/2] border-b'>
+							<div className='border-border relative aspect-5/2 border-b'>
 								<Image
-									src={post.thumbnail || '/sealos.svg'}
+									src={post.thumbnail || DefaultBlogCoverImage}
 									alt={post.title}
 									fill
 									className='object-cover'
