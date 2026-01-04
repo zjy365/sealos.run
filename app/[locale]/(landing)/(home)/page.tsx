@@ -3,14 +3,19 @@ import { ArchSection } from './sections/ArchSection';
 import { CTASection } from './sections/CTASection';
 import { ExamplesSection } from './sections/ExamplesSection';
 import { HeroSection } from './sections/HeroSection';
+import { OrgsSection } from './sections/OrgsSection';
 import { PrivateDeploySection } from './sections/PrivateDeploySection';
 import { SecuritySection } from './sections/SecuritySection';
 
 export default async function HomePage() {
 	return (
 		<div className='flex w-full flex-col'>
-			<section className='container mx-auto px-6 py-16'>
+			<section className='container mx-auto px-6 pt-16 pb-6'>
 				<HeroSection />
+			</section>
+
+			<section className='container mx-auto px-6 pb-16'>
+				<OrgsSection />
 			</section>
 
 			<section className='container mx-auto px-6 py-16'>

@@ -136,4 +136,18 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
+
+	@keyframes scroll-left {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(-100% / 2));
+		}
+	}
+
+	.animate-scroll-left {
+		animation: scroll-left 30s linear infinite;
+		will-change: transform;
+	}
 }
