@@ -31,7 +31,7 @@ const examples = [
 
 export function ExamplesSection() {
 	return (
-		<div className='flex w-full flex-col items-start gap-6'>
+		<div className='relative z-10 flex w-full flex-col items-start gap-6'>
 			<h2 className='text-3xl font-semibold'>快速上云</h2>
 			<div className='flex w-full items-start gap-10'>
 				{examples.map((example) => (

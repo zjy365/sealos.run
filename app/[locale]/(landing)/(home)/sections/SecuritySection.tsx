@@ -21,28 +21,32 @@ const securityFeatures = [
 
 export function SecuritySection() {
 	return (
-		<div className='flex w-full items-end gap-6'>
-			{securityFeatures.map((feature) => (
-				<div
-					key={feature.title}
-					className='relative flex flex-1 flex-col items-start pb-64'
-				>
-					<div className='relative z-20 -mb-52 flex w-full flex-col items-start'>
-						<div className='relative flex h-64 w-full items-center justify-center px-28'>
-							<Image
-								src={feature.image}
-								alt={feature.title}
-								className='h-56 w-full max-w-sm object-contain'
-							/>
+		<div className='flex flex-col gap-8'>
+			<h2 className='text-3xl font-semibold'>安全稳定</h2>
+
+			<div className='flex w-full items-end gap-6'>
+				{securityFeatures.map((feature) => (
+					<div
+						key={feature.title}
+						className='relative flex flex-1 flex-col items-start pb-64'
+					>
+						<div className='relative z-20 -mb-52 flex w-full flex-col items-start'>
+							<div className='relative flex h-64 w-full items-center justify-center px-28'>
+								<Image
+									src={feature.image}
+									alt={feature.title}
+									className='h-56 w-full max-w-sm object-contain'
+								/>
+							</div>
+							<div className='relative flex w-full flex-col items-start gap-2 px-8 whitespace-pre-wrap'>
+								<h3 className='w-full text-xl font-medium'>{feature.title}</h3>
+								<p className='text-muted-foreground w-full text-sm'>{feature.description}</p>
+							</div>
 						</div>
-						<div className='relative flex w-full flex-col items-start gap-2 px-8 whitespace-pre-wrap'>
-							<h3 className='w-full text-xl font-medium'>{feature.title}</h3>
-							<p className='text-muted-foreground w-full text-sm'>{feature.description}</p>
-						</div>
+						<div className='z-10 -mb-64 h-64 w-full border border-zinc-100 bg-zinc-100' />
 					</div>
-					<div className='z-10 -mb-64 h-64 w-full border border-zinc-100 bg-zinc-100' />
-				</div>
-			))}
+				))}
+			</div>
 		</div>
 	);
 }
