@@ -1,10 +1,22 @@
 'use client';
 
+import Image from 'next/image';
 import React from 'react';
-import { DefaultAppIcon } from '../DefaultAppIcon';
+import {
+	AiproxyActiveIcon,
+	AiproxyIdleIcon,
+	DatabaseActiveIcon,
+	DatabaseIdleIcon,
+	DevboxActiveIcon,
+	DevboxIdleIcon,
+	LaunchpadActiveIcon,
+	LaunchpadIdleIcon,
+	OssActiveIcon,
+	OssIdleIcon,
+} from '../../assets';
 import { AppBoxSvg } from './AppBoxSvg';
 
-type AppBoxState = 'idle' | 'hover' | 'active';
+type AppBoxState = 'idle' | 'active';
 
 interface BoxConfig {
 	position: { x: number; y: number };
@@ -17,6 +29,8 @@ interface BoxConfig {
 	activeFrameGradient: { from: string; to: string };
 	activeStroke: string;
 	title: string;
+	idleIcon: React.ReactNode;
+	activeIcon: React.ReactNode;
 }
 
 export const FeaturesScene: React.FC = () => {
@@ -24,7 +38,6 @@ export const FeaturesScene: React.FC = () => {
 	const floorGradientId = `${id}-floor-gradient`;
 	const floorClipId = `${id}-floor-clip`;
 	const [activeBoxIndex, setActiveBoxIndex] = React.useState<number | null>(null);
-	const [hoverBoxIndex, setHoverBoxIndex] = React.useState<number | null>(null);
 
 	// Unified offset for manual alignment adjustment
 	const offsetX = 1;
@@ -34,89 +47,154 @@ export const FeaturesScene: React.FC = () => {
 	const boxes: BoxConfig[] = [
 		{
 			// Top midpoint (top edge center)
-			position: { x: 131 + offsetX, y: 30 + offsetY },
+			position: { x: 131 + offsetX, y: 24 + offsetY },
+			idleBgColor: 'hsla(0, 0%, 98%, 1)',
+			idleStrokeColor: 'hsla(219, 100%, 50%, 0.3)',
+			idleFrameGradient: { from: 'hsla(219, 100%, 50%, 1)', to: 'hsla(219, 100%, 50%, 0)' },
+			activeBgGradient: { from: 'hsla(230, 100%, 93%, 1)', to: 'hsla(230, 100%, 98%, 1)' },
+			activeFrameGradient: { from: 'hsla(219, 100%, 50%, 1)', to: 'hsla(219, 100%, 50%, 0)' },
+			activeStroke: 'hsla(219, 100%, 50%, 0.3)',
+			title: '应用管理',
+			idleIcon: (
+				<Image
+					src={LaunchpadIdleIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+			activeIcon: (
+				<Image
+					src={LaunchpadActiveIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+		},
+		{
+			// Left midpoint (left edge center)
+			position: { x: -4 + offsetX, y: 103 + offsetY },
+			idleBgColor: 'hsla(0, 0%, 98%, 1)',
+			idleStrokeColor: 'hsla(0, 0%, 55%, 0.3)',
+			idleFrameGradient: { from: 'hsla(0, 0%, 55%, 1)', to: 'hsla(0, 0%, 55%, 0)' },
+			activeBgGradient: { from: 'hsla(0, 0%, 91%, 1)', to: 'hsla(0, 0%, 97%, 1)' },
+			activeFrameGradient: { from: 'hsla(0, 0%, 55%, 1)', to: 'hsla(0, 0%, 55%, 0)' },
+			activeStroke: 'hsla(0, 0%, 55%, 0.3)',
+			title: 'AI Proxy',
+			idleIcon: (
+				<Image
+					src={AiproxyIdleIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+			activeIcon: (
+				<Image
+					src={AiproxyActiveIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+		},
+		{
+			// Center
+			position: { x: 131 + offsetX, y: 103 + offsetY },
 			idleBgColor: 'hsla(0, 0%, 98%, 1)',
 			idleStrokeColor: 'hsla(237, 26%, 59%, 0.3)',
 			idleFrameGradient: { from: 'hsla(221, 59%, 44%, 1)', to: 'hsla(0, 0%, 100%, 0)' },
 			activeBgGradient: { from: '#E0E0EB', to: '#F6F6F6' },
 			activeFrameGradient: { from: '#182474', to: 'white' },
 			activeStroke: '#CBCBDB',
-			title: 'Application Box 1',
-		},
-		{
-			// Left midpoint (left edge center)
-			position: { x: -4 + offsetX, y: 103 + offsetY },
-			idleBgColor: 'hsla(0, 0%, 96%, 1)',
-			idleStrokeColor: 'hsla(237, 26%, 59%, 0.3)',
-			idleFrameGradient: { from: 'hsla(221, 59%, 44%, 1)', to: 'hsla(0, 0%, 100%, 0)' },
-			activeBgGradient: { from: '#E0E0EB', to: '#F6F6F6' },
-			activeFrameGradient: { from: '#182474', to: 'white' },
-			activeStroke: '#CBCBDB',
-			title: 'Application Box 2',
-		},
-		{
-			// Center
-			position: { x: 131 + offsetX, y: 103 + offsetY },
-			idleBgColor: 'hsla(0, 0%, 97%, 1)',
-			idleStrokeColor: 'hsla(237, 26%, 59%, 0.3)',
-			idleFrameGradient: { from: 'hsla(221, 59%, 44%, 1)', to: 'hsla(0, 0%, 100%, 0)' },
-			activeBgGradient: { from: '#E0E0EB', to: '#F6F6F6' },
-			activeFrameGradient: { from: '#182474', to: 'white' },
-			activeStroke: '#CBCBDB',
-			title: 'Application Box 3',
+			title: 'DevBox',
+			idleIcon: (
+				<Image
+					src={DevboxIdleIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+			activeIcon: (
+				<Image
+					src={DevboxActiveIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
 		},
 		{
 			// Right midpoint (right edge center)
 			position: { x: 266 + offsetX, y: 103 + offsetY },
-			idleBgColor: 'hsla(0, 0%, 95%, 1)',
-			idleStrokeColor: 'hsla(237, 26%, 59%, 0.3)',
-			idleFrameGradient: { from: 'hsla(221, 59%, 44%, 1)', to: 'hsla(0, 0%, 100%, 0)' },
-			activeBgGradient: { from: '#E0E0EB', to: '#F6F6F6' },
-			activeFrameGradient: { from: '#182474', to: 'white' },
-			activeStroke: '#CBCBDB',
-			title: 'Application Box 4',
+			idleBgColor: 'hsla(0, 0%, 98%, 1)',
+			idleStrokeColor: 'hsla(283, 78%, 69%, 0.3)',
+			idleFrameGradient: { from: 'hsla(283, 78%, 69%, 1)', to: 'hsla(283, 78%, 69%, 0)' },
+			activeBgGradient: { from: 'hsla(289, 56%, 91%, 1)', to: 'hsla(0, 0%, 97%, 1)' },
+			activeFrameGradient: { from: 'hsla(283, 78%, 69%, 1)', to: 'hsla(283, 78%, 69%, 0)' },
+			activeStroke: 'hsla(283, 78%, 69%, 0.3)',
+			title: '对象存储',
+			idleIcon: (
+				<Image
+					src={OssIdleIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+			activeIcon: (
+				<Image
+					src={OssActiveIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
 		},
 		{
 			// Bottom midpoint (bottom edge center)
 			position: { x: 131.5 + offsetX, y: 180 + offsetY },
-			idleBgColor: 'hsla(0, 0%, 99%, 1)',
-			idleStrokeColor: 'hsla(237, 26%, 59%, 0.3)',
-			idleFrameGradient: { from: 'hsla(221, 59%, 44%, 1)', to: 'hsla(0, 0%, 100%, 0)' },
-			activeBgGradient: { from: '#E0E0EB', to: '#F6F6F6' },
-			activeFrameGradient: { from: '#182474', to: 'white' },
-			activeStroke: '#CBCBDB',
-			title: 'Application Box 5',
+			idleBgColor: 'hsla(0, 0%, 98%, 1)',
+			idleStrokeColor: 'hsla(152, 48%, 46%, 0.3)',
+			idleFrameGradient: { from: 'hsla(152, 48%, 46%, 1)', to: 'hsla(152, 48%, 46%, 0)' },
+			activeBgGradient: { from: 'hsla(147, 46%, 92%, 1)', to: 'hsla(0, 0%, 97%, 1)' },
+			activeFrameGradient: { from: 'hsla(152, 48%, 46%, 1)', to: 'hsla(152, 48%, 46%, 0)' },
+			activeStroke: 'hsla(152, 48%, 46%, 0.3)',
+			title: '数据库',
+			idleIcon: (
+				<Image
+					src={DatabaseIdleIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+			activeIcon: (
+				<Image
+					src={DatabaseActiveIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
 		},
 	];
 
 	const getBoxState = (index: number): AppBoxState => {
 		if (activeBoxIndex === index) return 'active';
-		if (hoverBoxIndex === index) return 'hover';
 		return 'idle';
-	};
-
-	const handleBoxPointerEnter = (index: number) => {
-		if (activeBoxIndex !== index) {
-			setHoverBoxIndex(index);
-		}
-	};
-
-	const handleBoxPointerLeave = (index: number) => {
-		if (activeBoxIndex !== index) {
-			setHoverBoxIndex(null);
-		}
 	};
 
 	const handleBoxClick = (index: number) => {
 		setActiveBoxIndex(activeBoxIndex === index ? null : index);
-		setHoverBoxIndex(null);
 	};
 
 	const handleBoxKeyDown = (index: number, e: React.KeyboardEvent) => {
 		if (e.key === 'Enter' || e.key === ' ') {
 			e.preventDefault();
 			setActiveBoxIndex(activeBoxIndex === index ? null : index);
-			setHoverBoxIndex(null);
 		}
 	};
 
@@ -262,7 +340,7 @@ export const FeaturesScene: React.FC = () => {
 			{/* Five AppBoxSvg components positioned absolutely */}
 			{boxes.map((box, index) => {
 				const state = getBoxState(index);
-				const height = state === 'idle' ? 0.333 : state === 'hover' ? 0.333 : 1;
+				const height = state === 'idle' ? 0.333 : 1;
 				const boxKey = `app-box-${box.position.x}-${box.position.y}`;
 
 				return (
@@ -275,8 +353,6 @@ export const FeaturesScene: React.FC = () => {
 							top: `${box.position.y}px`,
 							cursor: 'pointer',
 						}}
-						onPointerEnter={() => handleBoxPointerEnter(index)}
-						onPointerLeave={() => handleBoxPointerLeave(index)}
 						onClick={() => handleBoxClick(index)}
 						onKeyDown={(e) => handleBoxKeyDown(index, e)}
 					>
@@ -290,9 +366,9 @@ export const FeaturesScene: React.FC = () => {
 							defaultFrameGradient={box.idleFrameGradient}
 							title={box.title}
 							state={state}
-						>
-							<DefaultAppIcon />
-						</AppBoxSvg>
+							idleIcon={box.idleIcon}
+							activeIcon={box.activeIcon}
+						/>
 					</button>
 				);
 			})}

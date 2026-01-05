@@ -1,7 +1,7 @@
 import { animate, motion, useMotionValue, useTransform } from 'motion/react';
 import React from 'react';
 
-type AppBoxState = 'idle' | 'hover' | 'active';
+type AppBoxState = 'idle' | 'active';
 
 interface AppBoxSvgProps {
 	height: number;
@@ -11,7 +11,8 @@ interface AppBoxSvgProps {
 	defaultBgColor: string;
 	defaultStrokeColor: string;
 	defaultFrameGradient: { from: string; to: string };
-	children?: React.ReactNode;
+	idleIcon?: React.ReactNode;
+	activeIcon?: React.ReactNode;
 	className?: string;
 	title: string;
 	state: AppBoxState;
@@ -25,7 +26,8 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 	defaultBgColor,
 	defaultStrokeColor,
 	defaultFrameGradient,
-	children,
+	idleIcon,
+	activeIcon,
 	className,
 	title,
 	state,
@@ -34,9 +36,12 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 	const maskId = `${id}-mask`;
 	const paintBoxBgId = `${id}-paint_box_bg`;
 	const paintBoxFrameForeId = `${id}-paint_box_frame_fore`;
-	const paintAppIconBgId = `${id}-paint_app_icon_bg`;
 
 	const activeProgress = useMotionValue(state === 'active' ? 1 : 0);
+
+	// Icon opacity for fade transition
+	const idleIconOpacity = useTransform(activeProgress, [0, 1], [1, 0]);
+	const activeIconOpacity = useTransform(activeProgress, [0, 1], [0, 1]);
 
 	React.useEffect(() => {
 		animate(activeProgress, state === 'active' ? 1 : 0, { duration: 0.3, ease: 'easeOut' });
@@ -115,24 +120,6 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 						stopOpacity='0'
 					/>
 				</linearGradient>
-
-				<linearGradient
-					id={paintAppIconBgId}
-					x1='76.501'
-					y1='25'
-					x2='76.501'
-					y2='71'
-					gradientUnits='userSpaceOnUse'
-				>
-					<stop
-						offset='0.576923'
-						stopColor='#363636'
-					/>
-					<stop
-						offset='1'
-						stopColor='#565656'
-					/>
-				</linearGradient>
 			</defs>
 
 			{/* Drop Shadow - Inactive */}
@@ -190,14 +177,39 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 						strokeDasharray='2 2'
 					/>
 
-					<g>
-						<path
-							id='app_icon_bg'
-							d='M76.501 71L36.001 48L76.501 25L117.001 48L76.501 71Z'
-							fill={`url(#${paintAppIconBgId})`}
-						/>
-
-						<g id='app_icon'>{children}</g>
+					<g id='app_icon'>
+						{idleIcon && (
+							<motion.g
+								style={{
+									opacity: idleIconOpacity,
+								}}
+							>
+								<foreignObject
+									x='36'
+									y='25'
+									width='81'
+									height='46'
+								>
+									{idleIcon}
+								</foreignObject>
+							</motion.g>
+						)}
+						{activeIcon && (
+							<motion.g
+								style={{
+									opacity: activeIconOpacity,
+								}}
+							>
+								<foreignObject
+									x='36'
+									y='25'
+									width='81'
+									height='46'
+								>
+									{activeIcon}
+								</foreignObject>
+							</motion.g>
+						)}
 					</g>
 				</motion.g>
 

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 81 46">
+  <g clip-path="url(#a)">
+    <path fill="url(#b)" d="M40.5 46 0 23 40.5 0 81 23z" />
+    <g filter="url(#c)">
+      <path
+        fill="#fff"
+        fill-opacity=".4"
+        d="M59.76-.5c11.84 0 21.43 5.55 21.43 12.38s-9.6 12.37-21.43 12.37-21.43-5.54-21.43-12.37S47.93-.5 59.76-.5"
+      />
+    </g>
+    <g filter="url(#d)">
+      <path
+        fill="#fff"
+        d="M49.02 12c5.82 0 10.53 2.72 10.53 6.08s-4.71 6.08-10.53 6.08-10.52-2.73-10.52-6.08S43.2 12 49.02 12"
+      />
+    </g>
+    <path
+      fill="url(#e)"
+      d="M28.2 22.74c-.55-.32-.55-.83 0-1.15l12.06-6.97a15 15 0 0 1 7.57-1.88c5.76 0 10.43 2.7 10.43 6.03 0 1.74-1.29 3.32-3.35 4.42l-14.45 8.34a2.2 2.2 0 0 1-2 0l-1.61-.94c-.55-.32-.55-.83 0-1.15l8.38-4.84a15 15 0 0 1-3.48-.94L32 29.28a2.2 2.2 0 0 1-2 0l-1.25-.72c-.55-.32-.55-.84 0-1.16l9.94-5.73a4.6 4.6 0 0 1-1.15-1.93l-6.27 3.62a2.2 2.2 0 0 1-2 0z"
+    />
+    <path
+      fill="url(#f)"
+      d="M30.1 34.49c-.56-.32-.56-.83 0-1.15l2.46-1.42a2.2 2.2 0 0 1 2 0l1.61.93c.55.32.55.84 0 1.16l-2.46 1.42a2.2 2.2 0 0 1-2 0z"
+    />
+  </g>
+  <defs>
+    <linearGradient
+      id="b"
+      x1="0"
+      x2="80.3"
+      y1="23"
+      y2="32.11"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#0f0f0f" />
+      <stop offset="1" stop-color="#444" />
+    </linearGradient>
+    <linearGradient
+      id="e"
+      x1="56.52"
+      x2="46.95"
+      y1="14.31"
+      y2="38.44"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fff" />
+      <stop offset=".44" stop-color="#fff" />
+      <stop offset="1" stop-color="#fff" stop-opacity=".2" />
+    </linearGradient>
+    <linearGradient
+      id="f"
+      x1="56.52"
+      x2="46.95"
+      y1="14.31"
+      y2="38.44"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fff" />
+      <stop offset=".44" stop-color="#fff" />
+      <stop offset="1" stop-color="#fff" stop-opacity=".2" />
+    </linearGradient>
+    <filter
+      id="c"
+      width="98.26"
+      height="80.15"
+      x="10.63"
+      y="-28.19"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur
+        result="effect1_foregroundBlur_3268_6809"
+        stdDeviation="13.85"
+      />
+    </filter>
+    <filter
+      id="d"
+      width="38.46"
+      height="29.56"
+      x="29.8"
+      y="3.3"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur
+        result="effect1_foregroundBlur_3268_6809"
+        stdDeviation="4.35"
+      />
+    </filter>
+    <clipPath id="a"><path fill="#fff" d="M0 0h81v46H0z" /></clipPath>
+  </defs>
+</svg>
