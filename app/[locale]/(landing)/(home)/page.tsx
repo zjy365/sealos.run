@@ -1,10 +1,12 @@
 import { ArchitectureBoxIcon, CloudBoxIcon, FramedCheckIcon, MoreIcon, SealosBoxIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
+import { FeaturesDecoLine } from './components/FeaturesDecoLine';
 import { LaunchpadFeatures } from './components/LaunchpadFeatures';
 import { VerticalDashedLine } from './components/VerticalDashedLine';
 import { ArchSection } from './sections/ArchSection';
 import { CTASection } from './sections/CTASection';
 import { ExamplesSection } from './sections/ExamplesSection';
+import FeaturesSection from './sections/FeaturesSection';
 import { HeroSection } from './sections/HeroSection';
 import { OrgsSection } from './sections/OrgsSection';
 import { PrivateDeploySection } from './sections/PrivateDeploySection';
@@ -32,15 +34,15 @@ export default async function HomePage() {
 				<ExamplesSection />
 			</section>
 
-			<section className='relative container mx-auto pt-4 pr-6 pb-28 pl-24'>
-				<VerticalDashedLine mask={[['1rem', '3.25rem']]}>
+			<section className='relative container mx-auto pt-4 pr-6 pb-28 pl-32'>
+				<FeaturesDecoLine mask={[['1rem', '3.25rem']]}>
 					<Icon
 						src={CloudBoxIcon}
 						className='size-full'
 					/>
-				</VerticalDashedLine>
+				</FeaturesDecoLine>
 
-				<LaunchpadFeatures />
+				<FeaturesSection />
 			</section>
 
 			<section className='relative container mx-auto pt-4 pr-6 pb-28 pl-24'>

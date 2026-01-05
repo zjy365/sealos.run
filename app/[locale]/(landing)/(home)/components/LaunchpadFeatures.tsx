@@ -121,147 +121,129 @@ const engineFeatures: EngineFeature[] = [
 
 export function LaunchpadFeatures() {
 	return (
-		<div className='flex w-full flex-col gap-16'>
-			<div className='flex w-full items-center justify-between'>
-				<div className='flex flex-col gap-4'>
-					<h2 className='text-3xl font-semibold'>企业级智能云平台</h2>
-					<p className='text-muted-foreground text-base'>
-						集应用管理、云开发、数据服务、AI
-						模型四大核心能力，提供开发到运维的全链路解决方案，让应用构建、部署和管理变得更简单。
-					</p>
+		<div className='flex flex-1 flex-col gap-6'>
+			<div className='flex flex-col gap-2'>
+				<div className='flex items-center gap-3'>
+					<span className='text-muted-foreground text-base'>应用管理</span>
+					<Button
+						variant='outline'
+						size='sm'
+					>
+						详情
+						<Icon
+							src={FlatArrowRightIcon}
+							className='size-4'
+						/>
+					</Button>
 				</div>
-				<LandingOutlineButton href=''>立即体验</LandingOutlineButton>
+				<div className='text-2xl font-medium whitespace-pre-wrap'>
+					<p>基于 Kubernetes 的可视化服务，</p>
+					<p>支持所有 Docker 镜像的一键部署能力</p>
+				</div>
 			</div>
 
-			<div className='flex w-full items-center gap-12'>
-				{/* [TODO] Interactive area */}
-				<div className='h-96 w-96 shrink-0 rounded-lg bg-zinc-100' />
-
-				<div className='flex flex-1 flex-col gap-6'>
-					<div className='flex flex-col gap-2'>
-						<div className='flex items-center gap-3'>
-							<span className='text-muted-foreground text-base'>应用管理</span>
-							<Button
-								variant='outline'
-								size='sm'
-							>
-								详情
-								<Icon
-									src={FlatArrowRightIcon}
-									className='size-4'
-								/>
-							</Button>
+			<div className='flex w-full items-start gap-8'>
+				<div className='flex w-1/3 flex-col gap-8 pt-8'>
+					{features.map((feature) => (
+						<div
+							key={feature.title}
+							className='flex flex-col gap-1'
+						>
+							<div className='flex items-center gap-2'>
+								{feature.icon}
+								<h3 className='text-base font-medium'>{feature.title}</h3>
+							</div>
+							<p className='text-sm text-zinc-500'>{feature.description}</p>
 						</div>
-						<div className='text-2xl font-medium whitespace-pre-wrap'>
-							<p>基于 Kubernetes 的可视化服务，</p>
-							<p>支持所有 Docker 镜像的一键部署能力</p>
-						</div>
-					</div>
+					))}
+				</div>
 
-					<div className='flex w-full items-start gap-8'>
-						<div className='flex w-1/3 flex-col gap-8 pt-8'>
-							{features.map((feature) => (
+				<div className='flex min-w-96 flex-1 flex-col items-center gap-1.5'>
+					{engineFeatures.map((feature, idx) => {
+						if (feature.type === 'arrow') {
+							const hasTitle = !!feature.title;
+
+							return (
 								<div
-									key={feature.title}
-									className='flex flex-col gap-1'
+									// biome-ignore lint/suspicious/noArrayIndexKey: static content
+									key={idx}
+									className='flex w-full flex-col items-center gap-0.5'
 								>
-									<div className='flex items-center gap-2'>
-										{feature.icon}
-										<h3 className='text-base font-medium'>{feature.title}</h3>
-									</div>
-									<p className='text-sm text-zinc-500'>{feature.description}</p>
-								</div>
-							))}
-						</div>
-
-						<div className='flex min-w-96 flex-1 flex-col items-center gap-1.5'>
-							{engineFeatures.map((feature, idx) => {
-								if (feature.type === 'arrow') {
-									const hasTitle = !!feature.title;
-
-									return (
-										<div
-											// biome-ignore lint/suspicious/noArrayIndexKey: static content
-											key={idx}
-											className='flex w-full flex-col items-center gap-0.5'
-										>
-											{hasTitle ? (
-												<div className='relative flex h-8 w-full items-center justify-center'>
-													<div
-														className='text-brand absolute inset-0 flex items-center justify-center'
-														style={{
-															clipPath:
-																'polygon(0 0, 100% 0, 100% calc(50% - 0.5rem), 0 calc(50% - 0.75rem), 0 calc(50% + 0.75rem), 100% calc(50% + 0.5rem), 100% 100%, 0 100%)',
-														}}
-													>
-														<ArrowIcon
-															size={8}
-															height={32}
-														/>
-													</div>
-													<div className='relative z-10 flex items-center justify-center'>
-														<p className='px-1.5 text-center text-xs whitespace-nowrap'>
-															{feature.title}
-														</p>
-													</div>
-												</div>
-											) : (
-												<div className='flex h-4 w-0 items-center justify-center'>
-													<div className='text-brand flex-none'>
-														<ArrowIcon size={16} />
-													</div>
-												</div>
-											)}
+									{hasTitle ? (
+										<div className='relative flex h-8 w-full items-center justify-center'>
+											<div
+												className='text-brand absolute inset-0 flex items-center justify-center'
+												style={{
+													clipPath:
+														'polygon(0 0, 100% 0, 100% calc(50% - 0.5rem), 0 calc(50% - 0.75rem), 0 calc(50% + 0.75rem), 100% calc(50% + 0.5rem), 100% 100%, 0 100%)',
+												}}
+											>
+												<ArrowIcon
+													size={8}
+													height={32}
+												/>
+											</div>
+											<div className='relative z-10 flex items-center justify-center'>
+												<p className='px-1.5 text-center text-xs whitespace-nowrap'>
+													{feature.title}
+												</p>
+											</div>
 										</div>
-									);
-								}
+									) : (
+										<div className='flex h-4 w-0 items-center justify-center'>
+											<div className='text-brand flex-none'>
+												<ArrowIcon size={16} />
+											</div>
+										</div>
+									)}
+								</div>
+							);
+						}
 
-								if (feature.type === 'block') {
-									const rows: string[][] = Array.isArray(feature.items[0])
-										? (feature.items as string[][])
-										: // 4 items per group
-											(feature.items as string[]).reduce<string[][]>((acc, item, index) => {
-												const rowIndex = Math.floor(index / 4);
-												if (!acc[rowIndex]) {
-													acc[rowIndex] = [];
-												}
-												acc[rowIndex].push(item);
-												return acc;
-											}, []);
+						if (feature.type === 'block') {
+							const rows: string[][] = Array.isArray(feature.items[0])
+								? (feature.items as string[][])
+								: // 4 items per group
+									(feature.items as string[]).reduce<string[][]>((acc, item, index) => {
+										const rowIndex = Math.floor(index / 4);
+										if (!acc[rowIndex]) {
+											acc[rowIndex] = [];
+										}
+										acc[rowIndex].push(item);
+										return acc;
+									}, []);
 
-									return (
-										<div
-											// biome-ignore lint/suspicious/noArrayIndexKey: static content
-											key={idx}
-											className='flex w-full flex-col items-center gap-2 rounded border border-dashed border-zinc-400 p-2'
-										>
-											<span className='text-xs'>{feature.title}</span>
-											<div className='flex w-full flex-col gap-1.5'>
-												{rows.map((row, rowIdx) => (
+							return (
+								<div
+									// biome-ignore lint/suspicious/noArrayIndexKey: static content
+									key={idx}
+									className='flex w-full flex-col items-center gap-2 rounded border border-dashed border-zinc-400 p-2'
+								>
+									<span className='text-xs'>{feature.title}</span>
+									<div className='flex w-full flex-col gap-1.5'>
+										{rows.map((row, rowIdx) => (
+											<div
+												// biome-ignore lint/suspicious/noArrayIndexKey: static content
+												key={rowIdx}
+												className='flex w-full gap-2'
+											>
+												{row.map((item) => (
 													<div
-														// biome-ignore lint/suspicious/noArrayIndexKey: static content
-														key={rowIdx}
-														className='flex w-full gap-2'
+														key={item}
+														className='flex flex-1 items-center justify-center border border-zinc-300 p-0.5'
 													>
-														{row.map((item) => (
-															<div
-																key={item}
-																className='flex flex-1 items-center justify-center border border-zinc-300 p-0.5'
-															>
-																<span className='text-xs text-zinc-600'>{item}</span>
-															</div>
-														))}
+														<span className='text-xs text-zinc-600'>{item}</span>
 													</div>
 												))}
 											</div>
-										</div>
-									);
-								}
+										))}
+									</div>
+								</div>
+							);
+						}
 
-								return null;
-							})}
-						</div>
-					</div>
+						return null;
+					})}
 				</div>
 			</div>
 		</div>
