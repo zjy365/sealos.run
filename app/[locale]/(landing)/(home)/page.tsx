@@ -32,11 +32,9 @@ export default async function HomePage() {
 				<ExamplesSection />
 			</section>
 
-			<section className='relative container mx-auto pr-6 pl-32'>
-				<FeaturesSectionWrapper />
-			</section>
+			<FeaturesSectionWrapper />
 
-			<section className='relative container mx-auto -mt-[max(212.5rem,250vh)] pr-6 pb-28 pl-24'>
+			<section className='relative container mx-auto pr-6 pb-28 pl-24'>
 				<VerticalDashedLine mask={[['0.55rem', '3.25rem']]}>
 					<Icon
 						src={FramedCheckIcon}

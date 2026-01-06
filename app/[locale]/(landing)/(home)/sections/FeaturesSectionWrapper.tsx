@@ -18,6 +18,7 @@ export function FeaturesSectionWrapper() {
 	const scrollProgress = useMotionValue(0);
 	const spacerHeight = useMotionValue(0);
 	const [activeBoxIndex, setActiveBoxIndex] = React.useState<number | null>(0);
+	const marginBottom = useMotionValue(0);
 
 	const TOP_OFFSET = 128;
 
@@ -62,12 +63,13 @@ export function FeaturesSectionWrapper() {
 		if (!containerRef.current || sectionHeightRef.current === 0) {
 			scrollProgress.set(0);
 			spacerHeight.set(0);
+			marginBottom.set(0);
 			return;
 		}
 
 		const containerTop = containerOffsetRef.current - latest;
 		const scrollStartPoint = TOP_OFFSET;
-		const totalScrollHeight = sectionHeightRef.current * TOTAL_ITEMS;
+		const maxSpacerHeight = sectionHeightRef.current * (TOTAL_ITEMS - 1);
 
 		if (containerTop > 0) {
 			scrollProgress.set(0);
@@ -82,11 +84,12 @@ export function FeaturesSectionWrapper() {
 
 		if (containerTop > scrollStartPoint) {
 			spacerHeight.set(0);
+			marginBottom.set(0);
 		} else {
 			const scrollDistance = scrollStartPoint - containerTop;
-			const maxSpacerHeight = totalScrollHeight;
 			const spacerHeightValue = Math.min(scrollDistance, maxSpacerHeight);
 			spacerHeight.set(spacerHeightValue);
+			marginBottom.set(spacerHeightValue);
 		}
 	});
 
@@ -97,56 +100,65 @@ export function FeaturesSectionWrapper() {
 	});
 
 	return (
-		<div
-			ref={containerRef}
-			className='relative'
-		>
-			<motion.div
-				className='sticky top-32 z-0'
-				style={{
-					height: `${SECTION_HEIGHT_REM}rem`,
-				}}
+		<>
+			<section
+				ref={containerRef}
+				className='relative container mx-auto pr-6 pl-32'
 			>
-				<div
-					className='absolute top-0 left-0 z-10'
+				<motion.div
+					className='sticky top-32 z-0'
 					style={{
 						height: `${SECTION_HEIGHT_REM}rem`,
-						width: '3rem',
-						marginLeft: '-8rem',
 					}}
 				>
-					<FeaturesDecoLineWrapper
-						mask={[['1rem', '3.25rem']]}
-						activeIndex={activeBoxIndex}
-					>
-						<Icon
-							src={CloudBoxIcon}
-							className='size-full'
-						/>
-					</FeaturesDecoLineWrapper>
-				</div>
-
-				<div className='relative h-full'>
-					<FeaturesSection activeBoxIndex={activeBoxIndex} />
-				</div>
-			</motion.div>
-
-			{Array.from({ length: TOTAL_ITEMS }).map((_, index) => {
-				const sectionHeightRem = `${SECTION_HEIGHT_REM}rem`;
-				const sectionHeightVh = `${SECTION_HEIGHT_VH}vh`;
-				const isLast = index === TOTAL_ITEMS - 1;
-				return (
-					<motion.div
-						// biome-ignore lint/suspicious/noArrayIndexKey: static sections
-						key={index}
+					<div
+						className='absolute top-0 left-0 z-10'
 						style={{
-							height: `max(${sectionHeightRem}, ${sectionHeightVh})`,
-							marginBottom: isLast ? spacerHeight : undefined,
+							height: `${SECTION_HEIGHT_REM}rem`,
+							width: '3rem',
+							marginLeft: '-8rem',
 						}}
-						aria-hidden='true'
-					/>
-				);
-			})}
-		</div>
+					>
+						<FeaturesDecoLineWrapper
+							mask={[['1rem', '3.25rem']]}
+							activeIndex={activeBoxIndex}
+						>
+							<Icon
+								src={CloudBoxIcon}
+								className='size-full'
+							/>
+						</FeaturesDecoLineWrapper>
+					</div>
+
+					<div className='relative h-full'>
+						<FeaturesSection activeBoxIndex={activeBoxIndex} />
+					</div>
+				</motion.div>
+
+				{Array.from({ length: TOTAL_ITEMS - 1 }).map((_, index) => {
+					const sectionHeightRem = `${SECTION_HEIGHT_REM}rem`;
+					const sectionHeightVh = `${SECTION_HEIGHT_VH}vh`;
+					return (
+						<motion.div
+							// biome-ignore lint/suspicious/noArrayIndexKey: static sections
+							key={index}
+							style={{
+								height: `max(${sectionHeightRem}, ${sectionHeightVh})`,
+							}}
+							aria-hidden='true'
+						/>
+					);
+				})}
+			</section>
+
+			<motion.div
+				style={{
+					height: `max(${SECTION_HEIGHT_REM}rem, ${SECTION_HEIGHT_VH}vh)`,
+					marginBottom: marginBottom,
+				}}
+				className='-mt-[max(212.5rem,250vh)]'
+				aria-hidden='true'
+			/>
+		</>
 	);
 }
