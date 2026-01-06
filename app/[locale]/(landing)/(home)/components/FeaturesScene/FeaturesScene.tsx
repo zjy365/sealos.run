@@ -33,11 +33,14 @@ interface BoxConfig {
 	activeIcon: React.ReactNode;
 }
 
-export const FeaturesScene: React.FC = () => {
+interface FeaturesSceneProps {
+	activeBoxIndex: number | null;
+}
+
+export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex }) => {
 	const id = React.useId();
 	const floorGradientId = `${id}-floor-gradient`;
 	const floorClipId = `${id}-floor-clip`;
-	const [activeBoxIndex, setActiveBoxIndex] = React.useState<number | null>(null);
 
 	// Unified offset for manual alignment adjustment
 	const offsetX = 1;
@@ -50,9 +53,18 @@ export const FeaturesScene: React.FC = () => {
 			position: { x: 131 + offsetX, y: 24 + offsetY },
 			idleBgColor: 'hsla(0, 0%, 98%, 1)',
 			idleStrokeColor: 'hsla(219, 100%, 50%, 0.3)',
-			idleFrameGradient: { from: 'hsla(219, 100%, 50%, 1)', to: 'hsla(219, 100%, 50%, 0)' },
-			activeBgGradient: { from: 'hsla(230, 100%, 93%, 1)', to: 'hsla(230, 100%, 98%, 1)' },
-			activeFrameGradient: { from: 'hsla(219, 100%, 50%, 1)', to: 'hsla(219, 100%, 50%, 0)' },
+			idleFrameGradient: {
+				from: 'hsla(219, 100%, 50%, 1)',
+				to: 'hsla(219, 100%, 50%, 0)',
+			},
+			activeBgGradient: {
+				from: 'hsla(230, 100%, 93%, 1)',
+				to: 'hsla(230, 100%, 98%, 1)',
+			},
+			activeFrameGradient: {
+				from: 'hsla(219, 100%, 50%, 1)',
+				to: 'hsla(219, 100%, 50%, 0)',
+			},
 			activeStroke: 'hsla(219, 100%, 50%, 0.3)',
 			title: '应用管理',
 			idleIcon: (
@@ -77,9 +89,18 @@ export const FeaturesScene: React.FC = () => {
 			position: { x: -4 + offsetX, y: 103 + offsetY },
 			idleBgColor: 'hsla(0, 0%, 98%, 1)',
 			idleStrokeColor: 'hsla(0, 0%, 55%, 0.3)',
-			idleFrameGradient: { from: 'hsla(0, 0%, 55%, 1)', to: 'hsla(0, 0%, 55%, 0)' },
-			activeBgGradient: { from: 'hsla(0, 0%, 91%, 1)', to: 'hsla(0, 0%, 97%, 1)' },
-			activeFrameGradient: { from: 'hsla(0, 0%, 55%, 1)', to: 'hsla(0, 0%, 55%, 0)' },
+			idleFrameGradient: {
+				from: 'hsla(0, 0%, 55%, 1)',
+				to: 'hsla(0, 0%, 55%, 0)',
+			},
+			activeBgGradient: {
+				from: 'hsla(0, 0%, 91%, 1)',
+				to: 'hsla(0, 0%, 97%, 1)',
+			},
+			activeFrameGradient: {
+				from: 'hsla(0, 0%, 55%, 1)',
+				to: 'hsla(0, 0%, 55%, 0)',
+			},
 			activeStroke: 'hsla(0, 0%, 55%, 0.3)',
 			title: 'AI Proxy',
 			idleIcon: (
@@ -104,7 +125,10 @@ export const FeaturesScene: React.FC = () => {
 			position: { x: 131 + offsetX, y: 103 + offsetY },
 			idleBgColor: 'hsla(0, 0%, 98%, 1)',
 			idleStrokeColor: 'hsla(237, 26%, 59%, 0.3)',
-			idleFrameGradient: { from: 'hsla(221, 59%, 44%, 1)', to: 'hsla(0, 0%, 100%, 0)' },
+			idleFrameGradient: {
+				from: 'hsla(221, 59%, 44%, 1)',
+				to: 'hsla(0, 0%, 100%, 0)',
+			},
 			activeBgGradient: { from: '#E0E0EB', to: '#F6F6F6' },
 			activeFrameGradient: { from: '#182474', to: 'white' },
 			activeStroke: '#CBCBDB',
@@ -131,9 +155,18 @@ export const FeaturesScene: React.FC = () => {
 			position: { x: 266 + offsetX, y: 103 + offsetY },
 			idleBgColor: 'hsla(0, 0%, 98%, 1)',
 			idleStrokeColor: 'hsla(283, 78%, 69%, 0.3)',
-			idleFrameGradient: { from: 'hsla(283, 78%, 69%, 1)', to: 'hsla(283, 78%, 69%, 0)' },
-			activeBgGradient: { from: 'hsla(289, 56%, 91%, 1)', to: 'hsla(0, 0%, 97%, 1)' },
-			activeFrameGradient: { from: 'hsla(283, 78%, 69%, 1)', to: 'hsla(283, 78%, 69%, 0)' },
+			idleFrameGradient: {
+				from: 'hsla(283, 78%, 69%, 1)',
+				to: 'hsla(283, 78%, 69%, 0)',
+			},
+			activeBgGradient: {
+				from: 'hsla(289, 56%, 91%, 1)',
+				to: 'hsla(0, 0%, 97%, 1)',
+			},
+			activeFrameGradient: {
+				from: 'hsla(283, 78%, 69%, 1)',
+				to: 'hsla(283, 78%, 69%, 0)',
+			},
 			activeStroke: 'hsla(283, 78%, 69%, 0.3)',
 			title: '对象存储',
 			idleIcon: (
@@ -158,9 +191,18 @@ export const FeaturesScene: React.FC = () => {
 			position: { x: 131.5 + offsetX, y: 180 + offsetY },
 			idleBgColor: 'hsla(0, 0%, 98%, 1)',
 			idleStrokeColor: 'hsla(152, 48%, 46%, 0.3)',
-			idleFrameGradient: { from: 'hsla(152, 48%, 46%, 1)', to: 'hsla(152, 48%, 46%, 0)' },
-			activeBgGradient: { from: 'hsla(147, 46%, 92%, 1)', to: 'hsla(0, 0%, 97%, 1)' },
-			activeFrameGradient: { from: 'hsla(152, 48%, 46%, 1)', to: 'hsla(152, 48%, 46%, 0)' },
+			idleFrameGradient: {
+				from: 'hsla(152, 48%, 46%, 1)',
+				to: 'hsla(152, 48%, 46%, 0)',
+			},
+			activeBgGradient: {
+				from: 'hsla(147, 46%, 92%, 1)',
+				to: 'hsla(0, 0%, 97%, 1)',
+			},
+			activeFrameGradient: {
+				from: 'hsla(152, 48%, 46%, 1)',
+				to: 'hsla(152, 48%, 46%, 0)',
+			},
 			activeStroke: 'hsla(152, 48%, 46%, 0.3)',
 			title: '数据库',
 			idleIcon: (
@@ -185,17 +227,6 @@ export const FeaturesScene: React.FC = () => {
 	const getBoxState = (index: number): AppBoxState => {
 		if (activeBoxIndex === index) return 'active';
 		return 'idle';
-	};
-
-	const handleBoxClick = (index: number) => {
-		setActiveBoxIndex(activeBoxIndex === index ? null : index);
-	};
-
-	const handleBoxKeyDown = (index: number, e: React.KeyboardEvent) => {
-		if (e.key === 'Enter' || e.key === ' ') {
-			e.preventDefault();
-			setActiveBoxIndex(activeBoxIndex === index ? null : index);
-		}
 	};
 
 	return (
@@ -344,17 +375,13 @@ export const FeaturesScene: React.FC = () => {
 				const boxKey = `app-box-${box.position.x}-${box.position.y}`;
 
 				return (
-					<button
+					<div
 						key={boxKey}
-						type='button'
-						className='absolute border-0 bg-transparent p-0'
+						className='absolute'
 						style={{
 							left: `${box.position.x}px`,
 							top: `${box.position.y}px`,
-							cursor: 'pointer',
 						}}
-						onClick={() => handleBoxClick(index)}
-						onKeyDown={(e) => handleBoxKeyDown(index, e)}
 					>
 						<AppBoxSvg
 							height={height}
@@ -369,7 +396,7 @@ export const FeaturesScene: React.FC = () => {
 							idleIcon={box.idleIcon}
 							activeIcon={box.activeIcon}
 						/>
-					</button>
+					</div>
 				);
 			})}
 		</div>

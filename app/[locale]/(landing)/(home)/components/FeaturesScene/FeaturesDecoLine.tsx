@@ -10,6 +10,7 @@ interface VerticalDashedLineProps {
 	iconY?: string;
 	mask?: [string, string][];
 	appIcons?: Record<string, { icon: React.ReactNode }>;
+	activeIndex?: number | null;
 }
 
 const DEFAULT_APP_ICONS: Record<string, { icon: React.ReactNode }> = {
@@ -17,7 +18,7 @@ const DEFAULT_APP_ICONS: Record<string, { icon: React.ReactNode }> = {
 		icon: (
 			<Icon
 				src={AppLaunchpadIcon}
-				className='text-muted-foreground size-full'
+				className='size-full'
 			/>
 		),
 	},
@@ -25,7 +26,7 @@ const DEFAULT_APP_ICONS: Record<string, { icon: React.ReactNode }> = {
 		icon: (
 			<Icon
 				src={DevboxIcon}
-				className='text-muted-foreground size-full'
+				className='size-full'
 			/>
 		),
 	},
@@ -33,7 +34,7 @@ const DEFAULT_APP_ICONS: Record<string, { icon: React.ReactNode }> = {
 		icon: (
 			<Icon
 				src={DatabaseIcon}
-				className='text-muted-foreground size-full'
+				className='size-full'
 			/>
 		),
 	},
@@ -41,7 +42,7 @@ const DEFAULT_APP_ICONS: Record<string, { icon: React.ReactNode }> = {
 		icon: (
 			<Icon
 				src={AiProxyIcon}
-				className='text-muted-foreground size-full'
+				className='size-full'
 			/>
 		),
 	},
@@ -49,7 +50,7 @@ const DEFAULT_APP_ICONS: Record<string, { icon: React.ReactNode }> = {
 		icon: (
 			<Icon
 				src={ObjectStorageIcon}
-				className='text-muted-foreground size-full'
+				className='size-full'
 			/>
 		),
 	},
@@ -60,6 +61,7 @@ export function FeaturesDecoLine({
 	iconY = '0.5rem',
 	mask,
 	appIcons = DEFAULT_APP_ICONS,
+	activeIndex,
 }: VerticalDashedLineProps) {
 	const iconRef = React.useRef<HTMLDivElement>(null);
 	const [isVisible, setIsVisible] = React.useState(false);
@@ -231,6 +233,17 @@ export function FeaturesDecoLine({
 					{Object.entries(appIcons).map(([slug, { icon }], index, arr) => {
 						// top margin + 50% icon height + inset + (100% - y margins - y offsets - icon height) / gaps * (index - 1)
 						const iconYPos = `calc(10rem + 0.875rem + 1rem + calc(calc(100% - 20rem - 2rem - 1.75rem) / ${arr.length - 1}) * ${index})`;
+						// Map icon order to feature index: app-launchpad(0), devbox(1), database(2), ai-proxy(3), object-storage(4)
+						const featureIndexMap: Record<string, number> = {
+							'app-launchpad': 0,
+							devbox: 1,
+							database: 2,
+							'ai-proxy': 3,
+							'object-storage': 4,
+						};
+						const featureIndex = featureIndexMap[slug] ?? index;
+						const isActive = activeIndex === featureIndex;
+
 						return (
 							<g
 								key={`app-icon-${slug}`}
@@ -247,8 +260,8 @@ export function FeaturesDecoLine({
 								>
 									<div
 										className={cn(
-											'flex h-full items-center justify-center',
-											isVisible ? 'text-brand' : 'text-muted-foreground',
+											'flex h-full w-full items-center justify-center transition-colors',
+											isActive ? 'text-muted-foreground' : 'text-muted-foreground/50',
 										)}
 									>
 										{icon}

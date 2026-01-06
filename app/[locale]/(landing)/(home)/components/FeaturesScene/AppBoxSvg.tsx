@@ -44,7 +44,10 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 	const activeIconOpacity = useTransform(activeProgress, [0, 1], [0, 1]);
 
 	React.useEffect(() => {
-		animate(activeProgress, state === 'active' ? 1 : 0, { duration: 0.3, ease: 'easeOut' });
+		animate(activeProgress, state === 'active' ? 1 : 0, {
+			duration: 0.3,
+			ease: 'easeOut',
+		});
 	}, [state, activeProgress]);
 
 	const bgFromColor = useTransform(activeProgress, [0, 1], [defaultBgColor, boxBgGradient.from]);

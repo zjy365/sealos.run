@@ -1,10 +1,11 @@
-'use client';
-
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
-import { FeaturesScene } from '../components/FeaturesScene';
-import { LaunchpadFeatures } from '../components/LaunchpadFeatures';
+import { FeaturesSectionClient } from './FeaturesSectionClient';
 
-export function FeaturesSection() {
+interface FeaturesSectionProps {
+	activeBoxIndex: number | null;
+}
+
+export function FeaturesSection({ activeBoxIndex }: FeaturesSectionProps) {
 	return (
 		<div className='flex w-full flex-col gap-16'>
 			<div className='flex w-full items-center justify-between'>
@@ -17,16 +18,7 @@ export function FeaturesSection() {
 				</div>
 				<LandingOutlineButton href=''>立即体验</LandingOutlineButton>
 			</div>
-			<div className='flex w-full flex-row items-center gap-16'>
-				{/* Left: FeaturesScene */}
-				<div className='shrink-0'>
-					<FeaturesScene />
-				</div>
-				{/* Right: LaunchpadFeatures */}
-				<div className='flex-1'>
-					<LaunchpadFeatures />
-				</div>
-			</div>
+			<FeaturesSectionClient activeBoxIndex={activeBoxIndex} />
 		</div>
 	);
 }
