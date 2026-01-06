@@ -34,10 +34,11 @@ interface BoxConfig {
 }
 
 interface FeaturesSceneProps {
-	activeBoxIndex: number | null;
+	activeBoxIndex?: number | null;
+	onBoxClick?: (index: number) => void;
 }
 
-export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex }) => {
+export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0, onBoxClick }) => {
 	const id = React.useId();
 	const floorGradientId = `${id}-floor-gradient`;
 	const floorClipId = `${id}-floor-clip`;
@@ -47,9 +48,10 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex }) 
 	const offsetY = -24;
 
 	// Box configuration data: five boxes with positions and styles
+	// Order: 0: launchpad, 1: devbox, 2: database, 3: aiproxy, 4: oss
 	const boxes: BoxConfig[] = [
 		{
-			// Top midpoint (top edge center)
+			// 0: Launchpad - Top midpoint (top edge center)
 			position: { x: 131 + offsetX, y: 24 + offsetY },
 			idleBgColor: 'hsla(0, 0%, 98%, 1)',
 			idleStrokeColor: 'hsla(219, 100%, 50%, 0.3)',
@@ -85,7 +87,73 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex }) 
 			),
 		},
 		{
-			// Left midpoint (left edge center)
+			// 1: Devbox - Center
+			position: { x: 131 + offsetX, y: 103 + offsetY },
+			idleBgColor: 'hsla(0, 0%, 98%, 1)',
+			idleStrokeColor: 'hsla(237, 26%, 59%, 0.3)',
+			idleFrameGradient: {
+				from: 'hsla(221, 59%, 44%, 1)',
+				to: 'hsla(0, 0%, 100%, 0)',
+			},
+			activeBgGradient: { from: '#E0E0EB', to: '#F6F6F6' },
+			activeFrameGradient: { from: '#182474', to: 'white' },
+			activeStroke: '#CBCBDB',
+			title: 'DevBox',
+			idleIcon: (
+				<Image
+					src={DevboxIdleIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+			activeIcon: (
+				<Image
+					src={DevboxActiveIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+		},
+		{
+			// 2: Database - Bottom midpoint (bottom edge center)
+			position: { x: 131.5 + offsetX, y: 180 + offsetY },
+			idleBgColor: 'hsla(0, 0%, 98%, 1)',
+			idleStrokeColor: 'hsla(152, 48%, 46%, 0.3)',
+			idleFrameGradient: {
+				from: 'hsla(152, 48%, 46%, 1)',
+				to: 'hsla(152, 48%, 46%, 0)',
+			},
+			activeBgGradient: {
+				from: 'hsla(147, 46%, 92%, 1)',
+				to: 'hsla(0, 0%, 97%, 1)',
+			},
+			activeFrameGradient: {
+				from: 'hsla(152, 48%, 46%, 1)',
+				to: 'hsla(152, 48%, 46%, 0)',
+			},
+			activeStroke: 'hsla(152, 48%, 46%, 0.3)',
+			title: '数据库',
+			idleIcon: (
+				<Image
+					src={DatabaseIdleIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+			activeIcon: (
+				<Image
+					src={DatabaseActiveIcon}
+					width={81}
+					height={46}
+					alt=''
+				/>
+			),
+		},
+		{
+			// 3: AI Proxy - Left midpoint (left edge center)
 			position: { x: -4 + offsetX, y: 103 + offsetY },
 			idleBgColor: 'hsla(0, 0%, 98%, 1)',
 			idleStrokeColor: 'hsla(0, 0%, 55%, 0.3)',
@@ -121,37 +189,7 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex }) 
 			),
 		},
 		{
-			// Center
-			position: { x: 131 + offsetX, y: 103 + offsetY },
-			idleBgColor: 'hsla(0, 0%, 98%, 1)',
-			idleStrokeColor: 'hsla(237, 26%, 59%, 0.3)',
-			idleFrameGradient: {
-				from: 'hsla(221, 59%, 44%, 1)',
-				to: 'hsla(0, 0%, 100%, 0)',
-			},
-			activeBgGradient: { from: '#E0E0EB', to: '#F6F6F6' },
-			activeFrameGradient: { from: '#182474', to: 'white' },
-			activeStroke: '#CBCBDB',
-			title: 'DevBox',
-			idleIcon: (
-				<Image
-					src={DevboxIdleIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
-			activeIcon: (
-				<Image
-					src={DevboxActiveIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
-		},
-		{
-			// Right midpoint (right edge center)
+			// 4: OSS - Right midpoint (right edge center)
 			position: { x: 266 + offsetX, y: 103 + offsetY },
 			idleBgColor: 'hsla(0, 0%, 98%, 1)',
 			idleStrokeColor: 'hsla(283, 78%, 69%, 0.3)',
@@ -180,42 +218,6 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex }) 
 			activeIcon: (
 				<Image
 					src={OssActiveIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
-		},
-		{
-			// Bottom midpoint (bottom edge center)
-			position: { x: 131.5 + offsetX, y: 180 + offsetY },
-			idleBgColor: 'hsla(0, 0%, 98%, 1)',
-			idleStrokeColor: 'hsla(152, 48%, 46%, 0.3)',
-			idleFrameGradient: {
-				from: 'hsla(152, 48%, 46%, 1)',
-				to: 'hsla(152, 48%, 46%, 0)',
-			},
-			activeBgGradient: {
-				from: 'hsla(147, 46%, 92%, 1)',
-				to: 'hsla(0, 0%, 97%, 1)',
-			},
-			activeFrameGradient: {
-				from: 'hsla(152, 48%, 46%, 1)',
-				to: 'hsla(152, 48%, 46%, 0)',
-			},
-			activeStroke: 'hsla(152, 48%, 46%, 0.3)',
-			title: '数据库',
-			idleIcon: (
-				<Image
-					src={DatabaseIdleIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
-			activeIcon: (
-				<Image
-					src={DatabaseActiveIcon}
 					width={81}
 					height={46}
 					alt=''
@@ -377,7 +379,7 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex }) 
 				return (
 					<div
 						key={boxKey}
-						className='absolute'
+						className='absolute pointer-events-none'
 						style={{
 							left: `${box.position.x}px`,
 							top: `${box.position.y}px`,
@@ -395,6 +397,7 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex }) 
 							state={state}
 							idleIcon={box.idleIcon}
 							activeIcon={box.activeIcon}
+							onClick={() => onBoxClick?.(index)}
 						/>
 					</div>
 				);

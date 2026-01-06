@@ -16,6 +16,7 @@ interface AppBoxSvgProps {
 	className?: string;
 	title: string;
 	state: AppBoxState;
+	onClick?: () => void;
 }
 
 export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
@@ -31,6 +32,7 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 	className,
 	title,
 	state,
+	onClick,
 }) => {
 	const id = React.useId();
 	const maskId = `${id}-mask`;
@@ -38,10 +40,23 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 	const paintBoxFrameForeId = `${id}-paint_box_frame_fore`;
 
 	const activeProgress = useMotionValue(state === 'active' ? 1 : 0);
+	const [isHovered, setIsHovered] = React.useState(false);
 
-	// Icon opacity for fade transition
-	const idleIconOpacity = useTransform(activeProgress, [0, 1], [1, 0]);
-	const activeIconOpacity = useTransform(activeProgress, [0, 1], [0, 1]);
+	// Icon opacity for fade transition - combines state and hover
+	const iconStateProgress = React.useMemo(() => {
+		return state === 'active' || isHovered ? 1 : 0;
+	}, [state, isHovered]);
+
+	const iconActiveProgress = useMotionValue(iconStateProgress);
+	const idleIconOpacity = useTransform(iconActiveProgress, [0, 1], [1, 0]);
+	const activeIconOpacity = useTransform(iconActiveProgress, [0, 1], [0, 1]);
+
+	React.useEffect(() => {
+		animate(iconActiveProgress, iconStateProgress, {
+			duration: 0.3,
+			ease: 'easeOut',
+		});
+	}, [iconStateProgress, iconActiveProgress]);
 
 	React.useEffect(() => {
 		animate(activeProgress, state === 'active' ? 1 : 0, {
@@ -68,6 +83,7 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
 			className={className}
+			style={{ pointerEvents: 'none' }}
 		>
 			<title>{title}</title>
 			<defs>
@@ -129,6 +145,7 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 			<motion.g
 				style={{
 					opacity: inactiveShadowOpacity,
+					pointerEvents: 'none',
 				}}
 			>
 				<path
@@ -142,6 +159,7 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 			<motion.g
 				style={{
 					opacity: activeShadowOpacity,
+					pointerEvents: 'none',
 				}}
 			>
 				<path
@@ -154,7 +172,10 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 				/>
 			</motion.g>
 
-			<g mask={`url(#${maskId})`}>
+			<g
+				mask={`url(#${maskId})`}
+				style={{ pointerEvents: 'none' }}
+			>
 				<motion.g
 					id='box'
 					animate={{
@@ -164,12 +185,27 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 						duration: 0.3,
 						ease: 'easeOut',
 					}}
+					style={{ pointerEvents: 'none' }}
 				>
 					<motion.path
 						id='box_bg'
 						d='M75.6081 130.379L28.1755 102.994L28.1755 48.2224L75.6091 20.8366L123.042 48.2218L123.043 102.994L75.6081 130.379Z'
 						fill={`url(#${paintBoxBgId})`}
 						stroke={strokeColor}
+						className='cursor-pointer outline-none focus:outline-none'
+						onMouseEnter={() => setIsHovered(true)}
+						onMouseLeave={() => setIsHovered(false)}
+						onClick={onClick}
+						onKeyDown={(e) => {
+							if (e.key === 'Enter' || e.key === ' ') {
+								e.preventDefault();
+								onClick?.();
+							}
+						}}
+						role='button'
+						tabIndex={0}
+						aria-label={`切换到${title}`}
+						style={{ pointerEvents: 'all' }}
 					/>
 
 					<path
@@ -178,9 +214,13 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 						stroke={`url(#${paintBoxFrameForeId})`}
 						strokeOpacity='0.3'
 						strokeDasharray='2 2'
+						style={{ pointerEvents: 'none' }}
 					/>
 
-					<g id='app_icon'>
+					<g
+						id='app_icon'
+						style={{ pointerEvents: 'none' }}
+					>
 						{idleIcon && (
 							<motion.g
 								style={{
@@ -220,6 +260,7 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 					id='bottom_frame'
 					d='M75.6081 130.379 28.1755 102.994M123.043 102.994 75.6081 130.379Z'
 					stroke={strokeColor}
+					style={{ pointerEvents: 'none' }}
 				/>
 			</g>
 		</motion.svg>

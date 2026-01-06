@@ -1,10 +1,10 @@
 import { ArchitectureBoxIcon, FramedCheckIcon, MoreIcon, SealosBoxIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
+import { FeaturesSectionWrapper } from './components/FeaturesSectionWrapper';
 import { VerticalDashedLine } from './components/VerticalDashedLine';
 import { ArchSection } from './sections/ArchSection';
 import { CTASection } from './sections/CTASection';
 import { ExamplesSection } from './sections/ExamplesSection';
-import { FeaturesSectionWrapper } from './sections/FeaturesSectionWrapper';
 import { HeroSection } from './sections/HeroSection';
 import { OrgsSection } from './sections/OrgsSection';
 import { PrivateDeploySection } from './sections/PrivateDeploySection';
@@ -32,7 +32,9 @@ export default async function HomePage() {
 				<ExamplesSection />
 			</section>
 
-			<FeaturesSectionWrapper />
+			<section className='relative container mx-auto h-170 pr-6 pb-28 pl-32'>
+				<FeaturesSectionWrapper />
+			</section>
 
 			<section className='relative container mx-auto pr-6 pb-28 pl-24'>
 				<VerticalDashedLine mask={[['0.55rem', '3.25rem']]}>

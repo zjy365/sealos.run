@@ -11,6 +11,7 @@ interface VerticalDashedLineProps {
 	mask?: [string, string][];
 	appIcons?: Record<string, { icon: React.ReactNode }>;
 	activeIndex?: number | null;
+	onIconClick?: (index: number) => void;
 }
 
 const DEFAULT_APP_ICONS: Record<string, { icon: React.ReactNode }> = {
@@ -62,6 +63,7 @@ export function FeaturesDecoLine({
 	mask,
 	appIcons = DEFAULT_APP_ICONS,
 	activeIndex,
+	onIconClick,
 }: VerticalDashedLineProps) {
 	const iconRef = React.useRef<HTMLDivElement>(null);
 	const [isVisible, setIsVisible] = React.useState(false);
@@ -258,14 +260,17 @@ export function FeaturesDecoLine({
 									width='1.75rem'
 									height='1.75rem'
 								>
-									<div
+									<button
+										type='button'
+										onClick={() => onIconClick?.(featureIndex)}
 										className={cn(
-											'flex h-full w-full items-center justify-center transition-colors',
-											isActive ? 'text-muted-foreground' : 'text-muted-foreground/50',
+											'hover:text-brand flex h-full w-full cursor-pointer items-center justify-center transition-colors outline-none focus:outline-none',
+											isActive ? 'text-brand' : 'text-muted-foreground/50',
 										)}
+										aria-label={`切换到${slug}`}
 									>
 										{icon}
-									</div>
+									</button>
 								</foreignObject>
 							</g>
 						);
