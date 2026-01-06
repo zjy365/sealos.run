@@ -1,0 +1,743 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 930 558">
+  <g clip-path="url(#a)">
+    <path fill="#f4f4f5" d="M0 0h929v558H0z" />
+    <g filter="url(#b)">
+      <rect
+        width="908.1"
+        height="116.4"
+        x="10.5"
+        y="10.5"
+        fill="#fff"
+        rx="10.9"
+        shape-rendering="crispEdges"
+      />
+      <rect
+        width="907.6"
+        height="115.9"
+        x="10.7"
+        y="10.7"
+        stroke="#e4e4e7"
+        stroke-width=".5"
+        rx="10.7"
+        shape-rendering="crispEdges"
+      />
+      <mask id="c" fill="#fff"><path d="M10.5 10.5h908v58.2h-908z" /></mask>
+      <path fill="#ededed" d="M918.6 68.7v-1H10.4v1.9h908z" mask="url(#c)" />
+      <text
+        xml:space="preserve"
+        fill="#000"
+        font-size="16.4"
+        font-weight="500"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="32.3" y="45.1">Filter</tspan>
+      </text>
+      <path
+        fill="#fff"
+        d="M94.1 21.9h204.4c3.8 0 6.8 3 6.8 6.8v21.8c0 3.8-3 6.8-6.8 6.8H94.1c-3.7 0-6.8-3-6.8-6.8V28.7c0-3.8 3-6.8 6.8-6.8"
+      />
+      <path
+        stroke="#e4e4e7"
+        stroke-width=".9"
+        d="M94.1 21.9h204.4c3.8 0 6.8 3 6.8 6.8v21.8c0 3.8-3 6.8-6.8 6.8H94.1c-3.7 0-6.8-3-6.8-6.8V28.7c0-3.8 3-6.8 6.8-6.8Z"
+      />
+      <path
+        stroke="#737373"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.2"
+        d="M106.3 33.5V36m4.8-2.5V36m-7.9 2.4h11m-9.8-3.7h8.5q1.1.1 1.2 1.3v8.4q0 1.1-1.2 1.2h-8.5q-1 0-1.2-1.2V36q.1-1.2 1.2-1.3"
+      />
+      <text
+        xml:space="preserve"
+        fill="#18181b"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="123.2" y="43.7">10:15, Jan 20 - 10:45, Jan 20</tspan>
+      </text>
+      <path
+        fill="#fff"
+        d="M327.6 21.9H513c3.8 0 6.9 3 6.9 6.8v21.8c0 3.8-3 6.8-6.9 6.8H327.6c-3.8 0-6.8-3-6.8-6.8V28.7c0-3.8 3-6.8 6.8-6.8"
+      />
+      <path
+        stroke="#e4e4e7"
+        stroke-width=".9"
+        d="M327.6 21.9H513c3.8 0 6.9 3 6.9 6.8v21.8c0 3.8-3 6.8-6.9 6.8H327.6c-3.8 0-6.8-3-6.8-6.8V28.7c0-3.8 3-6.8 6.8-6.8Z"
+      />
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="334.9" y="43.7">Pod</tspan>
+      </text>
+      <path stroke="#d4d4d8" stroke-width=".9" d="M365.6 34.1V45" />
+      <text
+        xml:space="preserve"
+        fill="#18181b"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="372.4" y="43.7">All</tspan>
+      </text>
+      <path
+        stroke="#a3a3a3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.2"
+        d="m494.9 37.8 3.6 3.6 3.6-3.6"
+      />
+      <path
+        fill="#fff"
+        d="M542.1 21.9h185.5c3.8 0 6.8 3 6.8 6.8v21.8c0 3.8-3 6.8-6.8 6.8H542c-3.7 0-6.8-3-6.8-6.8V28.7c0-3.8 3-6.8 6.8-6.8"
+      />
+      <path
+        stroke="#e4e4e7"
+        stroke-width=".9"
+        d="M542.1 21.9h185.5c3.8 0 6.8 3 6.8 6.8v21.8c0 3.8-3 6.8-6.8 6.8H542c-3.7 0-6.8-3-6.8-6.8V28.7c0-3.8 3-6.8 6.8-6.8Z"
+      />
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="549.4" y="43.7">Container</tspan>
+      </text>
+      <path stroke="#d4d4d8" stroke-width=".9" d="M614.1 34.1V45" />
+      <text
+        xml:space="preserve"
+        fill="#18181b"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="621" y="43.7">All</tspan>
+      </text>
+      <path
+        stroke="#a3a3a3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.2"
+        d="m709.4 37.8 3.6 3.6 3.7-3.6"
+      />
+      <g clip-path="url(#d)">
+        <path fill="#fff" d="M644.8 21.9H719v35.5h-74.2z" />
+        <path
+          stroke="#e4e4e7"
+          stroke-width=".9"
+          d="M644.8 21.9H719v35.5h-74.2z"
+        />
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="12.7"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="658.9" y="43.7">Refresh</tspan>
+        </text>
+        <path fill="#fff" d="M719 21.9h35.5v35.5H719z" />
+        <path stroke="#e4e4e7" stroke-width=".9" d="M719 21.9h35.5v35.5H719z" />
+        <path
+          stroke="#737373"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.2"
+          d="m733.1 37.8 3.6 3.6 3.7-3.6"
+        />
+      </g>
+      <path
+        stroke="#e4e4e7"
+        stroke-width=".9"
+        d="M651.6 21.9h96c3.8 0 6.9 3 6.9 6.8v21.8c0 3.8-3 6.8-6.9 6.8h-96c-3.7 0-6.8-3-6.8-6.8V28.7c0-3.8 3-6.8 6.8-6.8Z"
+      />
+      <path
+        fill="#fff"
+        d="M776.7 21.9h112.8c3.7 0 6.8 3 6.8 6.8v21.8c0 3.8-3 6.8-6.8 6.8H776.7c-3.7 0-6.8-3-6.8-6.8V28.7c0-3.8 3-6.8 6.8-6.8"
+      />
+      <path
+        stroke="#e4e4e7"
+        stroke-width=".9"
+        d="M776.7 21.9h112.8c3.7 0 6.8 3 6.8 6.8v21.8c0 3.8-3 6.8-6.8 6.8H776.7c-3.7 0-6.8-3-6.8-6.8V28.7c0-3.8 3-6.8 6.8-6.8Z"
+      />
+      <text
+        xml:space="preserve"
+        fill="#18181b"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="780.4" y="43.7">300</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="859.8" y="43.7">日志</tspan>
+      </text>
+      <path
+        fill="#fff"
+        d="M146.1 79.6v.4h1.9q.7 0 1.3.2v-.5q1.6.3 2.7 1.1l-.3.4q1.2.7 2 1.9l.3-.3q.8 1.2 1 2.6l-.4.1.2 1.4v1.8h.4v3.6h-.4V96h.4v3.6h-.4v3.6h.4v3.7h-.4v1.8q0 .6-.2 1.3l.5.1q-.3 1.4-1.1 2.6l-.4-.2q-.7 1.1-1.9 1.8l.3.4q-1.2.8-2.6 1.1l-.1-.4-1.3.1H146v.5h-3.6v-.5H139v.5h-3.6v-.5h-3.6v.5h-3.6v-.5h-3.6v.5h-3.6v-.5h-3.7v.5h-3.6v-.5H110v.5h-3.6v-.5h-3.6v.5h-3.6v-.5h-3.6v.5H92v-.5h-3.6v.5h-3.7v-.5h-3.6v.5h-3.6v-.5H74v.5h-3.6v-.5h-3.6v.5H63v-.5h-3.6v.5h-3.7v-.5h-3.6v.5h-3.6v-.5H45v.5h-3.6v-.5h-1.8l-1.3-.1-.1.4q-1.5-.3-2.7-1l.3-.5a7 7 0 0 1-1.9-1.8l-.4.2q-.8-1.2-1-2.6h.4l-.1-1.4v-1.8h-.5v-3.7h.5v-3.6h-.5V96h.5v-3.7h-.5v-3.6h.5v-1.8l.1-1.4h-.4q.2-1.5 1-2.7l.4.3q.8-1.2 1.9-2l-.3-.3q1.2-.8 2.7-1v.4l1.4-.2h1.8v-.4H45v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4H63v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4H92v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4z"
+      />
+      <path
+        stroke="#d4d4d4"
+        stroke-dasharray="3.64 3.64"
+        stroke-width=".9"
+        d="M146.1 79.6v.4h1.9q.7 0 1.3.2v-.5q1.6.3 2.7 1.1l-.3.4q1.2.7 2 1.9l.3-.3q.8 1.2 1 2.6l-.4.1.2 1.4v1.8h.4v3.6h-.4V96h.4v3.6h-.4v3.6h.4v3.7h-.4v1.8q0 .6-.2 1.3l.5.1q-.3 1.4-1.1 2.6l-.4-.2q-.7 1.1-1.9 1.8l.3.4q-1.2.8-2.6 1.1l-.1-.4-1.3.1H146v.5h-3.6v-.5H139v.5h-3.6v-.5h-3.6v.5h-3.6v-.5h-3.6v.5h-3.6v-.5h-3.7v.5h-3.6v-.5H110v.5h-3.6v-.5h-3.6v.5h-3.6v-.5h-3.6v.5H92v-.5h-3.6v.5h-3.7v-.5h-3.6v.5h-3.6v-.5H74v.5h-3.6v-.5h-3.6v.5H63v-.5h-3.6v.5h-3.7v-.5h-3.6v.5h-3.6v-.5H45v.5h-3.6v-.5h-1.8l-1.3-.1-.1.4q-1.5-.3-2.7-1l.3-.5a7 7 0 0 1-1.9-1.8l-.4.2q-.8-1.2-1-2.6h.4l-.1-1.4v-1.8h-.5v-3.7h.5v-3.6h-.5V96h.5v-3.7h-.5v-3.6h.5v-1.8l.1-1.4h-.4q.2-1.5 1-2.7l.4.3q.8-1.2 1.9-2l-.3-.3q1.2-.8 2.7-1v.4l1.4-.2h1.8v-.4H45v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4H63v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4H92v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4z"
+      />
+      <path
+        stroke="#737373"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.2"
+        d="M60.2 92.3H48l4.8 5.7v4l2.4 1.2V98z"
+      />
+      <text
+        xml:space="preserve"
+        fill="#18181b"
+        font-size="12.7"
+        font-weight="500"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="68.7" y="102.3">JSON Mode</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#18181b"
+        font-size="12.7"
+        font-weight="500"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="173.4" y="102.3">Stderr only</tspan>
+      </text>
+      <path
+        fill="#e4e4e7"
+        d="M250.3 97.8c0-6 4.9-11 11-11h18.1a11 11 0 1 1 0 21.9h-18.2c-6 0-10.9-5-10.9-11"
+      />
+      <g filter="url(#e)">
+        <path fill="#fff" d="M252.1 97.8a9 9 0 1 1 18.2 0 9 9 0 0 1-18.2 0" />
+      </g>
+      <path
+        fill="#f4f4f5"
+        d="M308.5 86.9c0-4 3.3-7.3 7.3-7.3h303.6c4 0 7.3 3.2 7.3 7.3v21.8c0 4-3.3 7.3-7.3 7.3H315.8c-4 0-7.3-3.3-7.3-7.3z"
+      />
+      <text
+        xml:space="preserve"
+        fill="#4d4d4d"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="319.4" y="102.3">Keywords</tspan>
+      </text>
+      <path
+        fill="#18181b"
+        d="M644.9 86.9c0-4 3.2-7.3 7.2-7.3h62.4c4 0 7.3 3.2 7.3 7.3v21.8c0 4-3.3 7.3-7.3 7.3h-62.4c-4 0-7.2-3.3-7.2-7.3z"
+      />
+      <path
+        stroke="#fafafa"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.2"
+        d="m672.1 103.2-2.6-2.6m1.4-3.4a4.8 4.8 0 1 1-9.7 0 4.8 4.8 0 0 1 9.7 0"
+      />
+      <text
+        xml:space="preserve"
+        fill="#fff"
+        font-family="PingFang SC"
+        font-size="12.7"
+        letter-spacing=".1"
+        style="white-space: pre"
+      >
+        <tspan x="681.2" y="101.9">搜索</tspan>
+      </text>
+    </g>
+    <g filter="url(#f)">
+      <rect
+        width="1189.1"
+        height="243.6"
+        x="10.5"
+        y="134.1"
+        fill="#fff"
+        rx="10.9"
+        shape-rendering="crispEdges"
+      />
+      <rect
+        width="1188.6"
+        height="243.2"
+        x="10.7"
+        y="134.4"
+        stroke="#e4e4e7"
+        stroke-width=".5"
+        rx="10.7"
+        shape-rendering="crispEdges"
+      />
+      <mask id="g" fill="#fff"><path d="M10.5 134.1h1189v58.2H10.6z" /></mask>
+      <path
+        fill="#ededed"
+        d="M1199.6 192.3v-.9H10.5v1.8h1189z"
+        mask="url(#g)"
+      />
+      <path
+        stroke="#a3a3a3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.2"
+        d="m46 165.5-4.6-4.5-4.5 4.5"
+      />
+      <text
+        xml:space="preserve"
+        fill="#000"
+        font-size="16.4"
+        font-weight="500"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="54.1" y="168.8">Log Counts</tspan>
+      </text>
+      <path
+        stroke="#e4e4e7"
+        stroke-dasharray="1.26 1.26"
+        stroke-width=".9"
+        d="M78.7 227.7h1091.8M78.7 262.9h1091.8M78.7 298h1091.8"
+      />
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="114.4" y="347.4">2024-1</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="221.4" y="347.4">2024-2</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="330.5" y="347.4">2024-3</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="439.6" y="347.4">2024-3</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="548.7" y="347.4">2024-3</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="657.8" y="347.4">2024-3</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="766.9" y="347.4">2024-3</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="876" y="347.4">2024-4</tspan>
+      </text>
+      <path
+        stroke="#e4e4e7"
+        stroke-width=".9"
+        d="M79.2 333.2v3.7M188.3 333.2v3.7M297.3 333.2v3.7M406.4 333.2v3.7M515.5 333.2v3.7M624.6 333.2v3.7M733.7 333.2v3.7M842.8 333.2v3.7"
+      />
+      <path stroke="#e4e4e7" stroke-width="1.4" d="M78.7 333.2h1091.8" />
+      <path
+        fill="#93c5fd"
+        d="M82.1 287h105.5v46.4H82.1zM204.5 248.8H310v84.5H204.5zM327 267h105.5v66.4H327zM449.4 287h105.5v46.4H449.4zM571.8 267h105.5v66.4H571.8zM694.2 299.7h105.5v33.6H694.2zM816.6 267h105.5v66.4H816.6z"
+      />
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="49.6" y="232.6">150</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="49.6" y="268.5">100</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="54.5" y="304.4">50</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-family="PingFang SC"
+        font-size="10.9"
+        letter-spacing=".5"
+        style="white-space: pre"
+      >
+        <tspan x="56.6" y="340.4">10</tspan>
+      </text>
+    </g>
+    <g filter="url(#h)">
+      <rect
+        width="1189.1"
+        height="571.7"
+        x="10.5"
+        y="385.9"
+        fill="#fff"
+        rx="10.9"
+        shape-rendering="crispEdges"
+      />
+      <rect
+        width="1188.6"
+        height="571.3"
+        x="10.7"
+        y="386.2"
+        stroke="#e4e4e7"
+        stroke-width=".5"
+        rx="10.7"
+        shape-rendering="crispEdges"
+      />
+      <mask id="i" fill="#fff"><path d="M10.5 386h1189V444H10.6z" /></mask>
+      <path
+        fill="#ededed"
+        d="M1199.6 444.1v-.9H10.5v1.8h1189z"
+        mask="url(#i)"
+      />
+      <text
+        xml:space="preserve"
+        fill="#000"
+        font-size="16.4"
+        font-weight="500"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="32.3" y="420.6">Logs</tspan>
+      </text>
+      <path
+        fill="#fff"
+        d="M354.1 396.9v.4h1.9l1.3.1v-.4q1.6.4 2.7 1l-.3.5q1.1.8 2 1.8l.3-.2q.8 1.2 1 2.6l-.4.1.2 1.3v1.8h.4v3.7h-.4v3.6h.4v3.7h-.4v3.6h.4v3.6h-.4v1.8q0 .8-.2 1.4h.5q-.3 1.6-1.1 2.7l-.4-.3q-.7 1.1-1.9 2l.3.3q-1.2.8-2.6 1l-.1-.4-1.3.2H354v.4h-3.6v-.4H347v.4h-3.6v-.4h-3.6v.4H336v-.4h-3.6v.4h-3.7v-.4h-3.6v.4h-3.6v-.4H318v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.7v.4H300v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.7v-.4h-3.6v.4H271v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.7v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.7v-.4H224v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4H206v-.4h-3.7v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4H177v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.6v-.4H159v.4h-3.6v-.4h-3.7v.4h-3.6v-.4h-3.6v.4H141v-.4h-3.6v.4h-3.6v-.4H130v.4h-3.7v-.4h-3.6v.4h-3.6v-.4h-3.6v.4H112v-.4h-3.6v.4h-3.6v-.4H101v.4h-3.6v-.4H94v.4h-3.6v-.4h-1.8q-.7 0-1.3-.2l-.1.5q-1.5-.3-2.6-1.1l.2-.4a7 7 0 0 1-1.9-1.9l-.4.3q-.7-1.2-1-2.6l.4-.1-.1-1.4v-1.8h-.5v-3.6h.5v-3.6h-.5v-3.7h.5v-3.6h-.5v-3.7h.5v-1.8l.1-1.3h-.4q.3-1.6 1-2.7l.4.2q.8-1 2-1.8l-.3-.4q1-.9 2.6-1.1v.4h3.2v-.5h3.6v.4h3.6v-.4h3.6v.4h3.7v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.7v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.7v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.7v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.7v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4z"
+      />
+      <path
+        stroke="#d4d4d4"
+        stroke-dasharray="3.64 3.64"
+        stroke-width=".9"
+        d="M354.1 396.9v.4h1.9l1.3.1v-.4q1.6.4 2.7 1l-.3.5q1.1.8 2 1.8l.3-.2q.8 1.2 1 2.6l-.4.1.2 1.3v1.8h.4v3.7h-.4v3.6h.4v3.7h-.4v3.6h.4v3.6h-.4v1.8q0 .8-.2 1.4h.5q-.3 1.6-1.1 2.7l-.4-.3q-.7 1.1-1.9 2l.3.3q-1.2.8-2.6 1l-.1-.4-1.3.2H354v.4h-3.6v-.4H347v.4h-3.6v-.4h-3.6v.4H336v-.4h-3.6v.4h-3.7v-.4h-3.6v.4h-3.6v-.4H318v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.7v.4H300v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.7v-.4h-3.6v.4H271v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.7v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.7v-.4H224v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4H206v-.4h-3.7v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.6v-.4h-3.6v.4H177v-.4h-3.6v.4h-3.6v-.4h-3.6v.4h-3.6v-.4H159v.4h-3.6v-.4h-3.7v.4h-3.6v-.4h-3.6v.4H141v-.4h-3.6v.4h-3.6v-.4H130v.4h-3.7v-.4h-3.6v.4h-3.6v-.4h-3.6v.4H112v-.4h-3.6v.4h-3.6v-.4H101v.4h-3.6v-.4H94v.4h-3.6v-.4h-1.8q-.7 0-1.3-.2l-.1.5q-1.5-.3-2.6-1.1l.2-.4a7 7 0 0 1-1.9-1.9l-.4.3q-.7-1.2-1-2.6l.4-.1-.1-1.4v-1.8h-.5v-3.6h.5v-3.6h-.5v-3.7h.5v-3.6h-.5v-3.7h.5v-1.8l.1-1.3h-.4q.3-1.6 1-2.7l.4.2q.8-1 2-1.8l-.3-.4q1-.9 2.6-1.1v.4h3.2v-.5h3.6v.4h3.6v-.4h3.6v.4h3.7v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.7v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.7v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.7v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.7v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4h3.7v.4h3.6v-.4h3.6v.4h3.6v-.4h3.6v.4h3.6v-.4z"
+      />
+      <g clip-path="url(#j)">
+        <path
+          stroke="#737373"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.2"
+          d="M109.1 410H97l4.8 5.7v4l2.5 1.2v-5.2z"
+        />
+      </g>
+      <text
+        xml:space="preserve"
+        fill="#18181b"
+        font-size="12.7"
+        font-weight="500"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="117.6" y="419.6">Field Settings</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="214.1" y="419.6">Visible: 12</tspan>
+      </text>
+      <path stroke="#d4d4d8" stroke-width=".9" d="M280.9 410v10.9" />
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="287.7" y="419.6">Hidden: 12</tspan>
+      </text>
+      <path
+        fill="#fafafa"
+        d="M39.6 480.5c0-4 3.2-7.3 7.3-7.3h1116.3c4 0 7.3 3.3 7.3 7.3v21.8c0 4-3.3 7.3-7.3 7.3H47c-4 0-7.3-3.3-7.3-7.3z"
+      />
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="54.1" y="495.9">time</tspan>
+      </text>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="217.8" y="495.9">message</tspan>
+      </text>
+      <mask id="k" fill="#fff"><path d="M39.6 509.9h163.6v51H39.6z" /></mask>
+      <path
+        fill="#f2f2f3"
+        d="M203.2 560.8v-.9H39.6v1.8h163.6z"
+        mask="url(#k)"
+      />
+      <text
+        xml:space="preserve"
+        fill="#18181b"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="54.1" y="538.1">2024/12/12 12:12:12</tspan>
+      </text>
+      <mask id="l" fill="#fff"><path d="M203.2 509.6h967.3V561H203.2z" /></mask>
+      <path
+        fill="#f2f2f3"
+        d="M1170.5 561.1v-.9H203.2v1.8h967.3z"
+        mask="url(#l)"
+      />
+      <text
+        xml:space="preserve"
+        fill="#18181b"
+        font-size="12.7"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="217.8" y="530.5">
+          2024-08-26T08:07:44.873117Z 7[Warning][MY-011153][Repl] Timeout
+          waiting for reply of binlog (file: ferns-fb489b87f-mysql-0-bin.000003,
+          pos: 1256), semi-
+        </tspan>
+        <tspan x="217.8" y="548.6">sync up to file, position 0.</tspan>
+      </text>
+    </g>
+  </g>
+  <path stroke="#d4d4d8" stroke-width=".6" d="M.3.3h928.4v557.4H.3z" />
+  <defs>
+    <filter
+      id="b"
+      width="911.7"
+      height="120"
+      x="8.7"
+      y="9.6"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy=".9" />
+      <feGaussianBlur stdDeviation=".9" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="BackgroundImageFix"
+        result="effect1_dropShadow_2719_24682"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect1_dropShadow_2719_24682"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="e"
+      width="40"
+      height="40"
+      x="241.2"
+      y="86.9"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="1.8"
+        result="effect1_dropShadow_2719_24682"
+      />
+      <feOffset dy="3.6" />
+      <feGaussianBlur stdDeviation="2.7" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="BackgroundImageFix"
+        result="effect1_dropShadow_2719_24682"
+      />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.7"
+        result="effect2_dropShadow_2719_24682"
+      />
+      <feOffset dy="9.1" />
+      <feGaussianBlur stdDeviation="6.8" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+      <feBlend
+        in2="effect1_dropShadow_2719_24682"
+        result="effect2_dropShadow_2719_24682"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2719_24682"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="f"
+      width="1192.7"
+      height="247.3"
+      x="8.7"
+      y="133.2"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy=".9" />
+      <feGaussianBlur stdDeviation=".9" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="BackgroundImageFix"
+        result="effect1_dropShadow_2719_24682"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect1_dropShadow_2719_24682"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="h"
+      width="1192.7"
+      height="575.4"
+      x="8.7"
+      y="385"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy=".9" />
+      <feGaussianBlur stdDeviation=".9" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="BackgroundImageFix"
+        result="effect1_dropShadow_2719_24682"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect1_dropShadow_2719_24682"
+        result="shape"
+      />
+    </filter>
+    <clipPath id="a"><path fill="#fff" d="M0 0h929v558H0z" /></clipPath>
+    <clipPath id="d">
+      <path
+        fill="#fff"
+        d="M644.4 28.7c0-4 3.2-7.3 7.2-7.3h96c4 0 7.3 3.3 7.3 7.3v21.8c0 4-3.2 7.3-7.3 7.3h-96c-4 0-7.2-3.3-7.2-7.3z"
+      />
+    </clipPath>
+    <clipPath id="j">
+      <path fill="#fff" d="M95.8 408.2h14.5v14.5H95.8z" />
+    </clipPath>
+  </defs>
+</svg>

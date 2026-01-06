@@ -1,0 +1,1016 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1100 600">
+  <path fill="#f4f4f5" d="M.4.4h1099.2v599.2H.4z" />
+  <path stroke="#d4d4d8" stroke-width=".8" d="M.4.4h1099.2v599.2H.4z" />
+  <g filter="url(#a)">
+    <g clip-path="url(#b)">
+      <rect width="1071" height="571" x="14.5" y="14.5" fill="url(#c)" rx="8" />
+      <g clip-path="url(#d)">
+        <path fill="#fff" d="M.5 14.5h1100.7v897.4H.5z" />
+        <path fill="#fafafa" d="M.5 14.5h1100.7v897.4H.5z" />
+        <mask id="e" fill="#fff"><path d="M.5 14.5h1100.7v73.4H.5z" /></mask>
+        <path
+          fill="#e4e4e7"
+          d="M1101.2 87.9V87H.5v1.5h1100.7z"
+          mask="url(#e)"
+        />
+        <path
+          stroke="#18181b"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M45.6 51.2H34.9M40.2 56.5 35 51.2l5.3-5.4"
+        />
+        <text
+          xml:space="preserve"
+          fill="#000"
+          font-size="18.3"
+          font-weight="600"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="58.6" y="57.4">应用部署</tspan>
+        </text>
+        <path
+          fill="#fff"
+          d="M898.4 36.3h65.2c3.2 0 5.7 2.5 5.7 5.7v18.3c0 3.2-2.5 5.8-5.7 5.8h-65.2a5.7 5.7 0 0 1-5.8-5.8V42c0-3.2 2.6-5.7 5.8-5.7"
+        />
+        <path
+          stroke="#e4e4e7"
+          stroke-width=".8"
+          d="M898.4 36.3h65.2c3.2 0 5.7 2.5 5.7 5.7v18.3c0 3.2-2.5 5.8-5.7 5.8h-65.2a5.7 5.7 0 0 1-5.8-5.8V42c0-3.2 2.6-5.7 5.8-5.7Z"
+        />
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="10.7"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="904.5" y="54.6">导出 YAML</tspan>
+        </text>
+        <path
+          fill="#18181b"
+          d="M978.9 42c0-3.4 2.7-6.1 6.1-6.1h79.5c3.4 0 6.1 2.7 6.1 6.1v18.3c0 3.4-2.7 6.2-6.1 6.2H985a6 6 0 0 1-6.1-6.2z"
+        />
+        <text
+          xml:space="preserve"
+          fill="#fafafa"
+          font-size="10.7"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="1003.3" y="54.6">部署应用</tspan>
+        </text>
+        <rect
+          width="203.3"
+          height="33.6"
+          x="92.2"
+          y="118.4"
+          fill="#f4f4f5"
+          rx="7.6"
+        />
+        <g filter="url(#f)">
+          <path
+            fill="#fff"
+            d="M95.3 127.6c0-3.4 2.7-6.1 6-6.1h86.5c3.3 0 6 2.7 6 6.1V143c0 3.4-2.7 6.1-6 6.1h-86.4a6 6 0 0 1-6.1-6.1z"
+            shape-rendering="crispEdges"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.2"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="132.3" y="139.3">表单</tspan>
+          </text>
+        </g>
+        <text
+          xml:space="preserve"
+          fill="#71717a"
+          font-size="12.2"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="227.2" y="139.3">YAML</tspan>
+        </text>
+        <g clip-path="url(#g)">
+          <rect
+            width="203.3"
+            height="226.3"
+            x="92.2"
+            y="164.3"
+            fill="#fff"
+            rx="8"
+          />
+          <mask id="h" fill="#fff">
+            <path d="M92.2 164.3h203.3v39.8H92.2z" />
+          </mask>
+          <path fill="#fafafa" d="M92.2 164.3h203.3v39.8H92.2z" />
+          <path
+            fill="#f4f4f5"
+            d="M295.5 204v-.7H92.2v1.5h203.3z"
+            mask="url(#h)"
+          />
+          <text
+            xml:space="preserve"
+            fill="#000"
+            font-size="12.2"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="107.5" y="188.5">预估价格</tspan>
+          </text>
+          <text
+            xml:space="preserve"
+            fill="#a1a1aa"
+            font-size="12.2"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="162.6" y="188.5">/天</tspan>
+          </text>
+          <mask id="i" fill="#fff">
+            <path d="M92.2 204h203.3v36.7H92.2z" />
+          </mask>
+          <path
+            fill="#f4f4f5"
+            d="M295.5 240.7v-.7H92.2v1.5h203.3z"
+            mask="url(#i)"
+          />
+          <g clip-path="url(#j)">
+            <path
+              stroke="#a3a3a3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M117 216v1.3m0 10.2v1.3m-8.2-4.5h1.2m-1.2-3.8h1.2m10.2 3.8h1.3m-1.3-3.8h1.3m-8.3-4.5v1.3m0 10.2v1.3m-1.9-11.5h7.7q1.1.1 1.2 1.3v7.6q0 1.2-1.2 1.3h-7.7q-1.2-.1-1.3-1.3v-7.6q.1-1.2 1.3-1.3m2.6 3.2h2.5q.7 0 .7.6v2.6q0 .5-.7.6H114a.6.6 0 0 1-.7-.6V221q0-.5.7-.6"
+            />
+          </g>
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.2"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="128.9" y="226.7">CPU</tspan>
+          </text>
+          <text
+            xml:space="preserve"
+            fill="#52525b"
+            font-size="12.2"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="253.2" y="226.7">0.08</tspan>
+          </text>
+          <mask id="k" fill="#fff">
+            <path d="M92.2 240.7h203.3v36.7H92.2z" />
+          </mask>
+          <path
+            fill="#f4f4f5"
+            d="M295.5 277.4v-.7H92.2v1.5h203.3z"
+            mask="url(#k)"
+          />
+          <g clip-path="url(#l)">
+            <path
+              stroke="#a3a3a3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M111.3 263.5v-1.9m2.6 2v-2m2.5 2v-2m2.6 2v-2m-6.4-3.2v-1.2m5 1.2v-1.2m-2.5 1.2v-1.2m-6.3 3.8h12.7m-12.7-5.1a1.3 1.3 0 0 1 1.2-1.3h10.2a1.3 1.3 0 0 1 1.3 1.3v.7a1.3 1.3 0 0 0 0 2.4v3.3a1.3 1.3 0 0 1-1.3 1.2H110a1.3 1.3 0 0 1-1.2-1.2V259a1.3 1.3 0 0 0 .6-2q-.2-.3-.6-.4z"
+            />
+          </g>
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.2"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="128.9" y="263.4">内存</tspan>
+          </text>
+          <text
+            xml:space="preserve"
+            fill="#52525b"
+            font-size="12.2"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="253.2" y="263.4">0.05</tspan>
+          </text>
+          <mask id="m" fill="#fff">
+            <path d="M92.2 277.4h203.3v36.7H92.2z" />
+          </mask>
+          <path
+            fill="#f4f4f5"
+            d="M295.5 314.1v-.7H92.2v1.5h203.3z"
+            mask="url(#m)"
+          />
+          <g clip-path="url(#n)">
+            <path
+              stroke="#a3a3a3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M121.5 295.8h-12.7m12.7 0v3.8a1.3 1.3 0 0 1-1.3 1.3H110a1.3 1.3 0 0 1-1.2-1.3v-3.8m12.7 0-2.2-4.4a1 1 0 0 0-1.1-.7h-6a1 1 0 0 0-1.2.7l-2.2 4.4m5.1 2.5"
+            />
+          </g>
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.2"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="128.9" y="300.1">存储卷</tspan>
+          </text>
+          <text
+            xml:space="preserve"
+            fill="#52525b"
+            font-size="12.2"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="253.2" y="300.1">0.00</tspan>
+          </text>
+          <mask id="o" fill="#fff">
+            <path d="M92.2 314.1h203.3v36.7H92.2z" />
+          </mask>
+          <path
+            fill="#f4f4f5"
+            d="M295.5 350.8v-.8H92.2v1.6h203.3z"
+            mask="url(#o)"
+          />
+          <g clip-path="url(#p)">
+            <path
+              stroke="#a3a3a3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M112.3 332.5h5.7m3.5-2q0-.2-.2-.4l-.4-.2h-11.5a.6.6 0 0 0-.6.7v2.5a1 1 0 0 0 .6.6h.6l1.3 1.3h7.7l1.2-1.3h.7a1 1 0 0 0 .6-.6z"
+            />
+          </g>
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.2"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="128.9" y="336.8">端口</tspan>
+          </text>
+          <text
+            xml:space="preserve"
+            fill="#52525b"
+            font-size="12.2"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="253.2" y="336.8">0.00</tspan>
+          </text>
+          <mask id="q" fill="#fff">
+            <path d="M92.2 350.8h203.3v39.8H92.2z" />
+          </mask>
+          <path
+            fill="#e4e4e7"
+            d="M295.5 390.6v-.8H92.2v1.5h203.3z"
+            mask="url(#q)"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.2"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="107.5" y="375">总价</tspan>
+          </text>
+          <g clip-path="url(#r)">
+            <path
+              stroke="#a3a3a3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width=".8"
+              d="M140.2 369.2a1.5 1.5 0 0 1 3 .5c0 1-1.6 1.5-1.6 1.5m5.2-.5a5.1 5.1 0 1 1-10.2 0 5.1 5.1 0 0 1 10.2 0"
+            />
+          </g>
+          <text
+            xml:space="preserve"
+            fill="#2563eb"
+            font-size="12.2"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="257.2" y="375">0.13</tspan>
+          </text>
+        </g>
+        <rect
+          width="202.7"
+          height="225.6"
+          x="92.5"
+          y="164.6"
+          stroke="#e4e4e7"
+          stroke-width=".6"
+          rx="7.7"
+        />
+        <g clip-path="url(#s)">
+          <rect
+            width="203.3"
+            height="186.5"
+            x="92.2"
+            y="402.8"
+            fill="#fff"
+            rx="8"
+          />
+          <mask id="t" fill="#fff">
+            <path d="M92.2 402.8h203.3v39.7H92.2z" />
+          </mask>
+          <path fill="#fafafa" d="M92.2 402.8h203.3v39.7H92.2z" />
+          <path
+            fill="#f4f4f5"
+            d="M295.5 442.5v-.7H92.2v1.5h203.3z"
+            mask="url(#t)"
+          />
+          <text
+            xml:space="preserve"
+            fill="#000"
+            font-size="12.2"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="107.5" y="427">资源配额</tspan>
+          </text>
+          <mask id="u" fill="#fff">
+            <path d="M92.2 442.5h203.3v36.7H92.2z" />
+          </mask>
+          <path
+            fill="#f4f4f5"
+            d="M295.5 479.2v-.7H92.2v1.5h203.3z"
+            mask="url(#u)"
+          />
+          <g clip-path="url(#v)">
+            <path
+              stroke="#a3a3a3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M117 454.5v1.3m0 10.2v1.3m-8.2-4.5h1.2m-1.2-3.8h1.2m10.2 3.8h1.3m-1.3-3.8h1.3m-8.3-4.5v1.3m0 10.2v1.3m-1.9-11.5h7.7q1.1.1 1.2 1.3v7.6q0 1.2-1.2 1.3h-7.7q-1.2-.1-1.3-1.3v-7.6q.1-1.2 1.3-1.3m2.6 3.2h2.5q.7 0 .7.6v2.6q0 .5-.7.6H114a.6.6 0 0 1-.7-.6v-2.6q0-.5.7-.6"
+            />
+          </g>
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.2"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="128.9" y="465.2">CPU</tspan>
+          </text>
+          <rect
+            width="91.7"
+            height="3.1"
+            x="188.5"
+            y="459.4"
+            fill="#000"
+            fill-opacity=".1"
+            rx="1.5"
+          />
+          <rect
+            width="48.9"
+            height="3.1"
+            x="188.5"
+            y="459.4"
+            fill="#18181b"
+            rx="1.5"
+          />
+          <mask id="w" fill="#fff">
+            <path d="M92.2 479.2h203.3V516H92.2z" />
+          </mask>
+          <path
+            fill="#f4f4f5"
+            d="M295.5 516v-.8H92.2v1.5h203.3z"
+            mask="url(#w)"
+          />
+          <path
+            stroke="#a3a3a3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".8"
+            d="M111.3 502v-1.9m2.6 2v-2m2.5 2v-2m2.6 2v-2m-6.4-3.2v-1.2m5 1.2v-1.2m-2.5 1.2v-1.2m-6.3 3.8h12.7m-12.7-5.1a1.3 1.3 0 0 1 1.2-1.3h10.2a1.3 1.3 0 0 1 1.3 1.3v.7a1.3 1.3 0 0 0 0 2.4v3.3a1.3 1.3 0 0 1-1.3 1.2H110a1.3 1.3 0 0 1-1.2-1.2v-3.3a1.3 1.3 0 0 0 .6-2q-.2-.4-.6-.4z"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.2"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="128.9" y="501.9">内存</tspan>
+          </text>
+          <rect
+            width="91.7"
+            height="3.1"
+            x="188.5"
+            y="496"
+            fill="#000"
+            fill-opacity=".1"
+            rx="1.5"
+          />
+          <rect
+            width="17.6"
+            height="3.1"
+            x="188.5"
+            y="496"
+            fill="#18181b"
+            rx="1.5"
+          />
+          <mask id="x" fill="#fff">
+            <path d="M92.2 516h203.3v36.6H92.2z" />
+          </mask>
+          <path
+            fill="#f4f4f5"
+            d="M295.5 552.6v-.8H92.2v1.6h203.3z"
+            mask="url(#x)"
+          />
+          <path
+            stroke="#a3a3a3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".8"
+            d="M121.5 534.3h-12.7m12.7 0v3.8a1.3 1.3 0 0 1-1.3 1.3H110a1.3 1.3 0 0 1-1.2-1.3v-3.8m12.7 0-2.2-4.4a1 1 0 0 0-1.1-.7h-6a1 1 0 0 0-1.2.7l-2.2 4.4m5.1 2.5"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.2"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="128.9" y="538.6">存储卷</tspan>
+          </text>
+          <rect
+            width="91.7"
+            height="3.1"
+            x="188.5"
+            y="532.7"
+            fill="#000"
+            fill-opacity=".1"
+            rx="1.5"
+          />
+          <rect
+            width="17.6"
+            height="3.1"
+            x="188.5"
+            y="532.7"
+            fill="#18181b"
+            rx="1.5"
+          />
+          <mask id="y" fill="#fff">
+            <path d="M92.2 552.6h203.3v36.7H92.2z" />
+          </mask>
+          <path
+            fill="#f4f4f5"
+            d="M295.5 589.3v-.8H92.2v1.6h203.3z"
+            mask="url(#y)"
+          />
+          <path
+            stroke="#a3a3a3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".8"
+            d="M112.3 571h5.7m3.5-2a1 1 0 0 0-.6-.6h-11.5a1 1 0 0 0-.6.6v2.6a1 1 0 0 0 .6.6h.6l1.3 1.3h7.7l1.2-1.3h.7q.2 0 .4-.2l.2-.4z"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.2"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="128.9" y="575.3">端口</tspan>
+          </text>
+          <rect
+            width="91.7"
+            height="3.1"
+            x="188.5"
+            y="569.4"
+            fill="#000"
+            fill-opacity=".1"
+            rx="1.5"
+          />
+          <rect
+            width="9.9"
+            height="3.1"
+            x="188.5"
+            y="569.4"
+            fill="#18181b"
+            rx="1.5"
+          />
+        </g>
+        <rect
+          width="202.7"
+          height="185.9"
+          x="92.5"
+          y="403.1"
+          stroke="#e4e4e7"
+          stroke-width=".6"
+          rx="7.7"
+        />
+        <rect
+          width="694.9"
+          height="974.3"
+          x="314.2"
+          y="118.8"
+          fill="#fff"
+          rx="11.6"
+        />
+        <rect
+          width="694.9"
+          height="974.3"
+          x="314.2"
+          y="118.8"
+          stroke="#e4e4e7"
+          stroke-width=".7"
+          rx="11.6"
+        />
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="14"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="342" y="158.5">启动命令</tspan>
+        </text>
+        <text
+          xml:space="preserve"
+          fill="#71717a"
+          font-size="12.3"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="342" y="177.2">不填则为默认命令</tspan>
+        </text>
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="12.3"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="342" y="214.5">运行命令</tspan>
+        </text>
+        <path
+          stroke="#e4e4e7"
+          stroke-width=".9"
+          d="M449 193h302c3.7 0 6.6 3 6.6 6.6v21c0 3.7-2.9 6.7-6.5 6.7H449c-3.7 0-6.6-3-6.6-6.6v-21.1c0-3.6 3-6.6 6.6-6.6Z"
+        />
+        <text
+          xml:space="preserve"
+          fill="#71717a"
+          font-size="12.3"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="452.6" y="214.3">For example: /bin/bash -c</tspan>
+        </text>
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="12.3"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="342" y="260.1">命令参数</tspan>
+        </text>
+        <path
+          stroke="#e4e4e7"
+          stroke-width=".9"
+          d="M449 238.7h302c3.7 0 6.6 3 6.6 6.6v21c0 3.7-2.9 6.6-6.5 6.6H449c-3.7 0-6.6-3-6.6-6.6v-21c0-3.7 3-6.6 6.6-6.6Z"
+        />
+        <text
+          xml:space="preserve"
+          fill="#71717a"
+          font-size="12.3"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="452.6" y="259.9">
+            For example: sleep 10 &amp;&amp; /entrypoint.sh db createdb
+          </tspan>
+        </text>
+        <path
+          stroke="#e4e4e7"
+          stroke-dasharray="1.76 1.76"
+          stroke-width=".9"
+          d="M342 286.9h639.4"
+        />
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="14"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="342" y="322.2">环境变量</tspan>
+        </text>
+        <path
+          fill="#fff"
+          d="M914.2 301.9h60.1c3.7 0 6.6 3 6.6 6.6V326c0 3.7-3 6.6-6.6 6.6h-60c-3.7 0-6.7-3-6.7-6.6v-17.5c0-3.7 3-6.6 6.6-6.6"
+        />
+        <path
+          stroke="#e4e4e7"
+          stroke-width=".9"
+          d="M914.2 301.9h60.1c3.7 0 6.6 3 6.6 6.6V326c0 3.7-3 6.6-6.6 6.6h-60c-3.7 0-6.7-3-6.7-6.6v-17.5c0-3.7 3-6.6 6.6-6.6Z"
+        />
+        <path
+          stroke="#737373"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.2"
+          d="M928.3 322h5.2M930 313l1.8 1.8m-1-2.6a1.2 1.2 0 1 1 1.8 1.8l-7 7q-.2.3-.5.3l-1.7.5h-.2a.3.3 0 0 1-.2-.4l.5-1.6q0-.3.3-.5z"
+        />
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="12.3"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="942.3" y="321.4">编辑</tspan>
+        </text>
+        <g clip-path="url(#z)">
+          <mask id="A" fill="#fff"><path d="M342 343.6h742.7v32H342z" /></mask>
+          <path fill="#fafafa" d="M342 343.6h742.7v32H342z" />
+          <path
+            fill="#e4e4e7"
+            d="M1084.7 375.6v-.4H342v.9h742.7z"
+            mask="url(#A)"
+          />
+          <mask id="B" fill="#fff"><path d="M342 343.6h175.5v32H342z" /></mask>
+          <path fill="#e4e4e7" d="M517.5 343.6h-.4v32h.9v-32z" mask="url(#B)" />
+          <text
+            xml:space="preserve"
+            fill="#71717a"
+            font-size="12.3"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="352.5" y="363.7">Key</tspan>
+          </text>
+          <text
+            xml:space="preserve"
+            fill="#71717a"
+            font-size="12.3"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="528.1" y="363.7">Value</tspan>
+          </text>
+          <mask id="C" fill="#fff">
+            <path d="M342 375.6h742.7v31.6H342z" />
+          </mask>
+          <path
+            fill="#e4e4e7"
+            d="M1084.7 407.2v-.4H342v.9h742.7z"
+            mask="url(#C)"
+          />
+          <mask id="D" fill="#fff">
+            <path d="M342 375.6h175.5v31.6H342z" />
+          </mask>
+          <path
+            fill="#e4e4e7"
+            d="M517.5 375.6h-.4v31.6h.9v-31.6z"
+            mask="url(#D)"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.3"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="352.5" y="395.6">/bin/bash -c</tspan>
+          </text>
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="12.3"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="528.1" y="395.6">
+              /home/devbox/project/entrypoint.sh
+            </tspan>
+          </text>
+        </g>
+        <rect
+          width="638.7"
+          height="62.9"
+          x="342.3"
+          y="343.9"
+          stroke="#e4e4e7"
+          stroke-width=".7"
+          rx="6.7"
+        />
+        <path
+          stroke="#e4e4e7"
+          stroke-dasharray="1.76 1.76"
+          stroke-width=".9"
+          d="M342 420.8h639.4"
+        />
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="14"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="342" y="456.1">Configmaps</tspan>
+        </text>
+        <path
+          fill="#fff"
+          d="M914.2 435.8h60.1c3.7 0 6.6 2.9 6.6 6.5V460c0 3.6-3 6.6-6.6 6.6h-60c-3.7 0-6.7-3-6.7-6.6v-17.6c0-3.6 3-6.5 6.6-6.5"
+        />
+        <path
+          stroke="#e4e4e7"
+          stroke-width=".9"
+          d="M914.2 435.8h60.1c3.7 0 6.6 2.9 6.6 6.5V460c0 3.6-3 6.6-6.6 6.6h-60c-3.7 0-6.7-3-6.7-6.6v-17.6c0-3.6 3-6.5 6.6-6.5Z"
+        />
+        <path
+          stroke="#737373"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.2"
+          d="M924.2 451.1h8.2m-4.1-4v8.1"
+        />
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="12.3"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="942.3" y="455.3">新增</tspan>
+        </text>
+        <path
+          fill="#fafafa"
+          d="M349 477.9h625.3c3.7 0 6.6 3 6.6 6.6v35c0 3.7-3 6.7-6.6 6.7H349c-3.6 0-6.6-3-6.6-6.6v-35.1c0-3.7 3-6.6 6.6-6.6"
+        />
+        <path
+          stroke="#f4f4f5"
+          stroke-width=".9"
+          d="M349 477.9h625.3c3.7 0 6.6 3 6.6 6.6v35c0 3.7-3 6.7-6.6 6.7H349c-3.6 0-6.6-3-6.6-6.6v-35.1c0-3.7 3-6.6 6.6-6.6Z"
+        />
+        <g
+          fill="#a1a1aa"
+          fill-rule="evenodd"
+          clip-path="url(#E)"
+          clip-rule="evenodd"
+        >
+          <path
+            d="m366.7 494.4 2.5 2.4 1.2 1.2.4 1 .1 1.7v3.6q-1-.4-2-.4a5 5 0 0 0-4.3 7.2h-4q-2.9 0-3.6-.3-1-.5-1.5-1.5-.4-.8-.3-3.5v-7.5c0-2 0-2.9.3-3.6q.4-.9 1.5-1.4.9-.5 3.5-.4h2.5l1.6.1q.5 0 .9.4zm-1.6 1.2q-.7-.8-1-.8t-.5.2l-.1 1.3v.8q0 1.4.2 2 .2.5.8.8t2 .2h1l1.2-.1q.2-.3.2-.5t-.8-1z"
+          />
+          <path
+            d="M368 505.7c.2-1 1.6-1 1.9 0q.3 1 1.2.7c1-.2 1.7 1 1 1.7a1 1 0 0 0 0 1.4c.7.7 0 1.9-1 1.6a1 1 0 0 0-1.2.7c-.3 1-1.7 1-2 0a1 1 0 0 0-1.1-.7c-1 .3-1.7-1-1-1.6q.6-.7 0-1.4c-.7-.7 0-2 1-1.7q.8.3 1.2-.7m2.2 3a1.2 1.2 0 1 1-2.5 0 1.2 1.2 0 0 1 2.5 0"
+          />
+        </g>
+        <text
+          xml:space="preserve"
+          fill="#111824"
+          font-size="12.3"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="384.1" y="498.9">/etc/kubernetes/admin.conf</tspan>
+        </text>
+        <text
+          xml:space="preserve"
+          fill="#737373"
+          font-size="10.5"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="384.1" y="516.5">
+            # property-like keys; each key maps to a simple va
+          </tspan>
+        </text>
+        <g clip-path="url(#F)">
+          <path
+            stroke="#737373"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.2"
+            d="M955 498.5h10.6m-1.2 0v8.2q-.1 1-1.2 1.2h-5.8q-1-.1-1.2-1.2v-8.2m1.8 0v-1.1q.1-1 1.1-1.2h2.4q1 .2 1.1 1.2v1.1m-3.5 3v3.5m2.4-3.6v3.6"
+          />
+        </g>
+        <path
+          stroke="#e4e4e7"
+          stroke-dasharray="1.76 1.76"
+          stroke-width=".9"
+          d="M342 540.2h639.4"
+        />
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="14"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="342" y="566.7">本地存储</tspan>
+        </text>
+        <text
+          xml:space="preserve"
+          fill="#71717a"
+          font-size="12.3"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="342" y="585.4">多数实例间数据不互通</tspan>
+        </text>
+        <path
+          fill="#fff"
+          d="M914.2 557.1h60.1c3.7 0 6.6 3 6.6 6.6v17.5c0 3.7-3 6.6-6.6 6.6h-60c-3.7 0-6.7-3-6.7-6.6v-17.5c0-3.7 3-6.6 6.6-6.6"
+        />
+        <path
+          stroke="#e4e4e7"
+          stroke-width=".9"
+          d="M914.2 557.1h60.1c3.7 0 6.6 3 6.6 6.6v17.5c0 3.7-3 6.6-6.6 6.6h-60c-3.7 0-6.7-3-6.7-6.6v-17.5c0-3.7 3-6.6 6.6-6.6Z"
+        />
+        <path
+          stroke="#737373"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.2"
+          d="M924.2 572.5h8.2m-4.1-4.1v8.2"
+        />
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="12.3"
+          font-weight="500"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="942.3" y="576.6">新增</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="b">
+      <rect width="1071" height="571" x="14.5" y="14.5" fill="#fff" rx="8" />
+    </clipPath>
+    <clipPath id="d">
+      <path fill="#fff" d="M.5 14.5h1100.7v897.4H.5z" />
+    </clipPath>
+    <clipPath id="g">
+      <rect
+        width="203.3"
+        height="226.3"
+        x="92.2"
+        y="164.3"
+        fill="#fff"
+        rx="8"
+      />
+    </clipPath>
+    <clipPath id="j">
+      <path fill="#fff" d="M107.5 214.8h15.3V230h-15.3z" />
+    </clipPath>
+    <clipPath id="l">
+      <path fill="#fff" d="M107.5 251.4h15.3v15.3h-15.3z" />
+    </clipPath>
+    <clipPath id="n">
+      <path fill="#fff" d="M107.5 288.1h15.3v15.3h-15.3z" />
+    </clipPath>
+    <clipPath id="p">
+      <path fill="#fff" d="M107.5 324.8h15.3v15.3h-15.3z" />
+    </clipPath>
+    <clipPath id="r">
+      <path fill="#fff" d="M135.6 364.6h12.2v12.2h-12.2z" />
+    </clipPath>
+    <clipPath id="s">
+      <rect
+        width="203.3"
+        height="186.5"
+        x="92.2"
+        y="402.8"
+        fill="#fff"
+        rx="8"
+      />
+    </clipPath>
+    <clipPath id="v">
+      <path fill="#fff" d="M107.5 453.2h15.3v15.3h-15.3z" />
+    </clipPath>
+    <clipPath id="z">
+      <rect width="639.4" height="63.6" x="342" y="343.6" fill="#fff" rx="7" />
+    </clipPath>
+    <clipPath id="E">
+      <path fill="#fff" d="M352.5 491.5h21.1v21.1h-21z" />
+    </clipPath>
+    <clipPath id="F"><path fill="#fff" d="M953.3 495h14v14h-14z" /></clipPath>
+    <filter
+      id="a"
+      width="1081.6"
+      height="581.6"
+      x="9.2"
+      y="13.4"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="1.1"
+        result="effect1_dropShadow_2130_6302"
+      />
+      <feOffset dy="2.1" />
+      <feGaussianBlur stdDeviation="2.1" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2130_6302" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="1.1"
+        result="effect2_dropShadow_2130_6302"
+      />
+      <feOffset dy="4.2" />
+      <feGaussianBlur stdDeviation="3.2" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+      <feBlend
+        in2="effect1_dropShadow_2130_6302"
+        result="effect2_dropShadow_2130_6302"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2130_6302"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="f"
+      width="101.7"
+      height="30.6"
+      x="93.7"
+      y="120.7"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy=".8" />
+      <feGaussianBlur stdDeviation=".8" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2130_6302" />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect1_dropShadow_2130_6302"
+        result="shape"
+      />
+    </filter>
+    <linearGradient
+      id="c"
+      x1="550"
+      x2="550"
+      y1="14.5"
+      y2="585.5"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fff" />
+      <stop offset="1" stop-color="#f7f7f7" />
+    </linearGradient>
+  </defs>
+</svg>

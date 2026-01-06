@@ -1,0 +1,1110 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1100 600">
+  <path fill="#f4f4f5" d="M.4.4h1099.2v599.2H.4z" />
+  <path stroke="#d4d4d8" stroke-width=".8" d="M.4.4h1099.2v599.2H.4z" />
+  <g filter="url(#a)">
+    <g clip-path="url(#b)">
+      <rect width="1071" height="571" x="14.5" y="14.5" fill="url(#c)" rx="8" />
+      <g clip-path="url(#d)">
+        <path fill="#fff" d="M-76.5 14.5h1253.8v1022.2H-76.5z" />
+        <path fill="#fafafa" d="M-76.5 14.5h1253.8v1022.2H-76.5z" />
+        <g filter="url(#e)">
+          <g clip-path="url(#f)">
+            <rect
+              width="594.9"
+              height="364.4"
+              x="42.3"
+              y="94.2"
+              fill="#fff"
+              rx="14.9"
+            />
+            <path fill="#fff" d="M72 123.9h535.5v48.7H72z" />
+            <text
+              xml:space="preserve"
+              fill="#000"
+              font-size="18.6"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="72" y="143.5">网络配置</tspan>
+            </text>
+            <text
+              xml:space="preserve"
+              fill="#71717a"
+              font-size="13"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="72" y="167.5">TCP和UDP端口将在部署后分配。</tspan>
+            </text>
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="13"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="73" y="209.7">容器暴露端口</tspan>
+            </text>
+            <rect
+              width="91.9"
+              height="36.2"
+              x="72.5"
+              y="223.2"
+              fill="#fff"
+              rx="7"
+            />
+            <rect
+              width="91.9"
+              height="36.2"
+              x="72.5"
+              y="223.2"
+              stroke="#e4e4e7"
+              stroke-width=".9"
+              rx="7"
+            />
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="13"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="83.2" y="245.7">80</tspan>
+            </text>
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="13"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="195.6" y="209.7">公网访问</tspan>
+            </text>
+            <path
+              fill="#18181b"
+              d="M194.6 241.3c0-6.1 5-11.1 11.2-11.1h18.5a11.1 11.1 0 0 1 0 22.3h-18.5c-6.2 0-11.2-5-11.2-11.2"
+            />
+            <g filter="url(#g)">
+              <path
+                fill="#fff"
+                d="M215 241.3a9.3 9.3 0 1 1 18.6 0 9.3 9.3 0 0 1-18.6 0"
+              />
+            </g>
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="13"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="242.9" y="245.9">开启</tspan>
+            </text>
+            <g clip-path="url(#h)">
+              <path fill="#fff" d="M288.9 223.2h85.9v36.2h-85.9z" />
+              <path
+                stroke="#e4e4e7"
+                stroke-width=".9"
+                d="M288.9 223.2h85.9v36.2h-85.9z"
+              />
+              <text
+                xml:space="preserve"
+                fill="#18181b"
+                font-size="13"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="299.6" y="245.7">https://</tspan>
+              </text>
+              <path
+                stroke="#71717a"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.2"
+                d="m353 239.5 3.8 3.7 3.7-3.7"
+              />
+              <path fill="#fff" d="M374.9 223.2h183.9v36.2H374.9z" />
+              <path
+                stroke="#e4e4e7"
+                stroke-width=".9"
+                d="M374.9 223.2h183.9v36.2H374.9z"
+              />
+              <text
+                xml:space="preserve"
+                fill="#71717a"
+                font-size="13"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="385.6" y="245.9">jvvfqdswtmmk.</tspan>
+              </text>
+              <text
+                xml:space="preserve"
+                fill="#2563eb"
+                font-size="13"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="482.1" y="245.7">自定义域名</tspan>
+              </text>
+            </g>
+            <path
+              stroke="#e4e4e7"
+              stroke-width=".9"
+              d="M296 223.2h255.8a7 7 0 0 1 7 7v22.3a7 7 0 0 1-7 7H296a7 7 0 0 1-7-7v-22.3a7 7 0 0 1 7-7Z"
+            />
+            <g filter="url(#i)">
+              <path
+                fill="#fff"
+                d="M574.1 232c0-4 3.4-7.4 7.5-7.4H600c4.1 0 7.5 3.3 7.5 7.4v18.6c0 4.1-3.4 7.4-7.5 7.4h-18.5a7.4 7.4 0 0 1-7.5-7.4z"
+                shape-rendering="crispEdges"
+              />
+              <path
+                stroke="#e4e4e7"
+                stroke-width=".9"
+                d="M581.6 225H600a7 7 0 0 1 7 7v18.6a7 7 0 0 1-7 7h-18.5a7 7 0 0 1-7-7V232a7 7 0 0 1 7-7Z"
+                shape-rendering="crispEdges"
+              />
+              <g clip-path="url(#j)">
+                <path
+                  stroke="#737373"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.2"
+                  d="M585.3 237.6h11.1m-1.2 0v8.7q-.1 1-1.3 1.2h-6.2q-1-.1-1.2-1.2v-8.7m1.9 0v-1.2q.1-1.2 1.2-1.3h2.5q1 .1 1.2 1.3v1.2m-3.7 3v3.8m2.5-3.7v3.7"
+                />
+              </g>
+            </g>
+            <path
+              stroke="#e4e4e7"
+              stroke-dasharray="1.86 1.86"
+              stroke-width=".9"
+              d="M72 278h785.6"
+            />
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="13"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="73" y="308.1">容器暴露端口</tspan>
+            </text>
+            <rect
+              width="91.9"
+              height="36.2"
+              x="72.5"
+              y="321.6"
+              fill="#fff"
+              rx="7"
+            />
+            <rect
+              width="91.9"
+              height="36.2"
+              x="72.5"
+              y="321.6"
+              stroke="#e4e4e7"
+              stroke-width=".9"
+              rx="7"
+            />
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="13"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="83.2" y="344.1">81</tspan>
+            </text>
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="13"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="195.6" y="308.1">公网访问</tspan>
+            </text>
+            <path
+              fill="#18181b"
+              d="M194.6 339.7c0-6.1 5-11.1 11.2-11.1h18.5a11.1 11.1 0 0 1 0 22.3h-18.5c-6.2 0-11.2-5-11.2-11.2"
+            />
+            <g filter="url(#k)">
+              <path
+                fill="#fff"
+                d="M215 339.7a9.3 9.3 0 1 1 18.6 0 9.3 9.3 0 0 1-18.6 0"
+              />
+            </g>
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="13"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="242.9" y="344.4">开启</tspan>
+            </text>
+            <g clip-path="url(#l)">
+              <path fill="#fff" d="M288.9 321.6h85.9v36.2h-85.9z" />
+              <path
+                stroke="#e4e4e7"
+                stroke-width=".9"
+                d="M288.9 321.6h85.9v36.2h-85.9z"
+              />
+              <text
+                xml:space="preserve"
+                fill="#18181b"
+                font-size="13"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="299.6" y="344.1">https://</tspan>
+              </text>
+              <path
+                stroke="#71717a"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.2"
+                d="m353 337.9 3.8 3.7 3.7-3.7"
+              />
+              <path fill="#fff" d="M374.9 321.6h183.9v36.2H374.9z" />
+              <path
+                stroke="#e4e4e7"
+                stroke-width=".9"
+                d="M374.9 321.6h183.9v36.2H374.9z"
+              />
+              <text
+                xml:space="preserve"
+                fill="#71717a"
+                font-size="13"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="385.6" y="344.4">jvvfqdswtmmk.</tspan>
+              </text>
+              <text
+                xml:space="preserve"
+                fill="#2563eb"
+                font-size="13"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="482.1" y="344.1">自定义域名</tspan>
+              </text>
+            </g>
+            <path
+              stroke="#e4e4e7"
+              stroke-width=".9"
+              d="M296 321.6h255.8a7 7 0 0 1 7 7v22.3a7 7 0 0 1-7 7H296a7 7 0 0 1-7-7v-22.3a7 7 0 0 1 7-7Z"
+            />
+            <g filter="url(#m)">
+              <path
+                fill="#fff"
+                d="M574.1 330.5c0-4.1 3.4-7.5 7.5-7.5H600c4.1 0 7.5 3.4 7.5 7.5V349c0 4.1-3.4 7.5-7.5 7.5h-18.5a7.4 7.4 0 0 1-7.5-7.5z"
+                shape-rendering="crispEdges"
+              />
+              <path
+                stroke="#e4e4e7"
+                stroke-width=".9"
+                d="M581.6 323.5H600a7 7 0 0 1 7 7V349a7 7 0 0 1-7 7h-18.5a7 7 0 0 1-7-7v-18.5a7 7 0 0 1 7-7Z"
+                shape-rendering="crispEdges"
+              />
+              <path
+                stroke="#737373"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.2"
+                d="M585.3 336h11.1m-1.2 0v8.7q-.1 1-1.3 1.2h-6.2q-1-.2-1.2-1.2V336m1.9 0v-1.2q.1-1 1.2-1.2h2.5q1 .2 1.2 1.2v1.2m-3.7 3.1v3.7m2.5-3.7v3.7"
+              />
+            </g>
+            <path
+              stroke="#e4e4e7"
+              stroke-dasharray="1.86 1.86"
+              stroke-width=".9"
+              d="M72 376.4h785.6"
+            />
+            <path
+              fill="#fff"
+              d="M79.5 392.2h78a7 7 0 0 1 7 7v22.3a7 7 0 0 1-7 7h-78a7 7 0 0 1-7-7v-22.3a7 7 0 0 1 7-7"
+            />
+            <path
+              stroke="#e4e4e7"
+              stroke-width=".9"
+              d="M79.5 392.2h78a7 7 0 0 1 7 7v22.3a7 7 0 0 1-7 7h-78a7 7 0 0 1-7-7v-22.3a7 7 0 0 1 7-7Z"
+            />
+            <path
+              stroke="#737373"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.2"
+              d="M84 410.3h8.6m-4.3-4.3v8.7"
+            />
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="13"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="103.1" y="414.7">添加端口</tspan>
+            </text>
+          </g>
+          <rect
+            width="594.2"
+            height="363.7"
+            x="42.7"
+            y="94.5"
+            stroke="#e4e4e7"
+            stroke-width=".7"
+            rx="14.5"
+          />
+        </g>
+        <g filter="url(#n)">
+          <g clip-path="url(#o)">
+            <path
+              fill="#fafafa"
+              d="M585.5 66.4c0-7.4 6-13.5 13.5-13.5h446c7.4 0 13.5 6 13.5 13.5V522c0 7.5-6 13.5-13.5 13.5H599c-7.5 0-13.5-6-13.5-13.5z"
+            />
+            <mask id="p" fill="#fff">
+              <path d="M585.5 53h473v47.2h-473z" />
+            </mask>
+            <path fill="#fff" d="M585.5 53h473v47.2h-473z" />
+            <path
+              fill="#e4e4e7"
+              d="M1058.5 100.2v-.9h-473v1.7h473z"
+              mask="url(#p)"
+            />
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="15.2"
+              font-weight="600"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="605.8" y="82">自定义域名</tspan>
+            </text>
+            <path
+              stroke="#737373"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.4"
+              d="m1034 72.3-8.5 8.5m0-8.5 8.5 8.5"
+            />
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="15.2"
+              font-weight="600"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="602.4" y="137.7">您的域名</tspan>
+            </text>
+            <text
+              xml:space="preserve"
+              fill="#000"
+              font-size="11.8"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="602.4" y="163.8">在当前可用区绑定域名需通过</tspan>
+              <tspan x="791.5" y="163.8">完成备案。</tspan>
+            </text>
+            <text
+              xml:space="preserve"
+              fill="#000"
+              font-size="11.8"
+              font-weight="600"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="756" y="163.8">阿里云</tspan>
+            </text>
+            <text
+              xml:space="preserve"
+              fill="#2563eb"
+              font-size="11.8"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="602.4" y="182.5">备案入口</tspan>
+            </text>
+            <path stroke="#d4d4d8" stroke-width=".8" d="M657.6 171.6v13.5" />
+            <text
+              xml:space="preserve"
+              fill="#2563eb"
+              font-size="11.8"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="663.9" y="182.5">备案查询</tspan>
+            </text>
+            <path
+              fill="#fff"
+              d="M609.1 202.4h300c3.6 0 6.4 2.8 6.4 6.3V229c0 3.5-2.8 6.3-6.3 6.3h-300a6.3 6.3 0 0 1-6.4-6.3v-20.3c0-3.5 2.8-6.3 6.3-6.3"
+            />
+            <path
+              stroke="#e4e4e7"
+              stroke-width=".8"
+              d="M609.1 202.4h300c3.6 0 6.4 2.8 6.4 6.3V229c0 3.5-2.8 6.3-6.3 6.3h-300a6.3 6.3 0 0 1-6.4-6.3v-20.3c0-3.5 2.8-6.3 6.3-6.3Z"
+            />
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="11.8"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="612.5" y="223">Yourdomain.com</tspan>
+            </text>
+            <rect
+              width="64.2"
+              height="17"
+              x="841.4"
+              y="210.4"
+              fill="#f0fdf4"
+              rx="8.5"
+            />
+            <rect
+              width="64.2"
+              height="17"
+              x="841.4"
+              y="210.4"
+              stroke="#a7f3d0"
+              stroke-width=".4"
+              rx="8.5"
+            />
+            <g clip-path="url(#q)">
+              <path
+                stroke="#059669"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width=".8"
+                d="m850.7 218.8 1 1 2-2m3.4 1a5 5 0 1 1-9.9 0 5 5 0 0 1 9.9 0"
+              />
+            </g>
+            <text
+              xml:space="preserve"
+              fill="#059669"
+              font-size="10.1"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="859.7" y="222.2">验证通过</tspan>
+            </text>
+            <path
+              fill="#fff"
+              d="M936.2 202.4h37.5c3.5 0 6.3 2.8 6.3 6.3V229c0 3.5-2.8 6.3-6.3 6.3h-37.5a6.3 6.3 0 0 1-6.3-6.3v-20.3c0-3.5 2.8-6.3 6.3-6.3"
+            />
+            <path
+              stroke="#e4e4e7"
+              stroke-width=".8"
+              d="M936.2 202.4h37.5c3.5 0 6.3 2.8 6.3 6.3V229c0 3.5-2.8 6.3-6.3 6.3h-37.5a6.3 6.3 0 0 1-6.3-6.3v-20.3c0-3.5 2.8-6.3 6.3-6.3Z"
+            />
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="11.8"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="942.9" y="223">刷新</tspan>
+            </text>
+            <path
+              fill="#fff"
+              d="M994 202.4h37.5c3.5 0 6.3 2.8 6.3 6.3V229c0 3.5-2.8 6.3-6.3 6.3H994a6.3 6.3 0 0 1-6.4-6.3v-20.3c0-3.5 2.9-6.3 6.4-6.3"
+            />
+            <path
+              stroke="#e4e4e7"
+              stroke-width=".8"
+              d="M994 202.4h37.5c3.5 0 6.3 2.8 6.3 6.3V229c0 3.5-2.8 6.3-6.3 6.3H994a6.3 6.3 0 0 1-6.4-6.3v-20.3c0-3.5 2.9-6.3 6.4-6.3Z"
+            />
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="11.8"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="1000.7" y="223">编辑</tspan>
+            </text>
+            <rect
+              width="435"
+              height="196.1"
+              x="602.8"
+              y="253"
+              stroke="#a1a1aa"
+              stroke-dasharray="1.69 1.69"
+              stroke-width=".8"
+              rx="9.7"
+            />
+            <text
+              xml:space="preserve"
+              fill="#18181b"
+              font-size="13.5"
+              font-weight="600"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="615.9" y="281">DNS 记录</tspan>
+            </text>
+            <text
+              xml:space="preserve"
+              fill="#000"
+              font-size="11.8"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="615.9" y="306.5">
+                请到您的域名服务商处，添加该域名的 `CNAME` 解析到
+              </tspan>
+              <tspan x="615.9" y="323.4">
+                pxgxodpbmdih.usw.sealos.io，解析生效后即可绑定自定义域名。
+              </tspan>
+            </text>
+            <g clip-path="url(#r)">
+              <rect
+                width="408.8"
+                height="60.9"
+                x="615.9"
+                y="341.4"
+                fill="#fff"
+                rx="6.8"
+              />
+              <mask id="s" fill="#fff">
+                <path d="M615.9 341.4h408.8v30.5H616z" />
+              </mask>
+              <path
+                fill="#e4e4e7"
+                d="M1024.7 371.9v-.4H616v.8h408.8z"
+                mask="url(#s)"
+              />
+              <mask id="t" fill="#fff">
+                <path d="M615.9 341.4h84.4v30.5h-84.4z" />
+              </mask>
+              <path
+                fill="#e4e4e7"
+                d="M700.3 341.4h-.4v30.5h.8v-30.5z"
+                mask="url(#t)"
+              />
+              <text
+                xml:space="preserve"
+                fill="#71717a"
+                font-size="11.8"
+                font-weight="600"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="626" y="360.8">类型</tspan>
+              </text>
+              <mask id="u" fill="#fff">
+                <path d="M700.3 341.4h84.4v30.5h-84.4z" />
+              </mask>
+              <path
+                fill="#e4e4e7"
+                d="M784.7 341.4h-.4v30.5h.8v-30.5z"
+                mask="url(#u)"
+              />
+              <text
+                xml:space="preserve"
+                fill="#71717a"
+                font-size="11.8"
+                font-weight="600"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="710.4" y="360.8">TTL</tspan>
+              </text>
+              <text
+                xml:space="preserve"
+                fill="#71717a"
+                font-size="11.8"
+                font-weight="600"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="794.8" y="360.8">值</tspan>
+              </text>
+              <mask id="v" fill="#fff">
+                <path d="M615.9 371.9h408.8v30.4H616z" />
+              </mask>
+              <path
+                fill="#e4e4e7"
+                d="M1024.7 402.3v-.5H616v.9h408.8z"
+                mask="url(#v)"
+              />
+              <mask id="w" fill="#fff">
+                <path d="M615.9 371.9h84.4v30.4h-84.4z" />
+              </mask>
+              <path
+                fill="#e4e4e7"
+                d="M700.3 371.9h-.4v30.4h.8v-30.4z"
+                mask="url(#w)"
+              />
+              <text
+                xml:space="preserve"
+                fill="#18181b"
+                font-size="11.8"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="626" y="391.2">CNAME</tspan>
+              </text>
+              <mask id="x" fill="#fff">
+                <path d="M700.3 371.9h84.4v30.4h-84.4z" />
+              </mask>
+              <path
+                fill="#e4e4e7"
+                d="M784.7 371.9h-.4v30.4h.8v-30.4z"
+                mask="url(#x)"
+              />
+              <text
+                xml:space="preserve"
+                fill="#18181b"
+                font-size="11.8"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="710.4" y="391.2">自动</tspan>
+              </text>
+              <text
+                xml:space="preserve"
+                fill="#18181b"
+                font-size="11.8"
+                letter-spacing="0em"
+                style="white-space: pre"
+              >
+                <tspan x="794.8" y="391.2">pxgxodpbmdih.usw.sealos.io</tspan>
+              </text>
+              <g clip-path="url(#y)">
+                <path
+                  stroke="#737373"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.1"
+                  d="M1003.3 389.3q-1-.1-1.1-1.1v-5.6q.1-1 1.1-1.2h5.7q1 .2 1 1.2m-3.3 2.2h5.6q1.1.1 1.2 1.1v5.7q0 1-1.2 1.1h-5.6q-1-.1-1.1-1.1v-5.7q.1-1 1.1-1"
+                />
+              </g>
+            </g>
+            <rect
+              width="408.1"
+              height="60.2"
+              x="616.2"
+              y="341.7"
+              stroke="#e4e4e7"
+              stroke-width=".7"
+              rx="6.4"
+            />
+            <path
+              stroke="#2563eb"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.1"
+              d="M622.6 423a2.3 2.3 0 0 0-2.2-2.2H617v8.5h4a2 2 0 0 1 1.6 1.7m0-8v8m0-8a2.3 2.3 0 0 1 2.3-2.2h3.4v8.5h-4a2 2 0 0 0-1.7 1.7"
+            />
+            <text
+              xml:space="preserve"
+              fill="#2563eb"
+              font-size="11.8"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="636.1" y="430">查看文档</tspan>
+            </text>
+            <rect
+              width="435.4"
+              height="40.1"
+              x="602.6"
+              y="466.6"
+              fill="#f0fdf4"
+              rx="6.5"
+            />
+            <rect
+              width="435.4"
+              height="40.1"
+              x="602.6"
+              y="466.6"
+              stroke="#059669"
+              stroke-width=".4"
+              rx="6.5"
+            />
+            <path
+              stroke="#059669"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.1"
+              d="m755.7 486.7 1.2 1.1 2.2-2.2m4 1a5.6 5.6 0 1 1-11.3 0 5.6 5.6 0 0 1 11.2 0"
+            />
+            <text
+              xml:space="preserve"
+              fill="#059669"
+              font-size="11.8"
+              font-weight="500"
+              letter-spacing="0em"
+              style="white-space: pre"
+            >
+              <tspan x="770.9" y="490.8">您的域名已成功绑定。</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="b">
+      <rect width="1071" height="571" x="14.5" y="14.5" fill="#fff" rx="8" />
+    </clipPath>
+    <clipPath id="d">
+      <path fill="#fff" d="M-76.5 14.5h1253.8v1022.2H-76.5z" />
+    </clipPath>
+    <clipPath id="f">
+      <rect
+        width="594.9"
+        height="364.4"
+        x="42.3"
+        y="94.2"
+        fill="#fff"
+        rx="14.9"
+      />
+    </clipPath>
+    <clipPath id="h">
+      <path
+        fill="#fff"
+        d="M288.5 230.2c0-4.1 3.3-7.5 7.4-7.5h256c4 0 7.4 3.4 7.4 7.5v22.3c0 4-3.4 7.4-7.5 7.4H296a7.4 7.4 0 0 1-7.4-7.4z"
+      />
+    </clipPath>
+    <clipPath id="j">
+      <path fill="#fff" d="M583.4 233.9h15v14.9h-15z" />
+    </clipPath>
+    <clipPath id="l">
+      <path
+        fill="#fff"
+        d="M288.5 328.6c0-4.1 3.3-7.4 7.4-7.4h256c4 0 7.4 3.3 7.4 7.4v22.3c0 4-3.4 7.4-7.5 7.4H296a7.4 7.4 0 0 1-7.4-7.4z"
+      />
+    </clipPath>
+    <clipPath id="o">
+      <path
+        fill="#fff"
+        d="M585.5 66.4c0-7.4 6-13.5 13.5-13.5h446c7.4 0 13.5 6 13.5 13.5V522c0 7.5-6 13.5-13.5 13.5H599c-7.5 0-13.5-6-13.5-13.5z"
+      />
+    </clipPath>
+    <clipPath id="q">
+      <path fill="#fff" d="M846.2 213H858v11.7h-11.8z" />
+    </clipPath>
+    <clipPath id="r">
+      <rect
+        width="408.8"
+        height="60.9"
+        x="615.9"
+        y="341.4"
+        fill="#fff"
+        rx="6.8"
+      />
+    </clipPath>
+    <clipPath id="y">
+      <path fill="#fff" d="M1001 380.3h13.6v13.5H1001z" />
+    </clipPath>
+    <filter
+      id="a"
+      width="1083.1"
+      height="583.1"
+      x="8.5"
+      y="13.3"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="1.2"
+        result="effect1_dropShadow_2130_6010"
+      />
+      <feOffset dy="2.4" />
+      <feGaussianBlur stdDeviation="2.4" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2130_6010" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="1.2"
+        result="effect2_dropShadow_2130_6010"
+      />
+      <feOffset dy="4.8" />
+      <feGaussianBlur stdDeviation="3.6" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+      <feBlend
+        in2="effect1_dropShadow_2130_6010"
+        result="effect2_dropShadow_2130_6010"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2130_6010"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="e"
+      width="620.5"
+      height="470.5"
+      x="29.5"
+      y="92"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.1"
+        result="effect1_dropShadow_2130_6010"
+      />
+      <feOffset dy="4.3" />
+      <feGaussianBlur stdDeviation="3.2" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2130_6010" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.2"
+        result="effect2_dropShadow_2130_6010"
+      />
+      <feOffset dy="10.7" />
+      <feGaussianBlur stdDeviation="8" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+      <feBlend
+        in2="effect1_dropShadow_2130_6010"
+        result="effect2_dropShadow_2130_6010"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2130_6010"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="g"
+      width="40.9"
+      height="40.9"
+      x="203.9"
+      y="230.2"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="1.9"
+        result="effect1_dropShadow_2130_6010"
+      />
+      <feOffset dy="3.7" />
+      <feGaussianBlur stdDeviation="2.8" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2130_6010" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.8"
+        result="effect2_dropShadow_2130_6010"
+      />
+      <feOffset dy="9.3" />
+      <feGaussianBlur stdDeviation="7" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+      <feBlend
+        in2="effect1_dropShadow_2130_6010"
+        result="effect2_dropShadow_2130_6010"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2130_6010"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="i"
+      width="37.1"
+      height="37.1"
+      x="572.3"
+      y="223.7"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy=".9" />
+      <feGaussianBlur stdDeviation=".9" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2130_6010" />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect1_dropShadow_2130_6010"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="k"
+      width="40.9"
+      height="40.9"
+      x="203.9"
+      y="328.6"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="1.9"
+        result="effect1_dropShadow_2130_6010"
+      />
+      <feOffset dy="3.7" />
+      <feGaussianBlur stdDeviation="2.8" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2130_6010" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.8"
+        result="effect2_dropShadow_2130_6010"
+      />
+      <feOffset dy="9.3" />
+      <feGaussianBlur stdDeviation="7" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+      <feBlend
+        in2="effect1_dropShadow_2130_6010"
+        result="effect2_dropShadow_2130_6010"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2130_6010"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="m"
+      width="37.1"
+      height="37.1"
+      x="572.3"
+      y="322.1"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy=".9" />
+      <feGaussianBlur stdDeviation=".9" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2130_6010" />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect1_dropShadow_2130_6010"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="n"
+      width="537.1"
+      height="546.8"
+      x="553.4"
+      y="42"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="10.1"
+        result="effect1_dropShadow_2130_6010"
+      />
+      <feOffset dy="21.1" />
+      <feGaussianBlur stdDeviation="21.1" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2130_6010" />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect1_dropShadow_2130_6010"
+        result="shape"
+      />
+    </filter>
+    <linearGradient
+      id="c"
+      x1="550"
+      x2="550"
+      y1="14.5"
+      y2="585.5"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fff" />
+      <stop offset="1" stop-color="#f7f7f7" />
+    </linearGradient>
+  </defs>
+</svg>

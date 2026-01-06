@@ -1,4 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority';
+import type { StaticImageData } from 'next/image';
 import type React from 'react';
 import { FlatArrowRightIcon } from '@/assets/icons';
 import { Link } from '../i18n/navigation';
@@ -14,9 +15,14 @@ const landingOutlineButtonVariants = cva(
 				md: 'h-11 gap-4 px-4 pr-2',
 				lg: 'h-14 gap-6 px-6 pr-2 text-xl',
 			},
+			borderStyle: {
+				solid: 'border-solid',
+				dashed: 'border-dashed',
+			},
 		},
 		defaultVariants: {
 			size: 'md',
+			borderStyle: 'solid',
 		},
 	},
 );
@@ -41,27 +47,44 @@ const iconSizeMap = {
 	lg: 'size-6',
 } as const;
 
+export interface LandingOutlineButtonProps {
+	children: React.ReactNode;
+	href: string;
+	size?: VariantProps<typeof landingOutlineButtonVariants>['size'];
+	borderStyle?: VariantProps<typeof landingOutlineButtonVariants>['borderStyle'];
+	icon?: StaticImageData | string;
+	iconClassName?: string;
+	iconContainerClassName?: string;
+	iconColor?: string;
+	className?: string;
+}
+
 export function LandingOutlineButton({
 	children,
 	href,
 	size = 'md',
-}: {
-	children: React.ReactNode;
-	href: string;
-	size?: VariantProps<typeof landingOutlineButtonVariants>['size'];
-}) {
+	borderStyle = 'solid',
+	icon = FlatArrowRightIcon,
+	iconClassName,
+	iconContainerClassName,
+	iconColor,
+	className,
+}: LandingOutlineButtonProps) {
 	return (
 		<Button
 			variant='ghost'
-			className={cn(landingOutlineButtonVariants({ size }))}
+			className={cn(landingOutlineButtonVariants({ size, borderStyle }), className)}
 			asChild
 		>
 			<Link href={href}>
 				<span>{children}</span>
-				<div className={cn(iconContainerVariants({ size }))}>
+				<div
+					className={cn(iconContainerVariants({ size }), iconContainerClassName)}
+					style={iconColor ? { color: iconColor } : undefined}
+				>
 					<Icon
-						src={FlatArrowRightIcon}
-						className={iconSizeMap[size ?? 'md']}
+						src={icon}
+						className={cn(iconSizeMap[size ?? 'md'], iconClassName)}
 					/>
 				</div>
 			</Link>

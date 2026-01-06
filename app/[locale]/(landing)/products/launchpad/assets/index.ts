@@ -1,0 +1,13 @@
+export { default as FeatureCicdImage } from './feature-cicd.svg';
+export { default as FeatureContainerImage } from './feature-container.svg';
+export { default as FeatureDomainImage } from './feature-domain.svg';
+export { default as FeatureElasticImage } from './feature-elastic.svg';
+export { default as FeatureIsolationImage } from './feature-isolation.svg';
+export { default as FeaturePaygImage } from './feature-payg.svg';
+export { default as Hero1Image } from './hero-1.svg';
+export { default as Hero2Image } from './hero-2.svg';
+export { default as Hero3Image } from './hero-3.svg';
+export { default as Step1Image } from './step-1.svg';
+export { default as Step2Image } from './step-2.svg';
+export { default as Step3Image } from './step-3.svg';
+export { default as Step4Image } from './step-4.svg';
