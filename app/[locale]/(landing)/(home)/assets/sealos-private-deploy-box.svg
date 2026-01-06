@@ -4,7 +4,6 @@
     fill-opacity=".37"
     stroke="url(#a)"
     d="M16.7 87.38 166.53.87V173.4L16.7 264.02z"
-    data-figma-bg-blur-radius="1"
   />
   <path
     fill="#eef0f7"
@@ -41,14 +40,12 @@
     fill-opacity=".37"
     stroke="url(#e)"
     d="M162.97 171.81 312.8 86.48v170.17l-149.83 86.69z"
-    data-figma-bg-blur-radius="1"
   />
   <path
     fill="#e4eafb"
     fill-opacity=".37"
     stroke="url(#g)"
     d="M166.56.87 17.43 87.37l146.24 84.73 149.13-86z"
-    data-figma-bg-blur-radius="1"
   />
   <defs>
     <linearGradient

@@ -14,7 +14,6 @@
     fill-opacity=".37"
     stroke="url(#b)"
     d="m.995 40.732 69-39.866v79.5l-69 40.5z"
-    data-figma-bg-blur-radius="1"
   />
   <path
     fill="#eef0f7"
@@ -96,7 +95,6 @@
     fill-opacity=".37"
     stroke="url(#n)"
     d="m68.995 80.232 69-39.866v79.5l-69 40.5z"
-    data-figma-bg-blur-radius="1"
   />
   <foreignObject width="140.995" height="82.522" x="-1" y="-.711"
     ><div
@@ -113,7 +111,6 @@
     fill-opacity=".37"
     stroke="url(#p)"
     d="m69.495.866-68.5 39.5 68 39.866 69-39.866z"
-    data-figma-bg-blur-radius="1"
   />
   <defs>
     <linearGradient
