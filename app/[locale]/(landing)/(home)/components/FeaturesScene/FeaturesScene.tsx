@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 import React from 'react';
 import {
 	AiproxyActiveIcon,
@@ -29,8 +29,8 @@ interface BoxConfig {
 	activeFrameGradient: { from: string; to: string };
 	activeStroke: string;
 	title: string;
-	idleIcon: React.ReactNode;
-	activeIcon: React.ReactNode;
+	idleIcon: StaticImageData;
+	activeIcon: StaticImageData;
 }
 
 interface FeaturesSceneProps {
@@ -69,22 +69,8 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 			},
 			activeStroke: 'hsla(219, 100%, 50%, 0.3)',
 			title: '应用管理',
-			idleIcon: (
-				<Image
-					src={LaunchpadIdleIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
-			activeIcon: (
-				<Image
-					src={LaunchpadActiveIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
+			idleIcon: LaunchpadIdleIcon,
+			activeIcon: LaunchpadActiveIcon,
 		},
 		{
 			// 1: Devbox - Center
@@ -99,22 +85,8 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 			activeFrameGradient: { from: '#182474', to: '#ffffff' },
 			activeStroke: '#CBCBDB',
 			title: 'DevBox',
-			idleIcon: (
-				<Image
-					src={DevboxIdleIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
-			activeIcon: (
-				<Image
-					src={DevboxActiveIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
+			idleIcon: DevboxIdleIcon,
+			activeIcon: DevboxActiveIcon,
 		},
 		{
 			// 2: Database - Bottom midpoint (bottom edge center)
@@ -135,22 +107,8 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 			},
 			activeStroke: 'hsla(152, 48%, 46%, 0.3)',
 			title: '数据库',
-			idleIcon: (
-				<Image
-					src={DatabaseIdleIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
-			activeIcon: (
-				<Image
-					src={DatabaseActiveIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
+			idleIcon: DatabaseIdleIcon,
+			activeIcon: DatabaseActiveIcon,
 		},
 		{
 			// 3: AI Proxy - Left midpoint (left edge center)
@@ -171,22 +129,8 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 			},
 			activeStroke: 'hsla(0, 0%, 55%, 0.3)',
 			title: 'AI Proxy',
-			idleIcon: (
-				<Image
-					src={AiproxyIdleIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
-			activeIcon: (
-				<Image
-					src={AiproxyActiveIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
+			idleIcon: AiproxyIdleIcon,
+			activeIcon: AiproxyActiveIcon,
 		},
 		{
 			// 4: OSS - Right midpoint (right edge center)
@@ -207,22 +151,8 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 			},
 			activeStroke: 'hsla(283, 78%, 69%, 0.3)',
 			title: '对象存储',
-			idleIcon: (
-				<Image
-					src={OssIdleIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
-			activeIcon: (
-				<Image
-					src={OssActiveIcon}
-					width={81}
-					height={46}
-					alt=''
-				/>
-			),
+			idleIcon: OssIdleIcon,
+			activeIcon: OssActiveIcon,
 		},
 	];
 

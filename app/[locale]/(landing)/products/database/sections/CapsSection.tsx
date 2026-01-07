@@ -1,69 +1,39 @@
-import type React from 'react';
+import type { StaticImageData } from 'next/image';
 import { ApiIcon, CheckOverFrameIcon, ClockCounterIcon, ModelIcon, RocketIcon, TrendingDownIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
 
 const features: Array<{
-	icon: React.ReactNode;
+	icon: StaticImageData;
 	title: string;
 	description: string;
 }> = [
 	{
-		icon: (
-			<Icon
-				src={ClockCounterIcon}
-				className='text-brand size-6'
-			/>
-		),
+		icon: ClockCounterIcon,
 		title: '部署速度快 75%',
 		description: '一个 YAML，全栈自动化，集群、备份、监控、安全一次性配置完成',
 	},
 	{
-		icon: (
-			<Icon
-				src={TrendingDownIcon}
-				className='text-brand size-6'
-			/>
-		),
+		icon: TrendingDownIcon,
 		title: '成本降低 60%',
 		description: '0.4元/核心，0.2元/GB，传统云数据库 30% 的价格',
 	},
 	{
-		icon: (
-			<Icon
-				src={CheckOverFrameIcon}
-				className='text-brand size-6'
-			/>
-		),
+		icon: CheckOverFrameIcon,
 		title: '99.9% 可用性 SLA',
 		description: '多副本 + 跨地域 + 智能故障切换，2 秒检测，5 秒自动恢复',
 	},
 	{
-		icon: (
-			<Icon
-				src={RocketIcon}
-				className='text-brand size-6'
-			/>
-		),
+		icon: RocketIcon,
 		title: '零维护开销',
 		description: '自动更新、补丁和维护操作',
 	},
 	{
-		icon: (
-			<Icon
-				src={ModelIcon}
-				className='text-brand size-6'
-			/>
-		),
+		icon: ModelIcon,
 		title: 'AI 数据分析',
 		description: '内置 Chat2DB，自然语言转 SQL',
 	},
 	{
-		icon: (
-			<Icon
-				src={ApiIcon}
-				className='text-brand size-6'
-			/>
-		),
+		icon: ApiIcon,
 		title: '开发者优先的 API',
 		description: 'RESTful API 和 CLI 工具，无缝集成',
 	},
@@ -88,7 +58,12 @@ export function CapsSection() {
 						className='flex flex-col gap-4'
 					>
 						<div className='flex flex-col gap-3'>
-							<div className='flex size-6 items-center justify-center'>{feature.icon}</div>
+							<div className='flex size-6 items-center justify-center'>
+								<Icon
+									src={feature.icon}
+									className='text-brand size-6'
+								/>
+							</div>
 							<div className='border-brand h-px border-t border-dashed' />
 						</div>
 						<div className='flex flex-col gap-1'>

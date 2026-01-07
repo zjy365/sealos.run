@@ -1,4 +1,6 @@
 import { animate, motion, useMotionValue, useTransform } from 'motion/react';
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import React from 'react';
 
 type AppBoxState = 'idle' | 'active';
@@ -11,8 +13,8 @@ interface AppBoxSvgProps {
 	defaultBgColor: string;
 	defaultStrokeColor: string;
 	defaultFrameGradient: { from: string; to: string };
-	idleIcon?: React.ReactNode;
-	activeIcon?: React.ReactNode;
+	idleIcon?: StaticImageData;
+	activeIcon?: StaticImageData;
 	className?: string;
 	title: string;
 	state: AppBoxState;
@@ -233,7 +235,12 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 									width='81'
 									height='46'
 								>
-									{idleIcon}
+									<Image
+										src={idleIcon}
+										width={81}
+										height={46}
+										alt=''
+									/>
 								</foreignObject>
 							</motion.g>
 						)}
@@ -249,7 +256,12 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 									width='81'
 									height='46'
 								>
-									{activeIcon}
+									<Image
+										src={activeIcon}
+										width={81}
+										height={46}
+										alt=''
+									/>
 								</foreignObject>
 							</motion.g>
 						)}

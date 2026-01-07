@@ -13,6 +13,7 @@ function getImageSrc(src: string | StaticImageData | undefined): string {
 	if (typeof src === 'string') return src;
 	return src.src;
 }
+
 import { EyeIcon, FramedCalendarIcon, FramedClockIcon, PersonIcon } from '@/assets/icons';
 import { formatDate } from '@/libs/blog/date-utils';
 import { blog } from '@/libs/blog/source';

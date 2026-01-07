@@ -1,5 +1,6 @@
 'use client';
 
+import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import React from 'react';
 import {
@@ -49,8 +50,9 @@ import { Button } from '../ui/button';
 interface NavMenuItem {
 	id: string;
 	label: string;
-	icon: React.ReactNode;
-	largeImage?: React.ReactNode;
+	icon: StaticImageData;
+	largeImage?: StaticImageData;
+	largeImageAlt?: string;
 	content?: {
 		title: string;
 		description: string;
@@ -63,19 +65,9 @@ const navMenuItems: NavMenuItem[] = [
 	{
 		id: 'container',
 		label: '容器',
-		icon: (
-			<Icon
-				src={BoxIcon}
-				className='size-4'
-			/>
-		),
-		largeImage: (
-			<Image
-				src={LaunchpadBoxImage}
-				alt='应用管理'
-				className='size-12'
-			/>
-		),
+		icon: BoxIcon,
+		largeImage: LaunchpadBoxImage,
+		largeImageAlt: '应用管理',
 		content: {
 			title: '应用管理',
 			description: '原生 K8s 架构，可视化页面配置',
@@ -86,19 +78,9 @@ const navMenuItems: NavMenuItem[] = [
 	{
 		id: 'database',
 		label: '数据库',
-		icon: (
-			<Icon
-				src={DatabaseIcon}
-				className='size-4'
-			/>
-		),
-		largeImage: (
-			<Image
-				src={DatabaseBoxImage}
-				alt='数据库服务'
-				className='size-12'
-			/>
-		),
+		icon: DatabaseIcon,
+		largeImage: DatabaseBoxImage,
+		largeImageAlt: '数据库服务',
 		content: {
 			title: '数据库服务',
 			description: '提供多种数据库类型，一键部署和管理',
@@ -109,19 +91,9 @@ const navMenuItems: NavMenuItem[] = [
 	{
 		id: 'storage',
 		label: '存储',
-		icon: (
-			<Icon
-				src={ObjectStorageIcon}
-				className='size-4'
-			/>
-		),
-		largeImage: (
-			<Image
-				src={OssBoxImage}
-				alt='对象存储'
-				className='size-12'
-			/>
-		),
+		icon: ObjectStorageIcon,
+		largeImage: OssBoxImage,
+		largeImageAlt: '对象存储',
 		content: {
 			title: '对象存储',
 			description: '高性能、可扩展的对象存储服务',
@@ -132,19 +104,9 @@ const navMenuItems: NavMenuItem[] = [
 	{
 		id: 'cloud-dev',
 		label: '云开发',
-		icon: (
-			<Icon
-				src={RocketIcon}
-				className='size-4'
-			/>
-		),
-		largeImage: (
-			<Image
-				src={DevboxBoxImage}
-				alt='DevBox'
-				className='size-12'
-			/>
-		),
+		icon: RocketIcon,
+		largeImage: DevboxBoxImage,
+		largeImageAlt: 'DevBox',
 		content: {
 			title: 'DevBox',
 			description: '云端开发环境，支持多种编程语言和框架',
@@ -155,19 +117,9 @@ const navMenuItems: NavMenuItem[] = [
 	{
 		id: 'ai-model',
 		label: 'AI 模型',
-		icon: (
-			<Icon
-				src={ModelIcon}
-				className='size-4'
-			/>
-		),
-		largeImage: (
-			<Image
-				src={BrainBoxImage}
-				alt='AI Proxy'
-				className='size-12'
-			/>
-		),
+		icon: ModelIcon,
+		largeImage: BrainBoxImage,
+		largeImageAlt: 'AI Proxy',
 		content: {
 			title: 'AI Proxy',
 			description: '统一的 AI 模型代理服务',
@@ -178,19 +130,9 @@ const navMenuItems: NavMenuItem[] = [
 	{
 		id: 'app',
 		label: '应用',
-		icon: (
-			<Icon
-				src={CubesIcon}
-				className='size-4'
-			/>
-		),
-		largeImage: (
-			<Image
-				src={AppstoreBoxImage}
-				alt='应用商店'
-				className='size-12'
-			/>
-		),
+		icon: CubesIcon,
+		largeImage: AppstoreBoxImage,
+		largeImageAlt: '应用商店',
 		content: {
 			title: '应用商店',
 			description: '丰富的应用模板，快速部署',
@@ -205,42 +147,22 @@ function LaunchpadFeatures() {
 		{
 			title: '容器服务',
 			description: '提供高性能可伸缩的容器应用管理能力',
-			icon: (
-				<Icon
-					src={CubeIcon}
-					className='text-brand size-6'
-				/>
-			),
+			icon: CubeIcon,
 		},
 		{
 			title: '定时任务',
 			description: '可视化创建和管理 Kubernetes 资源、状态',
-			icon: (
-				<Icon
-					src={ClockCounterIcon}
-					className='text-brand size-6'
-				/>
-			),
+			icon: ClockCounterIcon,
 		},
 		{
 			title: '免费域名',
 			description: '分配公网域名，自动配置 HTTPS、TLS',
-			icon: (
-				<Icon
-					src={GlobalIcon}
-					className='text-brand size-6'
-				/>
-			),
+			icon: GlobalIcon,
 		},
 		{
 			title: '终端',
 			description: '基于 Web 的容器终端访问',
-			icon: (
-				<Icon
-					src={EditorIcon}
-					className='text-brand size-6'
-				/>
-			),
+			icon: EditorIcon,
 		},
 	];
 
@@ -252,7 +174,12 @@ function LaunchpadFeatures() {
 						key={feature.title}
 						className='flex items-start gap-3 px-0 py-3'
 					>
-						<div className='text-primary size-6 shrink-0'>{feature.icon}</div>
+						<div className='text-primary size-6 shrink-0'>
+							<Icon
+								src={feature.icon}
+								className='text-brand size-6'
+							/>
+						</div>
 						<div className='flex flex-1 flex-col gap-1'>
 							<h4 className='text-foreground text-sm font-normal'>{feature.title}</h4>
 							<p className='text-muted-foreground text-xs'>{feature.description}</p>
@@ -268,63 +195,27 @@ function DatabaseFeatures() {
 	const databases = [
 		{
 			name: 'PostgreSQL',
-			icon: (
-				<Icon
-					src={PostgresIcon}
-					className='size-8'
-					colorful
-				/>
-			),
+			icon: PostgresIcon,
 		},
 		{
 			name: 'MongoDB',
-			icon: (
-				<Icon
-					src={MongodbIcon}
-					className='size-8'
-					colorful
-				/>
-			),
+			icon: MongodbIcon,
 		},
 		{
 			name: 'MySQL',
-			icon: (
-				<Icon
-					src={MysqlIcon}
-					className='size-8'
-					colorful
-				/>
-			),
+			icon: MysqlIcon,
 		},
 		{
 			name: 'Redis',
-			icon: (
-				<Icon
-					src={RedisIcon}
-					className='size-8'
-					colorful
-				/>
-			),
+			icon: RedisIcon,
 		},
 		{
 			name: 'Kafka',
-			icon: (
-				<Icon
-					src={KafkaIcon}
-					className='size-8'
-					colorful
-				/>
-			),
+			icon: KafkaIcon,
 		},
 		{
 			name: 'Milvus',
-			icon: (
-				<Icon
-					src={MilvusIcon}
-					className='size-8'
-					colorful
-				/>
-			),
+			icon: MilvusIcon,
 		},
 	];
 
@@ -336,7 +227,13 @@ function DatabaseFeatures() {
 						key={db.name}
 						className='border-border flex flex-1 flex-col items-start gap-2 border p-5'
 					>
-						<div className='flex size-8 items-center justify-center'>{db.icon}</div>
+						<div className='flex size-8 items-center justify-center'>
+							<Icon
+								src={db.icon}
+								className='size-8'
+								colorful
+							/>
+						</div>
 						<p className='text-foreground text-xs'>{db.name}</p>
 					</div>
 				))}
@@ -350,32 +247,17 @@ function OSSFeatures() {
 		{
 			title: '私有存储桶｜Private',
 			description: '仅允许授权用户访问，保护数据安全',
-			icon: (
-				<Icon
-					src={FramedPrivateIcon}
-					className='text-brand size-6'
-				/>
-			),
+			icon: FramedPrivateIcon,
 		},
 		{
 			title: '公开读存储桶｜Public-Read',
 			description: '允许公开读取，适合静态资源分发',
-			icon: (
-				<Icon
-					src={FramedReadIcon}
-					className='text-brand size-6'
-				/>
-			),
+			icon: FramedReadIcon,
 		},
 		{
 			title: '公开读写存储桶｜Public-Read-Write',
 			description: '允许公开读写，适合协作场景',
-			icon: (
-				<Icon
-					src={FramedWriteIcon}
-					className='text-brand size-6'
-				/>
-			),
+			icon: FramedWriteIcon,
 		},
 	];
 
@@ -387,7 +269,12 @@ function OSSFeatures() {
 						key={type.title}
 						className='flex items-start gap-3'
 					>
-						<div className='text-primary size-6 shrink-0'>{type.icon}</div>
+						<div className='text-primary size-6 shrink-0'>
+							<Icon
+								src={type.icon}
+								className='text-brand size-6'
+							/>
+						</div>
 						<div className='flex flex-1 flex-col gap-1'>
 							<h4 className='text-foreground text-sm font-normal'>{type.title}</h4>
 							<p className='text-muted-foreground text-xs'>{type.description}</p>
@@ -403,74 +290,33 @@ function DevBoxFeatures() {
 	const languages = [
 		{
 			name: 'Java',
-			icon: (
-				<Icon
-					src={JavaIcon}
-					className='size-6'
-					colorful
-				/>
-			),
+			icon: JavaIcon,
 		},
 		{
 			name: 'Python',
-			icon: (
-				<Icon
-					src={PythonIcon}
-					className='size-6'
-					colorful
-				/>
-			),
+			icon: PythonIcon,
 		},
 		{
 			name: 'Node.js',
-			icon: (
-				<Icon
-					src={NodejsIcon}
-					className='size-6'
-					colorful
-				/>
-			),
+			icon: NodejsIcon,
 		},
 		{
 			name: 'Go',
-			icon: (
-				<Icon
-					src={GolangIcon}
-					className='size-6'
-					colorful
-				/>
-			),
+			icon: GolangIcon,
 		},
 		{
 			name: 'Rust',
-			icon: (
-				<Icon
-					src={RustIcon}
-					className='size-6'
-					colorful
-				/>
-			),
+			icon: RustIcon,
 		},
 		{ name: 'C++', icon: null },
 		{
 			name: 'PHP',
-			icon: (
-				<Icon
-					src={PhpIcon}
-					className='size-6'
-					colorful
-				/>
-			),
+			icon: PhpIcon,
 		},
 		{ name: 'Ruby', icon: null },
 		{
 			name: '更多',
-			icon: (
-				<Icon
-					src={FramedPlusIcon}
-					className='text-brand size-6'
-				/>
-			),
+			icon: FramedPlusIcon,
 		},
 	];
 
@@ -483,7 +329,13 @@ function DevBoxFeatures() {
 						className='border-border flex items-center gap-2 border px-3 py-4'
 					>
 						{lang.icon ? (
-							<div className='flex size-6 items-center justify-center'>{lang.icon}</div>
+							<div className='flex size-6 items-center justify-center'>
+								<Icon
+									src={lang.icon}
+									className={lang.name === '更多' ? 'text-brand size-6' : 'size-6'}
+									colorful={lang.name !== '更多'}
+								/>
+							</div>
 						) : (
 							<div className='size-6' />
 						)}
@@ -769,7 +621,10 @@ export function ProductsPanel() {
 									isSelected ? 'text-primary' : 'text-muted-foreground',
 								)}
 							>
-								{item.icon}
+								<Icon
+									src={item.icon}
+									className='size-4'
+								/>
 							</div>
 							<span>{item.label}</span>
 						</button>
@@ -785,7 +640,11 @@ export function ProductsPanel() {
 						<div className='flex items-center gap-4'>
 							{selectedItem.largeImage && (
 								<div className='flex size-12 shrink-0 items-center justify-center'>
-									{selectedItem.largeImage}
+									<Image
+										src={selectedItem.largeImage}
+										alt={selectedItem.largeImageAlt || ''}
+										className='size-12'
+									/>
 								</div>
 							)}
 							<div className='flex flex-col gap-1'>

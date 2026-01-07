@@ -12,7 +12,6 @@ import {
 	ScaleIcon,
 	SliderIcon,
 } from '@/assets/icons';
-import { Icon } from '@/libs/components/ui/icon';
 import type { FeaturesConfig } from './features-config.types';
 
 export const launchpadConfig: FeaturesConfig = {
@@ -25,32 +24,17 @@ export const launchpadConfig: FeaturesConfig = {
 	),
 	features: [
 		{
-			icon: (
-				<Icon
-					src={MonitorIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: MonitorIcon,
 			title: '公网测试',
 			description: '系统分配二级域名，支持HTTPS访问',
 		},
 		{
-			icon: (
-				<Icon
-					src={ScaleIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: ScaleIcon,
 			title: '弹性伸缩',
 			description: '高峰自动扩容，低峰期自动释放资源',
 		},
 		{
-			icon: (
-				<Icon
-					src={IsolateIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: IsolateIcon,
 			title: '资源隔离',
 			description: '应用和租户级网络隔离能力',
 		},
@@ -100,32 +84,17 @@ export const aiproxyConfig: FeaturesConfig = {
 	),
 	features: [
 		{
-			icon: (
-				<Icon
-					src={IntoIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: IntoIcon,
 			title: '一键接入',
 			description: '一个 API Key 调用所有模型',
 		},
 		{
-			icon: (
-				<Icon
-					src={ApiIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: ApiIcon,
 			title: '统一接口',
 			description: '标准化的 API 接口，兼容 Open AI 格式',
 		},
 		{
-			icon: (
-				<Icon
-					src={LightningOverFrameIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: LightningOverFrameIcon,
 			title: '高性能',
 			description: '分布式架构，支持横向扩展，智能缓存机制，响应速度提升 50%',
 		},
@@ -206,32 +175,17 @@ export const devboxConfig: FeaturesConfig = {
 	),
 	features: [
 		{
-			icon: (
-				<Icon
-					src={EditorIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: EditorIcon,
 			title: '公网测试',
 			description: '系统分配二级域名，支持HTTPS访问',
 		},
 		{
-			icon: (
-				<Icon
-					src={BoxIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: BoxIcon,
 			title: '容器化上线',
 			description: '集成 Docker 技术，一键打包镜像，自动化容器编排发布',
 		},
 		{
-			icon: (
-				<Icon
-					src={IsolateIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: IsolateIcon,
 			title: '环境隔离',
 			description: '提供与线上完全一致的测试环境',
 		},
@@ -272,32 +226,17 @@ export const ossConfig: FeaturesConfig = {
 	description: <p>分布式架构存储，S3 接口连接，支持故障自愈</p>,
 	features: [
 		{
-			icon: (
-				<Icon
-					src={FramedPrivateIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: FramedPrivateIcon,
 			title: '数据加密',
 			description: '基于 K8S 存储/网络隔离，TLS加密传输',
 		},
 		{
-			icon: (
-				<Icon
-					src={IntoIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: IntoIcon,
 			title: '平滑接入',
 			description: '近乎裸机的速度体验，提供各语言 SDK',
 		},
 		{
-			icon: (
-				<Icon
-					src={SliderIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: SliderIcon,
 			title: '弹性扩展',
 			description: '按使用量计费，存储容量按需无限扩展',
 		},
@@ -381,32 +320,17 @@ export const databaseConfig: FeaturesConfig = {
 	),
 	features: [
 		{
-			icon: (
-				<Icon
-					src={LightningOverFrameIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: LightningOverFrameIcon,
 			title: '高性能',
 			description: '分布式存储，支持快速扩展与无缝迁移',
 		},
 		{
-			icon: (
-				<Icon
-					src={CheckOverFrameIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: CheckOverFrameIcon,
 			title: '高可用',
 			description: '内置监控告警，主备双机，故障无感自动切换',
 		},
 		{
-			icon: (
-				<Icon
-					src={ArchitectureIcon}
-					className='text-brand size-4'
-				/>
-			),
+			icon: ArchitectureIcon,
 			title: '高并发',
 			description: '30% 的成本，提供超百万级 QPS 的高吞吐',
 		},

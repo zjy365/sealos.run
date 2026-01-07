@@ -1,5 +1,5 @@
+import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
-import type React from 'react';
 import { siGithub } from 'simple-icons';
 import {
 	AiproxyBoxImage,
@@ -16,46 +16,22 @@ import { Icon } from '@/libs/components/ui/icon';
 import { SimpleIcon } from '@/libs/components/ui/simple-icon';
 import { HeroBgImage } from '../assets';
 
-const cloudProviders: Array<{ name: string; icon: React.ReactNode }> = [
+const cloudProviders: Array<{ name: string; icon: StaticImageData }> = [
 	{
 		name: '谷歌云',
-		icon: (
-			<Icon
-				src={GoogleCloudIcon}
-				className='size-4 saturate-0'
-				colorful
-			/>
-		),
+		icon: GoogleCloudIcon,
 	},
 	{
 		name: '腾讯云',
-		icon: (
-			<Icon
-				src={TencentCloudIcon}
-				className='size-4 saturate-0'
-				colorful
-			/>
-		),
+		icon: TencentCloudIcon,
 	},
 	{
 		name: '火山引擎',
-		icon: (
-			<Icon
-				src={VolcanoEngineIcon}
-				className='size-4 saturate-0'
-				colorful
-			/>
-		),
+		icon: VolcanoEngineIcon,
 	},
 	{
 		name: '阿里云',
-		icon: (
-			<Icon
-				src={AlibabaCloudIcon}
-				className='size-4 saturate-0'
-				colorful
-			/>
-		),
+		icon: AlibabaCloudIcon,
 	},
 ];
 
@@ -122,7 +98,11 @@ export function HeroSection() {
 									key={provider.name}
 									className='flex items-center gap-2 text-sm'
 								>
-									{provider.icon}
+									<Icon
+										src={provider.icon}
+										className='size-4 saturate-0'
+										colorful
+									/>
 									{provider.name}
 								</span>
 							))}

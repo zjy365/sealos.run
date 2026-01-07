@@ -1,9 +1,9 @@
-import type React from 'react';
+import type { StaticImageData } from 'next/image';
 
 export type ArrowDirection = 'up' | 'down' | 'left' | 'right';
 
 export type FeatureItem = {
-	icon: React.ReactNode;
+	icon: StaticImageData;
 	title: string;
 	description: string;
 };

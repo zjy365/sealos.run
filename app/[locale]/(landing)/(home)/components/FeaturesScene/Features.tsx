@@ -36,7 +36,10 @@ export function Features({ config }: FeaturesProps) {
 							className='flex flex-col gap-1'
 						>
 							<div className='flex items-center gap-2'>
-								{feature.icon}
+								<Icon
+									src={feature.icon}
+									className='text-brand size-4'
+								/>
 								<h3 className='text-base font-medium'>{feature.title}</h3>
 							</div>
 							<p className='text-sm text-zinc-500'>{feature.description}</p>

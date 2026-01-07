@@ -1,6 +1,5 @@
 import { PlayIcon } from '@/assets/icons';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
-import { Icon } from '@/libs/components/ui/icon';
 
 export function CTASection() {
 	return (
@@ -16,12 +15,7 @@ export function CTASection() {
 					href='#'
 					size='lg'
 					borderStyle='dashed'
-					icon={
-						<Icon
-							src={PlayIcon}
-							className='size-6'
-						/>
-					}
+					icon={PlayIcon}
 					iconContainerClassName='bg-transparent group-hover:bg-transparent border-0'
 					iconColor='var(--color-foreground)'
 				>

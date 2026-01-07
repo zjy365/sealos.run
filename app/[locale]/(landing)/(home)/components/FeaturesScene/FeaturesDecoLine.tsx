@@ -1,5 +1,6 @@
 'use client';
 
+import type { StaticImageData } from 'next/image';
 import React from 'react';
 import { AiProxyIcon, AppLaunchpadIcon, DatabaseIcon, DevboxIcon, ObjectStorageIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
@@ -9,51 +10,26 @@ interface VerticalDashedLineProps {
 	children?: React.ReactNode;
 	iconY?: string;
 	mask?: [string, string][];
-	appIcons?: Record<string, { icon: React.ReactNode }>;
+	appIcons?: Record<string, { icon: StaticImageData }>;
 	activeIndex?: number | null;
 	onIconClick?: (index: number) => void;
 }
 
-const DEFAULT_APP_ICONS: Record<string, { icon: React.ReactNode }> = {
+const DEFAULT_APP_ICONS: Record<string, { icon: StaticImageData }> = {
 	'app-launchpad': {
-		icon: (
-			<Icon
-				src={AppLaunchpadIcon}
-				className='size-full'
-			/>
-		),
+		icon: AppLaunchpadIcon,
 	},
 	devbox: {
-		icon: (
-			<Icon
-				src={DevboxIcon}
-				className='size-full'
-			/>
-		),
+		icon: DevboxIcon,
 	},
 	database: {
-		icon: (
-			<Icon
-				src={DatabaseIcon}
-				className='size-full'
-			/>
-		),
+		icon: DatabaseIcon,
 	},
 	'ai-proxy': {
-		icon: (
-			<Icon
-				src={AiProxyIcon}
-				className='size-full'
-			/>
-		),
+		icon: AiProxyIcon,
 	},
 	'object-storage': {
-		icon: (
-			<Icon
-				src={ObjectStorageIcon}
-				className='size-full'
-			/>
-		),
+		icon: ObjectStorageIcon,
 	},
 };
 
@@ -270,7 +246,10 @@ export function FeaturesDecoLine({
 										)}
 										aria-label={`切换到${slug}`}
 									>
-										{icon}
+										<Icon
+											src={icon}
+											className='size-full'
+										/>
 									</button>
 								</foreignObject>
 							</g>

@@ -1,4 +1,4 @@
-import type React from 'react';
+import type { StaticImageData } from 'next/image';
 import { KafkaIcon, MilvusIcon, MongodbIcon, MysqlIcon, PostgresIcon, RedisIcon } from '@/assets/app-icons';
 import { FlatArrowRightIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
@@ -7,73 +7,37 @@ import { Link } from '@/libs/i18n/navigation';
 const databases: Array<{
 	name: string;
 	version: string;
-	icon: React.ReactNode;
+	icon: StaticImageData;
 }> = [
 	{
 		name: 'PostgreSQL',
 		version: 'v8.0.31',
-		icon: (
-			<Icon
-				src={PostgresIcon}
-				className='size-10'
-				colorful
-			/>
-		),
+		icon: PostgresIcon,
 	},
 	{
 		name: 'MongoDB',
 		version: 'v16.1',
-		icon: (
-			<Icon
-				src={MongodbIcon}
-				className='size-10'
-				colorful
-			/>
-		),
+		icon: MongodbIcon,
 	},
 	{
 		name: 'MySQL',
 		version: 'v7.0',
-		icon: (
-			<Icon
-				src={MysqlIcon}
-				className='size-10'
-				colorful
-			/>
-		),
+		icon: MysqlIcon,
 	},
 	{
 		name: 'Redis',
 		version: 'v7.0.6',
-		icon: (
-			<Icon
-				src={RedisIcon}
-				className='size-10'
-				colorful
-			/>
-		),
+		icon: RedisIcon,
 	},
 	{
 		name: 'Kafka',
 		version: 'v3.3.2',
-		icon: (
-			<Icon
-				src={KafkaIcon}
-				className='size-10'
-				colorful
-			/>
-		),
+		icon: KafkaIcon,
 	},
 	{
 		name: 'Milvus',
 		version: 'v2.4.5',
-		icon: (
-			<Icon
-				src={MilvusIcon}
-				className='size-10'
-				colorful
-			/>
-		),
+		icon: MilvusIcon,
 	},
 ];
 
@@ -98,7 +62,13 @@ export function DatabasesSection() {
 								<p className='text-foreground text-base font-normal'>{db.name}</p>
 								<p className='text-muted-foreground text-sm'>{db.version}</p>
 							</div>
-							<div className='flex size-10 items-center justify-center'>{db.icon}</div>
+							<div className='flex size-10 items-center justify-center'>
+								<Icon
+									src={db.icon}
+									className='size-10'
+									colorful
+								/>
+							</div>
 						</div>
 						<div className='border-t border-dashed border-zinc-400 px-4 py-3'>
 							<Link
