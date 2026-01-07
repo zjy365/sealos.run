@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 131 150">
+  <path
+    fill="#fff"
+    stroke="#605d5d"
+    stroke-width=".49"
+    d="M65.22 124.94v19.25L7.3 110.65v-18.9zm57.55-13.78-57.05 33.03v-19.25l57.05-32.69zm-.25-19.33-57.05 32.69-57.93-33.2 57.05-33.03z"
+  />
+  <path
+    fill="#f4f4f5"
+    stroke="#605d5d"
+    stroke-width=".49"
+    d="M65.22 100.91v19.24L7.3 86.62v-18.9zm57.55-13.78-57.05 33.02v-19.24l57.05-32.7zm-.25-19.34-57.05 32.7-57.93-33.2 57.05-33.03z"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width=".99"
+    d="M.85 0h46.42v1.65H.85z"
+    transform="matrix(.87 -.5 .87 .5 27.78 52.78)"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width=".99"
+    d="M.85 0h46.42v1.65H.85z"
+    transform="matrix(.87 -.5 .87 .5 43.17 61.67)"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width=".99"
+    d="M.85 0h46.42v1.65H.85z"
+    transform="matrix(.87 -.5 .87 .5 58.57 70.56)"
+  />
+  <circle
+    cx="4.28"
+    cy="4.28"
+    r="3.79"
+    fill="#fafafa"
+    stroke="#005bff"
+    stroke-width=".99"
+    transform="matrix(.87 -.5 .87 .5 52.75 34.58)"
+  />
+  <circle
+    cx="4.28"
+    cy="4.28"
+    r="3.79"
+    fill="#fafafa"
+    stroke="#005bff"
+    stroke-width=".99"
+    transform="matrix(.87 -.5 .87 .5 45.34 56.63)"
+  />
+  <circle
+    cx="4.28"
+    cy="4.28"
+    r="3.79"
+    fill="#fafafa"
+    stroke="#005bff"
+    stroke-width=".99"
+    transform="matrix(.87 -.5 .87 .5 76.13 56.63)"
+  />
+  <path
+    fill="#fff"
+    stroke="#005bff"
+    stroke-width=".99"
+    d="m76.55 25.49 31.33 18.09-11.47 24.7-42.8 6.63L22.3 56.8l11.46-24.7z"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width=".99"
+    d="m98.65 44.95-24.7-14.27-33.7 5.18-8.97 19.45 24.71 14.27"
+  />
+  <path
+    fill="#fff"
+    stroke="#005bff"
+    stroke-width=".99"
+    d="m87.1 58.16 4.76 2.74-1.74 3.75-6.5 1-4.75-2.74 1.74-3.75z"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width=".99"
+    d="M79.77 61.1 59.14 46.77l24.83 11.9"
+  />
+  <path
+    stroke="#dbdbdb"
+    stroke-width=".49"
+    d="M64.93 74.31v73.6L1.9 111.54V38.75zm63.51 37.22L65.42 147.9v-73.6l63.02-35.56zm-.25-73.2L65.17 73.89 2.15 38.33 65.17 1.94z"
+  />
+  <path
+    fill="#fafafa"
+    stroke="#605d5d"
+    stroke-width=".3"
+    d="M3.72 37.59v1.9l-1.65.95-1.64-.95v-1.9l1.64-.96zM129.69 37.59v1.9l-1.65.95-1.65-.95v-1.9l1.65-.96zM66.7 73.22v1.9l-1.65.95-1.64-.95v-1.9l1.64-.95zM66.7 1.12v1.9l-1.65.95-1.64-.95v-1.9l1.64-.95zM3.72 110.51v1.9l-1.65.95-1.64-.95v-1.9l1.64-.95zM129.69 110.51v1.9l-1.65.95-1.65-.95v-1.9l1.65-.95zM66.7 146.98v1.9l-1.65.95-1.64-.95v-1.9l1.64-.95z"
+  />
+  <path
+    stroke="#605d5d"
+    stroke-width=".49"
+    d="M2.07 109.8V40.6M128.04 109.8V40.6"
+  />
+</svg>

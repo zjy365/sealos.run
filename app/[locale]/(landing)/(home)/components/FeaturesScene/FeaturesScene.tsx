@@ -379,7 +379,7 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 				return (
 					<div
 						key={boxKey}
-						className='absolute pointer-events-none'
+						className='pointer-events-none absolute'
 						style={{
 							left: `${box.position.x}px`,
 							top: `${box.position.y}px`,
