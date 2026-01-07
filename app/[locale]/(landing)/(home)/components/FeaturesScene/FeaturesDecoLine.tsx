@@ -98,7 +98,7 @@ export function FeaturesDecoLine({
 				preserveAspectRatio='none'
 				style={{ overflow: 'visible' }}
 				xmlns='http://www.w3.org/2000/svg'
-				aria-hidden='true'
+				role='graphics-symbol'
 			>
 				<defs>
 					<mask
@@ -120,7 +120,6 @@ export function FeaturesDecoLine({
 								width='3rem'
 								height={`calc(${y2} - ${y1})`}
 								fill='black'
-								transform='translate(-1.5rem, 0)'
 							/>
 						))}
 
@@ -265,7 +264,9 @@ export function FeaturesDecoLine({
 										onClick={() => onIconClick?.(featureIndex)}
 										className={cn(
 											'hover:text-brand flex h-full w-full cursor-pointer items-center justify-center transition-colors outline-none focus:outline-none',
-											isActive ? 'text-brand' : 'text-muted-foreground/50',
+											isActive
+												? 'text-brand'
+												: 'text-muted-foreground/50 focus-visible:text-muted-foreground',
 										)}
 										aria-label={`切换到${slug}`}
 									>

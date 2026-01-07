@@ -179,7 +179,7 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 				<motion.g
 					id='box'
 					animate={{
-						transform: `translateY(calc(3.42rem + calc(-3.42rem * ${height})))`,
+						translateY: `calc(3.42rem + calc(-3.42rem * ${height}))`,
 					}}
 					transition={{
 						duration: 0.3,
@@ -203,7 +203,7 @@ export const AppBoxSvg: React.FC<AppBoxSvgProps> = ({
 							}
 						}}
 						role='button'
-						tabIndex={0}
+						tabIndex={-1}
 						aria-label={`切换到${title}`}
 						style={{ pointerEvents: 'all' }}
 					/>

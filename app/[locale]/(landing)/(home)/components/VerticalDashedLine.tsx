@@ -66,7 +66,6 @@ export function VerticalDashedLine({ children, iconY = '0.5rem', mask }: Vertica
 									width='3rem'
 									height={`calc(${y2} - ${y1})`}
 									fill='black'
-									transform='translate(-1.5rem, 0)'
 								/>
 							))}
 						</mask>

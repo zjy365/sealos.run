@@ -12,9 +12,19 @@ const FeaturesContext = React.createContext<FeaturesContextValue | undefined>(un
 export function FeaturesProvider({ children }: { children: React.ReactNode }) {
 	const [activeBoxIndex, setActiveBoxIndex] = React.useState<number>(0);
 
-	return (
-		<FeaturesContext.Provider value={{ activeBoxIndex, setActiveBoxIndex }}>{children}</FeaturesContext.Provider>
+	const handleSetActiveBoxIndex = React.useCallback((index: number) => {
+		setActiveBoxIndex(index);
+	}, []);
+
+	const contextValue = React.useMemo(
+		() => ({
+			activeBoxIndex,
+			setActiveBoxIndex: handleSetActiveBoxIndex,
+		}),
+		[activeBoxIndex, handleSetActiveBoxIndex],
 	);
+
+	return <FeaturesContext.Provider value={contextValue}>{children}</FeaturesContext.Provider>;
 }
 
 export function useFeatures() {

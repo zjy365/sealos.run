@@ -51,11 +51,10 @@ interface NavMenuItem {
 	label: string;
 	icon: React.ReactNode;
 	largeImage?: React.ReactNode;
-	href?: string;
 	content?: {
 		title: string;
 		description: string;
-		detailHref?: string;
+		href?: string;
 		features?: React.ReactNode;
 	};
 }
@@ -77,11 +76,10 @@ const navMenuItems: NavMenuItem[] = [
 				className='size-12'
 			/>
 		),
-		href: '/products/container',
 		content: {
 			title: '应用管理',
 			description: '原生 K8s 架构，可视化页面配置',
-			detailHref: '/products/container',
+			href: '/products/launchpad',
 			features: <LaunchpadFeatures />,
 		},
 	},
@@ -101,11 +99,10 @@ const navMenuItems: NavMenuItem[] = [
 				className='size-12'
 			/>
 		),
-		href: '/products/database',
 		content: {
 			title: '数据库服务',
 			description: '提供多种数据库类型，一键部署和管理',
-			detailHref: '/products/database',
+			href: '/products/database',
 			features: <DatabaseFeatures />,
 		},
 	},
@@ -125,11 +122,10 @@ const navMenuItems: NavMenuItem[] = [
 				className='size-12'
 			/>
 		),
-		href: '/products/storage',
 		content: {
 			title: '对象存储',
 			description: '高性能、可扩展的对象存储服务',
-			detailHref: '/products/storage',
+			href: '/products/storage',
 			features: <OSSFeatures />,
 		},
 	},
@@ -149,11 +145,10 @@ const navMenuItems: NavMenuItem[] = [
 				className='size-12'
 			/>
 		),
-		href: '/products/cloud-dev',
 		content: {
 			title: 'DevBox',
 			description: '云端开发环境，支持多种编程语言和框架',
-			detailHref: '/products/cloud-dev',
+			href: '/products/cloud-dev',
 			features: <DevBoxFeatures />,
 		},
 	},
@@ -173,11 +168,10 @@ const navMenuItems: NavMenuItem[] = [
 				className='size-12'
 			/>
 		),
-		href: '/products/ai-model',
 		content: {
 			title: 'AI Proxy',
 			description: '统一的 AI 模型代理服务',
-			detailHref: '/products/ai-model',
+			href: '/products/ai-model',
 			features: <AIProxyFeatures />,
 		},
 	},
@@ -197,11 +191,10 @@ const navMenuItems: NavMenuItem[] = [
 				className='size-12'
 			/>
 		),
-		href: '/products/app',
 		content: {
 			title: '应用商店',
 			description: '丰富的应用模板，快速部署',
-			detailHref: '/products/app',
+			href: '/products/app',
 			features: <AppStoreFeatures />,
 		},
 	},
@@ -800,12 +793,12 @@ export function ProductsPanel() {
 								<p className='text-muted-foreground text-xs'>{selectedItem.content.description}</p>
 							</div>
 						</div>
-						{selectedItem.content.detailHref && (
+						{selectedItem.content.href && (
 							<Button
 								asChild
 								variant='outline'
 							>
-								<a href={selectedItem.content.detailHref}>
+								<a href={selectedItem.content.href}>
 									<span>详情</span>
 									<Icon
 										src={FlatArrowRightIcon}

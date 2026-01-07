@@ -39,8 +39,6 @@ export function OrgsSection() {
 								src={org.logo}
 								alt={org.name}
 								className='h-full w-auto object-contain'
-								width={150}
-								height={36}
 							/>
 						</div>
 					))}

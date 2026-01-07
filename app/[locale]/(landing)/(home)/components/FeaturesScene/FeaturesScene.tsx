@@ -96,7 +96,7 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 				to: 'hsla(0, 0%, 100%, 0)',
 			},
 			activeBgGradient: { from: '#E0E0EB', to: '#F6F6F6' },
-			activeFrameGradient: { from: '#182474', to: 'white' },
+			activeFrameGradient: { from: '#182474', to: '#ffffff' },
 			activeStroke: '#CBCBDB',
 			title: 'DevBox',
 			idleIcon: (
