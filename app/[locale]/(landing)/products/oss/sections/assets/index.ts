@@ -1,0 +1,10 @@
+export { default as FeatureAccessImage } from './feature-access.svg';
+export { default as FeatureAnalysisImage } from './feature-analysis.svg';
+export { default as FeatureApiImage } from './feature-api.svg';
+export { default as FeatureElasticImage } from './feature-elastic.svg';
+export { default as FeaturePerfImage } from './feature-perf.svg';
+export { default as FeatureReliableImage } from './feature-reliable.svg';
+export { default as HeroBgImage } from './hero-bg.svg';
+export { default as TypePrivateImage } from './type-private.svg';
+export { default as TypePublicReadImage } from './type-publicr.svg';
+export { default as TypePublicReadWriteImage } from './type-publicrw.svg';

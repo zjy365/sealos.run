@@ -1,5 +1,4 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import type { StaticImageData } from 'next/image';
 import type React from 'react';
 import { FlatArrowRightIcon } from '@/assets/icons';
 import { Link } from '../i18n/navigation';
@@ -52,7 +51,7 @@ export interface LandingOutlineButtonProps {
 	href: string;
 	size?: VariantProps<typeof landingOutlineButtonVariants>['size'];
 	borderStyle?: VariantProps<typeof landingOutlineButtonVariants>['borderStyle'];
-	icon?: StaticImageData | string;
+	icon?: React.ReactNode;
 	iconClassName?: string;
 	iconContainerClassName?: string;
 	iconColor?: string;
@@ -64,7 +63,12 @@ export function LandingOutlineButton({
 	href,
 	size = 'md',
 	borderStyle = 'solid',
-	icon = FlatArrowRightIcon,
+	icon = (
+		<Icon
+			src={FlatArrowRightIcon}
+			className='size-full'
+		/>
+	),
 	iconClassName,
 	iconContainerClassName,
 	iconColor,
@@ -82,10 +86,7 @@ export function LandingOutlineButton({
 					className={cn(iconContainerVariants({ size }), iconContainerClassName)}
 					style={iconColor ? { color: iconColor } : undefined}
 				>
-					<Icon
-						src={icon}
-						className={cn(iconSizeMap[size ?? 'md'], iconClassName)}
-					/>
+					<div className={cn(iconSizeMap[size ?? 'md'], iconClassName)}>{icon}</div>
 				</div>
 			</Link>
 		</Button>

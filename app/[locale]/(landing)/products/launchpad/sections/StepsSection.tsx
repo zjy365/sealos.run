@@ -14,25 +14,45 @@ export function StepsSection() {
 
 	const steps = [
 		{
-			icon: Number01Icon,
+			icon: (
+				<Icon
+					src={Number01Icon}
+					className='size-full'
+				/>
+			),
 			title: '基础配置',
 			description: '填写 Docker 镜像地址，自定义云服务器资源，单日消耗实时预览',
 			image: Step1Image,
 		},
 		{
-			icon: Number02Icon,
+			icon: (
+				<Icon
+					src={Number02Icon}
+					className='size-full'
+				/>
+			),
 			title: '网络配置',
 			description: '配置网络访问方式',
 			image: Step2Image,
 		},
 		{
-			icon: Number03Icon,
+			icon: (
+				<Icon
+					src={Number03Icon}
+					className='size-full'
+				/>
+			),
 			title: '高级配置',
 			description: '高级配置选项',
 			image: Step3Image,
 		},
 		{
-			icon: Number04Icon,
+			icon: (
+				<Icon
+					src={Number04Icon}
+					className='size-full'
+				/>
+			),
 			title: '部署成功',
 			description: '应用部署完成',
 			image: Step4Image,
@@ -87,13 +107,14 @@ export function StepsSection() {
 									className='flex cursor-pointer flex-col items-center gap-2 transition-opacity hover:opacity-80'
 									aria-label={`切换到${step.title}`}
 								>
-									<Icon
-										src={step.icon}
+									<div
 										className={cn(
 											'size-7',
 											index <= current ? 'text-brand' : 'text-muted-foreground',
 										)}
-									/>
+									>
+										{step.icon}
+									</div>
 									<span
 										className={cn(
 											'text-sm',

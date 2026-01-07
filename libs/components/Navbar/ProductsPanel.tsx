@@ -125,7 +125,7 @@ const navMenuItems: NavMenuItem[] = [
 		content: {
 			title: '对象存储',
 			description: '高性能、可扩展的对象存储服务',
-			href: '/products/storage',
+			href: '/products/oss',
 			features: <OSSFeatures />,
 		},
 	},

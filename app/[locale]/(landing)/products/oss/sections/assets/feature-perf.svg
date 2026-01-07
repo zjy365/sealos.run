@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 190 218">
+  <g filter="url(#a)">
+    <path
+      fill="#fff"
+      stroke="#605d5d"
+      stroke-width=".7"
+      d="M.6 0h105v105H.6z"
+      transform="matrix(.87 -.5 .87 .5 3.7 129.03)"
+    />
+    <path
+      stroke="#605d5d"
+      stroke-dasharray="1.4 1.4"
+      stroke-width=".7"
+      d="m19.96 137.54 90.45-52.22"
+    />
+    <circle
+      cx="3.77"
+      cy="3.77"
+      r="3.77"
+      fill="#d9d9d9"
+      transform="matrix(.87 -.5 .87 .5 13.42 128.1)"
+    />
+    <circle
+      cx="3.77"
+      cy="3.77"
+      r="3.77"
+      fill="#d9d9d9"
+      transform="matrix(.87 -.5 .87 .5 21.05 123.7)"
+    />
+    <circle
+      cx="3.77"
+      cy="3.77"
+      r="3.77"
+      fill="#d9d9d9"
+      transform="matrix(.87 -.5 .87 .5 28.68 119.29)"
+    />
+    <path
+      fill="#6b6b6b"
+      d="m86.33 149.5-17.22-5.3 2.13-1.23 12.96 4.19.13-.08-7.28-7.46 2.16-1.25 12.85 4.2.14-.08-7.21-7.46 2.13-1.22 9.17 9.93-2 1.15-13.01-4.18-.21.12 7.25 7.52zm19.65-11.35-17.21-5.3 2.13-1.23 12.95 4.19.14-.08-7.29-7.46 2.17-1.25 12.85 4.2.14-.07-7.22-7.46 2.13-1.23 9.17 9.94-1.99 1.15-13.02-4.19-.2.12 7.24 7.52zm19.65-11.35-17.21-5.3 2.13-1.22 12.95 4.18.14-.08-7.28-7.46 2.16-1.25 12.85 4.21.14-.08-7.22-7.46 2.13-1.23 9.18 9.94-2 1.15-13.02-4.19-.2.12 7.25 7.52z"
+    />
+  </g>
+  <path
+    stroke="#dbdbdb"
+    stroke-width=".7"
+    d="M94.37 108v106.99l-91.61-52.9V56.3zm92.31 54.1-91.61 52.89v-107l91.61-51.69zm-.35-106.4-91.61 51.7-91.6-51.7 91.6-52.89z"
+  />
+  <path
+    stroke="#605d5d"
+    stroke-dasharray="1.4 1.4"
+    stroke-width=".7"
+    d="M.6 0h106.3v106.3H.6z"
+    transform="matrix(.87 -.5 .87 .5 2.49 97.26)"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width="1.4"
+    d="m92.43 86.45-.52 1.01h23.7L82.45 120.1l15.02-25.61.62-1.05H74.32l28.96-28.5z"
+  />
+  <path
+    fill="#fafafa"
+    stroke="#605d5d"
+    stroke-width=".42"
+    d="M5.4 54.62v2.77l-2.39 1.38-2.4-1.38v-2.77l2.4-1.38zM188.48 54.62v2.77l-2.4 1.38-2.4-1.38v-2.77l2.4-1.38zM96.95 106.41v2.77l-2.4 1.38-2.4-1.38v-2.77l2.4-1.38zM96.95 1.63v2.76l-2.4 1.39-2.4-1.38V1.62l2.4-1.38zM5.4 160.6v2.78l-2.39 1.38-2.4-1.38v-2.77l2.4-1.38zM188.48 160.6v2.78l-2.4 1.38-2.4-1.38v-2.77l2.4-1.38zM96.95 213.6v2.77l-2.4 1.39-2.4-1.39v-2.77l2.4-1.38z"
+  />
+  <path
+    stroke="#605d5d"
+    stroke-width=".7"
+    d="M3.01 159.59V59.02M186.08 159.59V59.02"
+  />
+  <defs>
+    <filter
+      id="a"
+      width="183.07"
+      height="111.28"
+      x="3.61"
+      y="75.88"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy="5.59" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix
+        values="0 0 0 0 0.85098 0 0 0 0 0.85098 0 0 0 0 0.85098 0 0 0 1 0"
+      />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_3366_3303" />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect1_dropShadow_3366_3303"
+        result="shape"
+      />
+    </filter>
+  </defs>
+</svg>

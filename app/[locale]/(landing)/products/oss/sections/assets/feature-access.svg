@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 190 218">
+  <path
+    fill="#fff"
+    stroke="#605d5d"
+    stroke-width=".7"
+    d="M94.8 181.58v27.98l-84.21-48.74v-27.5zm83.64-20.02-82.94 48v-27.98l82.94-47.52zm-.35-28.1-82.94 47.51-84.21-48.25 82.94-48z"
+  />
+  <path
+    fill="#f4f4f5"
+    stroke="#605d5d"
+    stroke-width=".7"
+    d="M94.8 146.65v27.99L10.59 125.9V98.4zm83.64-20.02-82.94 48v-27.98l82.94-47.52zm-.35-28.1-82.94 47.52-84.21-48.26 82.94-48z"
+  />
+  <path
+    fill="#fff"
+    stroke="#005bff"
+    stroke-width="1.4"
+    d="M1.21 0h105.62v105.62H1.21z"
+    transform="matrix(.87 -.5 .87 .5 1.56 70.87)"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width="1.4"
+    d="M1.21 0h80.58v3.16H1.21z"
+    transform="matrix(.87 -.5 .87 .5 30.15 74.86)"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width="1.4"
+    d="M1.21 0h80.58v3.16H1.21z"
+    transform="matrix(.87 -.5 .87 .5 56.77 90.23)"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width="1.4"
+    d="M1.21 0h80.58v3.16H1.21z"
+    transform="matrix(.87 -.5 .87 .5 83.4 105.6)"
+  />
+  <circle
+    cx="7.4"
+    cy="7.4"
+    r="6.7"
+    fill="#fafafa"
+    stroke="#005bff"
+    stroke-width="1.4"
+    transform="matrix(.87 -.5 .87 .5 73.37 43.51)"
+  />
+  <circle
+    cx="7.4"
+    cy="7.4"
+    r="6.7"
+    fill="#fafafa"
+    stroke="#005bff"
+    stroke-width="1.4"
+    transform="matrix(.87 -.5 .87 .5 60.56 81.65)"
+  />
+  <circle
+    cx="7.4"
+    cy="7.4"
+    r="6.7"
+    fill="#fafafa"
+    stroke="#005bff"
+    stroke-width="1.4"
+    transform="matrix(.87 -.5 .87 .5 113.8 81.65)"
+  />
+  <path
+    stroke="#dbdbdb"
+    stroke-width=".7"
+    d="M94.37 108v106.99l-91.61-52.9V56.3zm92.31 54.1-91.61 52.89v-107l91.61-51.69zm-.35-106.4-91.61 51.7-91.6-51.7 91.6-52.89z"
+  />
+  <path
+    fill="#fafafa"
+    stroke="#605d5d"
+    stroke-width=".42"
+    d="M5.4 54.62v2.77l-2.39 1.38-2.4-1.38v-2.77l2.4-1.38zM188.48 54.62v2.77l-2.4 1.38-2.4-1.38v-2.77l2.4-1.38zM96.95 106.41v2.77l-2.4 1.38-2.4-1.38v-2.77l2.4-1.38zM96.95 1.63v2.76l-2.4 1.39-2.4-1.38V1.62l2.4-1.38zM5.4 160.6v2.78l-2.39 1.38-2.4-1.38v-2.77l2.4-1.38zM188.48 160.6v2.78l-2.4 1.38-2.4-1.38v-2.77l2.4-1.38zM96.95 213.6v2.77l-2.4 1.39-2.4-1.39v-2.77l2.4-1.38z"
+  />
+  <path
+    stroke="#605d5d"
+    stroke-width=".7"
+    d="M3.01 159.59V59.02M186.08 159.59V59.02"
+  />
+</svg>
