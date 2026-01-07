@@ -1,5 +1,5 @@
-import { MessagesSquare } from 'lucide-react';
 import { BigRightArrowImage } from '@/assets';
+import { HexagonIcon } from '@/assets/icons';
 import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
 import { Config } from '@/libs/config';
@@ -38,7 +38,10 @@ export async function Navbar() {
 							href={Config.components.navbar.contactLink}
 							target='_blank'
 						>
-							<MessagesSquare className='h-5 w-5 stroke-2' />
+							<Icon
+								src={HexagonIcon}
+								className='size-5'
+							/>
 							{t('components.navbar.buttons.contact')}
 						</a>
 					</Button>

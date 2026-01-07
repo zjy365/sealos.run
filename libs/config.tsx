@@ -1,8 +1,9 @@
 import 'server-only';
-import { Copy } from 'lucide-react';
 import type React from 'react';
 import { siDiscord, siGithub, siQq, siRss, siSinaweibo, siWechat, siX, siYoutube } from 'simple-icons';
+import { LinkIcon } from '@/assets/icons';
 import { ProductsPanel } from './components/Navbar/ProductsPanel';
+import { Icon } from './components/ui/icon';
 import { SimpleIcon } from './components/ui/simple-icon';
 
 /**
@@ -212,7 +213,12 @@ export const Config = (() => {
 						linkTemplate: 'http://connect.qq.com/widget/shareqq/index.html?url={link}&title={title}',
 					},
 					{
-						icon: <Copy className='size-full' />,
+						icon: (
+							<Icon
+								src={LinkIcon}
+								className='size-full'
+							/>
+						),
 						textI18nKey: t('pages.blog.sharePosts.copyLink'),
 						linkTemplate: '#',
 						onClick: 'copy' as const,

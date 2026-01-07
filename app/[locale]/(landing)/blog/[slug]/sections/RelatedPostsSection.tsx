@@ -1,6 +1,7 @@
-import { ArrowRight } from 'lucide-react';
+import { FlatArrowRightIcon } from '@/assets/icons';
 import type { BlogPost } from '@/libs/blog/types';
 import { getAllPosts } from '@/libs/blog/utils';
+import { Icon } from '@/libs/components/ui/icon';
 import { Link } from '@/libs/i18n/navigation';
 
 interface RelatedPostsSectionProps {
@@ -84,7 +85,10 @@ export function RelatedPostsSection({ currentPost, locale, limit = 5, title }: R
 						className='text-muted-foreground hover:text-foreground flex items-center gap-3 transition-colors'
 					>
 						<span className='flex-1 truncate text-base'>{post.title}</span>
-						<ArrowRight className='size-4 shrink-0' />
+						<Icon
+							src={FlatArrowRightIcon}
+							className='size-4 shrink-0'
+						/>
 					</Link>
 				))}
 			</div>
