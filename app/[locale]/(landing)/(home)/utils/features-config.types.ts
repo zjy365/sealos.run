@@ -22,7 +22,6 @@ export type EngineFeature =
 			title?: string;
 			items: BlockItem[] | BlockItem[][];
 			orientation?: 'horizontal' | 'vertical';
-			itemsPerRow?: number;
 			border?: boolean;
 			children?: EngineFeature[];
 	  }

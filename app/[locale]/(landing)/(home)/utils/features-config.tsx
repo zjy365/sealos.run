@@ -47,6 +47,7 @@ export const launchpadConfig: FeaturesConfig = {
 		{
 			type: 'block',
 			title: '编排引擎',
+			orientation: 'horizontal',
 			items: ['用户界面', 'YAML 编辑', '模板部署', '批量管理'],
 		},
 		{
@@ -55,6 +56,7 @@ export const launchpadConfig: FeaturesConfig = {
 		{
 			type: 'block',
 			title: '编排引擎',
+			orientation: 'horizontal',
 			items: ['配置解析', '资源计算', '生命周期管理', '弹性伸缩'],
 		},
 		{
@@ -110,7 +112,7 @@ export const aiproxyConfig: FeaturesConfig = {
 				{
 					type: 'block',
 					title: 'MCP 生态',
-					items: [['公共 MCP 服务器'], ['MCP 配置管理'], ['OpenAPI 转 MCP']],
+					items: ['公共 MCP 服务器', 'MCP 配置管理', 'OpenAPI 转 MCP'],
 				},
 				{
 					type: 'arrow',
@@ -129,7 +131,7 @@ export const aiproxyConfig: FeaturesConfig = {
 				{
 					type: 'block',
 					title: '配额监控',
-					items: [['计费系统'], ['监控与分析'], ['配额管理']],
+					items: ['计费系统', '监控与分析', '配额管理'],
 				},
 			],
 		},
@@ -158,6 +160,7 @@ export const aiproxyConfig: FeaturesConfig = {
 		{
 			type: 'block',
 			title: 'AI 提供商',
+			orientation: 'horizontal',
 			items: ['OpenAI', 'Anthropic/Claude', 'Azure OpenAI', '其他提供商'],
 		},
 	],
@@ -194,6 +197,7 @@ export const devboxConfig: FeaturesConfig = {
 		{
 			type: 'block',
 			title: '用户',
+			orientation: 'horizontal',
 			items: ['Web 页面', 'IDE 远程开发', 'API 调用', 'MCP 扩展'],
 		},
 		{
@@ -214,8 +218,21 @@ export const devboxConfig: FeaturesConfig = {
 			type: 'block',
 			title: 'Kubernetes',
 			items: [
-				['API 服务器', '容器接口', '镜像仓库'],
-				['容器运行中', '对象存储'],
+				[
+					'API 服务器',
+					'容器接口',
+					{ type: 'arrow', direction: 'right' },
+					'镜像仓库',
+					{ type: 'arrow', direction: 'right' },
+					'对象存储',
+				],
+				[
+					{
+						type: 'arrow',
+						direction: 'down',
+					},
+				],
+				['容器运行时'],
 			],
 		},
 	],
@@ -248,6 +265,7 @@ export const ossConfig: FeaturesConfig = {
 		},
 		{
 			type: 'block',
+			orientation: 'horizontal',
 			items: ['可视化', '密钥管理', '配额管理', '监控指标'],
 		},
 		{
@@ -339,7 +357,7 @@ export const databaseConfig: FeaturesConfig = {
 		{
 			type: 'block',
 			title: '用户接入层',
-			itemsPerRow: 5,
+			orientation: 'horizontal',
 			items: ['Web 控制台', 'Chat2DB', 'CLI 工具', '外网访问', 'API 调用'],
 		},
 		{
@@ -348,7 +366,7 @@ export const databaseConfig: FeaturesConfig = {
 		{
 			type: 'block',
 			title: '服务管理层',
-			itemsPerRow: 5,
+			orientation: 'horizontal',
 			items: ['日志分析', '数据导入/导出', '监控告警', '备份恢复', '参数配置'],
 		},
 		{
@@ -358,7 +376,6 @@ export const databaseConfig: FeaturesConfig = {
 		{
 			type: 'block',
 			title: '数据库实例层',
-			itemsPerRow: 5,
 			items: [
 				['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Clickhouse'],
 				['Milvus', 'Weaviate', 'RabbitMQ', 'Elasticsearch', 'Kafka'],
@@ -370,7 +387,6 @@ export const databaseConfig: FeaturesConfig = {
 		{
 			type: 'block',
 			title: '基础设施层',
-			itemsPerRow: 5,
 			items: [
 				['计算资源', '存储资源', '网络组件', '监控组件'],
 				['CPU/内存', 'Minio/SSD', 'Minio/负载均衡', 'Prometheus/Grafana'],
