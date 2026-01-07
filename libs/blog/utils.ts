@@ -1,8 +1,18 @@
+import type { StaticImageData } from 'next/image';
 import { Config } from '@/libs/config';
 import DefaultBlogCoverImage from '../../assets/default-blog-cover.svg';
 import { blog } from './source';
 import type { BlogCategory, BlogPost } from './types';
 import { BLOG_CATEGORIES } from './types';
+
+/**
+ * Convert StaticImageData or string to string
+ */
+function getImageSrc(src: string | StaticImageData | undefined): string {
+	if (!src) return '';
+	if (typeof src === 'string') return src;
+	return src.src;
+}
 
 /**
  * Get all blog posts for a specific locale.
@@ -15,12 +25,17 @@ export function getAllPosts(locale: string = 'zh'): BlogPost[] {
 	const allPages = blog.getPages(locale);
 
 	const pages = allPages.filter((page) => {
-		const filePath = page.file?.path || '';
+		// Use page.url to infer file extension since page.file may not be available
+		// URL format: /blog/slug or /locale/blog/slug
+		const url = page.url;
+		const slug = page.slugs[page.slugs.length - 1] || '';
 
+		// For English locale, check if URL contains .en pattern or slug ends with .en
 		if (locale === 'en') {
-			return filePath.endsWith('.en.mdx');
+			return url.includes('.en') || slug.includes('.en');
 		}
-		return filePath.endsWith('.zh.mdx') || (filePath.endsWith('.mdx') && !filePath.endsWith('.en.mdx'));
+		// For other locales (zh), exclude .en files
+		return !url.includes('.en') && !slug.includes('.en');
 	});
 
 	return pages
@@ -31,7 +46,7 @@ export function getAllPosts(locale: string = 'zh'): BlogPost[] {
 			};
 			const { title, description, date, author, category, tags, readingTime, views, thumbnail, featured } = data;
 
-			const resolvedThumbnail: string = thumbnail || DefaultBlogCoverImage;
+			const resolvedThumbnail: string = thumbnail ? getImageSrc(thumbnail) : getImageSrc(DefaultBlogCoverImage);
 			const normalizedUrl = page.url.replace(new RegExp(`^/${locale}`), '');
 
 			return {

@@ -1,8 +1,18 @@
 import type { MDXComponents } from 'mdx/types';
 import type { Metadata } from 'next';
+import type { StaticImageData } from 'next/image';
 import { notFound } from 'next/navigation';
 import type React from 'react';
 import { DefaultBlogCoverImage } from '@/assets';
+
+/**
+ * Convert StaticImageData or string to string
+ */
+function getImageSrc(src: string | StaticImageData | undefined): string {
+	if (!src) return '';
+	if (typeof src === 'string') return src;
+	return src.src;
+}
 import { EyeIcon, FramedCalendarIcon, FramedClockIcon, PersonIcon } from '@/assets/icons';
 import { formatDate } from '@/libs/blog/date-utils';
 import { blog } from '@/libs/blog/source';
@@ -67,7 +77,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
 	const { title, date, author, tags, readingTime, views, body, category, description, thumbnail, featured } =
 		page.data as Partial<BlogPageData> & {
-			thumbnail?: string;
+			thumbnail?: string | StaticImageData;
 			featured?: boolean;
 		};
 	const MDX = body as React.ComponentType<{ components?: MDXComponents }>;
@@ -83,7 +93,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 		tags: tags || [],
 		readingTime: readingTime || 0,
 		views: views || 0,
-		thumbnail: thumbnail || DefaultBlogCoverImage,
+		thumbnail: thumbnail ? getImageSrc(thumbnail) : getImageSrc(DefaultBlogCoverImage),
 		featured: featured || false,
 		url: normalizedUrl || '/',
 		slug: page.slugs[page.slugs.length - 1] || slug,

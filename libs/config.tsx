@@ -51,7 +51,7 @@ export const Config = (() => {
 						textI18nKey: t('components.navbar.links.about-us'),
 						href: '/about-us',
 					},
-				] as Array<{
+				] satisfies Array<{
 					textI18nKey: string;
 					href: string;
 					panel?: React.ReactNode;
