@@ -1,0 +1,680 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 523 295">
+  <g clip-path="url(#a)">
+    <path fill="#f4f4f5" d="M0 0h523v295H0z" />
+    <g filter="url(#b)">
+      <rect
+        width="484"
+        height="280"
+        x="65.5"
+        y="26.92"
+        fill="#fff"
+        rx="15.63"
+        shape-rendering="crispEdges"
+      />
+      <rect
+        width="211.99"
+        height="46.82"
+        x="73.51"
+        y="34.82"
+        fill="#fff"
+        rx="10.42"
+      />
+      <path
+        fill="url(#c)"
+        d="M0 0h9.38v9.42H0z"
+        transform="matrix(.87 .5 0 1 91.77 48.83)"
+      />
+      <path
+        fill="url(#d)"
+        d="M0 0h9.38v9.42H0z"
+        transform="matrix(.87 -.5 0 1 83.64 53.52)"
+      />
+      <path
+        fill="url(#e)"
+        d="M0 0h9.38v9.42H0z"
+        transform="matrix(.87 .5 -.87 .5 91.77 58.22)"
+      />
+      <path fill="url(#f)" d="m91.73 58.24 8.16-4.7-16.28.01z" />
+      <path fill="url(#g)" d="m99.89 53.53-8.12 4.7v9.41z" />
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="18.23"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="109.98" y="64.23">Cursor</tspan>
+      </text>
+      <rect
+        width="211.99"
+        height="46.82"
+        x="73.51"
+        y="132.59"
+        fill="#fff"
+        rx="10.42"
+      />
+      <g style="mix-blend-mode: luminosity">
+        <path
+          fill="url(#h)"
+          d="m91.75 164.93 7.73-4.47v-8.93l-7.73-4.46-7.73 4.46 7.73 4.47z"
+        />
+        <path fill="url(#i)" d="m99.48 151.53-7.73-4.46-7.73 4.46 7.73 4.47z" />
+        <path fill="url(#j)" d="m99.48 151.53-7.73-4.46-7.73 4.46 7.73 4.47z" />
+        <path fill="url(#k)" d="m99.48 151.53-7.73-4.46-7.73 4.46 7.73 4.47z" />
+        <path fill="url(#l)" d="M84.02 160.46v-8.93l7.73 4.47z" />
+        <path fill="url(#m)" d="m91.75 164.94 7.73-4.48v-8.93L91.75 156z" />
+        <path fill="url(#n)" d="m91.75 164.94 7.73-4.48v-8.93L91.75 156z" />
+        <path fill="url(#o)" d="m91.75 164.94 7.73-4.48v-8.93L91.75 156z" />
+        <path
+          fill="url(#p)"
+          d="m89.68 154.8 2.07 1.2v-8.93l-7.73 4.46z"
+          opacity=".8"
+        />
+        <path fill="url(#q)" d="m91.75 156-7.73 4.46 7.73 4.47z" />
+      </g>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="18.23"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="109.98" y="162">Gateway</tspan>
+      </text>
+      <rect
+        width="211.99"
+        height="46.82"
+        x="73.51"
+        y="181.48"
+        fill="#fff"
+        rx="10.42"
+      />
+      <g clip-path="url(#r)" style="mix-blend-mode: luminosity">
+        <path fill="#fff" d="m98.26 209.1-4.45 2.5v-1.98l4.45-2.5z" />
+        <path fill="#000001" d="m91.75 215.36 9.11-5.22v-10.42l-9.11 5.21z" />
+        <path fill="#fff" d="M93.65 210.52v1.56l3.98-2.27v-1.57z" />
+        <path
+          fill="url(#s)"
+          d="m91.75 194.52-9.12 5.2v10.42l9.12 5.22v-10.43l9.11-5.21z"
+        />
+      </g>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="18.23"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="109.98" y="210.89">Toolbox</tspan>
+      </text>
+      <rect
+        width="211.99"
+        height="46.82"
+        x="73.51"
+        y="230.36"
+        fill="#fff"
+        rx="10.42"
+      />
+      <g style="mix-blend-mode: luminosity">
+        <rect
+          width="22.78"
+          height="22.78"
+          x="81.33"
+          y="242.38"
+          fill="url(#t)"
+          rx="3.8"
+        />
+        <path
+          fill="#fff"
+          d="m101.45 255.65-2.2-3.84.94-1.8a.8.8 0 0 0 .11-.64l-1.2-2.18a.5.5 0 0 0-.43-.23h-4.49l-1-1.76a.5.5 0 0 0-.36-.25h-2.38c-.17 0-.3.13-.38.28l-.04.06-2.24 3.85h-2.15a.5.5 0 0 0-.44.23l-1.24 2.2a.6.6 0 0 0 0 .5l2.23 3.88-1 1.75a.6.6 0 0 0 0 .5l1.14 2.02q.15.24.44.25h4.48l1.09 1.88q.14.22.39.25h2.54a.5.5 0 0 0 .42-.25l2.22-3.88h1.98a.6.6 0 0 0 .42-.26l1.15-2.03c.1-.16.1-.37 0-.53m-2.78.25-1.15-2.12-4.7 8.3-1.3-2.11h-4.7l1.13-2.06h2.4l-4.7-8.27h2.46l2.33-4.17 1.18 2.05-1.2 2.12h9.41l-1.2 2.1 2.38 4.16z"
+        />
+        <path fill="#fff" d="m92.7 256.7 2.94-4.7h-5.88z" />
+      </g>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="18.23"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="111.92" y="259.77">Lingma</tspan>
+      </text>
+      <rect
+        width="211.99"
+        height="46.82"
+        x="300.69"
+        y="34.82"
+        fill="#fff"
+        rx="10.42"
+      />
+      <g clip-path="url(#u)" style="mix-blend-mode: luminosity">
+        <mask
+          id="v"
+          width="20"
+          height="15"
+          x="310"
+          y="51"
+          maskUnits="userSpaceOnUse"
+          style="mask-type: luminance"
+        >
+          <path fill="#fff" d="M310.95 51.66h18.72v13.37h-18.72z" />
+        </mask>
+        <g mask="url(#v)">
+          <path
+            fill="#31f08b"
+            d="M329.67 65.03h-16.05v-2.67h-2.67v-10.7h18.72zm-16.05-2.67H327v-8.03h-13.37zm6.7-4.06-1.9 1.9-1.9-1.9 1.9-1.89zm5.34 0-1.89 1.9-1.9-1.9 1.9-1.89z"
+          />
+        </g>
+      </g>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="18.23"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="339.77" y="64.23">Trae</tspan>
+      </text>
+      <rect
+        width="211.99"
+        height="46.82"
+        x="300.69"
+        y="83.71"
+        fill="#fff"
+        rx="10.42"
+      />
+      <rect width="24" height="24" x="308.51" y="95.12" fill="url(#w)" rx="3" />
+      <path
+        fill="#ddd"
+        d="M322.94 101.32c-1.76-2-6.54-1.87-7.64-1.8a.4.4 0 0 0-.34.21.4.4 0 0 0-.02.36l1.05 2.81s4.07-.08 6.47 1.32a4.1 4.1 0 0 1 2.08 2.64s.28-3.4-1.6-5.54"
+      />
+      <path
+        fill="#ddd"
+        d="M323.36 106.54c-1.67-2.22-5.54-2.33-6.56-2.32a.4.4 0 0 0-.36.23q-.06.15-.02.3l.9 2.87s3.48-.08 5.52 1.33a4.2 4.2 0 0 1 1.77 2.66s.37-2.92-1.25-5.07"
+      />
+      <path
+        fill="#ddd"
+        d="M323.55 111.26c-1.25-2.04-4.22-2.36-5.27-2.4a.5.5 0 0 0-.52.35.6.6 0 0 0 0 .39l1.07 2.92s2.53-.34 4.2 1.07c1.23 1.05 1.4 2.6 1.4 2.6s.4-2.82-.88-4.93"
+      />
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="18.23"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="340.32" y="113.12">Windsurf</tspan>
+      </text>
+      <rect
+        width="211.99"
+        height="46.82"
+        x="300.69"
+        y="132.59"
+        fill="#fff"
+        rx="10.42"
+      />
+      <g style="mix-blend-mode: luminosity">
+        <rect
+          width="22.78"
+          height="22.78"
+          x="308.51"
+          y="144.62"
+          fill="#9146ff"
+          rx="3.67"
+        />
+        <path
+          fill="#fff"
+          d="M315.2 160.99c-1.89 4.17 2.12 5.22 5.07 2.77.87 2.74 4.13.7 5.3-1.42a14.7 14.7 0 0 0 1.26-10.42c-1.83-6.7-10.98-6.71-12.55.03-.37 1.18-.38 2.53-.59 3.92a8 8 0 0 1-.45 1.9c-.15.42-.37.8-.7 1.43-.53.99-.31 2.9 2.4 1.9z"
+        />
+        <path
+          fill="#000"
+          d="M320.63 154.82c-.75 0-.87-.9-.87-1.43q.01-.74.25-1.11a.7.7 0 0 1 .62-.32q.4 0 .64.32.28.38.28 1.1c0 .9-.35 1.44-.92 1.44M323.72 154.82c-.75 0-.87-.9-.87-1.43q.01-.74.25-1.11a.7.7 0 0 1 .62-.32q.4 0 .64.32.28.38.28 1.1c0 .9-.34 1.44-.92 1.44"
+        />
+      </g>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="18.23"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="339.1" y="162">Kiro</tspan>
+      </text>
+      <rect
+        width="211.99"
+        height="46.82"
+        x="300.69"
+        y="181.48"
+        fill="#fff"
+        rx="10.42"
+      />
+      <g style="mix-blend-mode: luminosity">
+        <rect
+          width="22.78"
+          height="22.78"
+          x="308.51"
+          y="193.5"
+          fill="#111113"
+          rx="4.34"
+        />
+        <path
+          fill="#2adb5c"
+          d="M328.5 206.59v-2.99c0-1.7-.74-3.05-2.03-3.73l-6.63-3.5-.03.07-.04.06c1.24.65 1.95 1.97 1.95 3.6v3.27l-.01.05v.05l-.02.18v.07l-.01.06-.02.15-.01.08-.01.04-.03.15-.04.23v.02q-.04.11-.06.22l-.02.06-.06.22-.03.06-.08.24-.02.06-.01.03-.08.19-.04.1v.02l-.07.13-.06.13-.06.13-.13.24-.07.13-.07.11-.07.13-.08.1-.08.13-.07.1-.08.12-.26.34-.08.09-.3.34-.1.1-.14.14-.02.02-.06.05-.2.17v.02q-.02 0-.03.02l-.03.02-.16.14-.06.04-.15.11-.06.05-.17.11-.04.03-.21.14-.05.03-.22.12-.03.02-.14.07-.08.04h-.01l-.14.07-.1.04-.14.06h-.03l-.06.03-.16.06-.03.01-.04.02-.24.07-.46.13-.2.05h-.05l-.05.02-.11.02h-.05l-.06.02-.1.01h-.05l-.06.02h-.12l-.02.01-.13.01h-.57l-.04-.01-.14-.02h-.03l-.16-.03h-.04l-.26-.06-.02-.01h-.03l-.2-.07-.04-.02-.14-.05-.05-.02h-.01l-.12-.06-.02-.01h-.01l-.5-.27.36.36h.02l6.61 3.49.07.03.02.01.02.01.12.06h.01l.06.03.14.05h.02l.02.02h.01l.2.07h.04l.02.01.16.04h.03l.05.02h.06l.17.04h.03l.14.02h.18l.07.01h.38l.14-.01h.07l.08-.02h.06l.06-.01.09-.02h.06l.05-.02.12-.02.05-.01.04-.01.21-.05.47-.13.24-.07.05-.02.03-.01.16-.06.07-.03h.02l.15-.07q.04 0 .1-.04l.14-.06.01-.01.08-.04.15-.07.02-.02.06-.03.17-.1.02-.01.03-.02.21-.13.05-.03 1.45.66c.85.4 1.82-.23 1.82-1.17z"
+        />
+        <path
+          fill="#fff"
+          d="m319.85 196.38-.07-.04-.04-.02-.33-.14-.04-.01-.21-.07-.06-.01-.16-.04-.03-.01-.07-.02h-.04l-.34-.05h-.09l-.07-.01h-.6l-.06.01-.12.02h-.08l-.13.03-.08.01-.14.03-.07.01-.21.06-.46.13-.25.07-.08.02-.16.06-.1.04-.38.17-.09.04-.14.08-.08.04-.18.1-.05.03-.5.33-.14.11-.06.05-.17.14-.03.02h-.01l-.03.04-.2.18-.08.07-.15.15-.04.04-.05.05-.11.12-.09.1-.1.12-.06.07-.03.03-.1.12-.08.11-.09.12-.05.07-.03.04-.08.12-.08.12-.08.12-.04.07-.03.05-.14.25-.07.12-.04.08-.02.04-.07.14-.06.13-.06.14-.04.08-.01.04-.08.19-.04.1-.08.24-.01.04-.01.02-.07.22-.01.07-.06.22v.02l-.05.2v.03l-.03.17-.02.12-.05.48v.1l-.01.28v2.98a4.5 4.5 0 0 0 1 2.92 4 4 0 0 0 1 .8l6.64 3.5c-1.22-.65-2-1.98-2-3.72v-3.37l.02-.2.01-.1.02-.18.02-.12.03-.16.05-.23v-.03l.06-.22.02-.06.06-.22v-.02l.02-.05.09-.24.04-.1.07-.18.05-.13.06-.14.06-.12.07-.14.06-.12.07-.13.07-.12.07-.12.08-.13.07-.12.16-.23.09-.12.08-.11.09-.11.09-.12.08-.1.11-.13.1-.1.1-.11.1-.1.42-.4.04-.03.03-.03.38-.29.06-.05.17-.11.04-.03.53-.31.15-.08.09-.05a4 4 0 0 1 .63-.26l.33-.1.46-.12.21-.06.07-.01.14-.03.08-.02.13-.02.2-.02h.06l.14-.01h.07l.12-.01h.08l.3.01h.05l.34.05.04.01.1.02.17.04.05.02.4.13.06.03.12.06.1.05z"
+        />
+      </g>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="18.23"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="339.1" y="210.89">Qoder</tspan>
+      </text>
+      <rect
+        width="211.99"
+        height="46.82"
+        x="300.69"
+        y="230.36"
+        fill="#fff"
+        rx="10.42"
+      />
+      <g style="mix-blend-mode: luminosity">
+        <rect
+          width="22.78"
+          height="22.78"
+          x="308.51"
+          y="242.38"
+          fill="#090a0a"
+          rx="4.34"
+        />
+        <path
+          fill="url(#x)"
+          fill-rule="evenodd"
+          d="M319.3 245.3c.37-.22.82-.22 1.19 0l6.46 3.72c.36.22.59.6.59 1.02v7.46c0 .42-.23.81-.6 1.02l-6.45 3.73c-.37.21-.82.21-1.18 0l-6.46-3.73c-.37-.2-.6-.6-.6-1.02v-7.46c.01-.42.23-.8.6-1.01zm-1.6 3.56c-.26-.16-.56.15-.38.4l1.38 1.96a1.1 1.1 0 0 1-.04 1.35q-.15.2-.37.3l-1.18.6a1.12 1.12 0 0 0-.1 1.94l5.09 3.27c.26.17.55-.14.38-.4l-1.39-1.95a1.12 1.12 0 0 1 .41-1.65l1.19-.6c.78-.38.83-1.47.1-1.94z"
+          clip-rule="evenodd"
+        />
+      </g>
+      <text
+        xml:space="preserve"
+        fill="#71717a"
+        font-size="18.23"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="339.1" y="259.77">CodeBuddy</tspan>
+      </text>
+      <g filter="url(#y)">
+        <rect
+          width="235.84"
+          height="52.09"
+          x="24.73"
+          y="78.44"
+          fill="#fff"
+          rx="11.59"
+        />
+        <rect
+          width="234.55"
+          height="50.8"
+          x="25.38"
+          y="79.09"
+          stroke="#337cff"
+          stroke-width="1.29"
+          rx="10.95"
+        />
+        <path
+          fill="#4b9ae9"
+          d="m50.1 95.53 3.52 1.72c.53.27.6.47.6.75l.02 12.95c0 .35-.18.49-.7.78l-3.42 1.71c-.15.07-.26.15-1.12.15 0 0 .74 0 .74-.59V96.04a.64.64 0 0 0-.61-.66c.76 0 .97.15.97.15"
+        />
+        <path
+          fill="#2a63a4"
+          d="M36.15 107.07a.75.75 0 0 0 0 1l1.16 1.07c.26.24.66.13.91-.06l11.52-8.8v-4.24a.64.64 0 0 0-.61-.66.5.5 0 0 0-.32.14z"
+        />
+        <path
+          fill="#3478c6"
+          d="M37.31 99.87a.6.6 0 0 1 .83 0l11.6 8.8V113c0 .6-.74.59-.74.59a.4.4 0 0 1-.26-.14l-12.68-11.62a.57.57 0 0 1 0-.81z"
+        />
+        <text
+          xml:space="preserve"
+          fill="#18181b"
+          font-size="20.28"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="65.3" y="111.68">VSCode</tspan>
+        </text>
+      </g>
+      <path
+        fill="#005bff"
+        stroke="#fff"
+        d="M221.03 118a2 2 0 0 1 3.13-1.82l24.82 16.93a2 2 0 0 1-.78 3.64l-11.86 2.07a3 3 0 0 0-1.8 1.03l-7.72 9.24a2 2 0 0 1-3.54-1.14z"
+      />
+    </g>
+  </g>
+  <defs>
+    <linearGradient
+      id="c"
+      x1="0"
+      x2="6.11"
+      y1="9.44"
+      y2="7.39"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#090909" />
+      <stop offset="1" stop-color="#3f3f3f" />
+    </linearGradient>
+    <linearGradient
+      id="d"
+      x1="4.69"
+      x2="4.69"
+      y1="0"
+      y2="9.42"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#949494" />
+      <stop offset="1" stop-color="#464646" />
+    </linearGradient>
+    <linearGradient
+      id="e"
+      x1="8.13"
+      x2="-.25"
+      y1="9.09"
+      y2="8.04"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#d8d8d8" />
+      <stop offset="1" stop-color="#636363" />
+    </linearGradient>
+    <linearGradient
+      id="f"
+      x1="85.03"
+      x2="95.15"
+      y1="54.18"
+      y2="47.7"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fff" />
+      <stop offset="1" stop-color="#fff" />
+    </linearGradient>
+    <linearGradient
+      id="g"
+      x1="95.83"
+      x2="99.91"
+      y1="55.88"
+      y2="62.94"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#e4e4e4" />
+      <stop offset="1" stop-color="#dcdcdc" />
+    </linearGradient>
+    <linearGradient
+      id="h"
+      x1="87.3"
+      x2="100.5"
+      y1="149.92"
+      y2="163.12"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fdb60d" />
+      <stop offset=".55" stop-color="#ff318c" />
+      <stop offset=".89" stop-color="#6b57ff" />
+    </linearGradient>
+    <linearGradient
+      id="i"
+      x1="89.84"
+      x2="90.69"
+      y1="154.83"
+      y2="153.36"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fff" stop-opacity=".6" />
+      <stop offset=".08" stop-color="#ffc524" stop-opacity=".4" />
+      <stop offset=".7" stop-color="#ffc524" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="j"
+      x1="89.79"
+      x2="91.06"
+      y1="148.14"
+      y2="150.34"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#f9ed32" stop-opacity=".6" />
+      <stop offset=".2" stop-color="#ffc524" stop-opacity=".4" />
+      <stop offset=".7" stop-color="#ffc524" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="k"
+      x1="93.81"
+      x2="93.24"
+      y1="147.96"
+      y2="148.94"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fdb60d" stop-opacity=".6" />
+      <stop offset=".23" stop-color="#fdb60d" stop-opacity=".4" />
+      <stop offset=".52" stop-color="#ff318c" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="l"
+      x1="84.02"
+      x2="96.59"
+      y1="156"
+      y2="156"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".01" />
+      <stop offset=".19" />
+      <stop offset=".57" stop-color="#6b57ff" />
+      <stop offset=".83" stop-color="#ff318c" />
+    </linearGradient>
+    <linearGradient
+      id="m"
+      x1="91.75"
+      x2="93.83"
+      y1="158.23"
+      y2="158.23"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ffb2ff" stop-opacity=".6" />
+      <stop offset=".08" stop-color="#d828ff" stop-opacity=".4" />
+      <stop offset=".7" stop-color="#ff318c" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="n"
+      x1="99.51"
+      x2="97.39"
+      y1="158.23"
+      y2="158.23"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#64f" stop-opacity=".8" />
+      <stop offset=".1" stop-color="#6b57ff" stop-opacity=".4" />
+      <stop offset=".7" stop-color="#ff318c" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="o"
+      x1="97.66"
+      x2="97.05"
+      y1="161.78"
+      y2="160.72"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".01" stop-color="#ff318c" />
+      <stop offset=".47" stop-color="#6b57ff" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="p"
+      x1="87.88"
+      x2="87.88"
+      y1="147.35"
+      y2="152.59"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".24" stop-color="#ff5592" stop-opacity=".65" />
+      <stop offset=".83" stop-color="#ff57e4" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="q"
+      x1="89.74"
+      x2="87.81"
+      y1="152.19"
+      y2="163.1"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".05" stop-color="#fff" stop-opacity=".86" />
+      <stop offset=".77" stop-color="#cbcaa4" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="s"
+      x1="82.75"
+      x2="100.89"
+      y1="209.61"
+      y2="200.19"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".04" stop-color="#ff8618" />
+      <stop offset=".38" stop-color="#ff246e" />
+      <stop offset=".99" stop-color="#af1df5" />
+    </linearGradient>
+    <linearGradient
+      id="t"
+      x1="92.72"
+      x2="92.72"
+      y1="242.38"
+      y2="265.16"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#131313" />
+      <stop offset="1" stop-color="#3c3c3c" />
+    </linearGradient>
+    <linearGradient
+      id="w"
+      x1="320.51"
+      x2="320.51"
+      y1="95.12"
+      y2="119.12"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#0f1010" />
+      <stop offset="1" stop-color="#575757" />
+    </linearGradient>
+    <linearGradient
+      id="x"
+      x1="319.9"
+      x2="319.9"
+      y1="245.14"
+      y2="262.41"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#00e88d" />
+      <stop offset="1" stop-color="#00e0da" />
+    </linearGradient>
+    <clipPath id="a"><path fill="#fff" d="M0 0h523v295H0z" /></clipPath>
+    <clipPath id="r">
+      <path fill="#fff" d="M81.33 194.47h20.84v20.84H81.33z" />
+    </clipPath>
+    <clipPath id="u">
+      <path fill="#fff" d="M310.95 51.1h18.72v14.03h-18.72z" />
+    </clipPath>
+    <filter
+      id="b"
+      width="550.81"
+      height="306.05"
+      x="11.71"
+      y="19.11"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset />
+      <feGaussianBlur stdDeviation=".65" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix
+        values="0 0 0 0 0.0745098 0 0 0 0 0.2 0 0 0 0 0.419608 0 0 0 0.1 0"
+      />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5134" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy="5.21" />
+      <feGaussianBlur stdDeviation="6.51" />
+      <feColorMatrix
+        values="0 0 0 0 0.0745098 0 0 0 0 0.2 0 0 0 0 0.419608 0 0 0 0.1 0"
+      />
+      <feBlend
+        in2="effect1_dropShadow_2831_5134"
+        result="effect2_dropShadow_2831_5134"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5134"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="y"
+      width="249.21"
+      height="65.46"
+      x="18.05"
+      y="74.76"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius=".48"
+        result="effect1_dropShadow_2831_5134"
+      />
+      <feOffset dy=".95" />
+      <feGaussianBlur stdDeviation=".71" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix
+        values="0 0 0 0 0 0 0 0 0 0.356863 0 0 0 0 1 0 0 0 0.05 0"
+      />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5134" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius=".71"
+        result="effect2_dropShadow_2831_5134"
+      />
+      <feOffset dy="3" />
+      <feGaussianBlur stdDeviation="3.7" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix
+        values="0 0 0 0 0 0 0 0 0 0.356863 0 0 0 0 1 0 0 0 0.4 0"
+      />
+      <feBlend
+        in2="effect1_dropShadow_2831_5134"
+        result="effect2_dropShadow_2831_5134"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5134"
+        result="shape"
+      />
+    </filter>
+  </defs>
+</svg>

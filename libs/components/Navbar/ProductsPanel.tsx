@@ -63,7 +63,7 @@ interface NavMenuItem {
 
 const navMenuItems: NavMenuItem[] = [
 	{
-		id: 'container',
+		id: 'launchpad',
 		label: '容器',
 		icon: BoxIcon,
 		largeImage: LaunchpadBoxImage,
@@ -89,7 +89,7 @@ const navMenuItems: NavMenuItem[] = [
 		},
 	},
 	{
-		id: 'storage',
+		id: 'oss',
 		label: '存储',
 		icon: ObjectStorageIcon,
 		largeImage: OssBoxImage,
@@ -102,7 +102,7 @@ const navMenuItems: NavMenuItem[] = [
 		},
 	},
 	{
-		id: 'cloud-dev',
+		id: 'devbox',
 		label: '云开发',
 		icon: RocketIcon,
 		largeImage: DevboxBoxImage,
@@ -110,7 +110,7 @@ const navMenuItems: NavMenuItem[] = [
 		content: {
 			title: 'DevBox',
 			description: '云端开发环境，支持多种编程语言和框架',
-			href: '/products/cloud-dev',
+			href: '/products/devbox',
 			features: <DevBoxFeatures />,
 		},
 	},

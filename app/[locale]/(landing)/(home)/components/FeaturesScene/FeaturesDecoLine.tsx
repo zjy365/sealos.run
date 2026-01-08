@@ -1,5 +1,6 @@
 'use client';
 
+import { useInView } from 'motion/react';
 import type { StaticImageData } from 'next/image';
 import React from 'react';
 import { AiProxyIcon, AppLaunchpadIcon, DatabaseIcon, DevboxIcon, ObjectStorageIcon } from '@/assets/icons';
@@ -42,30 +43,11 @@ export function FeaturesDecoLine({
 	onIconClick,
 }: VerticalDashedLineProps) {
 	const iconRef = React.useRef<HTMLDivElement>(null);
-	const [isVisible, setIsVisible] = React.useState(false);
+	const isVisible = useInView(iconRef, {
+		margin: '-20% 0px -20% 0px',
+		amount: 0.1,
+	});
 	const maskId = React.useId();
-
-	React.useEffect(() => {
-		if (!iconRef.current) return;
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				for (const entry of entries) {
-					setIsVisible(entry.isIntersecting);
-				}
-			},
-			{
-				rootMargin: '-20% 0px -20% 0px',
-				threshold: 0.1,
-			},
-		);
-
-		observer.observe(iconRef.current);
-
-		return () => {
-			observer.disconnect();
-		};
-	}, []);
 
 	return (
 		<div className='text-brand absolute top-0 left-6 z-0 h-full overflow-visible'>

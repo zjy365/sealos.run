@@ -1,0 +1,1342 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 739 383">
+  <g clip-path="url(#a)">
+    <path fill="#f4f4f5" d="M1 0h738v382.02H1z" />
+    <g clip-path="url(#b)">
+      <g filter="url(#c)">
+        <g clip-path="url(#d)">
+          <mask id="e" fill="#fff">
+            <path d="M7.3 24.04h241.97v37.05H7.29z" />
+          </mask>
+          <path fill="#fff" d="M7.3 24.04h241.97v37.05H7.29z" />
+          <path
+            fill="#e4e4e7"
+            d="M7.3 24.04v1.03h241.97V23H7.29z"
+            mask="url(#e)"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="14.41"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="32" y="47.68">v3.3.2</tspan>
+          </text>
+          <path
+            stroke="#a3a3a3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.37"
+            d="m220.47 40.5 4.11 4.12 4.11-4.11"
+          />
+        </g>
+        <rect
+          width="240.95"
+          height="161.6"
+          x="7.81"
+          y="-101.02"
+          stroke="#e4e4e7"
+          stroke-width="1.03"
+          rx="11.84"
+          shape-rendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#f)">
+        <g clip-path="url(#g)">
+          <path fill="#fff" d="M255.84-56.05h243.85V69.52H255.84z" />
+          <rect
+            width="71.97"
+            height="10.04"
+            x="272.3"
+            y="27.05"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="71.02"
+            height="9.09"
+            x="272.78"
+            y="27.52"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <mask id="h" fill="#fff">
+            <path d="M255.84 69.52h243.85v37.06H255.84z" />
+          </mask>
+          <path fill="#fff" d="M255.84 69.52h243.85v37.06H255.84z" />
+          <path
+            fill="#e4e4e7"
+            d="M255.84 69.52v1.03h243.85V68.5H255.84z"
+            mask="url(#h)"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="14.41"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="272.3" y="93.17">v1.22.5</tspan>
+          </text>
+          <path
+            stroke="#a3a3a3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.37"
+            d="m470.89 86 4.1 4.1 4.12-4.1"
+          />
+        </g>
+        <rect
+          width="242.82"
+          height="161.6"
+          x="256.35"
+          y="-55.53"
+          stroke="#e4e4e7"
+          stroke-width="1.03"
+          rx="11.84"
+          shape-rendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#i)">
+        <g clip-path="url(#j)">
+          <mask id="k" fill="#fff">
+            <path d="M506.25 27.32h242.91v37.05h-242.9z" />
+          </mask>
+          <path fill="#fff" d="M506.25 27.32h242.91v37.05h-242.9z" />
+          <path
+            fill="#e4e4e7"
+            d="M506.25 27.32v1.03h242.91v-2.06h-242.9z"
+            mask="url(#k)"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="14.41"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="522.72" y="50.96">v18</tspan>
+          </text>
+          <path
+            stroke="#a3a3a3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.37"
+            d="m720.37 43.8 4.1 4.1 4.12-4.1"
+          />
+        </g>
+        <rect
+          width="241.88"
+          height="161.6"
+          x="506.77"
+          y="-97.74"
+          stroke="#e4e4e7"
+          stroke-width="1.03"
+          rx="11.84"
+          shape-rendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#l)">
+        <g clip-path="url(#m)">
+          <path fill="#fff" d="M7.3 71.97h241.97v125.57H7.3z" />
+          <g opacity=".6" style="mix-blend-mode: luminosity">
+            <rect
+              width="32.53"
+              height="32.53"
+              x="23.97"
+              y="88.65"
+              stroke="#e4e4e7"
+              stroke-opacity=".12"
+              stroke-width=".41"
+              rx="8.03"
+            />
+            <g clip-path="url(#n)">
+              <path
+                fill="#d77655"
+                fill-rule="evenodd"
+                d="M49.26 88.44H31.2a7.5 7.5 0 0 0-7.44 7.47v18c0 4.1 3.35 7.47 7.44 7.47h18.06c4.1 0 7.44-3.36 7.44-7.47v-18a7.5 7.5 0 0 0-7.44-7.47"
+                clip-rule="evenodd"
+              />
+              <path
+                fill="#fcf2ee"
+                d="m47.55 108.9-4.74-2.66-.08-.24.08-.12h.23l.8-.05 2.7-.08 2.35-.1 2.27-.12.58-.12.53-.71-.05-.36-.48-.32-.7.06-1.52.1-2.28.16-1.66.1-2.46.26h-.39l-.06-.16.14-.1.1-.1 2.37-1.6 2.56-1.71 1.34-.98.73-.5.36-.46.16-1.02-.66-.73-.88.06-.23.06-.9.7-1.91 1.48-2.5 1.85-.36.3-.15-.1-.02-.07.17-.28 1.35-2.46 1.46-2.51.64-1.04.17-.63q.1-.36.1-.73l-.74-1.03-.42-.13-1 .13-.42.37-.62 1.43-1 2.25-1.57 3.05-.46.91-.24.84-.09.26h-.16v-.15l-.13-1.72-.23-2.12-.23-2.72-.08-.76-.38-.92-.75-.5-.59.28-.48.7.07.44.28 1.87.57 2.93.36 1.96h-.21l-.25-.25-.98-1.31-1.66-2.08-.73-.83-.86-.91-.54-.44h-1.04l-.76 1.14.34 1.18 1.07 1.36.88 1.15 1.27 1.71.79 1.37-.07.11-.2-.01-2.86-.62-1.54-.28-1.85-.32-.84.4-.09.4.33.81 1.98.49 2.31.47 3.45.81.05.04-.05.06-1.56.14-.66.04h-1.63l-3.03.23-.8.52-.47.65.08.49 1.22.62 1.65-.4 3.84-.9 1.31-.34h.19v.11l-1.1 1.08-2.01 1.82-2.52 2.36-.13.58.32.46.35-.05 2.2-1.68.86-.75 1.94-1.63h.12v.17l-.44.65-2.35 3.56-.13 1.09.17.35.61.21.67-.12 1.38-1.94 1.42-2.19 1.15-1.96.14.08.67 7.32.32.38.73.28.61-.47.33-.75-.33-1.5-.39-1.93-.31-1.55-.29-1.91-.17-.64.01-.04.14.01 1.44 1.99 2.19 2.97 1.73 1.86.41.17.72-.38-.06-.66-.4-.6-2.4-3.06-1.45-1.9-.93-1.1v-.16h.06l6.37 4.16 1.13.14.49-.45-.06-.76-.23-.24z"
+              />
+            </g>
+          </g>
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="16.47"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="64.94" y="110.76">Claude Code</tspan>
+          </text>
+          <rect
+            width="209.04"
+            height="10.25"
+            x="23.76"
+            y="134.77"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="208.09"
+            height="9.3"
+            x="24.24"
+            y="135.25"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <rect
+            width="71.97"
+            height="10.04"
+            x="23.76"
+            y="155.07"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="71.02"
+            height="9.09"
+            x="24.24"
+            y="155.54"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <mask id="o" fill="#fff">
+            <path d="M7.3 197.55h241.97v37.05H7.29z" />
+          </mask>
+          <path fill="#fff" d="M7.3 197.55h241.97v37.05H7.29z" />
+          <path
+            fill="#e4e4e7"
+            d="M7.3 197.55v1.02h241.97v-2.05H7.29z"
+            mask="url(#o)"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="14.41"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="23.76" y="221.19">v1.0</tspan>
+          </text>
+          <path
+            stroke="#a3a3a3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.37"
+            d="m220.47 214.02 4.11 4.1 4.11-4.1"
+          />
+        </g>
+        <rect
+          width="240.95"
+          height="161.6"
+          x="7.81"
+          y="72.49"
+          stroke="#e4e4e7"
+          stroke-width="1.03"
+          rx="11.84"
+          shape-rendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#p)">
+        <g clip-path="url(#q)">
+          <path fill="#fff" d="M255.84 116.32h243.85V242.3H255.84z" />
+          <rect
+            width="32.53"
+            height="32.53"
+            x="272.51"
+            y="133.2"
+            stroke="#e4e4e7"
+            stroke-opacity=".12"
+            stroke-width=".41"
+            rx="8.03"
+          />
+          <path
+            fill="url(#r)"
+            d="M288.73 139.83c-4.91 0-4.6 2.13-4.6 2.13v2.2h4.7v.67h-6.56s-3.15-.36-3.15 4.6 2.75 4.8 2.75 4.8h1.63v-2.31s-.08-2.75 2.7-2.75h4.66s2.62.05 2.62-2.52v-4.25s.4-2.57-4.75-2.57m-2.58 1.48a1 1 0 0 1 .6.25.84.84 0 0 1 0 1.2.8.8 0 0 1-.6.24.84.84 0 0 1-.78-1.17 1 1 0 0 1 .45-.45q.16-.06.33-.07"
+          />
+          <path
+            fill="url(#s)"
+            d="M288.87 159.1c4.92 0 4.61-2.14 4.61-2.14v-2.2h-4.7v-.67h6.56s3.15.36 3.15-4.6-2.75-4.79-2.75-4.79h-1.64v2.3s.1 2.75-2.7 2.75h-4.65s-2.62-.04-2.62 2.53v4.25s-.4 2.57 4.74 2.57m2.59-1.49a.84.84 0 0 1-.84-.84.9.9 0 0 1 .52-.78.9.9 0 0 1 .92.18.9.9 0 0 1 .18.92.9.9 0 0 1-.78.52"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="16.47"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="313.48" y="155.31">Python</tspan>
+          </text>
+          <rect
+            width="210.91"
+            height="10.25"
+            x="272.3"
+            y="179.53"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="209.96"
+            height="9.3"
+            x="272.78"
+            y="180"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <rect
+            width="71.97"
+            height="10.04"
+            x="272.3"
+            y="199.82"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="71.02"
+            height="9.09"
+            x="272.78"
+            y="200.3"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <mask id="t" fill="#fff">
+            <path d="M255.84 242.3h243.85v37.06H255.84z" />
+          </mask>
+          <path fill="#fff" d="M255.84 242.3h243.85v37.06H255.84z" />
+          <path
+            fill="#e4e4e7"
+            d="M255.84 242.3v1.03h243.85v-2.06H255.84z"
+            mask="url(#t)"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="14.41"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="272.3" y="265.95">v3.10</tspan>
+          </text>
+          <path
+            stroke="#52525b"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.37"
+            d="m470.87 258.77 4.11 4.12 4.12-4.12"
+          />
+        </g>
+        <rect
+          width="242.82"
+          height="162.01"
+          x="256.35"
+          y="116.83"
+          stroke="url(#u)"
+          stroke-width="1.03"
+          rx="11.84"
+          shape-rendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#v)">
+        <g clip-path="url(#w)">
+          <path fill="#fff" d="M506.25 74.32h242.91v125.57h-242.9z" />
+          <g opacity=".6" style="mix-blend-mode: luminosity">
+            <rect
+              width="32.53"
+              height="32.53"
+              x="522.93"
+              y="90.99"
+              stroke="#e4e4e7"
+              stroke-opacity=".12"
+              stroke-width=".41"
+              rx="8.03"
+            />
+            <g clip-path="url(#x)">
+              <mask
+                id="y"
+                width="25"
+                height="25"
+                x="527"
+                y="95"
+                maskUnits="userSpaceOnUse"
+                style="mask-type: luminance"
+              >
+                <path fill="#fff" d="M551.17 95.29H527.2v23.95h23.96z" />
+              </mask>
+              <g mask="url(#y)">
+                <path
+                  fill="#000"
+                  d="M545 117.75q-.14.07 0 .02l.07-.05q.02-.04-.07.03m.18-.1q-.07.04 0 .01l.06-.03q0-.03-.06.02m.11-.07q-.06.04.01.01.03 0 .05-.03t-.06.02m.12-.07q-.06.04 0 .01l.06-.03q0-.04-.06.02m.16-.1q-.13.08-.03.05l.12-.1q-.05.01-.09.04m-7.16-22.11-.36.03a12 12 0 0 0 0 23.88c.36.04 1.93.04 2.3 0 1.6-.18 2.96-.57 4.3-1.26.22-.1.25-.13.23-.16q-.99-1.3-1.96-2.61l-1.91-2.59-2.4-3.55-2.41-3.55-.03 3.5c0 3.38 0 3.51-.05 3.6a.4.4 0 0 1-.2.2c-.08.04-.15.05-.5.05h-.4l-.11-.07a1 1 0 0 1-.16-.17l-.05-.1v-4.7l.01-4.7.08-.09q.07-.08.17-.14c.1-.04.14-.05.54-.05.48 0 .56.02.68.16q1.46 2.16 2.89 4.35l4.72 7.15 1.9 2.88.1-.06q1.37-.92 2.46-2.16a12 12 0 0 0 2.82-9.61 12 12 0 0 0-10.69-10.2c-.22-.03-1.77-.05-1.97-.03m4.9 7.24q.08.04.15.11l.1.16c.01.06.02 1.37.01 4.3v4.2l-.75-1.13-.74-1.14v-3.06c0-1.98 0-3.09.02-3.14a.5.5 0 0 1 .23-.3c.1-.04.13-.05.5-.05.35 0 .4 0 .48.05"
+                />
+              </g>
+            </g>
+          </g>
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="16.47"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="563.89" y="113.1">Next.js</tspan>
+          </text>
+          <rect
+            width="195.71"
+            height="10.25"
+            x="522.72"
+            y="137.12"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="194.75"
+            height="9.3"
+            x="523.2"
+            y="137.59"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <rect
+            width="71.97"
+            height="10.04"
+            x="522.72"
+            y="157.41"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="71.02"
+            height="9.09"
+            x="523.2"
+            y="157.89"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <mask id="z" fill="#fff">
+            <path d="M506.25 199.9h242.91v37.05h-242.9z" />
+          </mask>
+          <path fill="#fff" d="M506.25 199.9h242.91v37.05h-242.9z" />
+          <path
+            fill="#e4e4e7"
+            d="M506.25 199.9v1.02h242.91v-2.06h-242.9z"
+            mask="url(#z)"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="14.41"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="522.72" y="223.53">v14.2.5</tspan>
+          </text>
+          <path
+            stroke="#a3a3a3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.37"
+            d="m720.37 216.36 4.1 4.11 4.12-4.1"
+          />
+        </g>
+        <rect
+          width="241.88"
+          height="161.6"
+          x="506.77"
+          y="74.83"
+          stroke="#e4e4e7"
+          stroke-width="1.03"
+          rx="11.84"
+          shape-rendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#A)">
+        <g clip-path="url(#B)">
+          <path fill="#fff" d="M7.3 244.55h241.97v125.57H7.3z" />
+          <g opacity=".6" style="mix-blend-mode: luminosity">
+            <rect
+              width="32.53"
+              height="32.53"
+              x="23.97"
+              y="261.22"
+              stroke="#e4e4e7"
+              stroke-opacity=".12"
+              stroke-width=".41"
+              rx="8.03"
+            />
+            <g clip-path="url(#C)">
+              <path
+                fill="#828282"
+                d="m28.23 267.43 3.45-2 3.38 2-3.51 2zM32.4 269.9l3.44-2.07 3.44 2.07-3.5 1.94z"
+              />
+              <path
+                fill="#c6c6c6"
+                d="m41.17 269.83 3.45-2.07 3.38 2.07-3.51 2zM45.46 267.36l3.45-2.06 3.38 2.06-3.51 1.94z"
+              />
+              <path
+                fill="#00afd1"
+                d="M27.71 268.1v4.4l3.45 2v-4.33zM32 270.57v4.4l3.51 1.94v-4.27zM36.23 272.9v4.41l3.44 1.94v-4.27z"
+              />
+              <path
+                fill="#4ae1ff"
+                d="M52.61 268.16v4.41l-3.5 2v-4.34zM48.26 270.64v4.4l-3.45 1.94v-4.28zM44.03 272.97v4.4l-3.44 1.94v-4.27z"
+              />
+              <path
+                fill="#00afd1"
+                d="M27.71 273.37v4.4l3.45 1.94v-4.27zM32 275.77v4.41l3.51 2v-4.27zM36.23 278.11v4.41l3.44 1.94v-4.28z"
+              />
+              <path
+                fill="#4ae1ff"
+                d="M52.61 273.44v4.4l-3.5 1.94v-4.27zM48.26 275.91v4.4l-3.45 1.94v-4.27zM44.03 278.18v4.4l-3.44 1.94v-4.27z"
+              />
+              <path
+                fill="#00afd1"
+                d="M27.71 278.58v4.4l3.45 2.01v-4.34zM32 281.05v4.4l3.51 1.94v-4.27zM36.23 283.39v4.4l3.44 1.94v-4.27z"
+              />
+              <path
+                fill="#4ae1ff"
+                d="M52.61 278.65v4.4l-3.5 2v-4.27zM48.26 281.12v4.4l-3.45 1.94v-4.27zM44.03 283.46v4.4l-3.44 1.94v-4.28z"
+              />
+              <path fill="#828282" d="m40.2 270.24-3.45 2.06 3.38 1.94z" />
+              <path fill="#c6c6c6" d="m40.2 270.24-.07 4 3.45-1.94z" />
+            </g>
+          </g>
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="16.47"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="64.94" y="283.33">Echo</tspan>
+          </text>
+          <rect
+            width="209.04"
+            height="10.25"
+            x="23.76"
+            y="307.34"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="208.09"
+            height="9.3"
+            x="24.24"
+            y="307.82"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <rect
+            width="71.97"
+            height="10.04"
+            x="23.76"
+            y="327.64"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="71.02"
+            height="9.09"
+            x="24.24"
+            y="328.12"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <mask id="D" fill="#fff">
+            <path d="M7.3 370.12h241.97v37.05H7.29z" />
+          </mask>
+          <path fill="#fff" d="M7.3 370.12h241.97v37.05H7.29z" />
+          <path
+            fill="#e4e4e7"
+            d="M7.3 370.12v1.03h241.97v-2.06H7.29z"
+            mask="url(#D)"
+          />
+        </g>
+        <rect
+          width="240.95"
+          height="161.6"
+          x="7.81"
+          y="245.06"
+          stroke="#e4e4e7"
+          stroke-width="1.03"
+          rx="11.84"
+          shape-rendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#E)">
+        <g clip-path="url(#F)">
+          <path fill="#fff" d="M255.84 290.97h243.85v125.57H255.84z" />
+          <g opacity=".6" style="mix-blend-mode: luminosity">
+            <rect
+              width="32.53"
+              height="32.53"
+              x="272.51"
+              y="307.65"
+              stroke="#e4e4e7"
+              stroke-opacity=".12"
+              stroke-width=".41"
+              rx="8.03"
+            />
+            <g clip-path="url(#G)">
+              <path
+                fill="#dd4814"
+                d="M301.09 323.88a12.32 12.32 0 1 1-24.64 0 12.32 12.32 0 0 1 24.64 0"
+              />
+              <path
+                fill="#fff"
+                d="M280.4 322.23a1.65 1.65 0 1 0 0 3.3 1.65 1.65 0 0 0 0-3.3m11.74 7.48a1.64 1.64 0 1 0 1.64 2.85 1.64 1.64 0 0 0-1.64-2.85m-8.18-5.83c0-1.63.81-3.06 2.05-3.94l-1.2-2a7.2 7.2 0 0 0-2.96 4.14 2.3 2.3 0 0 1 0 3.59 7.2 7.2 0 0 0 2.95 4.15l1.2-2.01a4.8 4.8 0 0 1-2.04-3.93m4.8-4.8a4.8 4.8 0 0 1 4.8 4.37l2.34-.03a7 7 0 0 0-2.12-4.64 2.3 2.3 0 0 1-3.1-1.79 7.2 7.2 0 0 0-5.08.48l1.14 2.05a5 5 0 0 1 2.03-.45m0 9.6a5 5 0 0 1-2.01-.44l-1.15 2.04a7 7 0 0 0 5.08.48 2.3 2.3 0 0 1 3.1-1.79c1.21-1.2 2-2.82 2.12-4.63l-2.35-.04a4.8 4.8 0 0 1-4.78 4.38m3.38-10.63a1.64 1.64 0 1 0 1.64-2.85 1.64 1.64 0 0 0-1.64 2.85"
+              />
+            </g>
+          </g>
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="16.47"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="313.48" y="329.76">Ubuntu</tspan>
+          </text>
+          <rect
+            width="195.71"
+            height="10.25"
+            x="272.3"
+            y="353.77"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="194.75"
+            height="9.3"
+            x="272.78"
+            y="354.24"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+        </g>
+        <rect
+          width="242.82"
+          height="161.6"
+          x="256.35"
+          y="291.49"
+          stroke="#e4e4e7"
+          stroke-width="1.03"
+          rx="11.84"
+          shape-rendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#H)">
+        <g clip-path="url(#I)">
+          <path fill="#fff" d="M506.25 247.83h242.91V373.4h-242.9z" />
+          <rect
+            width="32.53"
+            height="32.53"
+            x="522.93"
+            y="264.5"
+            stroke="#e4e4e7"
+            stroke-opacity=".12"
+            stroke-width=".41"
+            rx="8.03"
+          />
+          <path
+            fill="#8c8c8c"
+            fill-rule="evenodd"
+            d="M543.43 270.08a3.04 3.04 0 0 0-4.3 0l-11.47 11.46a1.01 1.01 0 1 1-1.43-1.43l11.46-11.47a5.07 5.07 0 0 1 8.6 4.3 5 5 0 0 1 4.3 1.44l.06.06a5.07 5.07 0 0 1 0 7.16l-10.37 10.37a.34.34 0 0 0 0 .48l2.13 2.13a1.01 1.01 0 0 1-1.43 1.43l-2.13-2.13a2.36 2.36 0 0 1 0-3.34l10.37-10.37a3.04 3.04 0 0 0 0-4.3l-.06-.06a3.04 3.04 0 0 0-4.3 0l-8.54 8.54-.12.12a1.01 1.01 0 1 1-1.43-1.44l8.66-8.65a3.04 3.04 0 0 0 0-4.3m-1.44 2.86a1.01 1.01 0 1 0-1.43-1.43l-8.48 8.48a5.07 5.07 0 0 0 7.17 7.17l8.48-8.49a1.01 1.01 0 1 0-1.44-1.43l-8.48 8.48a3.04 3.04 0 1 1-4.3-4.3z"
+            clip-rule="evenodd"
+          />
+          <text
+            xml:space="preserve"
+            fill="#18181b"
+            font-size="16.47"
+            font-weight="500"
+            letter-spacing="0em"
+            style="white-space: pre"
+          >
+            <tspan x="563.89" y="286.61">MCP</tspan>
+          </text>
+          <rect
+            width="209.98"
+            height="10.25"
+            x="522.72"
+            y="310.63"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="209.03"
+            height="9.3"
+            x="523.2"
+            y="311.1"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <rect
+            width="71.97"
+            height="10.04"
+            x="522.72"
+            y="330.92"
+            fill="#f4f4f5"
+            rx="3.8"
+          />
+          <rect
+            width="71.02"
+            height="9.09"
+            x="523.2"
+            y="331.4"
+            stroke="#fff"
+            stroke-opacity=".05"
+            stroke-width=".95"
+            rx="3.33"
+          />
+          <mask id="J" fill="#fff">
+            <path d="M506.25 373.4h242.91v37.06h-242.9z" />
+          </mask>
+          <path fill="#fff" d="M506.25 373.4h242.91v37.06h-242.9z" />
+          <path
+            fill="#e4e4e7"
+            d="M506.25 373.4v1.03h242.91v-2.06h-242.9z"
+            mask="url(#J)"
+          />
+        </g>
+        <rect
+          width="241.88"
+          height="161.6"
+          x="506.77"
+          y="248.34"
+          stroke="#e4e4e7"
+          stroke-width="1.03"
+          rx="11.84"
+          shape-rendering="crispEdges"
+        />
+      </g>
+    </g>
+    <path
+      fill="url(#K)"
+      d="M0 0h738v382.02H0z"
+      style="mix-blend-mode: darken"
+      transform="translate(1)"
+    />
+  </g>
+  <defs>
+    <clipPath id="a"><path fill="#fff" d="M0 0h739v382.02H0z" /></clipPath>
+    <clipPath id="b">
+      <path fill="#fff" d="M7 36.8h725.85v336.88H7z" />
+    </clipPath>
+    <clipPath id="d">
+      <rect
+        width="241.98"
+        height="162.63"
+        x="7.29"
+        y="-101.54"
+        fill="#fff"
+        rx="12.35"
+      />
+    </clipPath>
+    <clipPath id="g">
+      <rect
+        width="243.85"
+        height="162.63"
+        x="255.84"
+        y="-56.05"
+        fill="#fff"
+        rx="12.35"
+      />
+    </clipPath>
+    <clipPath id="j">
+      <rect
+        width="242.91"
+        height="162.63"
+        x="506.25"
+        y="-98.25"
+        fill="#fff"
+        rx="12.35"
+      />
+    </clipPath>
+    <clipPath id="m">
+      <rect
+        width="241.98"
+        height="162.63"
+        x="7.29"
+        y="71.97"
+        fill="#fff"
+        rx="12.35"
+      />
+    </clipPath>
+    <clipPath id="n">
+      <path fill="#fff" d="M56.7 88.44H23.76v32.94H56.7z" />
+    </clipPath>
+    <clipPath id="q">
+      <rect
+        width="243.85"
+        height="163.04"
+        x="255.84"
+        y="116.32"
+        fill="#fff"
+        rx="12.35"
+      />
+    </clipPath>
+    <clipPath id="w">
+      <rect
+        width="242.91"
+        height="162.63"
+        x="506.25"
+        y="74.32"
+        fill="#fff"
+        rx="12.35"
+      />
+    </clipPath>
+    <clipPath id="x">
+      <path fill="#fff" d="M527.21 94.9h23.95v24.7h-23.95z" />
+    </clipPath>
+    <clipPath id="B">
+      <rect
+        width="241.98"
+        height="162.63"
+        x="7.29"
+        y="244.55"
+        fill="#fff"
+        rx="12.35"
+      />
+    </clipPath>
+    <clipPath id="C">
+      <path fill="#fff" d="M27.71 265.3h25.04v24.38H27.71z" />
+    </clipPath>
+    <clipPath id="F">
+      <rect
+        width="243.85"
+        height="162.63"
+        x="255.84"
+        y="290.97"
+        fill="#fff"
+        rx="12.35"
+      />
+    </clipPath>
+    <clipPath id="G">
+      <path fill="#fff" d="M276.42 311.56h24.7v24.7h-24.7z" />
+    </clipPath>
+    <clipPath id="I">
+      <rect
+        width="242.91"
+        height="162.63"
+        x="506.25"
+        y="247.83"
+        fill="#fff"
+        rx="12.35"
+      />
+    </clipPath>
+    <filter
+      id="c"
+      width="257.16"
+      height="177.81"
+      x="-.3"
+      y="-103.7"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.17"
+        result="effect1_dropShadow_2831_5275"
+      />
+      <feOffset dy="2.17" />
+      <feGaussianBlur stdDeviation="2.71" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5275" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.25"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feOffset dy="5.42" />
+      <feGaussianBlur stdDeviation="5.42" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="effect1_dropShadow_2831_5275"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5275"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="f"
+      width="259.03"
+      height="177.81"
+      x="248.25"
+      y="-58.22"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.17"
+        result="effect1_dropShadow_2831_5275"
+      />
+      <feOffset dy="2.17" />
+      <feGaussianBlur stdDeviation="2.71" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5275" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.25"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feOffset dy="5.42" />
+      <feGaussianBlur stdDeviation="5.42" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="effect1_dropShadow_2831_5275"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5275"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="i"
+      width="258.09"
+      height="177.81"
+      x="498.66"
+      y="-100.42"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.17"
+        result="effect1_dropShadow_2831_5275"
+      />
+      <feOffset dy="2.17" />
+      <feGaussianBlur stdDeviation="2.71" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5275" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.25"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feOffset dy="5.42" />
+      <feGaussianBlur stdDeviation="5.42" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="effect1_dropShadow_2831_5275"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5275"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="l"
+      width="257.16"
+      height="177.81"
+      x="-.3"
+      y="69.81"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.17"
+        result="effect1_dropShadow_2831_5275"
+      />
+      <feOffset dy="2.17" />
+      <feGaussianBlur stdDeviation="2.71" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5275" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.25"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feOffset dy="5.42" />
+      <feGaussianBlur stdDeviation="5.42" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="effect1_dropShadow_2831_5275"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5275"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="p"
+      width="259.03"
+      height="178.22"
+      x="248.25"
+      y="114.15"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.17"
+        result="effect1_dropShadow_2831_5275"
+      />
+      <feOffset dy="2.17" />
+      <feGaussianBlur stdDeviation="2.71" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5275" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.25"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feOffset dy="5.42" />
+      <feGaussianBlur stdDeviation="5.42" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="effect1_dropShadow_2831_5275"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5275"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="v"
+      width="258.09"
+      height="177.81"
+      x="498.66"
+      y="72.15"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.17"
+        result="effect1_dropShadow_2831_5275"
+      />
+      <feOffset dy="2.17" />
+      <feGaussianBlur stdDeviation="2.71" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5275" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.25"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feOffset dy="5.42" />
+      <feGaussianBlur stdDeviation="5.42" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="effect1_dropShadow_2831_5275"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5275"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="A"
+      width="257.16"
+      height="177.81"
+      x="-.3"
+      y="242.38"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.17"
+        result="effect1_dropShadow_2831_5275"
+      />
+      <feOffset dy="2.17" />
+      <feGaussianBlur stdDeviation="2.71" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5275" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.25"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feOffset dy="5.42" />
+      <feGaussianBlur stdDeviation="5.42" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="effect1_dropShadow_2831_5275"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5275"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="E"
+      width="259.03"
+      height="177.81"
+      x="248.25"
+      y="288.8"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.17"
+        result="effect1_dropShadow_2831_5275"
+      />
+      <feOffset dy="2.17" />
+      <feGaussianBlur stdDeviation="2.71" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5275" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.25"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feOffset dy="5.42" />
+      <feGaussianBlur stdDeviation="5.42" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="effect1_dropShadow_2831_5275"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5275"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="H"
+      width="258.09"
+      height="177.81"
+      x="498.66"
+      y="245.66"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.17"
+        result="effect1_dropShadow_2831_5275"
+      />
+      <feOffset dy="2.17" />
+      <feGaussianBlur stdDeviation="2.71" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5275" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.25"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feOffset dy="5.42" />
+      <feGaussianBlur stdDeviation="5.42" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend
+        in2="effect1_dropShadow_2831_5275"
+        result="effect2_dropShadow_2831_5275"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5275"
+        result="shape"
+      />
+    </filter>
+    <linearGradient
+      id="r"
+      x1="465.25"
+      x2="1425.11"
+      y1="313.13"
+      y2="1263.41"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#387eb8" />
+      <stop offset="1" stop-color="#366994" />
+    </linearGradient>
+    <linearGradient
+      id="s"
+      x1="558.87"
+      x2="1589.64"
+      y1="440.94"
+      y2="1415.37"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ffe052" />
+      <stop offset="1" stop-color="#ffc331" />
+    </linearGradient>
+    <linearGradient
+      id="u"
+      x1="214.92"
+      x2="304.77"
+      y1="354.87"
+      y2="127.02"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fff" />
+      <stop offset="1" stop-color="#146dff" />
+    </linearGradient>
+    <radialGradient
+      id="K"
+      cx="0"
+      cy="0"
+      r="1"
+      gradientTransform="matrix(0 182.48 -352.51 0 369 199.54)"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".72" stop-color="#f8f8f8" stop-opacity="0" />
+      <stop offset="1" stop-color="#f8f8f8" />
+    </radialGradient>
+  </defs>
+</svg>

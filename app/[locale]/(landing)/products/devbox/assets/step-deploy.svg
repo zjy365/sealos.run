@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 523 295">
+  <g clip-path="url(#a)">
+    <path fill="#f4f4f5" d="M0 0h523v295H0z" />
+    <g filter="url(#b)">
+      <rect
+        width="483.76"
+        height="303.94"
+        x="19.62"
+        y="18.67"
+        fill="url(#c)"
+        rx="15.64"
+      />
+      <rect
+        width="483.11"
+        height="303.29"
+        x="19.95"
+        y="18.99"
+        stroke="#e4e4e7"
+        stroke-width=".65"
+        rx="15.31"
+      />
+    </g>
+    <path stroke="#e4e4e7" stroke-width=".65" d="M19.62 67.19h483.76" />
+    <g clip-path="url(#d)">
+      <path
+        stroke="#005bff"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.52"
+        d="M222.18 43.66c0 4.2-3.4 7.6-7.6 7.6m7.6-7.6c0-4.2-3.4-7.6-7.6-7.6m7.6 7.6h-15.2m7.6 7.6a7.6 7.6 0 0 1-7.6-7.6m7.6 7.6a11 11 0 0 1 0-15.2m0 15.2a11 11 0 0 0 0-15.2m-7.6 7.6c0-4.2 3.4-7.6 7.6-7.6"
+      />
+    </g>
+    <text
+      xml:space="preserve"
+      fill="#000"
+      font-size="15.64"
+      letter-spacing="0em"
+      style="white-space: pre"
+    >
+      <tspan x="228.92" y="49.14">techlog.blog</tspan>
+    </text>
+    <circle cx="42.35" cy="43.39" r="4.9" fill="#ff8686" />
+    <circle cx="59.97" cy="43.39" r="4.9" fill="#ffd643" />
+    <circle cx="77.6" cy="43.39" r="4.9" fill="#7de0ae" />
+    <rect
+      width="119.26"
+      height="67.13"
+      x="59.97"
+      y="171.51"
+      fill="url(#e)"
+      rx="4.08"
+    />
+    <rect
+      width="208.59"
+      height="9.59"
+      x="214.77"
+      y="106.24"
+      fill="url(#f)"
+      rx="4.08"
+    />
+    <circle cx="158.54" cy="119.51" r="29.91" fill="url(#g)" />
+    <rect
+      width="208.59"
+      height="9.59"
+      x="214.77"
+      y="126.95"
+      fill="url(#h)"
+      rx="4.08"
+    />
+    <rect
+      width="119.26"
+      height="67.13"
+      x="195.8"
+      y="171.51"
+      fill="url(#i)"
+      rx="4.08"
+    />
+    <rect
+      width="119.26"
+      height="67.13"
+      x="331.62"
+      y="171.51"
+      fill="url(#j)"
+      rx="4.08"
+    />
+  </g>
+  <defs>
+    <linearGradient
+      id="c"
+      x1="261.5"
+      x2="261.5"
+      y1="18.67"
+      y2="322.6"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fff" />
+      <stop offset="1" stop-color="#f8f8f8" />
+    </linearGradient>
+    <linearGradient
+      id="e"
+      x1="119.6"
+      x2="119.6"
+      y1="171.51"
+      y2="238.64"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ededed" stop-opacity=".6" />
+      <stop offset="1" stop-color="#ededed" stop-opacity=".2" />
+    </linearGradient>
+    <linearGradient
+      id="f"
+      x1="214.77"
+      x2="423.36"
+      y1="111.03"
+      y2="111.03"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ededed" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="g"
+      x1="158.54"
+      x2="158.54"
+      y1="89.6"
+      y2="149.43"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#eee" />
+      <stop offset="1" stop-color="#eee" stop-opacity=".5" />
+    </linearGradient>
+    <linearGradient
+      id="h"
+      x1="214.77"
+      x2="423.36"
+      y1="131.75"
+      y2="131.75"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ededed" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient
+      id="i"
+      x1="255.43"
+      x2="255.43"
+      y1="171.51"
+      y2="238.64"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ededed" stop-opacity=".6" />
+      <stop offset="1" stop-color="#ededed" stop-opacity=".2" />
+    </linearGradient>
+    <linearGradient
+      id="j"
+      x1="391.25"
+      x2="391.25"
+      y1="171.51"
+      y2="238.64"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ededed" stop-opacity=".6" />
+      <stop offset="1" stop-color="#ededed" stop-opacity=".2" />
+    </linearGradient>
+    <clipPath id="a"><path fill="#fff" d="M0 0h523v295H0z" /></clipPath>
+    <clipPath id="d">
+      <path fill="#fff" d="M205.46 34.54h18.25v18.25h-18.25z" />
+    </clipPath>
+    <filter
+      id="b"
+      width="515.04"
+      height="335.22"
+      x="3.98"
+      y="16.06"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2.61"
+        result="effect1_dropShadow_2831_5235"
+      />
+      <feOffset dy="5.21" />
+      <feGaussianBlur stdDeviation="3.91" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2831_5235" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3.91"
+        result="effect2_dropShadow_2831_5235"
+      />
+      <feOffset dy="13.03" />
+      <feGaussianBlur stdDeviation="9.77" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+      <feBlend
+        in2="effect1_dropShadow_2831_5235"
+        result="effect2_dropShadow_2831_5235"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2831_5235"
+        result="shape"
+      />
+    </filter>
+  </defs>
+</svg>

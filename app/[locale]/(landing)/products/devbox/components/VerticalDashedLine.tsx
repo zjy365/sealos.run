@@ -1,8 +1,6 @@
 'use client';
 
-import { useInView } from 'motion/react';
 import React from 'react';
-import { cn } from '@/libs/utils/styling';
 
 interface VerticalDashedLineProps {
 	children?: React.ReactNode;
@@ -11,11 +9,6 @@ interface VerticalDashedLineProps {
 }
 
 export function VerticalDashedLine({ children, iconY = '0.5rem', mask }: VerticalDashedLineProps) {
-	const iconRef = React.useRef<HTMLDivElement>(null);
-	const isVisible = useInView(iconRef, {
-		margin: '-20% 0px -20% 0px',
-		amount: 0.1,
-	});
 	const maskId = React.useId();
 
 	return (
@@ -73,25 +66,16 @@ export function VerticalDashedLine({ children, iconY = '0.5rem', mask }: Vertica
 						}}
 					>
 						<foreignObject
-							x='-1.5rem'
-							y='-1.5rem'
-							width='3rem'
-							height='3rem'
+							x='-1.25rem'
+							y='-1.25rem'
+							width='2.5rem'
+							height='2.5rem'
 							style={{
-								transform: isVisible ? 'scale(1.3333)' : 'scale(1)',
 								transformOrigin: '0 0',
 								transition: 'transform 300ms',
 							}}
 						>
-							<div
-								ref={iconRef}
-								className={cn(
-									'flex h-full items-center justify-center',
-									isVisible ? 'text-brand' : 'text-muted-foreground',
-								)}
-							>
-								{children}
-							</div>
+							<div className='text-brand flex h-full items-center justify-center'>{children}</div>
 						</foreignObject>
 					</g>
 				)}
