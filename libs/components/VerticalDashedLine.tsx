@@ -2,28 +2,58 @@
 
 import { useInView } from 'motion/react';
 import React from 'react';
-import { cn } from '@/libs/utils/styling';
+import { cn } from '../utils/styling';
 
 interface VerticalDashedLineProps {
 	children?: React.ReactNode;
 	iconY?: string;
 	mask?: [string, string][];
+	/**
+	 * Whether to enable scroll animation for the icon
+	 * @default false
+	 */
+	enableScrollAnimation?: boolean;
+	/**
+	 * Icon size in rem (used for foreignObject dimensions and mask width)
+	 * @default '3rem'
+	 */
+	iconSize?: string;
+	/**
+	 * Width of the SVG container in rem (used for className)
+	 * @default '3rem'
+	 */
+	width?: string;
 }
 
-export function VerticalDashedLine({ children, iconY = '0.5rem', mask }: VerticalDashedLineProps) {
+export function VerticalDashedLine({
+	children,
+	iconY = '0.5rem',
+	mask,
+	enableScrollAnimation = false,
+	iconSize = '3rem',
+	width = '3rem',
+}: VerticalDashedLineProps) {
 	const iconRef = React.useRef<HTMLDivElement>(null);
-	const isVisible = useInView(iconRef, {
+	// Always call useInView hook, but only use result when enableScrollAnimation is true
+	const inViewResult = useInView(iconRef, {
 		margin: '-20% 0px -20% 0px',
 		amount: 0.1,
 	});
+	const isVisible = enableScrollAnimation ? inViewResult : false;
 	const maskId = React.useId();
+
+	// Calculate half of iconSize for positioning
+	const iconSizeHalf = React.useMemo(() => {
+		const size = parseFloat(iconSize);
+		return `${size / 2}rem`;
+	}, [iconSize]);
 
 	return (
 		<div className='text-brand absolute top-0 left-6 z-0 h-full overflow-visible'>
 			<svg
-				className='h-full w-12'
+				className='h-full'
+				style={{ width, overflow: 'visible' }}
 				preserveAspectRatio='none'
-				style={{ overflow: 'visible' }}
 				xmlns='http://www.w3.org/2000/svg'
 				aria-hidden='true'
 			>
@@ -45,7 +75,7 @@ export function VerticalDashedLine({ children, iconY = '0.5rem', mask }: Vertica
 									key={`${y1}-${y2}`}
 									x='0'
 									y={y1}
-									width='3rem'
+									width={iconSize}
 									height={`calc(${y2} - ${y1})`}
 									fill='black'
 								/>
@@ -68,17 +98,17 @@ export function VerticalDashedLine({ children, iconY = '0.5rem', mask }: Vertica
 				{children && (
 					<g
 						style={{
-							transform: `translate(50%, calc(1.5rem + ${iconY}))`,
+							transform: `translate(50%, calc(${iconSizeHalf} + ${iconY}))`,
 							transformOrigin: '0 0',
 						}}
 					>
 						<foreignObject
-							x='-1.5rem'
-							y='-1.5rem'
-							width='3rem'
-							height='3rem'
+							x={`-${iconSizeHalf}`}
+							y={`-${iconSizeHalf}`}
+							width={iconSize}
+							height={iconSize}
 							style={{
-								transform: isVisible ? 'scale(1.3333)' : 'scale(1)',
+								transform: enableScrollAnimation && isVisible ? 'scale(1.3333)' : 'scale(1)',
 								transformOrigin: '0 0',
 								transition: 'transform 300ms',
 							}}
@@ -87,7 +117,11 @@ export function VerticalDashedLine({ children, iconY = '0.5rem', mask }: Vertica
 								ref={iconRef}
 								className={cn(
 									'flex h-full items-center justify-center',
-									isVisible ? 'text-brand' : 'text-muted-foreground',
+									enableScrollAnimation
+										? isVisible
+											? 'text-brand'
+											: 'text-muted-foreground'
+										: 'text-brand',
 								)}
 							>
 								{children}

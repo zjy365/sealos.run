@@ -1,7 +1,7 @@
 import { ArchitectureBoxIcon, FramedCheckIcon, MoreIcon, SealosBoxIcon } from '@/assets/icons';
+import { VerticalDashedLine } from '@/libs/components/VerticalDashedLine';
 import { Icon } from '@/libs/components/ui/icon';
 import { FeaturesSectionWrapper } from './components/FeaturesSectionWrapper';
-import { VerticalDashedLine } from './components/VerticalDashedLine';
 import { ArchSection } from './sections/ArchSection';
 import { CTASection } from './sections/CTASection';
 import { ExamplesSection } from './sections/ExamplesSection';
@@ -22,7 +22,11 @@ export default async function HomePage() {
 			</section>
 
 			<section className='relative container mx-auto pt-4 pr-6 pb-32 pl-24'>
-				<VerticalDashedLine mask={[['0rem', '3.5rem']]}>
+				<VerticalDashedLine
+					enableScrollAnimation
+					iconSize='3rem'
+					mask={[['0rem', '3.5rem']]}
+				>
 					<Icon
 						src={SealosBoxIcon}
 						className='size-full'
@@ -37,7 +41,11 @@ export default async function HomePage() {
 			</section>
 
 			<section className='relative container mx-auto pr-6 pb-28 pl-24'>
-				<VerticalDashedLine mask={[['0.55rem', '3.25rem']]}>
+				<VerticalDashedLine
+					enableScrollAnimation
+					iconSize='3rem'
+					mask={[['0.55rem', '3.25rem']]}
+				>
 					<Icon
 						src={FramedCheckIcon}
 						className='size-full'
@@ -48,7 +56,11 @@ export default async function HomePage() {
 			</section>
 
 			<section className='relative container mx-auto pt-4 pr-6 pb-28 pl-24'>
-				<VerticalDashedLine mask={[['0.6rem', '2.5rem']]}>
+				<VerticalDashedLine
+					enableScrollAnimation
+					iconSize='3rem'
+					mask={[['0.6rem', '2.5rem']]}
+				>
 					<Icon
 						src={ArchitectureBoxIcon}
 						className='size-full'
@@ -60,6 +72,8 @@ export default async function HomePage() {
 
 			<section className='relative container mx-auto pt-4 pr-6 pb-16 pl-24'>
 				<VerticalDashedLine
+					enableScrollAnimation
+					iconSize='3rem'
 					iconY='21rem'
 					mask={[['22rem', '23.75rem']]}
 				>

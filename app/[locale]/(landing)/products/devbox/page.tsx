@@ -1,7 +1,7 @@
 import { ClockCounterIcon, CloudBoxIcon, CubesIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
+import { VerticalDashedLine } from '@/libs/components/VerticalDashedLine';
 import { StepsSectionLine } from './components/StepsSectionLine';
-import { VerticalDashedLine } from './components/VerticalDashedLine';
 import { BestPracticesSection } from './sections/BestPracticesSection';
 import { CTASection } from './sections/CTASection';
 import { CloudCollaborationSection, QuickReleaseSection, UnifiedEnvironmentSection } from './sections/FeaturesSection';
@@ -23,6 +23,7 @@ export default async function DevBoxPage() {
 
 			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-24'>
 				<VerticalDashedLine
+					iconSize='2.5rem'
 					mask={[['5.5rem', '7rem']]}
 					iconY='4.5rem'
 				>
@@ -36,6 +37,7 @@ export default async function DevBoxPage() {
 
 			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-24'>
 				<VerticalDashedLine
+					iconSize='2.5rem'
 					mask={[['5rem', '7rem']]}
 					iconY='4.5rem'
 				>
@@ -49,6 +51,7 @@ export default async function DevBoxPage() {
 
 			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-24'>
 				<VerticalDashedLine
+					iconSize='2.5rem'
 					mask={[['5rem', '7rem']]}
 					iconY='4.5rem'
 				>
