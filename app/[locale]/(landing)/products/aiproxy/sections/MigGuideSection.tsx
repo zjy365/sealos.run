@@ -2,9 +2,10 @@
 
 import { AnimatePresence, motion, useScroll, useTransform } from 'motion/react';
 import React from 'react';
-import { ApiIcon, KeyIcon, ListIcon } from '@/assets/icons';
+import { AiIcon, ApiIcon, KeyIcon, ListIcon } from '@/assets/icons';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { Icon } from '@/libs/components/ui/icon';
+import { VerticalDashedLine } from '@/libs/components/VerticalDashedLine';
 import { ApiCallScene } from '../components/ApiCallScene';
 import { GetKeyScene } from '../components/GetKeyScene';
 import { ParamsScene } from '../components/ParamsScene';
@@ -70,40 +71,54 @@ export function MigGuideSection() {
 			className='flex items-stretch gap-12'
 			style={{ minHeight: '200vh' }}
 		>
-			<div className='border-brand sticky top-64 flex h-[calc(100dvh-24rem)] flex-1 flex-col justify-between border-r border-dashed py-12'>
-				<div className='flex flex-col gap-8'>
-					<h2 className='text-4xl font-semibold'>从 OpenAI 生态零成本迁移</h2>
-					<AnimatePresence mode='wait'>
-						<motion.div
-							key={activeScene.id}
-							initial={{ opacity: 0, y: 10 }}
-							animate={{ opacity: 1, y: 0 }}
-							exit={{ opacity: 0, y: -10 }}
-							transition={{ duration: 0.3, ease: 'easeInOut' }}
-							className='flex flex-col gap-2'
-						>
-							<div className='flex items-center gap-2'>
-								<Icon
-									src={activeScene.icon}
-									className='text-brand size-6'
-								/>
-								<span className='text-2xl'>{activeScene.subtitle}</span>
-							</div>
-							<p className='text-muted-foreground text-base'>{activeScene.description}</p>
-						</motion.div>
-					</AnimatePresence>
-				</div>
-				<div className='flex justify-end pr-4'>
-					<LandingOutlineButton
-						href='#'
-						size='lg'
+			<div className='sticky top-64 h-dvh flex-1'>
+				<div className='border-brand sticky top-64 flex h-[calc(100dvh-24rem)] flex-1 flex-col justify-between border-r border-dashed py-12 pl-24'>
+					<VerticalDashedLine
+						iconSize='3rem'
+						mask={[['15rem', '17rem']]}
+						iconY='14.5rem'
+						className='-top-48 h-[calc(100%+24rem)] max-h-dvh'
 					>
-						快速开始
-					</LandingOutlineButton>
+						<Icon
+							src={AiIcon}
+							className='size-full'
+						/>
+					</VerticalDashedLine>
+
+					<div className='flex flex-col gap-8'>
+						<h2 className='text-4xl font-semibold'>从 OpenAI 生态零成本迁移</h2>
+						<AnimatePresence mode='wait'>
+							<motion.div
+								key={activeScene.id}
+								initial={{ opacity: 0, y: 10 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: -10 }}
+								transition={{ duration: 0.3, ease: 'easeInOut' }}
+								className='flex flex-col gap-2'
+							>
+								<div className='flex items-center gap-2'>
+									<Icon
+										src={activeScene.icon}
+										className='text-brand size-6'
+									/>
+									<span className='text-2xl'>{activeScene.subtitle}</span>
+								</div>
+								<p className='text-muted-foreground text-base'>{activeScene.description}</p>
+							</motion.div>
+						</AnimatePresence>
+					</div>
+					<div className='flex justify-end pr-4'>
+						<LandingOutlineButton
+							href='#'
+							size='lg'
+						>
+							快速开始
+						</LandingOutlineButton>
+					</div>
 				</div>
 			</div>
 
-			<div className='sticky top-64 ml-auto flex h-[calc(100dvh-24rem)] w-1/2 max-w-2xl shrink-0 items-start justify-center py-12'>
+			<div className='sticky top-64 ml-auto flex h-[calc(100dvh-24rem)] w-1/2 max-w-2xl shrink-0 items-start justify-center py-12 pr-6'>
 				<AnimatePresence mode='wait'>
 					<motion.div
 						key={activeScene.id}

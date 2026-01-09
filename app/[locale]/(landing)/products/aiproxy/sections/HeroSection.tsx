@@ -1,9 +1,20 @@
+import Image from 'next/image';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
+import { HeroBgImage } from '../assets';
 
 export function HeroSection() {
 	return (
-		<div className='flex flex-col gap-8 py-12'>
-			<div className='flex flex-col gap-6'>
+		<div className='relative flex min-h-120 flex-col gap-20 py-12'>
+			<div className='absolute -z-10 h-full w-full'>
+				<Image
+					src={HeroBgImage}
+					alt=''
+					className='h-full object-contain object-right'
+					fill
+				/>
+			</div>
+
+			<div className='flex flex-col gap-6 pt-20'>
 				<h1 className='text-4xl font-semibold lg:text-5xl'>
 					<span className='text-brand'>全球 AI 模型</span>
 					接入平台

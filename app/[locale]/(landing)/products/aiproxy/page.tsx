@@ -1,4 +1,4 @@
-import { AiIcon, FramedQuestionIcon, ModelIcon } from '@/assets/icons';
+import { FramedQuestionIcon, ModelIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
 import { VerticalDashedLine } from '@/libs/components/VerticalDashedLine';
 import { CTASection } from './sections/CTASection';
@@ -19,7 +19,7 @@ export default async function AiproxyPage() {
 				<FeaturesSection />
 			</section>
 
-			<section className='relative container mx-auto py-16 pt-4 pr-6 pl-24'>
+			<section className='relative container mx-auto py-16 pt-4 pr-6 pb-20 pl-24'>
 				<VerticalDashedLine
 					iconSize='3rem'
 					mask={[['0rem', '3.5rem']]}
@@ -32,25 +32,16 @@ export default async function AiproxyPage() {
 				<ModelsSection />
 			</section>
 
-			<section className='relative container mx-auto py-16 pt-4 pr-6 pl-24'>
-				<VerticalDashedLine
-					iconSize='3rem'
-					mask={[['3.75rem', '6.25rem']]}
-					iconY='3.5rem'
-				>
-					<Icon
-						src={AiIcon}
-						className='size-full'
-					/>
-				</VerticalDashedLine>
+			<section className='relative container mx-auto'>
+				{/* Decoration line is inside the section */}
 				<MigGuideSection />
 			</section>
 
-			<section className='relative container mx-auto py-16 pt-4 pr-6 pl-24'>
+			<section className='relative container mx-auto py-16 pt-20 pr-6 pl-24'>
 				<VerticalDashedLine
 					iconSize='3rem'
-					mask={[['0.75rem', '3.5rem']]}
-					iconY='0.5rem'
+					mask={[['4.75rem', '8.5rem']]}
+					iconY='4.5rem'
 				>
 					<Icon
 						src={FramedQuestionIcon}

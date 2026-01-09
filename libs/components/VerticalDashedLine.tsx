@@ -23,6 +23,10 @@ interface VerticalDashedLineProps {
 	 * @default '3rem'
 	 */
 	width?: string;
+	/**
+	 * Class name overrides
+	 */
+	className?: string;
 }
 
 export function VerticalDashedLine({
@@ -32,6 +36,7 @@ export function VerticalDashedLine({
 	enableScrollAnimation = false,
 	iconSize = '3rem',
 	width = '3rem',
+	className,
 }: VerticalDashedLineProps) {
 	const iconRef = React.useRef<HTMLDivElement>(null);
 	// Always call useInView hook, but only use result when enableScrollAnimation is true
@@ -49,7 +54,7 @@ export function VerticalDashedLine({
 	}, [iconSize]);
 
 	return (
-		<div className='text-brand absolute top-0 left-6 z-0 h-full overflow-visible'>
+		<div className={cn('text-brand absolute top-0 left-6 z-0 h-full overflow-visible', className)}>
 			<svg
 				className='h-full'
 				style={{ width, overflow: 'visible' }}
