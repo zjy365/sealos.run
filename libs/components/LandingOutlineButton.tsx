@@ -12,17 +12,44 @@ const landingOutlineButtonVariants = cva(
 	{
 		variants: {
 			size: {
-				md: 'h-11 gap-4 px-4 pr-2',
-				lg: 'h-14 gap-6 px-6 pr-2 text-xl',
+				md: 'h-11 gap-4',
+				lg: 'h-14 gap-6 text-xl',
 			},
 			borderStyle: {
 				solid: 'border-solid',
 				dashed: 'border-dashed',
 			},
+			showIcon: {
+				true: '',
+				false: '',
+			},
 		},
+		compoundVariants: [
+			{
+				size: 'md',
+				showIcon: true,
+				className: 'px-4 pr-2',
+			},
+			{
+				size: 'md',
+				showIcon: false,
+				className: 'px-4',
+			},
+			{
+				size: 'lg',
+				showIcon: true,
+				className: 'px-6 pr-2',
+			},
+			{
+				size: 'lg',
+				showIcon: false,
+				className: 'px-6',
+			},
+		],
 		defaultVariants: {
 			size: 'md',
 			borderStyle: 'solid',
+			showIcon: true,
 		},
 	},
 );
@@ -53,6 +80,7 @@ export interface LandingOutlineButtonProps {
 	size?: VariantProps<typeof landingOutlineButtonVariants>['size'];
 	borderStyle?: VariantProps<typeof landingOutlineButtonVariants>['borderStyle'];
 	icon?: StaticImageData;
+	showIcon?: boolean;
 	iconContainerClassName?: string;
 	iconColor?: string;
 	className?: string;
@@ -63,30 +91,35 @@ export function LandingOutlineButton({
 	href,
 	size = 'md',
 	borderStyle = 'solid',
-	icon = FlatArrowRightIcon,
+	icon,
+	showIcon = true,
 	iconContainerClassName,
 	iconColor,
 	className,
 }: LandingOutlineButtonProps) {
+	const displayIcon = icon ?? FlatArrowRightIcon;
+
 	return (
 		<Button
 			variant='ghost'
-			className={cn(landingOutlineButtonVariants({ size, borderStyle }), className)}
+			className={cn(landingOutlineButtonVariants({ size, borderStyle, showIcon }), className)}
 			asChild
 		>
 			<Link href={href}>
 				<span>{children}</span>
-				<div
-					className={cn(iconContainerVariants({ size }), iconContainerClassName)}
-					style={iconColor ? { color: iconColor } : undefined}
-				>
-					<div className={iconSizeMap[size ?? 'md']}>
-						<Icon
-							src={icon}
-							className='size-full'
-						/>
+				{showIcon && (
+					<div
+						className={cn(iconContainerVariants({ size }), iconContainerClassName)}
+						style={iconColor ? { color: iconColor } : undefined}
+					>
+						<div className={iconSizeMap[size ?? 'md']}>
+							<Icon
+								src={displayIcon}
+								className='size-full'
+							/>
+						</div>
 					</div>
-				</div>
+				)}
 			</Link>
 		</Button>
 	);

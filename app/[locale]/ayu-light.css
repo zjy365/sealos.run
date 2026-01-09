@@ -1,0 +1,75 @@
+/* Ayu light Theme */
+/* https://github.com/jaimeranchal/hljs-styles */
+/* Based on: https://github.com/ayu-theme/ayu-colors */
+
+/* Ayu Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #abb0b6;
+}
+
+/* Ayu Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #f07171;
+}
+
+/* Ayu Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-subst,
+.hljs-link {
+	color: #fa8d3e;
+}
+
+/* Ayu Yellow */
+.hljs-attribute {
+	color: #f2ae49;
+}
+
+/* Ayu Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #86b300;
+}
+
+/* Ayu Blue */
+.hljs-title,
+.hljs-section {
+	color: #399ee6;
+}
+
+/* Ayu Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #a37acc;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	background: transparent;
+	color: #575f66;
+	border: none;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}

@@ -1,6 +1,6 @@
 import { ArchitectureBoxIcon, FramedCheckIcon, MoreIcon, SealosBoxIcon } from '@/assets/icons';
-import { VerticalDashedLine } from '@/libs/components/VerticalDashedLine';
 import { Icon } from '@/libs/components/ui/icon';
+import { VerticalDashedLine } from '@/libs/components/VerticalDashedLine';
 import { FeaturesSectionWrapper } from './components/FeaturesSectionWrapper';
 import { ArchSection } from './sections/ArchSection';
 import { CTASection } from './sections/CTASection';

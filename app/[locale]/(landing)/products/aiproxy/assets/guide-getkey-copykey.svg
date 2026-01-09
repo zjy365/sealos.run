@@ -1,0 +1,260 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 714 353">
+  <g clip-path="url(#a)">
+    <path fill="#f4f4f5" stroke="#f4f4f5" d="M.5.5h713v352H.5z" />
+    <rect width="1510.4" height="1019.7" x="36" y="19" fill="#fff" rx="16.4" />
+    <text
+      xml:space="preserve"
+      fill="#000"
+      font-family="PingFang SC"
+      font-size="27.3"
+      letter-spacing=".2"
+      style="white-space: pre"
+    >
+      <tspan x="79.6" y="79.3">AI Proxy</tspan>
+    </text>
+    <path
+      fill="#111824"
+      fill-rule="evenodd"
+      d="M100.2 120a6 6 0 0 1-.7 8l-1.3 1.2a1 1 0 0 1-1.5 0l-7.1-7.1a1 1 0 0 1 0-1.5l1.2-1.3a6 6 0 0 1 8-.7l1.3-1.4a1 1 0 1 1 1.5 1.4zm-18 15.1a1 1 0 0 0 1.4 1.5l1.5-1.4a6 6 0 0 0 7.9-.7l1.2-1.3q.6-.7 0-1.5l-.9-.8.8-.8a1 1 0 0 0-1.4-1.5l-.8.8-2.5-2.5.8-.7a1 1 0 0 0-1.5-1.5l-.7.8-1-1a1 1 0 0 0-1.5 0l-1.2 1.3a6 6 0 0 0-.7 8zm4-8.4-.5.6a4.1 4.1 0 0 0 5.8 5.8l.6-.6zm11.9-.2-.6.6-5.8-5.8.6-.6a4.1 4.1 0 1 1 5.8 5.8"
+      clip-rule="evenodd"
+    />
+    <text
+      xml:space="preserve"
+      fill="#111824"
+      font-family="PingFang SC"
+      font-size="19.1"
+      letter-spacing=".1"
+      style="white-space: pre"
+    >
+      <tspan x="115.1" y="133.3">API Endpoint:</tspan>
+    </text>
+    <text
+      xml:space="preserve"
+      fill="#0884dd"
+      font-family="PingFang SC"
+      font-size="19.1"
+      letter-spacing=".1"
+      style="white-space: pre"
+    >
+      <tspan x="250" y="133.3">https://www.aiproxy.com</tspan>
+    </text>
+    <rect
+      width="1423.2"
+      height="57.3"
+      x="79.6"
+      y="165"
+      fill="#f4f4f7"
+      rx="8.2"
+    />
+    <text
+      xml:space="preserve"
+      fill="#485264"
+      font-family="PingFang SC"
+      font-size="16.4"
+      letter-spacing=".7"
+      style="white-space: pre"
+    >
+      <tspan x="112.3" y="199.6">名称</tspan>
+    </text>
+    <text
+      xml:space="preserve"
+      fill="#485264"
+      font-family="PingFang SC"
+      font-size="16.4"
+      letter-spacing=".7"
+      style="white-space: pre"
+    >
+      <tspan x="371.3" y="199.6">API Key</tspan>
+    </text>
+    <text
+      xml:space="preserve"
+      fill="#485264"
+      font-family="PingFang SC"
+      font-size="16.4"
+      letter-spacing=".7"
+      style="white-space: pre"
+    >
+      <tspan x="630.3" y="199.6">创建时间</tspan>
+    </text>
+    <mask id="b" fill="#fff">
+      <path d="M79.6 222.3h1423.2v65.4H79.6z" />
+    </mask>
+    <path
+      fill="#f0f1f6"
+      d="M1502.8 287.7v-1.3H79.6v2.7h1423.2z"
+      mask="url(#b)"
+    />
+    <text
+      xml:space="preserve"
+      fill="#111824"
+      font-family="PingFang SC"
+      font-size="19.1"
+      letter-spacing=".1"
+      style="white-space: pre"
+    >
+      <tspan x="112.3" y="261.9">api-test</tspan>
+    </text>
+    <text
+      xml:space="preserve"
+      fill="#485264"
+      font-family="PingFang SC"
+      font-size="16.4"
+      letter-spacing=".7"
+      style="white-space: pre"
+    >
+      <tspan x="630.3" y="260.9">2024-10-24 14:23</tspan>
+    </text>
+    <text
+      xml:space="preserve"
+      fill="#005bff"
+      font-family="PingFang SC"
+      font-size="16.4"
+      letter-spacing=".7"
+      style="white-space: pre"
+      text-decoration="underline"
+    >
+      <tspan x="371.3" y="260.9">sk-6usvZI4j***</tspan>
+    </text>
+    <mask id="c" fill="#fff">
+      <path d="M79.6 287.7h1423.2v65.5H79.6z" />
+    </mask>
+    <path
+      fill="#f0f1f6"
+      d="M1502.8 353.2v-1.4H79.6v2.7h1423.2z"
+      mask="url(#c)"
+    />
+    <text
+      xml:space="preserve"
+      fill="#111824"
+      font-family="PingFang SC"
+      font-size="19.1"
+      letter-spacing=".1"
+      style="white-space: pre"
+    >
+      <tspan x="112.3" y="327.3">api-test</tspan>
+    </text>
+    <text
+      xml:space="preserve"
+      fill="#485264"
+      font-family="PingFang SC"
+      font-size="16.4"
+      letter-spacing=".7"
+      style="white-space: pre"
+    >
+      <tspan x="630.3" y="326.3">2024-10-24 14:23</tspan>
+    </text>
+    <text
+      xml:space="preserve"
+      fill="#71717a"
+      font-family="PingFang SC"
+      font-size="16.4"
+      letter-spacing=".7"
+      style="white-space: pre"
+    >
+      <tspan x="371.3" y="326.3">sk-6usvZI2j***</tspan>
+    </text>
+    <path fill="url(#d)" d="M0 316.6h714V353H0z" />
+    <path
+      fill="#005bff"
+      stroke="#fff"
+      stroke-width="1.4"
+      d="M503.2 254.8a2.8 2.8 0 0 1 3.5-3.6l39.2 13c2.3.7 2.5 4 .3 5l-14.9 7.3q-1.2.6-2 2l-6.6 15.1a2.8 2.8 0 0 1-5.1-.1z"
+    />
+    <g filter="url(#e)">
+      <path
+        stroke="#fff"
+        d="M418.5 271.5h44c4 0 7.4 3.4 7.4 7.5v18c0 4.1-3.3 7.5-7.4 7.5h-44a7.5 7.5 0 0 1-7.6-7.5v-18c0-4.1 3.4-7.5 7.6-7.5Z"
+        shape-rendering="crispEdges"
+      />
+      <path
+        fill="#fff"
+        d="M448.5 271h15a6 6 0 0 1 6 6v22a6 6 0 0 1-6 6h-47a6 6 0 0 1-6-6v-22a6 6 0 0 1 6-6h16l8-10z"
+      />
+      <text
+        xml:space="preserve"
+        fill="#24282c"
+        font-family="PingFang SC"
+        font-size="19.3"
+        letter-spacing="0em"
+        style="white-space: pre"
+      >
+        <tspan x="420.9" y="294.8">复制</tspan>
+      </text>
+    </g>
+    <path
+      fill="url(#f)"
+      d="M677.6 353h353v36.4h-353z"
+      transform="rotate(-90 677.6 353)"
+    />
+  </g>
+  <defs>
+    <linearGradient
+      id="d"
+      x1="357"
+      x2="357"
+      y1="316.6"
+      y2="353"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#f4f4f5" stop-opacity="0" />
+      <stop offset="1" stop-color="#f4f4f5" />
+    </linearGradient>
+    <linearGradient
+      id="f"
+      x1="854.1"
+      x2="854.1"
+      y1="353"
+      y2="389.4"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#f4f4f5" stop-opacity="0" />
+      <stop offset="1" stop-color="#f4f4f5" />
+    </linearGradient>
+    <clipPath id="a">
+      <path fill="#fff" d="M0 0h714v353H0z" />
+    </clipPath>
+    <filter
+      id="e"
+      width="68"
+      height="52"
+      x="406.4"
+      y="259"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset />
+      <feGaussianBlur stdDeviation=".5" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix
+        values="0 0 0 0 0.473958 0 0 0 0 0.552499 0 0 0 0 0.625 0 0 0 0.25 0"
+      />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2298_5712" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy="2" />
+      <feGaussianBlur stdDeviation="2" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix
+        values="0 0 0 0 0.632917 0 0 0 0 0.655278 0 0 0 0 0.7 0 0 0 0.25 0"
+      />
+      <feBlend
+        in2="effect1_dropShadow_2298_5712"
+        result="effect2_dropShadow_2298_5712"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2298_5712"
+        result="shape"
+      />
+    </filter>
+  </defs>
+</svg>

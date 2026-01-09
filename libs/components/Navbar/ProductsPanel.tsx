@@ -115,7 +115,7 @@ const navMenuItems: NavMenuItem[] = [
 		},
 	},
 	{
-		id: 'ai-model',
+		id: 'aiproxy',
 		label: 'AI 模型',
 		icon: ModelIcon,
 		largeImage: BrainBoxImage,
@@ -123,7 +123,7 @@ const navMenuItems: NavMenuItem[] = [
 		content: {
 			title: 'AI Proxy',
 			description: '统一的 AI 模型代理服务',
-			href: '/products/ai-model',
+			href: '/products/aiproxy',
 			features: <AIProxyFeatures />,
 		},
 	},

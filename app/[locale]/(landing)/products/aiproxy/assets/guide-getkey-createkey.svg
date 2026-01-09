@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 714 353">
+  <g clip-path="url(#a)">
+    <path fill="#f4f4f5" stroke="#f4f4f5" d="M.5.5h713v352H.5z" />
+    <g filter="url(#b)">
+      <g clip-path="url(#c)">
+        <path
+          fill="#fff"
+          d="M81 38.2c0-7.9 6.4-14.3 14.3-14.3H637c8 0 14.3 6.4 14.3 14.3v276.6c0 7.9-6.4 14.3-14.3 14.3H95.3c-8 0-14.3-6.4-14.3-14.3z"
+        />
+        <mask id="d" fill="#fff">
+          <path d="M81.7 24h570.4v68.4H81.7z" />
+        </mask>
+        <path fill="#fafafa" d="M81.7 24h570.4v68.4H81.7z" />
+        <path
+          fill="#f4f4f7"
+          d="M652.1 92.4v-1.5H81.7v2.9h570.4z"
+          mask="url(#d)"
+        />
+        <text
+          xml:space="preserve"
+          fill="#24282c"
+          font-family="PingFang SC"
+          font-size="22.8"
+          letter-spacing=".2"
+          style="white-space: pre"
+        >
+          <tspan x="110.2" y="66">新建 AI Proxy</tspan>
+        </text>
+        <path
+          fill="#000"
+          fill-rule="evenodd"
+          d="M595.7 50.2c.4-.5 1.2-.5 1.6 0l6.3 6.3 6.3-6.3a1.2 1.2 0 0 1 1.7 1.7l-6.3 6.2 6.3 6.3a1.2 1.2 0 0 1-1.7 1.7l-6.3-6.3-6.3 6.3a1.2 1.2 0 0 1-1.6-1.7l6.3-6.3-6.3-6.2q-.8-1 0-1.7"
+          clip-rule="evenodd"
+        />
+        <text
+          xml:space="preserve"
+          fill="#111824"
+          font-family="PingFang SC"
+          font-size="20"
+          letter-spacing=".1"
+          style="white-space: pre"
+        >
+          <tspan x="133.1" y="148">名称</tspan>
+        </text>
+        <path
+          fill="#fff"
+          d="M141.6 170.6h450.6c4.4 0 7.9 3.5 7.9 7.8V207c0 4.4-3.5 7.9-7.9 7.9H141.6a8 8 0 0 1-7.8-7.9v-28.5c0-4.3 3.5-7.8 7.8-7.8"
+        />
+        <path
+          stroke="#e8ebf0"
+          stroke-width="1.4"
+          d="M141.6 170.6h450.6c4.4 0 7.9 3.5 7.9 7.8V207c0 4.4-3.5 7.9-7.9 7.9H141.6a8 8 0 0 1-7.8-7.9v-28.5c0-4.3 3.5-7.8 7.8-7.8Z"
+        />
+        <text
+          xml:space="preserve"
+          fill="#667085"
+          font-family="PingFang SC"
+          font-size="17.1"
+          letter-spacing="0em"
+          style="white-space: pre"
+        >
+          <tspan x="150.2" y="198.9">请输入名称</tspan>
+        </text>
+        <g filter="url(#e)">
+          <path
+            fill="#fff"
+            d="M401.1 258.3c0-4.8 3.9-8.6 8.6-8.6h74.1c4.8 0 8.6 3.8 8.6 8.6V287c0 4.7-3.8 8.5-8.6 8.5h-74.1a8.6 8.6 0 0 1-8.6-8.5z"
+            shape-rendering="crispEdges"
+          />
+          <path
+            stroke="#dfe2ea"
+            stroke-width="1.4"
+            d="M409.7 250.4h74.1c4.4 0 7.9 3.5 7.9 7.9V287c0 4.3-3.5 7.8-7.9 7.8h-74.1a8 8 0 0 1-7.8-7.8v-28.7c0-4.4 3.5-7.9 7.8-7.9Z"
+            shape-rendering="crispEdges"
+          />
+          <text
+            xml:space="preserve"
+            fill="#485264"
+            font-family="PingFang SC"
+            font-size="17.1"
+            letter-spacing=".7"
+            style="white-space: pre"
+          >
+            <tspan x="429.3" y="278.7">取消</tspan>
+          </text>
+        </g>
+        <g filter="url(#f)">
+          <path
+            fill="#111824"
+            d="M509.5 258.3c0-4.8 3.8-8.6 8.6-8.6h74.1c4.7 0 8.6 3.8 8.6 8.6V287c0 4.7-3.9 8.5-8.6 8.5h-74.1a8.6 8.6 0 0 1-8.6-8.5z"
+          />
+          <text
+            xml:space="preserve"
+            fill="#fff"
+            font-family="PingFang SC"
+            font-size="17.1"
+            letter-spacing=".7"
+            style="white-space: pre"
+          >
+            <tspan x="537.6" y="278.7">确认</tspan>
+          </text>
+        </g>
+      </g>
+    </g>
+    <path fill="url(#g)" d="M0 316.6h714V353H0z" />
+    <path
+      fill="#005bff"
+      stroke="#fff"
+      stroke-width="1.4"
+      d="M596.6 282.2a2.8 2.8 0 0 1 3.5-3.6l39.2 13c2.3.7 2.5 4 .3 5l-14.9 7.3q-1.2.6-2 2l-6.6 15.2a2.8 2.8 0 0 1-5.1-.2z"
+    />
+  </g>
+  <defs>
+    <filter
+      id="b"
+      width="594.4"
+      height="329.2"
+      x="69"
+      y="21.9"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="2"
+        result="effect1_dropShadow_2298_3184"
+      />
+      <feOffset dy="4" />
+      <feGaussianBlur stdDeviation="3" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2298_3184" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feMorphology
+        in="SourceAlpha"
+        radius="3"
+        result="effect2_dropShadow_2298_3184"
+      />
+      <feOffset dy="10" />
+      <feGaussianBlur stdDeviation="7.5" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+      <feBlend
+        in2="effect1_dropShadow_2298_3184"
+        result="effect2_dropShadow_2298_3184"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2298_3184"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="e"
+      width="97"
+      height="51.5"
+      x="398.3"
+      y="248.3"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset />
+      <feGaussianBlur stdDeviation=".7" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix
+        values="0 0 0 0 0.0745098 0 0 0 0 0.2 0 0 0 0 0.419608 0 0 0 0.08 0"
+      />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2298_3184" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy="1.4" />
+      <feGaussianBlur stdDeviation="1.4" />
+      <feColorMatrix
+        values="0 0 0 0 0.0745098 0 0 0 0 0.2 0 0 0 0 0.419608 0 0 0 0.05 0"
+      />
+      <feBlend
+        in2="effect1_dropShadow_2298_3184"
+        result="effect2_dropShadow_2298_3184"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2298_3184"
+        result="shape"
+      />
+    </filter>
+    <filter
+      id="f"
+      width="97"
+      height="51.5"
+      x="506.7"
+      y="248.3"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset />
+      <feGaussianBlur stdDeviation=".7" />
+      <feComposite in2="hardAlpha" operator="out" />
+      <feColorMatrix
+        values="0 0 0 0 0.0745098 0 0 0 0 0.2 0 0 0 0 0.419608 0 0 0 0.08 0"
+      />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2298_3184" />
+      <feColorMatrix
+        in="SourceAlpha"
+        result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+      />
+      <feOffset dy="1.4" />
+      <feGaussianBlur stdDeviation="1.4" />
+      <feColorMatrix
+        values="0 0 0 0 0.0745098 0 0 0 0 0.2 0 0 0 0 0.419608 0 0 0 0.05 0"
+      />
+      <feBlend
+        in2="effect1_dropShadow_2298_3184"
+        result="effect2_dropShadow_2298_3184"
+      />
+      <feBlend
+        in="SourceGraphic"
+        in2="effect2_dropShadow_2298_3184"
+        result="shape"
+      />
+    </filter>
+    <clipPath id="a">
+      <path fill="#fff" d="M0 0h714v353H0z" />
+    </clipPath>
+    <clipPath id="c">
+      <path
+        fill="#fff"
+        d="M81 38.2c0-7.9 6.4-14.3 14.3-14.3H637c8 0 14.3 6.4 14.3 14.3v276.6c0 7.9-6.4 14.3-14.3 14.3H95.3c-8 0-14.3-6.4-14.3-14.3z"
+      />
+    </clipPath>
+    <linearGradient
+      id="g"
+      x1="357"
+      x2="357"
+      y1="316.6"
+      y2="353"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#f4f4f5" stop-opacity="0" />
+      <stop offset="1" stop-color="#f4f4f5" />
+    </linearGradient>
+  </defs>
+</svg>
