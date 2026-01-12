@@ -12,10 +12,10 @@ export function PrivateDeploySection() {
 	return (
 		<div className='relative min-h-200 w-full'>
 			{/* Left content */}
-			<div className='absolute top-1/2 flex max-w-lg -translate-y-1/2 flex-col items-start gap-6'>
+			<div className='absolute top-0 flex flex-col items-start gap-6 xl:top-1/2 xl:max-w-lg xl:-translate-y-1/2'>
 				<div className='flex flex-col items-start gap-3'>
-					<p className='text-2xl font-medium'>Sealos</p>
-					<h2 className='text-3xl font-semibold'>满足不同企业的多样化需求</h2>
+					<p className='text-xl font-medium sm:text-2xl'>Sealos</p>
+					<h2 className='text-xl font-semibold sm:text-3xl'>满足不同企业的多样化需求</h2>
 				</div>
 				<p className='text-muted-foreground text-base whitespace-pre-wrap'>
 					统一的 Kubernetes
@@ -24,7 +24,7 @@ export function PrivateDeploySection() {
 			</div>
 
 			{/* Right content area */}
-			<div className='absolute top-1/2 right-0 flex -translate-y-1/2 flex-col gap-6'>
+			<div className='absolute right-0 bottom-0 left-1/2 flex -translate-x-1/2 flex-col gap-6 xl:bottom-1/2 xl:left-auto xl:translate-x-0 xl:translate-y-1/2'>
 				{/* Card area - above the image */}
 				<div className='flex'>
 					{/* Public cloud card - left side, overlapped by right card */}

@@ -8,7 +8,7 @@ import { aiproxyConfig, databaseConfig, devboxConfig, launchpadConfig, ossConfig
 
 const TOTAL_ITEMS = 5;
 const CONFIGS = [launchpadConfig, devboxConfig, databaseConfig, aiproxyConfig, ossConfig];
-const CAROUSEL_INTERVAL = 5000;
+const CAROUSEL_INTERVAL = 500000;
 
 interface FeaturesSectionClientProps {
 	activeBoxIndex: number;
@@ -71,14 +71,14 @@ export function FeaturesSectionClient({ activeBoxIndex, onIndexChange }: Feature
 	};
 
 	return (
-		<div className='flex w-full flex-row items-start gap-16'>
+		<div className='flex w-full flex-col items-start gap-16 lg:flex-row'>
 			<div className='shrink-0'>
 				<FeaturesScene
 					activeBoxIndex={activeBoxIndex}
 					onBoxClick={handleIndexChange}
 				/>
 			</div>
-			<div className='relative flex-1'>
+			<div className='relative max-w-full flex-1'>
 				<AnimatePresence mode='wait'>
 					<motion.div
 						key={activeBoxIndex}

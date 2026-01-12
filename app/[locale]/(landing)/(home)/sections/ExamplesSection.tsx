@@ -32,22 +32,24 @@ const examples = [
 export function ExamplesSection() {
 	return (
 		<div className='flex w-full flex-col items-start gap-6'>
-			<h2 className='text-3xl font-semibold'>快速上云</h2>
-			<div className='flex w-full items-start gap-10'>
+			<h2 className='text-xl font-semibold sm:text-3xl'>快速上云</h2>
+			<div className='grid w-full grid-cols-1 gap-10 sm:grid-cols-2 xl:grid-cols-4'>
 				{examples.map((example) => (
 					<div
 						key={example.title}
-						className='flex flex-1 flex-col items-start gap-4'
+						className='flex flex-col items-start gap-4'
 					>
 						<div className='flex w-full flex-col items-start gap-2.5'>
-							<div className='flex items-center gap-2'>
+							<div className='flex flex-col gap-2 md:flex-row md:items-center'>
 								<Icon
 									src={example.icon}
 									className='text-brand size-6'
 								/>
-								<h3 className='text-lg'>{example.title}</h3>
+								<h3 className='text-sm md:text-base 2xl:text-lg'>{example.title}</h3>
 							</div>
-							<p className='text-muted-foreground text-sm whitespace-pre-wrap'>{example.description}</p>
+							<p className='text-muted-foreground text-xs whitespace-pre-wrap md:text-sm'>
+								{example.description}
+							</p>
 						</div>
 						<Badge variant='outline'>
 							<div className='bg-brand size-1.5 rounded-full' />

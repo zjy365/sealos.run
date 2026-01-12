@@ -162,10 +162,7 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 	};
 
 	return (
-		<div
-			className='relative inline-block'
-			style={{ aspectRatio: '414 / 367', height: '367px' }}
-		>
+		<div className='relative inline-block aspect-414/367 w-55'>
 			<svg
 				viewBox='0 0 414 367'
 				fill='none'
@@ -261,7 +258,6 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 				<text
 					xmlSpace='preserve'
 					fill='#8d8d8d'
-					fontFamily='PingFang SC'
 					fontSize='12'
 					letterSpacing='0em'
 					style={{ whiteSpace: 'pre' }}
@@ -299,39 +295,39 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 						/>
 					</clipPath>
 				</defs>
-			</svg>
-			{/* Five AppBoxSvg components positioned absolutely */}
-			{boxes.map((box, index) => {
-				const state = getBoxState(index);
-				const height = state === 'idle' ? 0.333 : 1;
-				const boxKey = `app-box-${box.position.x}-${box.position.y}`;
+				{/* Five AppBoxSvg components positioned with foreignObject */}
+				{boxes.map((box, index) => {
+					const state = getBoxState(index);
+					const height = state === 'idle' ? 0.333 : 1;
+					const boxKey = `app-box-${box.position.x}-${box.position.y}`;
 
-				return (
-					<div
-						key={boxKey}
-						className='pointer-events-none absolute'
-						style={{
-							left: `${box.position.x}px`,
-							top: `${box.position.y}px`,
-						}}
-					>
-						<AppBoxSvg
-							height={height}
-							boxBgGradient={box.activeBgGradient}
-							boxFrameGradient={box.activeFrameGradient}
-							boxStroke={box.activeStroke}
-							defaultBgColor={box.idleBgColor}
-							defaultStrokeColor={box.idleStrokeColor}
-							defaultFrameGradient={box.idleFrameGradient}
-							title={box.title}
-							state={state}
-							idleIcon={box.idleIcon}
-							activeIcon={box.activeIcon}
-							onClick={() => onBoxClick?.(index)}
-						/>
-					</div>
-				);
-			})}
+					return (
+						<foreignObject
+							key={boxKey}
+							x={box.position.x}
+							y={box.position.y}
+							width='152'
+							height='160'
+							style={{ pointerEvents: 'none', overflow: 'visible' }}
+						>
+							<AppBoxSvg
+								height={height}
+								boxBgGradient={box.activeBgGradient}
+								boxFrameGradient={box.activeFrameGradient}
+								boxStroke={box.activeStroke}
+								defaultBgColor={box.idleBgColor}
+								defaultStrokeColor={box.idleStrokeColor}
+								defaultFrameGradient={box.idleFrameGradient}
+								title={box.title}
+								state={state}
+								idleIcon={box.idleIcon}
+								activeIcon={box.activeIcon}
+								onClick={() => onBoxClick?.(index)}
+							/>
+						</foreignObject>
+					);
+				})}
+			</svg>
 		</div>
 	);
 };

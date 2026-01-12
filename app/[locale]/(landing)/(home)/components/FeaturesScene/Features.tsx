@@ -25,11 +25,13 @@ export function Features({ config }: FeaturesProps) {
 						/>
 					</Button>
 				</div>
-				<div className='text-2xl font-medium whitespace-pre-wrap'>{config.description}</div>
+				<div className='text-base font-semibold whitespace-pre-wrap sm:text-2xl sm:font-medium'>
+					{config.description}
+				</div>
 			</div>
 
-			<div className='flex w-full items-start gap-8'>
-				<div className='flex w-1/3 flex-col gap-8 pt-8'>
+			<div className='flex w-full flex-wrap items-start gap-8'>
+				<div className='flex w-full flex-col gap-8 lg:flex-row lg:pt-8 xl:w-1/3 xl:flex-col'>
 					{config.features.map((feature) => (
 						<div
 							key={feature.title}
@@ -40,14 +42,16 @@ export function Features({ config }: FeaturesProps) {
 									src={feature.icon}
 									className='text-brand size-4'
 								/>
-								<h3 className='text-base font-medium'>{feature.title}</h3>
+								<h3 className='text-sm font-medium lg:text-base'>{feature.title}</h3>
 							</div>
 							<p className='text-sm text-zinc-500'>{feature.description}</p>
 						</div>
 					))}
 				</div>
 
-				<FeaturesRenderer engineFeatures={config.engineFeatures} />
+				<div className='w-full flex-1 overflow-x-scroll'>
+					<FeaturesRenderer engineFeatures={config.engineFeatures} />
+				</div>
 			</div>
 		</div>
 	);

@@ -185,7 +185,7 @@ function FeatureRenderer({ feature }: { feature: EngineFeature }) {
 // Root Component
 export function FeaturesRenderer({ engineFeatures }: FeaturesRendererProps) {
 	return (
-		<div className='flex min-w-96 flex-1 flex-col items-center gap-1.5'>
+		<div className='flex w-full min-w-120 flex-col items-center gap-1.5'>
 			{engineFeatures.map((feature, idx) => (
 				<FeatureRenderer
 					// biome-ignore lint/suspicious/noArrayIndexKey: static content

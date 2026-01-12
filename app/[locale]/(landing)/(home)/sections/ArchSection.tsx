@@ -449,28 +449,32 @@ function renderContent(decoration: ArchLayerItem) {
 export function ArchSection() {
 	return (
 		<div className='flex w-full flex-col items-start gap-14'>
-			<div className='flex w-full max-w-4xl items-center justify-between'>
-				<h2 className='text-3xl font-semibold'>
-					<span>系统</span>架构
-				</h2>
-				<p className='text-3xl font-medium'>
+			<h2 className='text-xl font-semibold sm:text-3xl'>
+				<span>系统</span>架构
+			</h2>
+
+			<div className='flex w-full items-center justify-center'>
+				<p className='text-sm font-medium sm:text-2xl lg:text-3xl'>
 					<span>Sealos</span>
 					的能力，远不止于此
 				</p>
 			</div>
-			<div className='flex w-full flex-col'>
-				{archLayers.map((layer) => (
-					<div
-						key={layer.label}
-						className='grid w-full grid-cols-[max-content_1fr] items-center gap-0'
-					>
-						<p className='w-20 pr-36 text-xl font-medium whitespace-nowrap'>{layer.label}</p>
-						<div className={cn('w-full', layer.content.border && 'relative')}>
-							{renderContent(layer.content)}
-							{layer.content.border && <CornerBorder border={layer.content.border} />}
+
+			<div className='w-full max-w-full overflow-x-scroll'>
+				<div className='flex w-full min-w-5xl flex-col'>
+					{archLayers.map((layer) => (
+						<div
+							key={layer.label}
+							className='grid w-full grid-cols-[max-content_1fr] items-center gap-0'
+						>
+							<p className='w-20 pr-36 text-xl font-medium whitespace-nowrap'>{layer.label}</p>
+							<div className={cn('w-full', layer.content.border && 'relative')}>
+								{renderContent(layer.content)}
+								{layer.content.border && <CornerBorder border={layer.content.border} />}
+							</div>
 						</div>
-					</div>
-				))}
+					))}
+				</div>
 			</div>
 		</div>
 	);

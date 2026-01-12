@@ -13,11 +13,11 @@ import { SecuritySection } from './sections/SecuritySection';
 export default async function HomePage() {
 	return (
 		<div className='flex w-full flex-col'>
-			<section className='container mx-auto px-6 pt-16 pb-6'>
+			<section>
 				<HeroSection />
 			</section>
 
-			<section className='container mx-auto px-6 pb-28'>
+			<section className='container mx-auto px-6 pt-7 pb-12 sm:pb-28'>
 				<OrgsSection />
 			</section>
 
@@ -36,7 +36,7 @@ export default async function HomePage() {
 				<ExamplesSection />
 			</section>
 
-			<section className='relative container mx-auto h-170 pr-6 pb-28 pl-32'>
+			<section className='relative container mx-auto h-340 pr-6 pb-28 pl-32 lg:h-240 xl:h-170'>
 				<FeaturesSectionWrapper />
 			</section>
 
