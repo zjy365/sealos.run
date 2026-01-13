@@ -3,7 +3,9 @@
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
 import { FeaturesScene } from '../components/FeaturesScene';
-import { Features } from '../components/FeaturesScene/Features';
+import { FeaturesHeader } from '../components/FeaturesScene/FeaturesHeader';
+import { FeaturesImage } from '../components/FeaturesScene/FeaturesImage';
+import { FeaturesList } from '../components/FeaturesScene/FeaturesList';
 import { aiproxyConfig, databaseConfig, devboxConfig, launchpadConfig, ossConfig } from '../utils/features-config';
 
 const TOTAL_ITEMS = 5;
@@ -70,26 +72,64 @@ export function FeaturesSectionClient({ activeBoxIndex, onIndexChange }: Feature
 		startCarousel();
 	};
 
+	const currentConfig = CONFIGS[activeBoxIndex];
+
 	return (
-		<div className='flex w-full flex-col items-start gap-16 lg:flex-row'>
-			<div className='shrink-0'>
-				<FeaturesScene
-					activeBoxIndex={activeBoxIndex}
-					onBoxClick={handleIndexChange}
-				/>
-			</div>
-			<div className='relative max-w-full flex-1'>
+		<div className='flex w-full flex-col gap-6 lg:gap-16'>
+			{/* 标题部分 - 在所有断点都显示在上方 */}
+			<div className='relative max-w-full'>
 				<AnimatePresence mode='wait'>
 					<motion.div
-						key={activeBoxIndex}
+						key={`header-${activeBoxIndex}`}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.3, ease: 'easeInOut' }}
 					>
-						<Features config={CONFIGS[activeBoxIndex]} />
+						<FeaturesHeader config={currentConfig} />
 					</motion.div>
 				</AnimatePresence>
+			</div>
+
+			{/* 主要内容区域 */}
+			<div className='flex w-full flex-col gap-8 lg:flex-row lg:gap-16'>
+				{/* 左侧：FeaturesScene 和 FeaturesList 并排（sm md 断点） */}
+				<div className='flex w-full flex-col gap-8 sm:flex-row md:flex-row lg:w-auto lg:flex-col xl:w-1/3 xl:flex-col'>
+					<div className='shrink-0'>
+						<FeaturesScene
+							activeBoxIndex={activeBoxIndex}
+							onBoxClick={handleIndexChange}
+						/>
+					</div>
+					<div className='flex-1 sm:flex-none'>
+						<AnimatePresence mode='wait'>
+							<motion.div
+								key={`list-${activeBoxIndex}`}
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+								transition={{ duration: 0.3, ease: 'easeInOut' }}
+							>
+								<FeaturesList config={currentConfig} />
+							</motion.div>
+						</AnimatePresence>
+					</div>
+				</div>
+
+				{/* 下方（sm md）/ 右侧（lg+）：图部分 */}
+				<div className='relative w-full flex-1 lg:flex-auto'>
+					<AnimatePresence mode='wait'>
+						<motion.div
+							key={`image-${activeBoxIndex}`}
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0.3, ease: 'easeInOut' }}
+						>
+							<FeaturesImage config={currentConfig} />
+						</motion.div>
+					</AnimatePresence>
+				</div>
 			</div>
 		</div>
 	);

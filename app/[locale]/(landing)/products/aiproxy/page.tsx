@@ -20,10 +20,7 @@ export default async function AiproxyPage() {
 			</section>
 
 			<section className='relative container mx-auto py-16 pt-4 pr-6 pb-20 pl-24'>
-				<VerticalDashedLine
-					iconSize='3rem'
-					mask={[['0rem', '3.5rem']]}
-				>
+				<VerticalDashedLine mask={[['0rem', '3.5rem']]}>
 					<Icon
 						src={ModelIcon}
 						className='size-full'
@@ -39,7 +36,6 @@ export default async function AiproxyPage() {
 
 			<section className='relative container mx-auto py-16 pt-20 pr-6 pl-24'>
 				<VerticalDashedLine
-					iconSize='3rem'
 					mask={[['4.75rem', '8.5rem']]}
 					iconY='4.5rem'
 				>

@@ -14,6 +14,13 @@ interface VerticalDashedLineProps {
 	appIcons?: Record<string, { icon: StaticImageData }>;
 	activeIndex?: number | null;
 	onIconClick?: (index: number) => void;
+	/**
+	 * Class name overrides
+	 * You can override icon size using Tailwind arbitrary value: [--icon-size:3rem] (default: 3rem)
+	 * You can override base scale using Tailwind arbitrary value: [--icon-scale-base:1] (default: 1)
+	 * Example for responsive scaling: [--icon-size:1.5rem] sm:[--icon-scale-base:2]
+	 */
+	className?: string;
 }
 
 const DEFAULT_APP_ICONS: Record<string, { icon: StaticImageData }> = {
@@ -41,6 +48,7 @@ export function FeaturesDecoLine({
 	appIcons = DEFAULT_APP_ICONS,
 	activeIndex,
 	onIconClick,
+	className,
 }: VerticalDashedLineProps) {
 	const iconRef = React.useRef<HTMLDivElement>(null);
 	const isVisible = useInView(iconRef, {
@@ -50,9 +58,14 @@ export function FeaturesDecoLine({
 	const maskId = React.useId();
 
 	return (
-		<div className='text-brand absolute top-0 left-6 z-0 h-full overflow-visible'>
+		<div
+			className={cn(
+				'text-brand absolute top-0 left-6 z-0 h-full w-6 overflow-visible [--icon-scale-base:1] [--icon-size:3rem] sm:w-12',
+				className,
+			)}
+		>
 			<svg
-				className='h-full w-12'
+				className='h-full w-full'
 				preserveAspectRatio='none'
 				style={{ overflow: 'visible' }}
 				xmlns='http://www.w3.org/2000/svg'
@@ -70,18 +83,28 @@ export function FeaturesDecoLine({
 							height='100%'
 							fill='white'
 						/>
-						{mask?.map(([y1, y2]) => (
-							<rect
-								key={`${y1}-${y2}`}
-								x='0'
-								y={y1}
-								width='3rem'
-								height={`calc(${y2} - ${y1})`}
-								fill='black'
-							/>
-						))}
+						{mask?.map(([y1, y2]) => {
+							// Scale from center: calculate center position, then offset by half of scaled dimensions
+							const centerY = `(${y1} + ${y2}) / 2`;
+							const height = `${y2} - ${y1}`;
+							const scaledHeight = `(${height}) * var(--icon-scale-base)`;
+							const scaledY = `(${centerY}) - (${scaledHeight}) / 2`;
+							const scaledWidth = `var(--icon-size) * var(--icon-scale-base)`;
+							const scaledX = `50% - (${scaledWidth}) / 2`;
 
-						{/* App Icon masks */}
+							return (
+								<rect
+									key={`${y1}-${y2}`}
+									x={`calc(${scaledX})`}
+									y={`calc(${scaledY})`}
+									width={`calc(${scaledWidth})`}
+									height={`calc(${scaledHeight})`}
+									fill='black'
+								/>
+							);
+						})}
+
+						{/* App Icon masks - fixed size, not affected by scale */}
 						{Object.entries(appIcons).map(([slug], index, arr) => {
 							const iconYPos = `calc(10rem + 0.875rem + 1rem + calc(calc(100% - 20rem - 2rem - 1.75rem) / ${arr.length - 1}) * ${index})`;
 							return (
@@ -159,15 +182,15 @@ export function FeaturesDecoLine({
 				{children && (
 					<g
 						style={{
-							transform: `translate(50%, calc(1.5rem + ${iconY}))`,
+							transform: `translate(50%, calc(calc(var(--icon-size) * var(--icon-scale-base)) / 2 + ${iconY}))`,
 							transformOrigin: '0 0',
 						}}
 					>
 						<foreignObject
-							x='-1.5rem'
-							y='-1.5rem'
-							width='3rem'
-							height='3rem'
+							x={`calc(calc(var(--icon-size) * var(--icon-scale-base)) / -2)`}
+							y={`calc(calc(var(--icon-size) * var(--icon-scale-base)) / -2)`}
+							width={`calc(var(--icon-size) * var(--icon-scale-base))`}
+							height={`calc(var(--icon-size) * var(--icon-scale-base))`}
 							style={{
 								transform: isVisible ? 'scale(1.3333)' : 'scale(1)',
 								transformOrigin: '0 0',

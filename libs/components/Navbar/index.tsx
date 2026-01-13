@@ -23,9 +23,11 @@ export async function Navbar() {
 				</Link>
 
 				{/* Links */}
-				<nav className='mx-auto hidden items-center gap-12 md:flex'>
-					<NavbarClient links={Config.components.navbar.links} />
-				</nav>
+				<div className='mx-auto'>
+					<div className='hidden items-center gap-12 md:flex'>
+						<NavbarClient links={Config.components.navbar.links} />
+					</div>
+				</div>
 
 				{/* Actions */}
 				<div className='flex items-center justify-end gap-3'>

@@ -74,7 +74,6 @@ export function MigGuideSection() {
 			<div className='sticky top-64 h-dvh flex-1'>
 				<div className='border-brand sticky top-64 flex h-[calc(100dvh-24rem)] flex-1 flex-col justify-between border-r border-dashed py-12 pl-24'>
 					<VerticalDashedLine
-						iconSize='3rem'
 						mask={[['15rem', '17rem']]}
 						iconY='14.5rem'
 						className='-top-48 h-[calc(100%+24rem)] max-h-dvh'

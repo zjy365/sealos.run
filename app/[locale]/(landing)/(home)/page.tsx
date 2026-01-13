@@ -21,11 +21,11 @@ export default async function HomePage() {
 				<OrgsSection />
 			</section>
 
-			<section className='relative container mx-auto pt-4 pr-6 pb-32 pl-24'>
+			<section className='relative container mx-auto pt-1.5 pr-6 pb-32 pl-16 sm:pt-4 sm:pl-24'>
 				<VerticalDashedLine
 					enableScrollAnimation
-					iconSize='3rem'
-					mask={[['0rem', '3.5rem']]}
+					mask={[['0rem', '1.75rem']]}
+					className='w-6 [--icon-size:1.5rem] sm:w-12 sm:[--icon-scale-base:2]'
 				>
 					<Icon
 						src={SealosBoxIcon}
@@ -36,15 +36,15 @@ export default async function HomePage() {
 				<ExamplesSection />
 			</section>
 
-			<section className='relative container mx-auto h-340 pr-6 pb-28 pl-32 lg:h-240 xl:h-170'>
+			<section className='relative container mx-auto h-340 pr-6 pb-28 pl-16 sm:pl-32 lg:h-240 xl:h-170'>
 				<FeaturesSectionWrapper />
 			</section>
 
-			<section className='relative container mx-auto pr-6 pb-28 pl-24'>
+			<section className='relative container mx-auto pt-1.5 pr-6 pb-28 pl-16 sm:pt-4 sm:pl-24'>
 				<VerticalDashedLine
 					enableScrollAnimation
-					iconSize='3rem'
-					mask={[['0.55rem', '3.25rem']]}
+					mask={[['0.275rem', '1.625rem']]}
+					className='w-6 [--icon-size:1.5rem] sm:w-12 sm:[--icon-scale-base:2]'
 				>
 					<Icon
 						src={FramedCheckIcon}
@@ -55,11 +55,11 @@ export default async function HomePage() {
 				<SecuritySection />
 			</section>
 
-			<section className='relative container mx-auto pt-4 pr-6 pb-28 pl-24'>
+			<section className='relative container mx-auto pt-1.5 pr-6 pb-28 pl-16 sm:pt-4 sm:pl-24'>
 				<VerticalDashedLine
 					enableScrollAnimation
-					iconSize='3rem'
-					mask={[['0.6rem', '2.5rem']]}
+					mask={[['0.3rem', '1.25rem']]}
+					className='w-6 [--icon-size:1.5rem] sm:w-12 sm:[--icon-scale-base:2]'
 				>
 					<Icon
 						src={ArchitectureBoxIcon}
@@ -70,12 +70,12 @@ export default async function HomePage() {
 				<ArchSection />
 			</section>
 
-			<section className='relative container mx-auto pt-4 pr-6 pb-16 pl-24'>
+			<section className='relative container mx-auto pt-1.5 pr-6 pb-16 pl-16 sm:pt-4 sm:pl-24'>
 				<VerticalDashedLine
 					enableScrollAnimation
-					iconSize='3rem'
-					iconY='21rem'
-					mask={[['22rem', '23.75rem']]}
+					iconY='10.5rem'
+					mask={[['11rem', '11.875rem']]}
+					className='w-6 [--icon-size:1.5rem] sm:w-12 sm:[--icon-scale-base:2]'
 				>
 					<Icon
 						src={MoreIcon}

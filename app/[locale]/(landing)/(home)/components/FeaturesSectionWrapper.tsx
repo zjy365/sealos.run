@@ -9,7 +9,10 @@ import { FeaturesDecoLineWrapper } from './FeaturesScene/FeaturesDecoLineWrapper
 export function FeaturesSectionWrapper() {
 	return (
 		<FeaturesProvider>
-			<FeaturesDecoLineWrapper mask={[['1rem', '3.25rem']]}>
+			<FeaturesDecoLineWrapper
+				mask={[['0.5rem', '1.625rem']]}
+				className='w-6 [--icon-size:1.5rem] sm:w-12 sm:[--icon-scale-base:2]'
+			>
 				<Icon
 					src={CloudBoxIcon}
 					className='size-full'

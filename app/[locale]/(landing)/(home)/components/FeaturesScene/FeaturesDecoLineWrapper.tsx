@@ -8,9 +8,10 @@ interface FeaturesDecoLineWrapperProps {
 	children?: React.ReactNode;
 	iconY?: string;
 	mask?: [string, string][];
+	className?: string;
 }
 
-export function FeaturesDecoLineWrapper({ children, iconY, mask }: FeaturesDecoLineWrapperProps) {
+export function FeaturesDecoLineWrapper({ children, iconY, mask, className }: FeaturesDecoLineWrapperProps) {
 	const { activeBoxIndex, setActiveBoxIndex } = useFeatures();
 
 	return (
@@ -19,6 +20,7 @@ export function FeaturesDecoLineWrapper({ children, iconY, mask }: FeaturesDecoL
 			mask={mask}
 			activeIndex={activeBoxIndex}
 			onIconClick={setActiveBoxIndex}
+			className={className}
 		>
 			{children}
 		</FeaturesDecoLine>

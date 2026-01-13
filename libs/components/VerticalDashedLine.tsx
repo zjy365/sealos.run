@@ -14,28 +14,20 @@ interface VerticalDashedLineProps {
 	 */
 	enableScrollAnimation?: boolean;
 	/**
-	 * Icon size in rem (used for foreignObject dimensions and mask width)
-	 * @default '3rem'
-	 */
-	iconSize?: string;
-	/**
-	 * Width of the SVG container in rem (used for className)
-	 * @default '3rem'
-	 */
-	width?: string;
-	/**
 	 * Class name overrides
+	 * You can override icon size using Tailwind arbitrary value: [--icon-size:3rem] (default: 3rem)
+	 * You can override base scale using Tailwind arbitrary value: [--icon-scale-base:1] (default: 1)
+	 * You can override active scale using Tailwind arbitrary value: [--icon-scale-active:1.3333] (default: 1.3333)
+	 * Example for responsive scaling: [--icon-scale-base:0.8] sm:[--icon-scale-base:1]
 	 */
 	className?: string;
 }
 
 export function VerticalDashedLine({
 	children,
-	iconY = '0.5rem',
+	iconY = '0rem',
 	mask,
 	enableScrollAnimation = false,
-	iconSize = '3rem',
-	width = '3rem',
 	className,
 }: VerticalDashedLineProps) {
 	const iconRef = React.useRef<HTMLDivElement>(null);
@@ -47,17 +39,23 @@ export function VerticalDashedLine({
 	const isVisible = enableScrollAnimation ? inViewResult : false;
 	const maskId = React.useId();
 
-	// Calculate half of iconSize for positioning
-	const iconSizeHalf = React.useMemo(() => {
-		const size = parseFloat(iconSize);
-		return `${size / 2}rem`;
-	}, [iconSize]);
+	// Calculate current scale for mask (base scale * active scale if visible, otherwise base scale)
+	const currentScale =
+		enableScrollAnimation && isVisible
+			? 'calc(var(--icon-scale-base) * var(--icon-scale-active))'
+			: 'var(--icon-scale-base)';
 
 	return (
-		<div className={cn('text-brand absolute top-0 left-6 z-0 h-full overflow-visible', className)}>
+		<div
+			className={cn(
+				'text-brand absolute top-0 left-6 z-0 h-full w-12 overflow-visible [--icon-scale-active:1.3333] [--icon-scale-base:1] [--icon-size:3rem]',
+				className,
+			)}
+			style={{ '--icon-scale-current': currentScale } as React.CSSProperties}
+		>
 			<svg
-				className='h-full'
-				style={{ width, overflow: 'visible' }}
+				className='h-full w-full'
+				style={{ overflow: 'visible' }}
 				preserveAspectRatio='none'
 				xmlns='http://www.w3.org/2000/svg'
 				aria-hidden='true'
@@ -75,16 +73,26 @@ export function VerticalDashedLine({
 								height='100%'
 								fill='white'
 							/>
-							{mask.map(([y1, y2]) => (
-								<rect
-									key={`${y1}-${y2}`}
-									x='0'
-									y={y1}
-									width={iconSize}
-									height={`calc(${y2} - ${y1})`}
-									fill='black'
-								/>
-							))}
+							{mask.map(([y1, y2]) => {
+								// Scale from center: calculate center position, then offset by half of scaled dimensions
+								const centerY = `(${y1} + ${y2}) / 2`;
+								const height = `${y2} - ${y1}`;
+								const scaledHeight = `(${height}) * var(--icon-scale-current)`;
+								const scaledY = `(${centerY}) - (${scaledHeight}) / 2`;
+								const scaledWidth = `var(--icon-size) * var(--icon-scale-current)`;
+								const scaledX = `50% - (${scaledWidth}) / 2`;
+
+								return (
+									<rect
+										key={`${y1}-${y2}`}
+										x={`calc(${scaledX})`}
+										y={`calc(${scaledY})`}
+										width={`calc(${scaledWidth})`}
+										height={`calc(${scaledHeight})`}
+										fill='black'
+									/>
+								);
+							})}
 						</mask>
 					</defs>
 				)}
@@ -103,20 +111,24 @@ export function VerticalDashedLine({
 				{children && (
 					<g
 						style={{
-							transform: `translate(50%, calc(${iconSizeHalf} + ${iconY}))`,
+							transform: `translate(50%, calc(calc(var(--icon-size) * var(--icon-scale-base)) / 2 + ${iconY}))`,
 							transformOrigin: '0 0',
 						}}
 					>
 						<foreignObject
-							x={`-${iconSizeHalf}`}
-							y={`-${iconSizeHalf}`}
-							width={iconSize}
-							height={iconSize}
-							style={{
-								transform: enableScrollAnimation && isVisible ? 'scale(1.3333)' : 'scale(1)',
-								transformOrigin: '0 0',
-								transition: 'transform 300ms',
-							}}
+							x='calc(calc(var(--icon-size) * var(--icon-scale-base)) / -2)'
+							y='calc(calc(var(--icon-size) * var(--icon-scale-base)) / -2)'
+							width='calc(var(--icon-size) * var(--icon-scale-base))'
+							height='calc(var(--icon-size) * var(--icon-scale-base))'
+							style={
+								{
+									'--icon-scale':
+										enableScrollAnimation && isVisible ? 'var(--icon-scale-active)' : '1',
+									transform: 'scale(var(--icon-scale))',
+									transformOrigin: '0 0',
+									transition: 'transform 300ms',
+								} as React.CSSProperties
+							}
 						>
 							<div
 								ref={iconRef}

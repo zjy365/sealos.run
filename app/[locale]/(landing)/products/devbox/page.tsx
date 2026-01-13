@@ -23,9 +23,9 @@ export default async function DevBoxPage() {
 
 			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-24'>
 				<VerticalDashedLine
-					iconSize='2.5rem'
 					mask={[['5.5rem', '7rem']]}
 					iconY='4.5rem'
+					className='[--icon-size:2.5rem]'
 				>
 					<Icon
 						src={CloudBoxIcon}
@@ -37,9 +37,9 @@ export default async function DevBoxPage() {
 
 			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-24'>
 				<VerticalDashedLine
-					iconSize='2.5rem'
 					mask={[['5rem', '7rem']]}
 					iconY='4.5rem'
+					className='[--icon-size:2.5rem]'
 				>
 					<Icon
 						src={CubesIcon}
@@ -51,9 +51,9 @@ export default async function DevBoxPage() {
 
 			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-24'>
 				<VerticalDashedLine
-					iconSize='2.5rem'
 					mask={[['5rem', '7rem']]}
 					iconY='4.5rem'
+					className='[--icon-size:2.5rem]'
 				>
 					<Icon
 						src={ClockCounterIcon}
