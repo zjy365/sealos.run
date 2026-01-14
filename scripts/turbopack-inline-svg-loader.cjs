@@ -168,7 +168,6 @@ module.exports = function (content) {
 	}
 
 	// Icon mode: parse directives from root tag (before SVGO).
-	// Icon mode: parse directives from root tag (before SVGO).
 	const colorful = truthy(readAttrFromRoot(content, 'data-colorful'));
 
 	const strokeWidthsRaw = readAttrFromRoot(content, 'data-variants-stroke-width');

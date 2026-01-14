@@ -12,7 +12,7 @@
   data-default-scaling="non-scaling"
 >
   <path
-    fill="color-mix(in oklab, currentColor 5%, transparent)"
+    fill="color-mix(in oklab, currentColor 2%, transparent)"
     d="M8.394 4.591 12 2.5l3.606 2.091v4.286L12 10.96 8.394 8.877zm-6.102 10.54 3.606-2.09 3.606 2.09v4.287L5.898 21.5l-3.606-2.082zm12.204 0 3.606-2.09 3.606 2.09v4.287L18.102 21.5l-3.606-2.082z"
   />
   <path

@@ -67,6 +67,7 @@ export function PrivateDeploySection() {
 									<Icon
 										src={CheckIcon}
 										className='text-brand size-4 shrink-0'
+										strokeWidth={1.5}
 									/>
 									<span className='text-muted-foreground text-sm'>{feature}</span>
 								</div>
@@ -126,6 +127,7 @@ export function PrivateDeploySection() {
 									<Icon
 										src={CheckIcon}
 										className='text-brand size-4 shrink-0'
+										strokeWidth={1.5}
 									/>
 									<span className='text-muted-foreground text-sm'>{feature}</span>
 								</div>

@@ -596,9 +596,9 @@ export function ProductsPanel() {
 	);
 
 	return (
-		<div className='bg-card flex w-200 border border-dashed border-blue-400 p-0'>
+		<div className='bg-card flex w-200 border-[0.5px] border-dashed border-blue-400 p-0'>
 			{/* Left Sidebar */}
-			<div className='flex w-40 flex-col gap-2 border-r border-dashed border-blue-400 px-4 py-6'>
+			<div className='flex w-40 flex-col gap-2 border-r-[0.5px] border-dashed border-blue-400 px-4 py-6'>
 				{navMenuItems.map((item) => {
 					const isSelected = selectedItem?.id === item.id;
 					return (
