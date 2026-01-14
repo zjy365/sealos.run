@@ -5,6 +5,11 @@
   viewBox="0 0 24 24"
   fill="none"
   stroke="currentColor"
+  data-type="icon"
+  data-variants-stroke-width="true"
+  data-default-stroke-width="1"
+  data-variants-scaling="scaling,non-scaling"
+  data-default-scaling="non-scaling"
 >
   <path d="M14.308 2v7.857H22m-20 5h6.923V22" />
 </svg>

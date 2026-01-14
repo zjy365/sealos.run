@@ -44,7 +44,6 @@ export function HeroSection() {
 									<Icon
 										src={provider.icon}
 										className='size-4 saturate-0'
-										colorful
 									/>
 									{provider.name}
 								</span>

@@ -17,10 +17,10 @@ const config: NextConfig = {
 	turbopack: {
 		rules: {
 			'*.svg': {
-				loaders: ['turbopack-inline-svg-loader'],
+				loaders: ['./scripts/turbopack-inline-svg-loader.cjs'],
 				condition: {
-					// 4KB or smaller
-					content: /^[\s\S]{0,4000}$/,
+					// 6KB or smaller
+					content: /^[\s\S]{0,6144}$/,
 				},
 				as: '*.js',
 			},

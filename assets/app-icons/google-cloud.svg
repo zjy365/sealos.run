@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 16 16"
+  data-type="icon"
+  data-colorful="true"
+>
   <path
     fill="#ea4335"
     d="M10.16 5.084h.488l1.392-1.391.069-.591A6.255 6.255 0 0 0 1.931 6.154a.76.76 0 0 1 .488-.03l2.783-.459s.142-.234.215-.22a3.47 3.47 0 0 1 4.752-.36z"

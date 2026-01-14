@@ -66,7 +66,6 @@ export function DatabasesSection() {
 								<Icon
 									src={db.icon}
 									className='size-10'
-									colorful
 								/>
 							</div>
 						</div>

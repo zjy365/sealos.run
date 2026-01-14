@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 23 24">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 23 24"
+  data-type="icon"
+  data-colorful="true"
+>
   <g clip-path="url(#a)">
     <mask
       id="b"

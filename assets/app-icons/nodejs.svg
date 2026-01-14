@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 49 48">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 49 48"
+  data-type="icon"
+  data-colorful="true"
+>
   <path
     fill="url(#a)"
     d="M25.85 3.77a1.94 1.94 0 0 0-1.94 0L7.96 13.03c-.6.35-.95 1-.95 1.68v18.57c0 .69.38 1.34.95 1.68l15.95 9.27a1.94 1.94 0 0 0 1.94 0l15.95-9.27c.6-.34.95-.99.95-1.68V14.71c0-.68-.38-1.33-.95-1.68L25.85 3.77Z"

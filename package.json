@@ -56,9 +56,12 @@
 		"@types/react": "^19.2.7",
 		"@types/react-dom": "^19.2.3",
 		"babel-plugin-react-compiler": "^1.0.0",
+		"image-size": "^2.0.2",
+		"mini-svg-data-uri": "^1.4.4",
 		"postcss": "^8.5.6",
 		"prettier": "^3.7.4",
 		"prettier-plugin-tailwindcss": "^0.7.2",
+		"svgo": "^4.0.0",
 		"tailwindcss": "^4.1.18",
 		"turbopack-inline-svg-loader": "^1.0.2",
 		"typescript": "^5.9.3"

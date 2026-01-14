@@ -231,7 +231,6 @@ function DatabaseFeatures() {
 							<Icon
 								src={db.icon}
 								className='size-8'
-								colorful
 							/>
 						</div>
 						<p className='text-foreground text-xs'>{db.name}</p>
@@ -333,7 +332,6 @@ function DevBoxFeatures() {
 								<Icon
 									src={lang.icon}
 									className={lang.name === '更多' ? 'text-brand size-6' : 'size-6'}
-									colorful={lang.name !== '更多'}
 								/>
 							</div>
 						) : (

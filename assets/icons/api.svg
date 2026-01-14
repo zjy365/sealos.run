@@ -5,6 +5,11 @@
   viewBox="0 0 24 24"
   fill="none"
   stroke="currentColor"
+  data-type="icon"
+  data-variants-stroke-width="true"
+  data-default-stroke-width="1"
+  data-variants-scaling="scaling,non-scaling"
+  data-default-scaling="non-scaling"
 >
   <path
     d="M6.172 7.22V2h11.656v2.453m-5.953 1.824h10.027v11.32h-2.507m-1.567-.691V22H6.172v-2.704m7.77-1.698H2.099V6.277h2.507"

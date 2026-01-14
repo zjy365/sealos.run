@@ -5,6 +5,11 @@
   viewBox="0 0 24 24"
   fill="none"
   stroke="currentColor"
+  data-type="icon"
+  data-variants-stroke-width="true"
+  data-default-stroke-width="1"
+  data-variants-scaling="scaling,non-scaling"
+  data-default-scaling="non-scaling"
 >
   <path
     d="M3.411 12.083 12 17.04l8.527-4.954m-17.116-.004v4.958L12 22l8.589-4.959-.062-4.954m-17.116-.004 2.14-1.236m14.976 1.24-2.079-1.24M3.411 6.954v2.657l2.14 1.236m-2.14-3.893L12 11.913l8.589-4.959m-17.178 0L12 2l8.589 4.954m0 0v2.6L12 14.57l-6.448-3.723m4.1 7.415L12 19.617l2.1-1.286M7.614 6.954 12 9.554l4.495-2.595L12 4.462z"

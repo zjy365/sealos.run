@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 49 49">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 49 49"
+  data-type="icon"
+  data-colorful="true"
+>
   <path
     fill="#88851F"
     d="m25.25 46.91-1.2-.4s.17-6-2-6.42c-1.43-1.65.2-70.69 5.4-.23a4.28 4.28 0 0 0-2.1 2.4c-.2 1.54-.23 3.1-.1 4.65Z"

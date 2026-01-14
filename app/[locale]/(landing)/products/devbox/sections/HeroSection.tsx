@@ -79,7 +79,6 @@ export function HeroSection() {
 								<Icon
 									src={lang.icon}
 									className='size-12'
-									colorful
 								/>
 							</div>
 							<p className='text-muted-foreground text-xs'>{lang.name}</p>

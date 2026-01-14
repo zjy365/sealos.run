@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 16 16"
+  data-type="icon"
+  data-colorful="true"
+>
   <path
     fill="#61DAFB"
     d="M6.75 8a1.25 1.25 0 1 0 2.5 0 1.25 1.25 0 0 0-2.5 0Z"

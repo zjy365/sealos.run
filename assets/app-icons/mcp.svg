@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 32 32"
+  data-type="icon"
+  data-colorful="true"
+>
   <path
     fill="#8C8C8C"
     fill-rule="evenodd"
