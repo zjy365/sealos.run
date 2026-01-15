@@ -68,8 +68,10 @@ export function useTocHeadings() {
 					// Active should be the first visible heading in viewport
 					if (visibleArray.length > 0) {
 						const first = visibleArray[0];
-						const match = items.find((i) => i.text === first.content);
-						if (match) setActiveId(match.id);
+						if (first) {
+							const match = items.find((i) => i.text === first.content);
+							if (match) setActiveId(match.id);
+						}
 					}
 
 					return visibleArray;
@@ -118,8 +120,10 @@ export function useTocHeadings() {
 					// Set active to first visible on initial check as well
 					if (visibleArray.length > 0) {
 						const first = visibleArray[0];
-						const match = items.find((i) => i.text === first.content);
-						if (match) setActiveId(match.id);
+						if (first) {
+							const match = items.find((i) => i.text === first.content);
+							if (match) setActiveId(match.id);
+						}
 					}
 
 					return visibleArray;

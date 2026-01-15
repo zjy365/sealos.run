@@ -30,12 +30,15 @@ export function HeroBg() {
 				preserveAspectRatio='xMidYMin slice'
 				role='graphics-symbol'
 				style={{
-					maskImage:
-						'radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%), linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
-					maskComposite: 'intersect',
 					WebkitMaskImage:
-						'radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%), linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
-					WebkitMaskComposite: 'source-in',
+						'radial-gradient(ellipse 70% 55% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 85%)',
+					WebkitMaskRepeat: 'no-repeat',
+					WebkitMaskSize: '100% 100%',
+
+					maskImage:
+						'radial-gradient(ellipse 70% 55% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 85%)',
+					maskRepeat: 'no-repeat',
+					maskSize: '100% 100%',
 				}}
 			>
 				<style>

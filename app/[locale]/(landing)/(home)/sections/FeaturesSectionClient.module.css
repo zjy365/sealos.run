@@ -1,0 +1,34 @@
+.featuresGrid {
+	grid-template-areas:
+		"header"
+		"scene"
+		"list"
+		"image";
+}
+
+@media (min-width: 640px) {
+	.featuresGrid {
+		grid-template-areas:
+			"header header"
+			"scene list"
+			"image image";
+	}
+}
+
+@media (min-width: 1024px) {
+	.featuresGrid {
+		grid-template-areas:
+			"_____ header"
+			"scene list"
+			"scene image";
+	}
+}
+
+@media (min-width: 1280px) {
+	.featuresGrid {
+		grid-template-areas:
+			"_____ header header"
+			"scene list image"
+			"scene list image";
+	}
+}

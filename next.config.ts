@@ -35,7 +35,7 @@ const withNextIntl = createNextIntlPlugin('./libs/i18n/request.ts');
 const withMDX = createMDX();
 
 const withBundleAnalyzer = NextBundleAnalyzer({
-	enabled: process.env.ANALYZE === 'true',
+	enabled: process.env['ANALYZE'] === 'true',
 });
 
 export default withBundleAnalyzer(withNextIntl(withMDX(config)));

@@ -36,7 +36,7 @@ export default async function HomePage() {
 				<ExamplesSection />
 			</section>
 
-			<section className='relative container mx-auto h-340 pr-6 pb-28 pl-16 sm:pl-32 lg:h-240 xl:h-170'>
+			<section className='relative container mx-auto h-340 pr-6 pb-28 pl-16 sm:h-300 sm:pl-32 lg:h-240 xl:h-188'>
 				<FeaturesSectionWrapper />
 			</section>
 

@@ -43,19 +43,21 @@ export async function Footer({ config }: { config: FooterConfig }) {
 
 	return (
 		<section className='relative container px-4 pb-8'>
-			<div className='pointer-events-none absolute bottom-0 w-full'>
+			<div className='pointer-events-none absolute right-0 bottom-0 left-0 flex h-96 items-end px-4'>
 				<Image
 					src={FooterHexagonalPattern}
 					alt=''
 					role='presentation'
-					className='min-w-5xl object-cover'
+					fill
+					className='object-cover object-bottom'
+					sizes='100vw'
 					style={{
-						maskImage:
-							'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to bottom, transparent 40%, black 60%, black 100%)',
-						maskComposite: 'intersect',
 						WebkitMaskImage:
 							'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to bottom, transparent 40%, black 60%, black 100%)',
 						WebkitMaskComposite: 'source-in',
+						maskImage:
+							'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%), linear-gradient(to bottom, transparent 40%, black 60%, black 100%)',
+						maskComposite: 'intersect',
 					}}
 				/>
 			</div>

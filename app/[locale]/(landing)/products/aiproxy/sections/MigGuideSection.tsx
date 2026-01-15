@@ -63,6 +63,9 @@ export function MigGuideSection() {
 	}, [sceneIndex]);
 
 	const activeScene = scenes[activeSceneIndex];
+	if (!activeScene) {
+		return null;
+	}
 	const ActiveSceneComponent = activeScene.component;
 
 	return (

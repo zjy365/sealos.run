@@ -96,7 +96,7 @@ export async function GET(request: NextRequest) {
 		};
 
 		if (category && category.trim() !== '') {
-			whereConditions.category = category;
+			whereConditions['category'] = category;
 		}
 
 		const searchResults = await search(db, {

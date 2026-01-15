@@ -162,7 +162,7 @@ export const FeaturesScene: React.FC<FeaturesSceneProps> = ({ activeBoxIndex = 0
 	};
 
 	return (
-		<div className='relative inline-block aspect-414/367 w-55'>
+		<div className='relative inline-block aspect-414/367 w-full max-w-72'>
 			<svg
 				viewBox='0 0 414 367'
 				fill='none'

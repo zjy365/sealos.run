@@ -12,10 +12,15 @@ export default async function Layout({
 }) {
 	const { locale } = await params;
 
+	const tree = source.pageTree[locale];
+	if (!tree) {
+		return null;
+	}
+
 	return (
 		<DocsLayout
 			{...baseOptions(locale)}
-			tree={source.pageTree[locale]}
+			tree={tree}
 		>
 			{children}
 		</DocsLayout>

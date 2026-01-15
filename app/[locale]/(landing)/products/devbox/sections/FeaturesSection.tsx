@@ -226,22 +226,34 @@ function FeatureSection({ data, className }: { data: FeatureSectionData; classNa
 }
 
 export function UnifiedEnvironmentSection() {
-	return <FeatureSection data={featureSectionsData[0]} />;
+	const data = featureSectionsData[0];
+	if (!data) {
+		return null;
+	}
+	return <FeatureSection data={data} />;
 }
 
 export function CloudCollaborationSection() {
+	const data = featureSectionsData[1];
+	if (!data) {
+		return null;
+	}
 	return (
 		<FeatureSection
-			data={featureSectionsData[1]}
+			data={data}
 			className='border-t'
 		/>
 	);
 }
 
 export function QuickReleaseSection() {
+	const data = featureSectionsData[2];
+	if (!data) {
+		return null;
+	}
 	return (
 		<FeatureSection
-			data={featureSectionsData[2]}
+			data={data}
 			className='border-t'
 		/>
 	);

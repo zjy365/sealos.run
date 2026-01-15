@@ -39,6 +39,7 @@ export function useTocSvg(
 
 		for (let i = 0; i < toc.length; i++) {
 			const item = toc[i];
+			if (!item) continue;
 			const element: HTMLElement | null = container.querySelector(`a[href="#${item.id}"]`);
 
 			if (!element) continue;
@@ -53,6 +54,7 @@ export function useTocSvg(
 
 			if (i > 0) {
 				const prevItem = toc[i - 1];
+				if (!prevItem) continue;
 				const prevOffset = getLineOffset(prevItem.level) + 1;
 				if (prevOffset !== offset) {
 					const prevElement: HTMLElement | null = container.querySelector(`a[href="#${prevItem.id}"]`);
