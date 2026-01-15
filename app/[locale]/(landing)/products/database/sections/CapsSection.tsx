@@ -43,15 +43,15 @@ export function CapsSection() {
 	return (
 		<div className='flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between'>
 			<div className='flex max-w-md flex-col gap-4'>
-				<h2 className='text-3xl font-semibold'>
+				<h2 className='text-xl font-semibold sm:text-3xl'>
 					为什么选择 <span className='text-brand'>Sealos 数据库</span>
 				</h2>
-				<p className='text-muted-foreground text-base'>
+				<p className='text-muted-foreground text-xs sm:text-base'>
 					极速部署 + 企业级稳定性 + AI 智能分析，为开发者而建，受企业信赖
 				</p>
 			</div>
 
-			<div className='grid flex-1 grid-cols-1 gap-12 md:grid-cols-2 lg:max-w-3xl'>
+			<div className='grid flex-1 grid-cols-2 gap-12 lg:max-w-3xl'>
 				{features.map((feature) => (
 					<div
 						key={feature.title}

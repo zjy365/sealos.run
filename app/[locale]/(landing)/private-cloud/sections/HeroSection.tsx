@@ -14,7 +14,7 @@ export function HeroSection() {
 				/>
 			</div>
 
-			<div className='relative z-10 flex flex-col items-end pt-40'>
+			<div className='relative z-10 flex flex-col items-end lg:pt-40'>
 				<h1 className='text-5xl font-semibold'>
 					企业级云原生
 					<span className='text-brand'>私有云</span>

@@ -44,9 +44,9 @@ export function FeaturesSection() {
 
 	return (
 		<div className='flex flex-col gap-8'>
-			<h2 className='text-center text-3xl font-semibold'>Docker 容器化部署功能特性</h2>
+			<h2 className='text-center text-xl font-semibold sm:text-3xl'>Docker 容器化部署功能特性</h2>
 
-			<div className='grid grid-cols-1 items-end gap-6 md:grid-cols-2 lg:grid-cols-3'>
+			<div className='grid grid-cols-1 items-end gap-6 sm:grid-cols-2 lg:grid-cols-3'>
 				{features.map((feature) => (
 					<div
 						key={feature.title}

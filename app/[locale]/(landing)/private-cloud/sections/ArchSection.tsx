@@ -449,19 +449,21 @@ export function ArchSection() {
 					基于云原生技术栈构建,支持所有混合云部署,采用云操作系统理念,提供统一的资源抽象和动态管理
 				</p>
 			</div>
-			<div className='flex w-full flex-col'>
-				{archLayers.map((layer) => (
-					<div
-						key={layer.label}
-						className='grid w-full grid-cols-[max-content_1fr] items-center gap-0'
-					>
-						<p className='w-20 pr-36 text-xl font-medium whitespace-nowrap'>{layer.label}</p>
-						<div className={cn('w-full', layer.content.border && 'relative')}>
-							{renderContent(layer.content)}
-							{layer.content.border && <CornerBorder border={layer.content.border} />}
+			<div className='w-full max-w-full overflow-x-scroll'>
+				<div className='flex w-full min-w-5xl flex-col'>
+					{archLayers.map((layer) => (
+						<div
+							key={layer.label}
+							className='grid w-full grid-cols-[max-content_1fr] items-center gap-0'
+						>
+							<p className='w-20 pr-36 text-xl font-medium whitespace-nowrap'>{layer.label}</p>
+							<div className={cn('w-full', layer.content.border && 'relative')}>
+								{renderContent(layer.content)}
+								{layer.content.border && <CornerBorder border={layer.content.border} />}
+							</div>
 						</div>
-					</div>
-				))}
+					))}
+				</div>
 			</div>
 		</div>
 	);

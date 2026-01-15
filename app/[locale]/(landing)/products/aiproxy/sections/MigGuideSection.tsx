@@ -71,15 +71,14 @@ export function MigGuideSection() {
 	return (
 		<div
 			ref={containerRef}
-			className='flex items-stretch gap-12'
 			style={{ minHeight: '200vh' }}
 		>
-			<div className='sticky top-64 h-dvh flex-1'>
-				<div className='border-brand sticky top-64 flex h-[calc(100dvh-24rem)] flex-1 flex-col justify-between border-r border-dashed py-12 pl-24'>
+			<div className='sticky top-16 pr-6 pl-24 lg:top-64 lg:flex lg:h-[calc(100dvh-24rem)] lg:flex-row'>
+				<div className='border-brand flex h-96 flex-col justify-between border-dashed pt-12 lg:h-full lg:w-1/2 lg:border-r lg:py-12'>
 					<VerticalDashedLine
 						mask={[['15rem', '17rem']]}
 						iconY='14.5rem'
-						className='-top-48 h-[calc(100%+24rem)] max-h-dvh'
+						className='-top-48 h-[max(calc(100%+24rem),calc(100dvh+24rem))] max-h-dvh'
 					>
 						<Icon
 							src={AiIcon}
@@ -118,21 +117,21 @@ export function MigGuideSection() {
 						</LandingOutlineButton>
 					</div>
 				</div>
-			</div>
 
-			<div className='sticky top-64 ml-auto flex h-[calc(100dvh-24rem)] w-1/2 max-w-2xl shrink-0 items-start justify-center py-12 pr-6'>
-				<AnimatePresence mode='wait'>
-					<motion.div
-						key={activeScene.id}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ duration: 0.3, ease: 'easeInOut' }}
-						className='w-full'
-					>
-						<ActiveSceneComponent />
-					</motion.div>
-				</AnimatePresence>
+				<div className='relative flex items-start justify-center pb-12 lg:w-1/2 lg:py-12 lg:pl-4'>
+					<AnimatePresence mode='wait'>
+						<motion.div
+							key={activeScene.id}
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0.3, ease: 'easeInOut' }}
+							className='w-full'
+						>
+							<ActiveSceneComponent />
+						</motion.div>
+					</AnimatePresence>
+				</div>
 			</div>
 		</div>
 	);

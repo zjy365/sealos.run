@@ -21,14 +21,14 @@ const faqs = [
 
 export function FAQSection() {
 	return (
-		<div className='flex items-stretch gap-12'>
+		<div className='flex flex-col items-stretch gap-12 lg:flex-row'>
 			<div className='flex min-h-full flex-1 flex-col gap-3'>
 				<h2 className='text-4xl font-semibold'>
 					常见问题 <span className='text-brand'>(FAQ)</span>
 				</h2>
 			</div>
 
-			<div className='ml-auto w-1/2 max-w-2xl shrink-0'>
+			<div className='max-w-2xl shrink-0 lg:ml-auto lg:w-1/2'>
 				<Accordion
 					type='single'
 					collapsible

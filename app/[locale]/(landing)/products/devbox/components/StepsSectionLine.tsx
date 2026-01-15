@@ -19,10 +19,30 @@ export function StepsSectionLine() {
 	}, []);
 
 	return (
-		<div className='text-brand absolute top-54 -z-10 h-[calc(100%-13.5rem)] w-full overflow-visible'>
+		<div className='text-brand absolute top-54 left-0 -z-10 h-[calc(100%-13.5rem)] overflow-visible pl-6 lg:w-full'>
+			{/* Mobile/Tablet: simple left vertical line */}
+			<svg
+				className='h-full w-full lg:hidden'
+				preserveAspectRatio='none'
+				style={{ overflow: 'visible' }}
+				xmlns='http://www.w3.org/2000/svg'
+				aria-hidden='true'
+			>
+				<line
+					x1='1.5rem'
+					y1='0'
+					x2='1.5rem'
+					y2='100%'
+					stroke='currentColor'
+					strokeWidth='1'
+					strokeDasharray='4 4'
+					strokeLinecap='round'
+				/>
+			</svg>
+			{/* Desktop: complex path */}
 			<svg
 				key={windowWidth}
-				className='h-full w-full'
+				className='hidden h-full w-full lg:block'
 				preserveAspectRatio='none'
 				style={{ overflow: 'visible' }}
 				xmlns='http://www.w3.org/2000/svg'
@@ -30,18 +50,18 @@ export function StepsSectionLine() {
 			>
 				<g>
 					<line
-						x1='calc(50% - 1.5rem)'
+						x1='calc(50% - 0.75rem)'
 						y1='0'
-						x2='calc(50% - 1.5rem)'
-						y2='calc(100% - 12rem)'
+						x2='calc(50% - 0.75rem)'
+						y2='calc(100% - 12.75rem)'
 						stroke='currentColor'
 						strokeWidth='1'
 						strokeDasharray='4 4'
 						strokeLinecap='round'
 					/>
 					<line
-						x1='calc(50% - 1.5rem)'
-						y1='calc(100% - 12rem)'
+						x1='calc(50% - 0.75rem)'
+						y1='calc(100% - 12.75rem)'
 						x2='calc(50% - 5.5rem)'
 						y2='calc(100% - 8rem)'
 						stroke='currentColor'

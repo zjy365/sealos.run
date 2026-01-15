@@ -106,7 +106,7 @@ export function LandingOutlineButton({
 			asChild
 		>
 			<Link href={href}>
-				<span>{children}</span>
+				<span className='w-full text-center'>{children}</span>
 				{showIcon && (
 					<div
 						className={cn(iconContainerVariants({ size }), iconContainerClassName)}

@@ -189,7 +189,7 @@ function FeaturePointItem({ icon, title, description }: FeaturePoint) {
 
 			<div className='flex flex-1 flex-col items-start gap-1'>
 				<h4 className='text-lg font-medium'>{title}</h4>
-				<p className='text-muted-foreground text-right text-sm'>{description}</p>
+				<p className='text-muted-foreground text-sm'>{description}</p>
 			</div>
 		</div>
 	);
@@ -199,8 +199,8 @@ function FeatureSection({ data, className }: { data: FeatureSectionData; classNa
 	return (
 		<>
 			<div className={cn('flex flex-col gap-4 pt-16', className)}>
-				<h3 className='text-2xl font-semibold'>{data.title}</h3>
-				<p className='text-muted-foreground text-base'>{data.description}</p>
+				<h3 className='text-xl font-semibold sm:text-2xl'>{data.title}</h3>
+				<p className='text-muted-foreground text-xs sm:text-base'>{data.description}</p>
 			</div>
 			<div className='mt-8 flex justify-end'>
 				<div className='flex w-2xl flex-col items-start gap-6'>
@@ -256,83 +256,5 @@ export function QuickReleaseSection() {
 			data={data}
 			className='border-t'
 		/>
-	);
-}
-
-interface FeatureItemProps {
-	icon: StaticImageData;
-	title: string;
-	description: string;
-	image: StaticImageData;
-}
-
-function FeatureItem({ icon, title, description, image }: FeatureItemProps) {
-	return (
-		<div className='flex flex-col items-end gap-6'>
-			{/* Feature items on top */}
-			<div className='flex flex-col items-end gap-6'>
-				<div className='flex items-start gap-4'>
-					<div className='flex flex-1 flex-col items-end gap-1'>
-						<h4 className='text-lg font-medium'>{title}</h4>
-						<p className='text-muted-foreground text-right text-sm'>{description}</p>
-					</div>
-					<div className='text-brand flex size-8 shrink-0 items-center justify-center'>
-						<Icon
-							src={icon}
-							className='size-8'
-						/>
-					</div>
-				</div>
-			</div>
-
-			{/* Demo image at bottom */}
-			<AnimatedImage
-				src={image}
-				alt={title}
-			/>
-		</div>
-	);
-}
-
-const features: FeatureItemProps[] = [
-	{
-		icon: IsolateIcon,
-		title: '项目间完全隔离',
-		description: '独立的容器实例,开发、测试与生产环境不会互相影响',
-		image: FeatureIsolationImage,
-	},
-	{
-		icon: ObjectStorageIcon,
-		title: '云端协作开发',
-		description: '项目代码云端存储,随时随地协同编码',
-		image: FeatureCollabImage,
-	},
-	{
-		icon: RocketIcon,
-		title: '秒级发布上线',
-		description: '一键发布,自动化容器编排,环境一致并相互隔离',
-		image: FeatureQuickImage,
-	},
-];
-
-export function FeaturesSection() {
-	return (
-		<div className='flex flex-col gap-12'>
-			<div className='flex flex-col items-end gap-4'>
-				<h2 className='text-right text-3xl font-semibold'>
-					你需要的<span className='text-brand'>一切功能</span>
-				</h2>
-				<p className='text-muted-foreground text-right text-base'>告别多工具拼凑，从创建到分析一站搞定</p>
-			</div>
-
-			<div className='flex flex-col items-end gap-16'>
-				{features.map((feature) => (
-					<FeatureItem
-						key={feature.title}
-						{...feature}
-					/>
-				))}
-			</div>
-		</div>
 	);
 }

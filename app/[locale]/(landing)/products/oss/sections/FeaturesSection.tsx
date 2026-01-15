@@ -54,7 +54,7 @@ export function FeaturesSection() {
 				<div className='border-brand h-px w-full border-t border-dashed' />
 			</div>
 
-			<div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
+			<div className='grid grid-cols-2 gap-6 lg:grid-cols-3'>
 				{features.map((feature) => (
 					<div
 						key={feature.title}

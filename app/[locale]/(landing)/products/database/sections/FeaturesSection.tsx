@@ -45,13 +45,13 @@ export function FeaturesSection() {
 	return (
 		<div className='flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between'>
 			<div className='flex max-w-sm flex-col gap-4'>
-				<h2 className='text-3xl font-semibold'>
+				<h2 className='text-xl font-semibold sm:text-3xl'>
 					你需要的<span className='text-brand'>一切功能</span>
 				</h2>
-				<p className='text-muted-foreground text-base'>告别多工具拼凑，从创建到分析一站搞定</p>
+				<p className='text-muted-foreground text-xs sm:text-base'>告别多工具拼凑，从创建到分析一站搞定</p>
 			</div>
 
-			<div className='grid flex-1 grid-cols-1 gap-10 md:grid-cols-2 lg:max-w-4xl lg:grid-cols-3'>
+			<div className='grid flex-1 grid-cols-1 gap-10 sm:grid-cols-3 lg:max-w-4xl'>
 				{features.map((feature) => (
 					<div
 						key={feature.title}

@@ -44,7 +44,7 @@ export function ComparisonSection() {
 	return (
 		<div className='flex flex-col gap-16'>
 			<div className='flex flex-col items-center gap-4 text-center'>
-				<h2 className='text-3xl font-semibold'>
+				<h2 className='text-xl font-semibold sm:text-3xl'>
 					为什么选择 <span className='text-brand'>Sealos Docker</span> 部署
 				</h2>
 				<p className='text-muted-foreground text-base'>传统 Docker 部署的痛点，我们都帮您解决了</p>
@@ -57,14 +57,14 @@ export function ComparisonSection() {
 						<col className='w-1/3' />
 					</colgroup>
 					<thead>
-						<tr>
-							<th className='border-border text-foreground h-20 border-r border-b px-8 text-left text-lg font-bold'>
+						<tr className='text-xs sm:text-base md:text-lg'>
+							<th className='border-border text-foreground h-20 border-r border-b px-4 text-left font-bold md:px-8'>
 								{headerRow?.category}
 							</th>
-							<th className='border-border text-brand relative h-20 border-r border-b border-l bg-white/80 px-8 text-left text-lg font-bold'>
+							<th className='border-border text-brand relative h-20 border-r border-b border-l bg-white/80 px-4 text-left font-bold md:px-8'>
 								{headerRow?.sealos}
 							</th>
-							<th className='border-border text-foreground h-20 border-b border-l px-8 text-left text-lg font-bold'>
+							<th className='border-border text-foreground h-20 border-b border-l px-4 text-left font-bold md:px-8'>
 								{headerRow?.traditional}
 							</th>
 						</tr>
@@ -73,15 +73,15 @@ export function ComparisonSection() {
 						{dataRows.map((item) => (
 							<tr
 								key={item.category}
-								className='border-b last:border-b-0'
+								className='border-b text-xs last:border-b-0 sm:text-base'
 							>
-								<td className='border-border text-muted-foreground h-14 border-r px-8 text-base'>
+								<td className='border-border text-muted-foreground h-14 border-r px-4 md:px-8'>
 									{item.category}
 								</td>
-								<td className='border-border text-foreground relative h-14 border-r border-l bg-white/80 px-8 text-base'>
+								<td className='border-border text-foreground relative h-14 border-r border-l bg-white/80 px-4 md:px-8'>
 									{item.sealos}
 								</td>
-								<td className='border-border text-muted-foreground h-14 border-l px-8 text-base'>
+								<td className='border-border text-muted-foreground h-14 border-l px-4 md:px-8'>
 									{item.traditional}
 								</td>
 							</tr>

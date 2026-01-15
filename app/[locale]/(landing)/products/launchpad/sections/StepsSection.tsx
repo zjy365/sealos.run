@@ -92,7 +92,7 @@ export function StepsSection() {
 
 	return (
 		<div className='flex flex-col gap-12'>
-			<h2 className='text-center text-3xl font-semibold'>简单 4 步, 1 分钟完成Docker容器化部署</h2>
+			<h2 className='text-center text-xl font-semibold sm:text-3xl'>简单 4 步, 1 分钟完成Docker容器化部署</h2>
 			<div className='flex flex-col gap-8'>
 				<div className='flex items-center justify-center'>
 					{steps.map((step, index) => (
@@ -127,7 +127,7 @@ export function StepsSection() {
 									</span>
 								</button>
 								{index < steps.length - 1 && (
-									<div className='absolute top-3.5 left-full w-48'>
+									<div className='absolute top-3.5 left-full w-8 sm:w-16 md:w-24 lg:w-48'>
 										<div className='border-border h-px border-t border-dashed' />
 										{index < current && (
 											<div
@@ -141,7 +141,7 @@ export function StepsSection() {
 									</div>
 								)}
 							</div>
-							{index < steps.length - 1 && <div className='w-48' />}
+							{index < steps.length - 1 && <div className='w-8 sm:w-16 md:w-24 lg:w-48' />}
 						</div>
 					))}
 				</div>

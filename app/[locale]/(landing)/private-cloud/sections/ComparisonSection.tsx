@@ -179,74 +179,76 @@ export function ComparisonSection() {
 					与传统云操作系统相比,Sealos 私有云在部署简易性、运维成本、技术先进性方面具有显著优势
 				</p>
 			</div>
-			<div className='relative overflow-x-auto'>
-				<div className='bg-foreground text-background relative left-[66.66%] z-10 w-64 rounded-tr-3xl py-4 pl-4 font-normal whitespace-nowrap'>
-					推荐选择
-				</div>
+			<div className='w-full max-w-full overflow-x-scroll'>
+				<div className='relative min-w-5xl'>
+					<div className='bg-foreground text-background relative left-[66.66%] z-10 w-64 rounded-tr-3xl py-4 pl-4 font-normal whitespace-nowrap'>
+						推荐选择
+					</div>
 
-				<table className='border-border w-full border-collapse border'>
-					<colgroup>
-						<col className='w-1/6' />
-						<col className='w-1/6' />
-						<col className='w-1/3' />
-						<col className='w-1/3' />
-					</colgroup>
-					<thead>
-						<tr>
-							<th className='border-border text-foreground h-20 border-r border-b px-8 text-center text-lg font-bold'>
-								类型
-							</th>
-							<th className='border-border text-foreground h-20 border-b px-8 text-left text-lg font-bold'>
-								组件
-							</th>
-							<th className='border-border text-foreground h-20 border-b px-8 text-left text-lg font-bold'>
-								开源版
-							</th>
-							<th className='border-border text-brand relative h-20 border-b px-8 text-left text-lg font-bold'>
-								商业版
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						{typeEntries.flatMap(([type, rows], typeIndex) => [
-							...rows.map((row, index) => (
-								<tr
-									key={`${type}-${row.component}-${index}`}
-									className='border-b'
-								>
-									{index === 0 && (
-										<td
-											className='border-border text-muted-foreground border-r px-8 text-base'
-											rowSpan={rows.length}
-										>
-											<div className='flex h-full items-center justify-center'>{type}</div>
-										</td>
-									)}
-									<td className='border-border text-muted-foreground h-14 px-8 text-base'>
-										{row.component}
-									</td>
-									<td className='border-border text-muted-foreground h-14 px-8 text-base'>
-										<div className='flex items-center'>{renderValue(row.openSource)}</div>
-									</td>
-									<td className='border-border text-foreground relative h-14 bg-white/80 px-8 text-base'>
-										<div className='flex items-center'>{renderValue(row.commercial)}</div>
-									</td>
-								</tr>
-							)),
-							...(typeIndex < typeEntries.length - 1
-								? [
-										<tr key={`spacer-${type}`}>
+					<table className='border-border w-full border-collapse border'>
+						<colgroup>
+							<col className='w-1/6' />
+							<col className='w-1/6' />
+							<col className='w-1/3' />
+							<col className='w-1/3' />
+						</colgroup>
+						<thead>
+							<tr>
+								<th className='border-border text-foreground h-20 border-r border-b px-8 text-center text-lg font-bold'>
+									类型
+								</th>
+								<th className='border-border text-foreground h-20 border-b px-8 text-left text-lg font-bold'>
+									组件
+								</th>
+								<th className='border-border text-foreground h-20 border-b px-8 text-left text-lg font-bold'>
+									开源版
+								</th>
+								<th className='border-border text-brand relative h-20 border-b px-8 text-left text-lg font-bold'>
+									商业版
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{typeEntries.flatMap(([type, rows], typeIndex) => [
+								...rows.map((row, index) => (
+									<tr
+										key={`${type}-${row.component}-${index}`}
+										className='border-b'
+									>
+										{index === 0 && (
 											<td
-												colSpan={4}
-												className='h-4'
-											/>
-										</tr>,
-									]
-								: []),
-						])}
-					</tbody>
-				</table>
-				<div className='border-brand pointer-events-none absolute top-14 left-2/3 h-[calc(100%-3.5rem)] w-1/3 rounded-none border' />
+												className='border-border text-muted-foreground border-r px-8 text-base'
+												rowSpan={rows.length}
+											>
+												<div className='flex h-full items-center justify-center'>{type}</div>
+											</td>
+										)}
+										<td className='border-border text-muted-foreground h-14 px-8 text-base'>
+											{row.component}
+										</td>
+										<td className='border-border text-muted-foreground h-14 px-8 text-base'>
+											<div className='flex items-center'>{renderValue(row.openSource)}</div>
+										</td>
+										<td className='border-border text-foreground relative h-14 bg-white/80 px-8 text-base'>
+											<div className='flex items-center'>{renderValue(row.commercial)}</div>
+										</td>
+									</tr>
+								)),
+								...(typeIndex < typeEntries.length - 1
+									? [
+											<tr key={`spacer-${type}`}>
+												<td
+													colSpan={4}
+													className='h-4'
+												/>
+											</tr>,
+										]
+									: []),
+							])}
+						</tbody>
+					</table>
+					<div className='border-brand pointer-events-none absolute top-14 left-2/3 h-[calc(100%-3.5rem)] w-1/3 rounded-none border' />
+				</div>
 			</div>
 		</div>
 	);

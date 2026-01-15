@@ -15,9 +15,10 @@ interface StepItemProps {
 	tags: string[];
 	image: StaticImageData;
 	variant: 'left' | 'right';
+	hideDecoration?: boolean;
 }
 
-export function StepItem({ icon, title, description, tags, image, variant }: StepItemProps) {
+export function StepItem({ icon, title, description, tags, image, variant, hideDecoration = false }: StepItemProps) {
 	const ref = React.useRef<HTMLDivElement>(null);
 	const isInView = useInView(ref, {
 		margin: '0px 0px -60% 0px',
@@ -32,11 +33,11 @@ export function StepItem({ icon, title, description, tags, image, variant }: Ste
 			ref={ref}
 			className='relative flex flex-col gap-4'
 		>
-			<div className='flex items-start gap-4'>
+			<div className='flex flex-col items-start gap-4 sm:flex-row'>
 				{variant === 'left' ? (
 					<>
 						{/* Tags on the left (outermost, near page edge) */}
-						<div className='flex shrink-0 flex-row items-end gap-2 self-end'>
+						<div className='flex shrink-0 flex-row items-end gap-2 sm:self-end'>
 							{tags.map((tag) => (
 								<Badge
 									key={tag}
@@ -61,22 +62,26 @@ export function StepItem({ icon, title, description, tags, image, variant }: Ste
 							<p className='text-muted-foreground text-right text-sm'>{description}</p>
 						</div>
 						{/* Left decoration (mirrored, positioned on the right side, facing inward) */}
-						<div className='flex shrink-0 items-center'>
-							<div
-								style={{
-									transform: 'scaleX(-1)',
-								}}
-							>
-								<StepDecoration variant={isActive ? 'active' : 'default'} />
+						{!hideDecoration && (
+							<div className='flex shrink-0 items-center'>
+								<div
+									style={{
+										transform: 'scaleX(-1)',
+									}}
+								>
+									<StepDecoration variant={isActive ? 'active' : 'default'} />
+								</div>
 							</div>
-						</div>
+						)}
 					</>
 				) : (
 					<>
 						{/* Right decoration (positioned on the left side, facing inward) */}
-						<div className='flex shrink-0 items-center'>
-							<StepDecoration variant={isActive ? 'active' : 'default'} />
-						</div>
+						{!hideDecoration && (
+							<div className='flex shrink-0 items-center'>
+								<StepDecoration variant={isActive ? 'active' : 'default'} />
+							</div>
+						)}
 						{/* Title, description, and icon in the middle */}
 						<div className='flex flex-1 flex-col gap-2'>
 							<div className='flex items-center gap-2'>
@@ -91,7 +96,7 @@ export function StepItem({ icon, title, description, tags, image, variant }: Ste
 							<p className='text-muted-foreground text-sm'>{description}</p>
 						</div>
 						{/* Tags on the right (outermost, near page edge) */}
-						<div className='flex shrink-0 flex-row items-end gap-2 self-end'>
+						<div className='flex shrink-0 flex-row items-end gap-2 sm:self-end'>
 							{tags.map((tag) => (
 								<Badge
 									key={tag}
@@ -105,7 +110,9 @@ export function StepItem({ icon, title, description, tags, image, variant }: Ste
 					</>
 				)}
 			</div>
-			<div className={`relative w-full overflow-hidden ${variant === 'left' ? 'pr-24' : 'pl-24'}`}>
+			<div
+				className={`relative w-full overflow-hidden ${hideDecoration ? '' : variant === 'left' ? 'pr-24' : 'pl-24'}`}
+			>
 				<Image
 					src={image}
 					alt={title}

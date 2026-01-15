@@ -31,7 +31,7 @@ export function HeroSection() {
 
 	return (
 		<div className='relative flex flex-col gap-16 py-12'>
-			<div className='absolute h-full w-full'>
+			<div className='pointer-events-none absolute -z-10 h-full w-full'>
 				<Image
 					alt=''
 					src={HeroBgImage}
@@ -67,9 +67,9 @@ export function HeroSection() {
 			</div>
 
 			{/* Bottom: Supported Languages */}
-			<div className='flex w-full items-center gap-12'>
+			<div className='flex w-full flex-col items-center gap-6 md:flex-row md:gap-12'>
 				<p className='text-muted-foreground w-fit text-center text-base text-nowrap'>支持所有编程语言</p>
-				<div className='flex w-full flex-wrap items-center justify-between gap-6 lg:gap-8'>
+				<div className='flex w-full flex-wrap items-center justify-center gap-6 lg:gap-8'>
 					{languages.map((lang) => (
 						<div
 							key={lang.name}

@@ -45,13 +45,13 @@ export function DatabasesSection() {
 	return (
 		<div className='flex flex-col gap-8'>
 			<div className='flex flex-col gap-3'>
-				<h2 className='text-2xl font-medium'>支持的数据库</h2>
-				<p className='text-muted-foreground text-base'>
+				<h2 className='text-xl font-medium sm:text-2xl'>支持的数据库</h2>
+				<p className='text-muted-foreground text-xs sm:text-base'>
 					全面兼容主流数据库生态，分布式存储，支持快速扩展与无缝迁移。
 				</p>
 			</div>
 
-			<div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6'>
+			<div className='grid grid-cols-2 gap-6 sm:grid-cols-3 xl:grid-cols-6'>
 				{databases.map((db) => (
 					<div
 						key={db.name}

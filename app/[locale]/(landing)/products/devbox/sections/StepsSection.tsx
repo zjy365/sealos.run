@@ -46,13 +46,13 @@ export function StepsSection() {
 	const rightSteps = steps.filter((step) => step.side === 'right');
 
 	return (
-		<div className='flex flex-col gap-8'>
+		<div className='flex flex-col gap-8 pl-12 lg:pl-0'>
 			<div className='flex flex-col items-center gap-4'>
-				<h2 className='text-center text-3xl font-semibold'>
+				<h2 className='text-center text-xl font-semibold sm:text-3xl'>
 					从想法到上线,只需
 					<span className='text-brand'>几分钟</span>
 				</h2>
-				<div className='text-muted-foreground flex items-center gap-2 text-lg'>
+				<div className='text-muted-foreground flex items-center gap-2 text-xs sm:text-lg'>
 					<span>内置环境</span>
 					<span>|</span>
 					<span>本地开发</span>
@@ -63,27 +63,57 @@ export function StepsSection() {
 					<span>|</span>
 					<span>环境隔离</span>
 				</div>
-				<p className='text-muted-foreground text-center text-base'>零配置零维护,让你专注写代码</p>
+				<p className='text-muted-foreground text-center text-xs sm:text-base'>零配置零维护,让你专注写代码</p>
 			</div>
 
-			<div className='flex w-full gap-8'>
+			<div className='flex w-full flex-col gap-8 lg:flex-row'>
 				{/* Left side: two steps */}
 				<div className='flex flex-1 flex-col gap-20'>
-					{leftSteps.map((step) => (
-						<StepItem
-							key={step.number}
-							icon={step.icon}
-							title={step.title}
-							description={step.description}
-							tags={step.tags}
-							image={step.image}
-							variant={step.side}
-						/>
-					))}
+					{/* Desktop: show left steps with original variant */}
+					<div className='hidden lg:flex lg:flex-col lg:gap-20'>
+						{leftSteps.map((step) => (
+							<StepItem
+								key={step.number}
+								icon={step.icon}
+								title={step.title}
+								description={step.description}
+								tags={step.tags}
+								image={step.image}
+								variant={step.side}
+							/>
+						))}
+					</div>
+					{/* Mobile: show all steps with right variant and hide decoration */}
+					<div className='flex flex-col gap-20 lg:hidden'>
+						{leftSteps.map((step) => (
+							<StepItem
+								key={step.number}
+								icon={step.icon}
+								title={step.title}
+								description={step.description}
+								tags={step.tags}
+								image={step.image}
+								variant='right'
+								hideDecoration
+							/>
+						))}
+						{rightSteps.map((step) => (
+							<StepItem
+								key={step.number}
+								icon={step.icon}
+								title={step.title}
+								description={step.description}
+								tags={step.tags}
+								image={step.image}
+								variant='right'
+								hideDecoration
+							/>
+						))}
+					</div>
 				</div>
 
-				{/* Right side: two steps */}
-				<div className='mt-64 flex flex-1 flex-col gap-20'>
+				{/* Right side: two steps - hidden on md and below */}
+				<div className='hidden flex-1 flex-col gap-20 lg:mt-64 lg:flex'>
 					{rightSteps.map((step) => (
 						<StepItem
 							key={step.number}

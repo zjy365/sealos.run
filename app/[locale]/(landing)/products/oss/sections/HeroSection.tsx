@@ -14,7 +14,7 @@ export function HeroSection() {
 						<span className='text-brand'>对象存储服务</span>
 					</h1>
 				</div>
-				<div className='shrink-0'>
+				<div className='hidden shrink-0 lg:block'>
 					<Image
 						src={OssBoxImage}
 						alt='对象存储'
@@ -23,10 +23,10 @@ export function HeroSection() {
 				</div>
 			</div>
 
-			<div className='border-brand mt-28 mb-12 h-px w-full border-t border-dashed' />
+			<div className='border-brand mt-14 mb-14 h-px w-full border-t border-dashed' />
 
 			<div className='relative min-h-50'>
-				<div className='ml-88 flex max-w-xs flex-col items-start gap-12'>
+				<div className='flex max-w-xs flex-col items-start gap-12 md:ml-40 lg:ml-56 xl:ml-72 2xl:ml-88'>
 					<p className='text-muted-foreground text-xl lg:text-2xl'>
 						支持海量数据存储，为你的应用提供可靠的云端存储解决方案。
 					</p>

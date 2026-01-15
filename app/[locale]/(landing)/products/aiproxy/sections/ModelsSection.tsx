@@ -71,41 +71,57 @@ function SearchBox({
 	onClose: () => void;
 	onQueryChange: (query: string) => void;
 }) {
-	if (!isOpen) {
-		return (
-			<button
-				onClick={onOpen}
-				className='flex size-10 items-center justify-center rounded-full border border-zinc-300 bg-white'
-				type='button'
-			>
+	return (
+		<>
+			{/* 小屏幕：始终显示搜索框 */}
+			<div className='flex h-10 w-full items-center gap-2 rounded-full border border-zinc-300 bg-white pr-2 pl-4 sm:hidden'>
+				<input
+					type='text'
+					placeholder='根据模型名称搜索'
+					value={query}
+					onChange={(e) => onQueryChange(e.target.value)}
+					className='flex-1 outline-none'
+				/>
 				<Icon
 					src={SearchIcon}
-					className='text-brand size-5'
+					className='text-brand size-5 shrink-0'
 				/>
-			</button>
-		);
-	}
+			</div>
 
-	return (
-		<div className='flex h-10 items-center gap-2 rounded-full border border-zinc-300 bg-white pr-2 pl-4'>
-			<input
-				type='text'
-				placeholder='搜索模型'
-				value={query}
-				onChange={(e) => onQueryChange(e.target.value)}
-				className='w-64 outline-none'
-			/>
-			<button
-				onClick={onClose}
-				className='flex size-10 items-center justify-center rounded-full'
-				type='button'
-			>
-				<Icon
-					src={XIcon}
-					className='text-brand size-5'
-				/>
-			</button>
-		</div>
+			{/* 大屏幕：按钮或搜索框 */}
+			{!isOpen ? (
+				<button
+					onClick={onOpen}
+					className='hidden size-10 items-center justify-center rounded-full border border-zinc-300 bg-white sm:flex'
+					type='button'
+				>
+					<Icon
+						src={SearchIcon}
+						className='text-brand size-5'
+					/>
+				</button>
+			) : (
+				<div className='hidden h-10 items-center gap-2 rounded-full border border-zinc-300 bg-white pr-2 pl-4 sm:flex'>
+					<input
+						type='text'
+						placeholder='根据模型名称搜索'
+						value={query}
+						onChange={(e) => onQueryChange(e.target.value)}
+						className='w-64 outline-none'
+					/>
+					<button
+						onClick={onClose}
+						className='flex size-10 items-center justify-center rounded-full'
+						type='button'
+					>
+						<Icon
+							src={XIcon}
+							className='text-brand size-5'
+						/>
+					</button>
+				</div>
+			)}
+		</>
 	);
 }
 
@@ -128,11 +144,11 @@ export function ModelsSection() {
 				<p className='text-muted-foreground text-sm'>价格较官方低 5%-10% (以平台标价为准)</p>
 			</div>
 
-			<div className='flex items-center gap-6'>
-				<div className='flex items-center gap-3'>
-					<span className='text-base font-semibold'>系列/厂商</span>
+			<div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6'>
+				<div className='flex w-full items-center gap-3 sm:w-auto'>
+					<span className='w-20 shrink-0 text-base font-semibold'>系列/厂商</span>
 					<Select defaultValue='all'>
-						<SelectTrigger className='w-35 bg-white'>
+						<SelectTrigger className='min-w-0 flex-1 bg-white'>
 							<SelectValue placeholder='全部' />
 						</SelectTrigger>
 						<SelectContent>
@@ -141,10 +157,10 @@ export function ModelsSection() {
 						</SelectContent>
 					</Select>
 				</div>
-				<div className='flex items-center gap-3'>
-					<span className='text-base font-semibold'>类型</span>
+				<div className='flex w-full items-center gap-3 sm:w-auto'>
+					<span className='w-20 shrink-0 text-base font-semibold'>类型</span>
 					<Select defaultValue='all'>
-						<SelectTrigger className='w-35 bg-white'>
+						<SelectTrigger className='min-w-0 flex-1 bg-white'>
 							<SelectValue placeholder='全部' />
 						</SelectTrigger>
 						<SelectContent>
@@ -153,7 +169,7 @@ export function ModelsSection() {
 						</SelectContent>
 					</Select>
 				</div>
-				<div className='ml-auto'>
+				<div className='w-full sm:ml-auto sm:w-auto'>
 					<SearchBox
 						isOpen={isSearchOpen}
 						query={searchQuery}

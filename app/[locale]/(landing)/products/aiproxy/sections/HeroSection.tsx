@@ -9,7 +9,7 @@ export function HeroSection() {
 				<Image
 					src={HeroBgImage}
 					alt=''
-					className='h-full object-contain object-right'
+					className='h-full overflow-visible object-cover object-[2.5rem_50%] sm:object-[12.5rem_50%] md:object-[20rem_50%] lg:object-[25rem_0%] xl:object-[25rem_7.5%]'
 					fill
 				/>
 			</div>
@@ -23,7 +23,7 @@ export function HeroSection() {
 					一键生成 API Key，覆盖 100+ 语言 / 语音 / 图片 / 视频等多模态模型。
 				</p>
 			</div>
-			<div className='flex gap-4'>
+			<div className='flex flex-col gap-4 sm:flex-row'>
 				<LandingOutlineButton
 					href='#'
 					size='lg'

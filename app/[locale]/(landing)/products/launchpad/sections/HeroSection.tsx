@@ -7,15 +7,15 @@ export function HeroSection() {
 	return (
 		<div className='flex flex-col items-center gap-8 py-12'>
 			<div className='flex flex-col items-center gap-6'>
-				<div className='flex items-center gap-6'>
+				<div className='flex flex-col items-center gap-6 sm:flex-row'>
 					<Image
 						src={LaunchpadBoxImage}
 						alt='App Launchpad'
 						className='size-24'
 					/>
-					<h1 className='text-4xl font-semibold'>应用部署解决方案</h1>
+					<h1 className='text-4xl font-semibold sm:text-5xl'>应用部署解决方案</h1>
 				</div>
-				<p className='text-muted-foreground text-center text-lg'>
+				<p className='text-muted-foreground text-center text-base sm:text-lg'>
 					无需购买云服务器，Sealos提供 Docker 容器可视化操作， 支持微服务到单体应用全栈部署
 				</p>
 			</div>
@@ -43,7 +43,7 @@ export function HeroSection() {
 							className='w-full'
 						/>
 					</div>
-					<div className='relative z-10 -mx-128 w-full'>
+					<div className='relative z-10 -mx-56 w-full md:-mx-96 lg:-mx-128'>
 						<Image
 							src={Hero2Image}
 							alt='应用部署配置页面 2'

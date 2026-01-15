@@ -68,13 +68,13 @@ export function ScenariosSection() {
 				{scenarios.map((scenario) => (
 					<div
 						key={scenario.title}
-						className='grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-20'
+						className='grid grid-cols-3 gap-4 lg:gap-20'
 					>
-						<div className='flex items-center gap-4 lg:col-span-1'>
+						<div className='col-span-1 flex gap-2 sm:gap-4'>
 							<div className='text-brand flex size-6 items-center justify-center'>{scenario.icon}</div>
-							<h3 className='text-xl font-medium'>{scenario.title}</h3>
+							<h3 className='text-base font-medium sm:text-xl'>{scenario.title}</h3>
 						</div>
-						<div className='flex flex-col gap-4 lg:col-span-2'>
+						<div className='col-span-2 flex flex-col gap-4'>
 							<p className='text-base'>{scenario.description}</p>
 							<div className='flex flex-wrap gap-2'>
 								{scenario.tags.map((tag) => (
