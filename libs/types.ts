@@ -1,15 +1,31 @@
-/**
- * For use with our svg inliner plugin to generate image data for each stroke width.
- */
+export type Range = { start: number; end: number };
+
+export type ScalingMode = 'scaling' | 'non-scaling';
+export type VectorEffectInput = string | string[];
+
 export type InlinedSvgData = {
 	src: string;
 	width: number;
 	height: number;
+
 	flags?: { colorful?: boolean };
-	defaults?: { strokeWidth?: number; scaling?: 'scaling' | 'non-scaling' };
-	variants?: {
-		strokeWidth: number[];
-		scaling: ('scaling' | 'non-scaling')[];
-		map: Record<string, string>;
+
+	defaults?: {
+		strokeWidth: number;
+		vectorEffect: string;
 	};
+
+	vars?: {
+		strokeWidth: {
+			ph: string;
+			ranges: Range[];
+		};
+		vectorEffect: {
+			ph: string;
+			ranges: Range[];
+			values: { scaling: string; 'non-scaling': string };
+		};
+	};
+
+	meta?: { path: string };
 };

@@ -6,10 +6,8 @@
   fill="none"
   stroke="currentColor"
   data-type="icon"
-  data-variants-stroke-width="true"
   data-default-stroke-width="1"
-  data-variants-scaling="scaling,non-scaling"
-  data-default-scaling="non-scaling"
+  data-default-vector-effect="non-scaling-stroke"
 >
   <path
     d="M5.824 7.882h4.705m2.942 0h5M8.176 5.235v5.294m1.765 2.942-3.823 3.823m0-3.823 3.823 3.823m3.53-3.235h5m-5 2.941h5M2 2h20v20H2z"

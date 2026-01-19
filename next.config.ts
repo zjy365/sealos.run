@@ -19,8 +19,8 @@ const config: NextConfig = {
 			'*.svg': {
 				loaders: ['./scripts/turbopack-inline-svg-loader.cjs'],
 				condition: {
-					// 6KB or smaller
-					content: /^[\s\S]{0,6144}$/,
+					// ~6KB or smaller
+					content: /^[\s\S]{0,496}data-type="icon"[\s\S]{0,5648}$/,
 				},
 				as: '*.js',
 			},

@@ -4,36 +4,38 @@
 /**
  * Turbopack loader: SVG -> optimized data URI + dimensions.
  *
- * Default export (non-icon):
- *   { src, width, height }
+ * Exports:
+ *   { src, width, height, flags, defaults, vars, meta? }
  *
- * Icon mode (root <svg data-type="icon">) additionally exports:
- *   { src, width, height, flags, defaults, variants }
+ * Build directives (root <svg>, build-time only; removed from output):
+ * - data-colorful="true"
+ * - data-default-stroke-width="<number>"
+ * - data-default-vector-effect="<list>" (e.g. "none" or "non-scaling-stroke non-rotation")
  *
- * Root SVG build directives (icon mode only):
- * - data-colorful="true": mark as colorful (consumer may render <img src> directly)
- * - data-variants-stroke-width="true" | "0.5,1,1.5,2": generate strokeWidth variants
- * - data-default-stroke-width="<number>": default strokeWidth for exported `src`
- * - data-variants-scaling="scaling,non-scaling": generate scaling-mode variants
- * - data-default-scaling="scaling|non-scaling": default scaling for exported `src`
+ * Pipeline:
+ * 1) Read defaults from original source (root <svg> only)
+ * 2) SVGO optimize AND remove data-* directives
+ * 3) Inject placeholders (stroke-width + vector-effect) AFTER SVGO
+ * 4) Convert to data URI
  */
 
 const { optimize } = require('svgo');
 const svgToMiniDataURI = require('mini-svg-data-uri');
 const { imageSize } = require('image-size');
 
-const DEFAULT_STROKE_WIDTHS = [0.5, 1, 1.5, 2];
-const DEFAULT_SCALING = ['scaling'];
+const DEFAULT_STROKE_WIDTH = 1.5;
+
+const VARS = {
+	strokeWidth: { ph: '__SW__' },
+	vectorEffect: { ph: '__VE__' },
+};
 
 /** @param {string} s */
 function escapeRegExp(s) {
 	return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-/**
- * Get root <svg ...> open tag only.
- * @param {string} svg
- */
+/** @param {string} svg */
 function getRootSvgOpenTag(svg) {
 	const m = svg.match(/<svg\b[\s\S]*?>/i);
 	return m ? m[0] : '';
@@ -60,197 +62,168 @@ function truthy(v) {
 	return s === 'true' || s === '1' || s === 'yes' || s === 'on';
 }
 
-/**
- * Parse "0.5,1,1.5" -> number[].
- * @param {string} v
- */
-function parseNumberList(v) {
-	return String(v)
-		.split(',')
-		.map((s) => Number(s.trim()))
-		.filter((n) => Number.isFinite(n) && n > 0);
+/** @param {string|undefined} v */
+function parseNumber(v) {
+	if (v == null) return undefined;
+	const n = Number(String(v).trim());
+	return Number.isFinite(n) && n > 0 ? n : undefined;
 }
 
 /**
- * Parse "scaling,non-scaling" -> ("scaling"|"non-scaling")[].
- * @param {string} v
+ * Normalize vector-effect list.
+ * - Accepts space/comma separated string.
+ * - Removes duplicates.
+ * - If "none" appears with others, drop "none" (unless it's the only one).
+ * @param {string|undefined} v
+ * @returns {string|undefined}
  */
-function parseScalingList(v) {
-	const items = String(v)
-		.split(',')
-		.map((s) => s.trim().toLowerCase())
+function normalizeVectorEffect(v) {
+	if (v == null) return undefined;
+	const raw = String(v).trim();
+	if (!raw) return undefined;
+
+	const parts = raw
+		.split(/[,\s]+/)
+		.map((s) => s.trim())
 		.filter(Boolean);
-	const out = [];
-	for (const it of items) if (it === 'scaling' || it === 'non-scaling') out.push(it);
-	return [...new Set(out)];
+
+	if (!parts.length) return undefined;
+
+	const seen = new Set();
+	const uniq = [];
+	for (const p of parts) {
+		if (!seen.has(p)) {
+			seen.add(p);
+			uniq.push(p);
+		}
+	}
+
+	if (uniq.includes('none') && uniq.length > 1) {
+		return uniq.filter((x) => x !== 'none').join(' ');
+	}
+	return uniq.join(' ');
 }
 
 /**
- * Pick closest number in list.
- * @param {number[]} list @param {number} target
- */
-function pickClosest(list, target) {
-	if (!list.length || !Number.isFinite(target)) return undefined;
-	let best = list[0];
-	for (const v of list) if (Math.abs(v - target) < Math.abs(best - target)) best = v;
-	return best;
-}
-
-/**
- * Strip build directives before SVGO to avoid leaking metadata into output.
+ * Inject/replace root stroke-width with placeholder.
+ * Call AFTER SVGO.
  * @param {string} svg
+ * @param {string} ph
  */
-function stripBuildAttrs(svg) {
-	return svg
-		.replace(/\sdata-type=(['"])[\s\S]*?\1/gi, '')
-		.replace(/\sdata-colorful=(['"])[\s\S]*?\1/gi, '')
-		.replace(/\sdata-variants-stroke-width=(['"])[\s\S]*?\1/gi, '')
-		.replace(/\sdata-default-stroke-width=(['"])[\s\S]*?\1/gi, '')
-		.replace(/\sdata-variants-scaling=(['"])[\s\S]*?\1/gi, '')
-		.replace(/\sdata-default-scaling=(['"])[\s\S]*?\1/gi, '');
-}
-
-/** Inject root stroke-width.
- * @param {string} svg
- * @param {number} sw
- */
-function setRootStrokeWidth(svg, sw) {
+function injectStrokeWidthPlaceholder(svg, ph) {
 	let out = svg.replace(/\sstroke-width=(['"])[\s\S]*?\1/gi, '');
-	out = out.replace(/<svg\b([^>]*)>/i, (_m, attrs) => `<svg${attrs} stroke-width="${sw}">`);
+	out = out.replace(/<svg\b([^>]*)>/i, (_m, attrs) => `<svg${attrs} stroke-width="${ph}">`);
 	return out;
 }
 
 /**
- * Inject vector-effect="non-scaling-stroke" into common shape elements.
+ * Inject/replace vector-effect placeholder on common shape elements.
+ * Call AFTER SVGO.
  * Keeps the original closing (`>` or `/>`) intact.
  * @param {string} svg
+ * @param {string} ph
  */
-function injectNonScalingStroke(svg) {
-	const tags = ['path', 'line', 'rect', 'circle', 'ellipse', 'polyline', 'polygon'];
-	// Capture: <tag (attrs) (optional self-close slash) >
+function injectVectorEffectPlaceholder(svg, ph) {
+	const tags = ['path', 'line', 'rect', 'circle', 'ellipse', 'polyline', 'polygon', 'use', 'g'];
 	const re = new RegExp(`<(${tags.join('|')})\\b([^>]*?)(\\s*\\/?)>`, 'gi');
 
 	return svg.replace(re, (m, tag, attrs, slash) => {
-		// already has vector-effect
-		if (/\bvector-effect\s*=/i.test(attrs)) return m;
-
-		// ensure spacing before injected attribute
+		if (/\bvector-effect\s*=/i.test(attrs)) {
+			const attrs2 = attrs.replace(/\bvector-effect\s*=\s*(["'])[\s\S]*?\1/i, `vector-effect="${ph}"`);
+			return `<${tag}${attrs2}${slash}>`;
+		}
 		const sep = attrs && !/\s$/.test(attrs) ? ' ' : '';
-		return `<${tag}${attrs}${sep}vector-effect="non-scaling-stroke"${slash}>`;
+		return `<${tag}${attrs}${sep}vector-effect="${ph}"${slash}>`;
 	});
 }
 
-/** Variant map key format.
- * @param {number} sw
- * @param {"scaling"|"non-scaling"} scaling
+/**
+ * Find ALL placeholder ranges in a data URI.
+ * @param {string} dataUri
+ * @param {string} ph
  */
-function buildKey(sw, scaling) {
-	return `sw=${sw};scaling=${scaling}`;
+function findAllPlaceholderRanges(dataUri, ph) {
+	const out = [];
+	let at = 0;
+	while (true) {
+		const idx = dataUri.indexOf(ph, at);
+		if (idx < 0) break;
+		out.push({ start: idx, end: idx + ph.length });
+		at = idx + ph.length;
+	}
+	return out;
 }
 
 module.exports = function (content) {
 	this.cacheable?.();
 
+	const resourcePath = this.resourcePath || '';
+	const isDev = process.env.NODE_ENV !== 'production';
+
 	const { width, height } = imageSize(Buffer.from(content));
 
-	// Gate: only data-type="icon" participates in variant generation.
-	const dataType = (readAttrFromRoot(content, 'data-type') || '').trim().toLowerCase();
-	const isIcon = dataType === 'icon';
-
-	// Non-icon: keep minimal output.
-	if (!isIcon) {
-		const optimized = optimize(content, { multipass: true });
-		return `export default ${JSON.stringify({
-			src: svgToMiniDataURI(optimized.data),
-			width,
-			height,
-		})};`;
-	}
-
-	// Icon mode: parse directives from root tag (before SVGO).
+	// 1) Read defaults from original source (root only)
 	const colorful = truthy(readAttrFromRoot(content, 'data-colorful'));
+	const defaultStrokeWidth =
+		parseNumber(readAttrFromRoot(content, 'data-default-stroke-width')) ?? DEFAULT_STROKE_WIDTH;
+	const defaultVectorEffect =
+		normalizeVectorEffect(readAttrFromRoot(content, 'data-default-vector-effect')) ?? 'none';
 
-	const strokeWidthsRaw = readAttrFromRoot(content, 'data-variants-stroke-width');
-	const defaultStrokeWidthRaw = readAttrFromRoot(content, 'data-default-stroke-width');
-	const defaultStrokeWidth = defaultStrokeWidthRaw == null ? undefined : Number(defaultStrokeWidthRaw);
+	// 2) SVGO optimize AND remove data-* directives
+	const optimizedSvg = optimize(content, {
+		multipass: true,
+		plugins: [{ name: 'removeAttrs', params: { attrs: 'data-.*' } }],
+	}).data;
 
-	const scalingRaw = readAttrFromRoot(content, 'data-variants-scaling');
-	const scalingModes = scalingRaw == null ? DEFAULT_SCALING.slice() : parseScalingList(scalingRaw);
+	// 3) Inject placeholders AFTER SVGO
+	const injectedSvg = injectVectorEffectPlaceholder(
+		injectStrokeWidthPlaceholder(optimizedSvg, VARS.strokeWidth.ph),
+		VARS.vectorEffect.ph,
+	);
 
-	const defaultScalingRaw = (readAttrFromRoot(content, 'data-default-scaling') || '').trim().toLowerCase();
-	const defaultScaling =
-		defaultScalingRaw === 'scaling' || defaultScalingRaw === 'non-scaling' ? defaultScalingRaw : undefined;
+	// 4) Convert to data URI
+	const src = svgToMiniDataURI(injectedSvg);
 
-	// strokeWidths variants:
-	// - If data-variants-stroke-width is provided:
-	//   - "true" => DEFAULT_STROKE_WIDTHS
-	//   - list   => parsed list
-	// - If not provided:
-	//   - If defaults are present, still generate a minimal variant set so defaults can affect `src`.
-	//   - Otherwise, no variants (single optimized src).
-	let strokeWidths;
-	if (strokeWidthsRaw != null) {
-		strokeWidths = truthy(strokeWidthsRaw) ? DEFAULT_STROKE_WIDTHS.slice() : parseNumberList(strokeWidthsRaw);
-	} else if (Number.isFinite(defaultStrokeWidth) || defaultScaling) {
-		// minimal variant set so defaults can influence `src`
-		strokeWidths = Number.isFinite(defaultStrokeWidth) ? [defaultStrokeWidth] : [DEFAULT_STROKE_WIDTHS[0] ?? 1.5];
+	// Ranges (now unified as Range[])
+	const strokeWidthRanges = findAllPlaceholderRanges(src, VARS.strokeWidth.ph);
+	const vectorEffectRanges = findAllPlaceholderRanges(src, VARS.vectorEffect.ph);
+
+	if (strokeWidthRanges.length === 0 || vectorEffectRanges.length === 0) {
+		const snippet = src.slice(0, 260);
+		throw new Error(
+			`[inline-svg-loader] placeholders missing after pipeline.\n` +
+				`file: ${resourcePath}\n` +
+				`strokeWidthPHCount: ${strokeWidthRanges.length}\n` +
+				`vectorEffectPHCount: ${vectorEffectRanges.length}\n` +
+				`src[0..260]: ${snippet}`,
+		);
 	}
 
-	// Optimize after stripping build directives.
-	const cleaned = stripBuildAttrs(content);
-	const optimizedSvg = optimize(cleaned, { multipass: true }).data;
-
-	// Build variants map (strokeWidth × scaling).
-	let variants;
-	if (strokeWidths?.length) {
-		const swList = [...new Set(strokeWidths)].sort((a, b) => a - b);
-		const scList = scalingModes.length ? scalingModes : DEFAULT_SCALING;
-
-		const map = {};
-		for (const sw of swList) {
-			const base = setRootStrokeWidth(optimizedSvg, sw);
-			for (const scaling of scList) {
-				const svgVariant = scaling === 'non-scaling' ? injectNonScalingStroke(base) : base;
-				map[buildKey(sw, scaling)] = svgToMiniDataURI(svgVariant);
-			}
-		}
-
-		variants = { strokeWidth: swList, scaling: scList, map };
-	}
-
-	// Pick default src from variants; fallback to single optimized src.
-	let src;
-	let chosenDefaults = { strokeWidth: undefined, scaling: undefined };
-
-	if (variants?.map) {
-		const swList = variants.strokeWidth;
-		const scList = variants.scaling;
-
-		const chosenSw = Number.isFinite(defaultStrokeWidth)
-			? swList.includes(defaultStrokeWidth)
-				? defaultStrokeWidth
-				: pickClosest(swList, defaultStrokeWidth)
-			: (swList[0] ?? 1.5);
-
-		const chosenScaling =
-			defaultScaling && scList.includes(defaultScaling) ? defaultScaling : (scList[0] ?? 'scaling');
-
-		src = variants.map[buildKey(chosenSw, chosenScaling)];
-
-		chosenDefaults = { strokeWidth: chosenSw, scaling: chosenScaling };
-	} else {
-		src = svgToMiniDataURI(optimizedSvg);
-	}
-
-	const result = {
-		src,
+	const out = {
+		src, // contains placeholders
 		width,
 		height,
 		flags: { colorful },
-		// defaults now reflect the *effective* variant actually used for `src`
-		defaults: chosenDefaults,
-		variants,
+		defaults: {
+			strokeWidth: defaultStrokeWidth,
+			vectorEffect: defaultVectorEffect,
+		},
+		vars: {
+			strokeWidth: {
+				ph: VARS.strokeWidth.ph,
+				ranges: strokeWidthRanges,
+			},
+			vectorEffect: {
+				ph: VARS.vectorEffect.ph,
+				ranges: vectorEffectRanges,
+				values: {
+					scaling: 'none',
+					'non-scaling': 'non-scaling-stroke',
+				},
+			},
+		},
+		...(isDev ? { meta: { path: resourcePath } } : null),
 	};
 
-	return `export default ${JSON.stringify(result)};`;
+	return `export default ${JSON.stringify(out)};`;
 };
