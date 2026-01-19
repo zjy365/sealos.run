@@ -100,8 +100,8 @@ function resolveUri(
 	const ve = resolveVectorEffectValue(data, vectorEffect, scaling);
 
 	return applyPatches(data.src, [
-		...swRanges!.map((r) => ({ ...r, value: String(sw) })),
-		...veRanges!.map((r) => ({ ...r, value: ve })),
+		...swRanges.map((r) => ({ ...r, value: String(sw) })),
+		...veRanges.map((r) => ({ ...r, value: ve })),
 	]);
 }
 

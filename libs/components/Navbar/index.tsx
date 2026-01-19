@@ -1,5 +1,5 @@
 import { BigRightArrowImage } from '@/assets';
-import { HexagonIcon } from '@/assets/icons';
+import { ContactIcon, HexagonIcon } from '@/assets/icons';
 import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
 import { Config } from '@/libs/config';
@@ -41,7 +41,7 @@ export async function Navbar() {
 							target='_blank'
 						>
 							<Icon
-								src={HexagonIcon}
+								src={ContactIcon}
 								className='size-5'
 							/>
 							{t('components.navbar.buttons.contact')}
@@ -49,17 +49,11 @@ export async function Navbar() {
 					</Button>
 
 					<Button
-						className='group bg-primary text-primary-foreground flex h-10 w-24 items-center justify-center rounded-full px-0 shadow'
+						className='bg-primary text-primary-foreground flex h-10 w-24 items-center justify-center rounded-full px-0 shadow hover:bg-brand'
 						asChild
 					>
 						<a href={Config.components.navbar.signinLink}>
-							<span className='absolute transition-opacity group-hover:pointer-events-none group-hover:opacity-0'>
-								{t('components.navbar.buttons.signin')}
-							</span>
-							<Icon
-								src={BigRightArrowImage}
-								className='text-primary-foreground pointer-events-none absolute size-auto h-4.5 w-16 opacity-0 transition-opacity group-hover:opacity-100'
-							/>
+							<span className='absolute transition-opacity'>{t('components.navbar.buttons.signin')}</span>
 						</a>
 					</Button>
 				</div>

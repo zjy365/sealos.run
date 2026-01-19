@@ -20,6 +20,7 @@ export { default as ClockCounterIcon } from './clock-counter.svg';
 export { default as CloudBoxIcon } from './cloud-box.svg';
 export { default as CloudDatabaseIcon } from './cloud-database.svg';
 export { default as ConnectorIcon } from './connector.svg';
+export { default as ContactIcon } from './contact.svg';
 export { default as CpuIcon } from './cpu.svg';
 export { default as CubeIcon } from './cube.svg';
 export { default as CubesIcon } from './cubes.svg';

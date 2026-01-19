@@ -1,0 +1,15 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  data-type="icon"
+  data-default-stroke-width="1"
+  data-default-vector-effect="non-scaling-stroke"
+>
+  <path
+    d="M4.39 9.154 2.218 10.28v2.857l1.1.428 1.07-.38v-6.81L11.967 2l7.578 4.375v11.5L12.4 22l-2.49-.667m9.635-12.205 2.236 1.19v2.834l-1.126.466-1.11-.42m-10.589-1.17 3.011 1.276 2.912-1.275"
+  />
+</svg>
