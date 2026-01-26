@@ -15,6 +15,9 @@ function NavigationMenu({
 }) {
 	return (
 		<NavigationMenuPrimitive.Root
+			// Disable (not really) hover interaction by default. Simple, stupid, but works.
+			delayDuration={1_000_000}
+			skipDelayDuration={0}
 			data-slot='navigation-menu'
 			data-viewport={viewport}
 			className={cn(

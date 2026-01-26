@@ -129,15 +129,24 @@ export function StepsSection() {
 								{index < steps.length - 1 && (
 									<div className='absolute top-3.5 left-full w-8 sm:w-16 md:w-24 lg:w-48'>
 										<div className='border-border h-px border-t border-dashed' />
-										{index < current && (
-											<div
-												className='absolute -top-px left-0 h-0.75 w-full'
-												style={{
-													background:
-														'linear-gradient(to right, transparent, var(--color-brand))',
-												}}
-											/>
-										)}
+										{index < current &&
+											(() => {
+												const totalLines = steps.length - 1;
+												if (totalLines === 0) return null;
+
+												const startTransparency = (100 * (totalLines - index)) / totalLines;
+												const endTransparency = (100 * (totalLines - index - 1)) / totalLines;
+												const startColor = `color-mix(in oklab, transparent ${startTransparency}%, var(--color-brand))`;
+												const endColor = `color-mix(in oklab, transparent ${endTransparency}%, var(--color-brand))`;
+												return (
+													<div
+														className='absolute -top-px left-0 h-0.75 w-full'
+														style={{
+															background: `linear-gradient(to right, ${startColor}, ${endColor})`,
+														}}
+													/>
+												);
+											})()}
 									</div>
 								)}
 							</div>

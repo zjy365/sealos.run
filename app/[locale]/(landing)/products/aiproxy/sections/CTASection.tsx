@@ -1,3 +1,4 @@
+import { PlayIcon } from '@/assets/icons';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 
 export function CTASection() {
@@ -16,18 +17,22 @@ export function CTASection() {
 				</div>
 				<p className='text-muted-foreground text-sm'>海外访问请使用 usw.sealos.io</p>
 			</div>
-			<div className='flex gap-4'>
+			<div className='flex w-full flex-col gap-4 sm:w-auto sm:flex-row'>
 				<LandingOutlineButton
 					href='#'
 					size='lg'
 					borderStyle='dashed'
+					className='w-full sm:w-auto'
+					iconContainerClassName='bg-transparent group-hover:bg-transparent text-foreground group-hover:text-brand'
+					icon={PlayIcon}
 				>
-					查看文档
+					预约演示
 				</LandingOutlineButton>
 				<LandingOutlineButton
 					href='#'
 					size='lg'
 					borderStyle='solid'
+					className='w-full sm:w-auto'
 				>
 					立即注册
 				</LandingOutlineButton>

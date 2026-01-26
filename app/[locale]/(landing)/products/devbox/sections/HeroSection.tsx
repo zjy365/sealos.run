@@ -35,7 +35,7 @@ export function HeroSection() {
 				<Image
 					alt=''
 					src={HeroBgImage}
-					className='overflow-visible object-cover'
+					className='overflow-visible object-cover object-[0_-12rem]'
 					fill
 				/>
 			</div>

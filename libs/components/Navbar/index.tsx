@@ -1,5 +1,4 @@
-import { BigRightArrowImage } from '@/assets';
-import { ContactIcon, HexagonIcon } from '@/assets/icons';
+import { ContactIcon } from '@/assets/icons';
 import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
 import { Config } from '@/libs/config';
@@ -24,7 +23,7 @@ export async function Navbar() {
 
 				{/* Links */}
 				<div className='mx-auto'>
-					<div className='hidden items-center gap-12 md:flex'>
+					<div className='hidden items-center gap-12 lg:flex'>
 						<NavbarClient links={Config.components.navbar.links} />
 					</div>
 				</div>
@@ -49,7 +48,7 @@ export async function Navbar() {
 					</Button>
 
 					<Button
-						className='bg-primary text-primary-foreground flex h-10 w-24 items-center justify-center rounded-full px-0 shadow hover:bg-brand'
+						className='bg-primary text-primary-foreground hover:bg-brand flex h-10 w-24 items-center justify-center rounded-full px-0 shadow'
 						asChild
 					>
 						<a href={Config.components.navbar.signinLink}>

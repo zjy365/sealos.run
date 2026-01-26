@@ -74,7 +74,7 @@ export function MigGuideSection() {
 			style={{ minHeight: '200vh' }}
 		>
 			<div className='sticky top-16 pr-6 pl-24 lg:top-64 lg:flex lg:h-[calc(100dvh-24rem)] lg:flex-row'>
-				<div className='border-brand flex h-96 flex-col justify-between border-dashed pt-12 lg:h-full lg:w-1/2 lg:border-r lg:py-12'>
+				<div className='border-brand flex h-96 flex-col justify-between border-dashed pt-12 lg:h-full lg:w-1/2 lg:border-r-[0.5px] lg:py-12'>
 					<VerticalDashedLine
 						mask={[['15rem', '17rem']]}
 						iconY='14.5rem'

@@ -127,7 +127,7 @@ function injectVectorEffectPlaceholder(svg, ph) {
 	const tags = ['path', 'line', 'rect', 'circle', 'ellipse', 'polyline', 'polygon', 'use', 'g'];
 	const re = new RegExp(`<(${tags.join('|')})\\b([^>]*?)(\\s*\\/?)>`, 'gi');
 
-	return svg.replace(re, (m, tag, attrs, slash) => {
+	return svg.replace(re, (_m, tag, attrs, slash) => {
 		if (/\bvector-effect\s*=/i.test(attrs)) {
 			const attrs2 = attrs.replace(/\bvector-effect\s*=\s*(["'])[\s\S]*?\1/i, `vector-effect="${ph}"`);
 			return `<${tag}${attrs2}${slash}>`;

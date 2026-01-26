@@ -4,8 +4,8 @@ import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import React from 'react';
 import {
+	AiproxyBoxImage,
 	AppstoreBoxImage,
-	BrainBoxImage,
 	DatabaseBoxImage,
 	DevboxBoxImage,
 	LaunchpadBoxImage,
@@ -118,7 +118,7 @@ const navMenuItems: NavMenuItem[] = [
 		id: 'aiproxy',
 		label: 'AI 模型',
 		icon: ModelIcon,
-		largeImage: BrainBoxImage,
+		largeImage: AiproxyBoxImage,
 		largeImageAlt: 'AI Proxy',
 		content: {
 			title: 'AI Proxy',

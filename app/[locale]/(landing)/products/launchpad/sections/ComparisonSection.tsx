@@ -91,7 +91,8 @@ export function ComparisonSection() {
 				<div
 					className='pointer-events-none absolute top-0 left-1/3 h-full w-1/3 rounded-none'
 					style={{
-						border: '1.5px solid var(--color-brand)',
+						border: '1.5px solid transparent',
+						borderImage: 'linear-gradient(to bottom, var(--color-brand), rgb(191, 219, 254)) 1',
 					}}
 				/>
 			</div>

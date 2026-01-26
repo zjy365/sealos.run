@@ -197,12 +197,12 @@ function FeaturePointItem({ icon, title, description }: FeaturePoint) {
 
 function FeatureSection({ data, className }: { data: FeatureSectionData; className?: string }) {
 	return (
-		<>
-			<div className={cn('flex flex-col gap-4 pt-16', className)}>
+		<div className='block w-full gap-8 not-first:border-t xl:flex'>
+			<div className={cn('flex w-80 max-w-full flex-col gap-4 pt-16', className)}>
 				<h3 className='text-xl font-semibold sm:text-2xl'>{data.title}</h3>
 				<p className='text-muted-foreground text-xs sm:text-base'>{data.description}</p>
 			</div>
-			<div className='mt-8 flex justify-end'>
+			<div className='mt-8 flex w-full justify-end'>
 				<div className='flex w-2xl flex-col items-start gap-6'>
 					{/* Feature points */}
 					<div className='flex flex-col gap-6'>
@@ -221,7 +221,7 @@ function FeatureSection({ data, className }: { data: FeatureSectionData; classNa
 					/>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 
@@ -238,12 +238,7 @@ export function CloudCollaborationSection() {
 	if (!data) {
 		return null;
 	}
-	return (
-		<FeatureSection
-			data={data}
-			className='border-t'
-		/>
-	);
+	return <FeatureSection data={data} />;
 }
 
 export function QuickReleaseSection() {
@@ -251,10 +246,5 @@ export function QuickReleaseSection() {
 	if (!data) {
 		return null;
 	}
-	return (
-		<FeatureSection
-			data={data}
-			className='border-t'
-		/>
-	);
+	return <FeatureSection data={data} />;
 }

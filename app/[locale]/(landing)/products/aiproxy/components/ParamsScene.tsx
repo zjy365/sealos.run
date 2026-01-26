@@ -31,7 +31,7 @@ const params = [
 
 export function ParamsScene() {
 	return (
-		<div className='w-full'>
+		<div className='w-full overflow-x-scroll'>
 			<table className='w-full border-collapse'>
 				<thead>
 					<tr className='border-b border-zinc-200 bg-zinc-50'>

@@ -12,7 +12,7 @@ import styles from './FeaturesSectionClient.module.css';
 
 const TOTAL_ITEMS = 5;
 const CONFIGS = [launchpadConfig, devboxConfig, databaseConfig, aiproxyConfig, ossConfig];
-const CAROUSEL_INTERVAL = 500000;
+const CAROUSEL_INTERVAL = 5000;
 
 interface FeaturesSectionClientProps {
 	activeBoxIndex: number;
@@ -121,7 +121,7 @@ export function FeaturesSectionClient({ activeBoxIndex, onIndexChange }: Feature
 				</div>
 
 				{/* 图片部分 */}
-				<div className={cn('[grid-area:image]', 'relative')}>
+				<div className={cn('[grid-area:image]', 'relative max-w-full overflow-x-scroll')}>
 					<AnimatePresence mode='wait'>
 						<motion.div
 							key={`image-${activeBoxIndex}`}

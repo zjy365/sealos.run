@@ -12,22 +12,21 @@ export function CTASection() {
 					</p>
 				</div>
 			</div>
-			<div className='flex gap-5'>
+			<div className='flex w-full flex-col gap-5 sm:w-auto sm:flex-row'>
 				<LandingOutlineButton
 					href='#'
 					size='lg'
 					borderStyle='dashed'
+					className='w-full sm:w-auto'
+					iconContainerClassName='bg-transparent group-hover:bg-transparent text-foreground group-hover:text-brand'
 					icon={PlayIcon}
-					className='h-11 gap-4 pr-2 pl-4 text-base sm:h-14 sm:gap-6 sm:px-6 sm:text-xl'
-					iconContainerClassName='bg-transparent group-hover:bg-transparent border-0 h-8 w-8 sm:h-10 sm:w-10'
-					iconColor='var(--color-foreground)'
 				>
 					预约演示
 				</LandingOutlineButton>
 				<LandingOutlineButton
 					href='#'
 					size='lg'
-					className='h-11 gap-4 pr-1 pl-4 text-base sm:h-14 sm:gap-6 sm:px-6 sm:text-xl'
+					className='h-11 w-full gap-4 pr-1 pl-4 text-base sm:h-14 sm:w-auto sm:gap-6 sm:px-6 sm:text-xl'
 					iconContainerClassName='size-9'
 				>
 					免费试用
