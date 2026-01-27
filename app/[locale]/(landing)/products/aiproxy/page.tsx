@@ -19,8 +19,8 @@ export default async function AiproxyPage() {
 				<FeaturesSection />
 			</section>
 
-			<section className='relative container mx-auto py-16 pt-4 pr-6 pb-20 pl-24'>
-				<VerticalDashedLine mask={[['0rem', '3.5rem']]}>
+			<section className='relative container mx-auto py-16 pt-4 pr-6 pb-20 pl-16 sm:pl-24'>
+				<VerticalDashedLine>
 					<Icon
 						src={ModelIcon}
 						className='size-full'
@@ -34,11 +34,8 @@ export default async function AiproxyPage() {
 				<MigGuideSection />
 			</section>
 
-			<section className='relative container mx-auto py-16 pt-20 pr-6 pl-24'>
-				<VerticalDashedLine
-					mask={[['4.75rem', '8.5rem']]}
-					iconY='4.5rem'
-				>
+			<section className='relative container mx-auto py-16 pt-20 pr-6 pl-16 sm:pl-24'>
+				<VerticalDashedLine iconY='4.5rem'>
 					<Icon
 						src={FramedQuestionIcon}
 						className='size-full'

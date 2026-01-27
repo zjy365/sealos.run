@@ -15,10 +15,9 @@ interface VerticalDashedLineProps {
 	enableScrollAnimation?: boolean;
 	/**
 	 * Class name overrides
-	 * You can override icon size using Tailwind arbitrary value: [--icon-size:3rem] (default: 3rem)
-	 * You can override base scale using Tailwind arbitrary value: [--icon-scale-base:1] (default: 1)
-	 * You can override active scale using Tailwind arbitrary value: [--icon-scale-active:1.3333] (default: 1.3333)
-	 * Example for responsive scaling: [--icon-scale-base:0.8] sm:[--icon-scale-base:1]
+	 * You can override icon base size using Tailwind arbitrary value: [--icon-base-size:3rem]
+	 * You can override active scale using Tailwind arbitrary value: [--icon-active-scale:1.3333]
+	 * Example for responsive sizing: [--icon-base-size:1.5rem] sm:[--icon-base-size:3rem]
 	 */
 	className?: string;
 }
@@ -31,6 +30,9 @@ export function VerticalDashedLine({
 	className,
 }: VerticalDashedLineProps) {
 	const iconRef = React.useRef<HTMLDivElement>(null);
+	const measureRef = React.useRef<HTMLDivElement>(null);
+	const probeRef = React.useRef<HTMLDivElement | null>(null);
+
 	// Always call useInView hook, but only use result when enableScrollAnimation is true
 	const inViewResult = useInView(iconRef, {
 		margin: '-20% 0px -20% 0px',
@@ -38,21 +40,164 @@ export function VerticalDashedLine({
 	});
 	const isVisible = enableScrollAnimation ? inViewResult : false;
 	const maskId = React.useId();
+	const isActive = enableScrollAnimation && isVisible;
 
-	// Calculate current scale for mask (base scale * active scale if visible, otherwise base scale)
-	const currentScale =
-		enableScrollAnimation && isVisible
-			? 'calc(var(--icon-scale-base) * var(--icon-scale-active))'
-			: 'var(--icon-scale-base)';
+	const [resolvedScale, setResolvedScale] = React.useState(1);
+	const [resolvedIconTranslateY, setResolvedIconTranslateY] = React.useState<number | null>(null);
+	const [resolvedIconMaskRect, setResolvedIconMaskRect] = React.useState<{
+		x: number;
+		y: number;
+		width: number;
+		height: number;
+		cx: number;
+		cy: number;
+	} | null>(null);
+	const [resolvedMaskRects, setResolvedMaskRects] = React.useState<
+		Array<{
+			x: number;
+			y: number;
+			width: number;
+			height: number;
+			cx: number;
+			cy: number;
+		} | null>
+	>([]);
+	const [resolvedIconBox, setResolvedIconBox] = React.useState<{
+		x: number;
+		y: number;
+		size: number;
+	} | null>(null);
+
+	const evaluate = React.useCallback((expr: string, prop: 'left' | 'top' | 'width' | 'height') => {
+		const container = measureRef.current;
+		if (!container) return null;
+
+		let probe = probeRef.current;
+		if (!probe) {
+			probe = document.createElement('div');
+			probe.style.position = 'absolute';
+			probe.style.left = '0px';
+			probe.style.top = '0px';
+			probe.style.width = '0px';
+			probe.style.height = '0px';
+			probe.style.pointerEvents = 'none';
+			probe.style.visibility = 'hidden';
+			container.appendChild(probe);
+			probeRef.current = probe;
+		}
+
+		// Reset to avoid cross-property influence
+		probe.style.left = '0px';
+		probe.style.top = '0px';
+		probe.style.width = '0px';
+		probe.style.height = '0px';
+		probe.style[prop] = expr;
+
+		const raw = getComputedStyle(probe)[prop];
+		const value = Number.parseFloat(raw);
+		return Number.isFinite(value) ? value : null;
+	}, []);
+
+	React.useLayoutEffect(() => {
+		const container = measureRef.current;
+		if (!container) return;
+		void isActive;
+
+		let raf = 0;
+		const recompute = () => {
+			cancelAnimationFrame(raf);
+			raf = requestAnimationFrame(() => {
+				const baseSize = evaluate('var(--icon-base-size)', 'width');
+				const activeSize = evaluate('calc(var(--icon-base-size) * var(--icon-active-scale))', 'width');
+
+				if (baseSize != null) {
+					setResolvedIconBox({
+						x: -baseSize / 2,
+						y: -baseSize / 2,
+						size: baseSize,
+					});
+				}
+
+				const translateY = evaluate(`calc(var(--icon-base-size) / 2 + ${iconY})`, 'top');
+				setResolvedIconTranslateY(translateY);
+
+				const containerWidth = container.clientWidth;
+				const centerX = containerWidth / 2;
+				if (baseSize != null && translateY != null) {
+					setResolvedIconMaskRect({
+						x: centerX - baseSize / 2,
+						y: translateY - baseSize / 2,
+						width: baseSize,
+						height: baseSize,
+						cx: centerX,
+						cy: translateY,
+					});
+				} else {
+					setResolvedIconMaskRect(null);
+				}
+
+				if (baseSize != null && activeSize != null && baseSize !== 0) {
+					setResolvedScale(isActive ? activeSize / baseSize : 1);
+				} else {
+					setResolvedScale(1);
+				}
+
+				if (!mask || mask.length === 0) {
+					setResolvedMaskRects([]);
+					return;
+				}
+
+				const rects: Array<{
+					x: number;
+					y: number;
+					width: number;
+					height: number;
+					cx: number;
+					cy: number;
+				} | null> = [];
+				for (const [y1, y2] of mask) {
+					const centerY = evaluate(`calc((${y1} + ${y2}) / 2)`, 'top');
+					const height = evaluate(`calc(${y2} - ${y1})`, 'height');
+					const width = baseSize;
+
+					if (centerY == null || height == null || width == null) {
+						rects.push(null);
+						continue;
+					}
+
+					const x = centerX - width / 2;
+					const y = centerY - height / 2;
+					rects.push({ x, y, width, height, cx: centerX, cy: centerY });
+				}
+				setResolvedMaskRects(rects);
+			});
+		};
+
+		recompute();
+
+		const ResizeObserverCtor = globalThis.ResizeObserver;
+		if (!ResizeObserverCtor) return () => cancelAnimationFrame(raf);
+
+		const ro = new ResizeObserverCtor(recompute);
+		ro.observe(container);
+		return () => {
+			cancelAnimationFrame(raf);
+			ro.disconnect();
+		};
+	}, [evaluate, iconY, isActive, mask]);
 
 	return (
 		<div
 			className={cn(
-				'text-brand absolute top-0 left-6 z-0 h-full w-12 overflow-visible [--icon-scale-active:1.3333] [--icon-scale-base:1] [--icon-size:3rem]',
+				'text-brand absolute top-0 left-4 z-0 h-full w-8 overflow-visible [--icon-active-scale:1.3333] [--icon-base-size:2.5rem] sm:left-6 sm:w-12 sm:[--icon-base-size:3rem]',
 				className,
 			)}
-			style={{ '--icon-scale-current': currentScale } as React.CSSProperties}
 		>
+			<div
+				ref={measureRef}
+				className='pointer-events-none invisible absolute inset-0'
+				aria-hidden='true'
+			/>
 			<svg
 				className='h-full w-full'
 				style={{ overflow: 'visible' }}
@@ -60,7 +205,7 @@ export function VerticalDashedLine({
 				xmlns='http://www.w3.org/2000/svg'
 				aria-hidden='true'
 			>
-				{mask && mask.length > 0 && (
+				{(resolvedIconMaskRect || (mask && mask.length > 0)) && (
 					<defs>
 						<mask
 							id={maskId}
@@ -73,22 +218,36 @@ export function VerticalDashedLine({
 								height='100%'
 								fill='white'
 							/>
-							{mask.map(([y1, y2]) => {
-								// Scale from center: calculate center position, then offset by half of scaled dimensions
-								const centerY = `(${y1} + ${y2}) / 2`;
-								const height = `${y2} - ${y1}`;
-								const scaledHeight = `(${height}) * var(--icon-scale-current)`;
-								const scaledY = `(${centerY}) - (${scaledHeight}) / 2`;
-								const scaledWidth = `var(--icon-size) * var(--icon-scale-current)`;
-								const scaledX = `50% - (${scaledWidth}) / 2`;
+							{resolvedIconMaskRect && (
+								<rect
+									x={resolvedIconMaskRect.x}
+									y={resolvedIconMaskRect.y}
+									width={resolvedIconMaskRect.width}
+									height={resolvedIconMaskRect.height}
+									transform={
+										resolvedScale === 1
+											? undefined
+											: `translate(${resolvedIconMaskRect.cx} ${resolvedIconMaskRect.cy}) scale(${resolvedScale}) translate(${-resolvedIconMaskRect.cx} ${-resolvedIconMaskRect.cy})`
+									}
+									fill='black'
+								/>
+							)}
+							{mask?.map(([y1, y2], index) => {
+								const resolved = resolvedMaskRects[index];
+								if (!resolved) return null;
 
 								return (
 									<rect
 										key={`${y1}-${y2}`}
-										x={`calc(${scaledX})`}
-										y={`calc(${scaledY})`}
-										width={`calc(${scaledWidth})`}
-										height={`calc(${scaledHeight})`}
+										x={resolved.x}
+										y={resolved.y}
+										width={resolved.width}
+										height={resolved.height}
+										transform={
+											resolvedScale === 1
+												? undefined
+												: `translate(${resolved.cx} ${resolved.cy}) scale(${resolvedScale}) translate(${-resolved.cx} ${-resolved.cy})`
+										}
 										fill='black'
 									/>
 								);
@@ -105,27 +264,27 @@ export function VerticalDashedLine({
 					strokeWidth='1'
 					strokeDasharray='4 4'
 					strokeLinecap='round'
-					mask={mask && mask.length > 0 ? `url(#${maskId})` : undefined}
+					mask={resolvedIconMaskRect || (mask && mask.length > 0) ? `url(#${maskId})` : undefined}
 				/>
 
 				{children && (
 					<g
 						style={{
-							transform: `translate(50%, calc(calc(var(--icon-size) * var(--icon-scale-base)) / 2 + ${iconY}))`,
+							transform: `translate(50%, ${resolvedIconTranslateY ?? 0}px)`,
 							transformOrigin: '0 0',
 						}}
 					>
 						<foreignObject
-							x='calc(calc(var(--icon-size) * var(--icon-scale-base)) / -2)'
-							y='calc(calc(var(--icon-size) * var(--icon-scale-base)) / -2)'
-							width='calc(var(--icon-size) * var(--icon-scale-base))'
-							height='calc(var(--icon-size) * var(--icon-scale-base))'
+							x={resolvedIconBox?.x ?? 0}
+							y={resolvedIconBox?.y ?? 0}
+							width={resolvedIconBox?.size ?? 0}
+							height={resolvedIconBox?.size ?? 0}
 							style={
 								{
-									'--icon-scale':
-										enableScrollAnimation && isVisible ? 'var(--icon-scale-active)' : '1',
+									'--icon-scale': resolvedScale,
 									transform: 'scale(var(--icon-scale))',
-									transformOrigin: '0 0',
+									transformOrigin: 'center',
+									transformBox: 'fill-box',
 									transition: 'transform 300ms',
 								} as React.CSSProperties
 							}

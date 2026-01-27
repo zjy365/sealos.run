@@ -21,11 +21,10 @@ export default async function DevBoxPage() {
 				<StepsSection />
 			</section>
 
-			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-24'>
+			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-16 sm:pl-24'>
 				<VerticalDashedLine
-					mask={[['5.5rem', '7rem']]}
 					iconY='4.5rem'
-					className='[--icon-size:2.5rem]'
+					className='[--icon-base-size:2.5rem] sm:[--icon-base-size:3rem]'
 				>
 					<Icon
 						src={CloudBoxIcon}
@@ -35,11 +34,10 @@ export default async function DevBoxPage() {
 				<UnifiedEnvironmentSection />
 			</section>
 
-			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-24'>
+			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-16 sm:pl-24'>
 				<VerticalDashedLine
-					mask={[['5rem', '7rem']]}
 					iconY='4.5rem'
-					className='[--icon-size:2.5rem]'
+					className='[--icon-base-size:2.5rem] sm:[--icon-base-size:3rem]'
 				>
 					<Icon
 						src={CubesIcon}
@@ -49,11 +47,10 @@ export default async function DevBoxPage() {
 				<CloudCollaborationSection />
 			</section>
 
-			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-24'>
+			<section className='relative container mx-auto pt-4 pr-6 pb-12 pl-16 sm:pl-24'>
 				<VerticalDashedLine
-					mask={[['5rem', '7rem']]}
 					iconY='4.5rem'
-					className='[--icon-size:2.5rem]'
+					className='[--icon-base-size:2.5rem] sm:[--icon-base-size:3rem]'
 				>
 					<Icon
 						src={ClockCounterIcon}
