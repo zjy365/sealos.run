@@ -25,7 +25,7 @@ export function HeroBg() {
 	return (
 		<div className='container mx-auto'>
 			<svg
-				className='relative top-0 left-0 h-160 w-full overflow-visible'
+				className='relative top-0 left-0 h-140 w-full overflow-visible 2xl:h-160'
 				viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
 				preserveAspectRatio='xMidYMin slice'
 				role='graphics-symbol'

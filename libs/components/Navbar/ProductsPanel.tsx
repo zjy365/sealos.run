@@ -43,9 +43,11 @@ import {
 	RocketIcon,
 } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
+import { NavigationMenuLink } from '@/libs/components/ui/navigation-menu';
+import { Link } from '@/libs/i18n/navigation';
 import { cn } from '@/libs/utils/styling';
 import { Badge } from '../ui/badge';
-import { Button } from '../ui/button';
+import { buttonVariants } from '../ui/button';
 
 interface NavMenuItem {
 	id: string;
@@ -651,18 +653,18 @@ export function ProductsPanel() {
 							</div>
 						</div>
 						{selectedItem.content.href && (
-							<Button
+							<NavigationMenuLink
 								asChild
-								variant='outline'
+								className={cn(buttonVariants({ variant: 'outline' }), 'flex-row')}
 							>
-								<a href={selectedItem.content.href}>
+								<Link href={selectedItem.content.href}>
 									<span>详情</span>
 									<Icon
 										src={FlatArrowRightIcon}
 										className='size-5 stroke-2'
 									/>
-								</a>
-							</Button>
+								</Link>
+							</NavigationMenuLink>
 						)}
 					</div>
 

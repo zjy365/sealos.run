@@ -1,62 +1,51 @@
-import { ContactIcon } from '@/assets/icons';
-import { Button } from '@/libs/components/ui/button';
-import { Icon } from '@/libs/components/ui/icon';
 import { Config } from '@/libs/config';
-import { Link } from '@/libs/i18n/navigation';
 import { getTranslations } from '@/libs/i18n/server';
 import { Logo } from '../Logo';
+import { NavbarActions } from './NavbarActions';
+import { NavbarBrand } from './NavbarBrand';
 import { NavbarClient } from './NavbarClient';
+import { NavbarContainer } from './NavbarContainer';
+import { NavbarMobileNav } from './NavbarMobileNav';
 
 export async function Navbar() {
 	const t = await getTranslations();
 
 	return (
-		<div className='bg-background/5 w-full shadow-sm backdrop-blur-lg'>
-			<div className='container mx-auto grid h-16 grid-cols-[1fr_auto_1fr] items-center justify-between'>
+		<NavbarContainer>
+			<div className='container mx-auto flex h-16 items-center justify-between px-4 lg:grid lg:grid-cols-[1fr_auto_1fr]'>
 				{/* Brand */}
-				<Link
-					href='/'
-					className='flex items-center gap-3'
-				>
+				<NavbarBrand>
 					<Logo withLogotype />
-				</Link>
+				</NavbarBrand>
 
 				{/* Links */}
-				<div className='mx-auto'>
-					<div className='hidden items-center gap-12 lg:flex'>
+				<div className='mx-auto hidden lg:block'>
+					<div className='items-center gap-12 lg:flex'>
 						<NavbarClient links={Config.components.navbar.links} />
 					</div>
 				</div>
 
 				{/* Actions */}
-				<div className='flex items-center justify-end gap-3'>
-					<Button
-						variant='secondary'
-						className='h-10 min-w-32 rounded-full border-none bg-transparent px-4 py-2 hover:bg-white/15'
-						asChild
-					>
-						<a
-							href={Config.components.navbar.contactLink}
-							target='_blank'
-						>
-							<Icon
-								src={ContactIcon}
-								className='size-5'
-							/>
-							{t('components.navbar.buttons.contact')}
-						</a>
-					</Button>
-
-					<Button
-						className='bg-primary text-primary-foreground hover:bg-brand flex h-10 w-24 items-center justify-center rounded-full px-0 shadow'
-						asChild
-					>
-						<a href={Config.components.navbar.signinLink}>
-							<span className='absolute transition-opacity'>{t('components.navbar.buttons.signin')}</span>
-						</a>
-					</Button>
+				<div className='flex items-center justify-end'>
+					<div className='hidden lg:flex'>
+						<NavbarActions
+							contactHref={Config.components.navbar.contactLink}
+							contactLabel={t('components.navbar.buttons.contact')}
+							signinHref={Config.components.navbar.signinLink}
+							signinLabel={t('components.navbar.buttons.signin')}
+						/>
+					</div>
+					<div className='lg:hidden'>
+						<NavbarMobileNav
+							links={Config.components.navbar.links}
+							contactHref={Config.components.navbar.contactLink}
+							contactLabel={t('components.navbar.buttons.contact')}
+							signinHref={Config.components.navbar.signinLink}
+							signinLabel={t('components.navbar.buttons.signin')}
+						/>
+					</div>
 				</div>
 			</div>
-		</div>
+		</NavbarContainer>
 	);
 }

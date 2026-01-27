@@ -4,6 +4,7 @@ import {
 	NavigationMenu,
 	NavigationMenuContent,
 	NavigationMenuItem,
+	NavigationMenuLink,
 	NavigationMenuList,
 	NavigationMenuTrigger,
 } from '@/libs/components/ui/navigation-menu';
@@ -25,12 +26,12 @@ export function NavbarClient({ links }: NavbarClientProps) {
 
 	return (
 		<NavigationMenu viewport={false}>
-			<NavigationMenuList className='gap-12'>
+			<NavigationMenuList className='gap-0'>
 				{links.map((item) => {
 					if (item.panel) {
 						return (
 							<NavigationMenuItem key={item.href}>
-								<NavigationMenuTrigger className='data-[state=open]:bg-accent/50 h-auto bg-transparent px-3 py-2 text-sm font-normal'>
+								<NavigationMenuTrigger className='data-[state=open]:bg-accent/50 h-auto bg-transparent px-5 py-2 text-sm font-normal'>
 									{t(item.textI18nKey)}
 								</NavigationMenuTrigger>
 								<NavigationMenuContent className='bg-background! rounded-none! shadow-none!'>
@@ -41,12 +42,12 @@ export function NavbarClient({ links }: NavbarClientProps) {
 					}
 					return (
 						<NavigationMenuItem key={item.href}>
-							<Link
-								href={item.href}
-								className='hover:text-foreground text-sidebar-foreground text-sm transition-colors'
+							<NavigationMenuLink
+								asChild
+								className='h-auto bg-transparent px-5 py-2 text-sm font-normal'
 							>
-								{t(item.textI18nKey)}
-							</Link>
+								<Link href={item.href}>{t(item.textI18nKey)}</Link>
+							</NavigationMenuLink>
 						</NavigationMenuItem>
 					);
 				})}
