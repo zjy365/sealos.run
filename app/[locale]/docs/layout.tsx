@@ -1,5 +1,8 @@
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import type React from 'react';
+import { Footer } from '@/libs/components/Footer';
+import { Navbar } from '@/libs/components/Navbar';
+import { Config } from '@/libs/config';
 import { baseOptions } from '@/libs/docs/layout.shared';
 import { source } from '@/libs/docs/source';
 
@@ -18,11 +21,23 @@ export default async function Layout({
 	}
 
 	return (
-		<DocsLayout
-			{...baseOptions(locale)}
-			tree={tree}
-		>
-			{children}
-		</DocsLayout>
+		<>
+			<header className='sticky top-0 z-50'>
+				<Navbar />
+			</header>
+
+			<main className='relative min-h-screen'>
+				<DocsLayout
+					{...baseOptions(locale)}
+					tree={tree}
+				>
+					{children}
+				</DocsLayout>
+			</main>
+
+			<footer className='pt-16 sm:pt-24 md:pt-36'>
+				<Footer config={Config.components.footer} />
+			</footer>
+		</>
 	);
 }
