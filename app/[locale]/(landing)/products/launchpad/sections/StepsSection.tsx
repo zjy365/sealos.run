@@ -162,7 +162,11 @@ export function StepsSection() {
 						align: 'start',
 					}}
 				>
-					<CarouselContent>
+					<CarouselContent
+						className={{
+							wrapper: 'lg:w-4/5 mx-auto',
+						}}
+					>
 						{steps.map((step) => (
 							<CarouselItem key={step.title}>
 								<div className='bg-muted/50 w-full overflow-hidden'>

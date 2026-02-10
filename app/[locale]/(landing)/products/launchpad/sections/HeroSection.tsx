@@ -6,7 +6,7 @@ import { Hero1Image, Hero2Image, Hero3Image, HeroBgImage } from '../assets';
 export function HeroSection() {
 	return (
 		<div className='flex flex-col items-center gap-8 py-12'>
-			<div className='absolute top-0 -z-10 h-96 w-full'>
+			<div className='absolute top-0 -z-10 h-96 w-full opacity-60'>
 				<Image
 					src={HeroBgImage}
 					className='overflow-visible object-cover object-top lg:object-contain'
