@@ -18,37 +18,36 @@ export const launchpadConfig: FeaturesConfig = {
 	title: '应用管理',
 	description: (
 		<>
-			<p>基于 Kubernetes 的可视化服务，</p>
-			<p>支持所有 Docker 镜像的一键部署能力</p>
+			<p>基于 Kubernetes 的<span className='text-brand'>图形化</span>应用部署</p>
 		</>
 	),
 	features: [
 		{
-			icon: MonitorIcon,
-			title: '公网测试',
-			description: '系统分配二级域名，支持HTTPS访问',
-		},
+			icon: IsolateIcon,
+			title: '应用部署',
+			description: '支持所有公共/私有镜像源一键部署，选择、拖拽式操作配置',
+		},	
 		{
 			icon: ScaleIcon,
 			title: '弹性伸缩',
-			description: '高峰自动扩容，低峰期自动释放资源',
-		},
+			description: '支持 CPU/GPU/内存 弹性配置，高峰自动扩容，低峰自动释放资源',
+		},	
 		{
-			icon: IsolateIcon,
-			title: '资源隔离',
-			description: '应用和租户级网络隔离能力',
+			icon: MonitorIcon,
+			title: '公网测试',
+			description: '默认分配二级域名，支持 https/grpcs/wss/tcp/udp 访问',
 		},
 	],
 	engineFeatures: [
 		{
 			type: 'arrow',
-			title: '用户请求',
+			title: '用户创建',
 		},
 		{
 			type: 'block',
-			title: '编排引擎',
+			title: '操作页面',
 			orientation: 'horizontal',
-			items: ['用户界面', 'YAML 编辑', '模板部署', '批量管理'],
+			items: ['Docker 地址', '资源配置', '网络配置', '高级参数'],
 		},
 		{
 			type: 'arrow',
@@ -57,14 +56,14 @@ export const launchpadConfig: FeaturesConfig = {
 			type: 'block',
 			title: '编排引擎',
 			orientation: 'horizontal',
-			items: ['配置解析', '资源计算', '生命周期管理', '弹性伸缩'],
+			items: ['配置解析', '资源计算', '多副本启停', '弹性伸缩'],
 		},
 		{
 			type: 'arrow',
 		},
 		{
 			type: 'block',
-			title: 'Kubernetes 集群',
+			title: 'Kubernetes 资源',
 			items: [
 				['Deployment', 'Ingress', 'Service', 'PVC'],
 				['Configmap', 'Secret', 'HPA'],
@@ -79,9 +78,9 @@ export const aiproxyConfig: FeaturesConfig = {
 		<>
 			<p>
 				<span>全球 </span>
-				<span className='text-brand'>200+ </span>模型集成，涵盖
+				<span className='text-brand'>200+ </span>模型集成，
 			</p>
-			<p>语言、语音、图片和视频等多模态场景。</p>
+			<p>涵盖语言、语音、图片和视频等多模态场景。</p>
 		</>
 	),
 	features: [
@@ -169,28 +168,28 @@ export const aiproxyConfig: FeaturesConfig = {
 export const devboxConfig: FeaturesConfig = {
 	title: 'DevBox',
 	description: (
-		<>
-			<p>集开发、测试、上线于一体的</p>
-			<p>
+		<><p>
 				<span className='text-brand'>云开发</span>平台
 			</p>
+			<p>集本地开发、线上测试、自动上线于一体</p>
+			
 		</>
 	),
 	features: [
 		{
+			icon: IsolateIcon,
+			title: '本地开发',
+			description: '本地IDE/IDEA一键连接，随时随地远程开发',
+		},
+		{
 			icon: EditorIcon,
 			title: '公网测试',
-			description: '系统分配二级域名，支持HTTPS访问',
+			description: '与线上完全一致的测试环境，系统分配二级域名，支持HTTPS访问',
 		},
 		{
 			icon: BoxIcon,
-			title: '容器化上线',
-			description: '集成 Docker 技术，一键打包镜像，自动化容器编排发布',
-		},
-		{
-			icon: IsolateIcon,
-			title: '环境隔离',
-			description: '提供与线上完全一致的测试环境',
+			title: '自动上线',
+			description: '整个容器，自动打包成OCI镜像，100%构建成功，一键更新发布',
 		},
 	],
 	engineFeatures: [
@@ -240,7 +239,9 @@ export const devboxConfig: FeaturesConfig = {
 
 export const ossConfig: FeaturesConfig = {
 	title: '对象存储',
-	description: <p>分布式架构存储，S3 接口连接，支持故障自愈</p>,
+	description: (
+		<><p>分布式架构存储，</p><p>S3 接口连接，支持故障自愈</p></>
+	),
 	features: [
 		{
 			icon: FramedPrivateIcon,
@@ -328,7 +329,7 @@ export const databaseConfig: FeaturesConfig = {
 	title: '数据库',
 	description: (
 		<>
-			<p>全面兼容所有数据库生态，</p>
+			<p>兼容所有数据库生态，</p>
 			<p>
 				<span className='text-black'>Chat2DB</span>
 				{` 驱动的 `}

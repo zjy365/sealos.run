@@ -6,25 +6,25 @@ const examples = [
 	{
 		icon: Number01Icon,
 		title: '1 分钟部署 AI Agent 平台',
-		description: '应用商店一键部署 FastGPT，秒级启动企业级 AI Agent。',
+		description: '应用商店一键部署 FastGPT，内置近百款AI解决方案，秒级启动企业级 AI Agent。',
 		tag: '应用商店',
 	},
 	{
 		icon: Number02Icon,
 		title: '10 秒完成全球 200+ 模型调用',
-		description: '智能负载均衡 + 按需计费，5秒创建多模型聚合服务。',
+		description: '智能负载均衡 + 按量计费，5秒创建多模型聚合服务。',
 		tag: 'AI Proxy',
 	},
 	{
 		icon: Number03Icon,
 		title: '3 分钟发布一个博客网站',
-		description: '文件批量上传，静态网站托管，3分钟绑定域名',
+		description: '30s完成项目上传，一键开启网站托管，1分钟绑定域名',
 		tag: '对象存储',
 	},
 	{
 		icon: Number04Icon,
 		title: '10 分钟开发上线一个AI应用',
-		description: '预装多语言全栈开发环境，零配置本地AI 编码，平台一键部署上线。',
+		description: '一键创建 Python 开发环境，零配置启动 AI 编码，平台一键部署上线。',
 		tag: 'DevBox',
 	},
 ];
@@ -32,7 +32,7 @@ const examples = [
 export function ExamplesSection() {
 	return (
 		<div className='flex w-full flex-col items-start gap-6'>
-			<h2 className='text-xl font-semibold sm:text-3xl'>快速上云</h2>
+			<h2 className='text-xl font-semibold sm:text-3xl'><span className='text-brand'>快速</span>上云</h2>
 			<div className='grid w-full grid-cols-1 gap-10 sm:grid-cols-2 xl:grid-cols-4'>
 				{examples.map((example) => (
 					<div

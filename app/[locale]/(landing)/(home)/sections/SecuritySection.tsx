@@ -4,17 +4,17 @@ import { HighIsolationImage, HighPerfImage, HighStabilityImage } from '../assets
 const securityFeatures = [
 	{
 		title: '高性能',
-		description: '自研轻量级负载均衡器， 可支撑超大规模数万节点集群运行。',
+		description: '自研轻量级负载均衡器， 已支撑数万个超大规模节点集群稳定运行。',
 		image: HighPerfImage,
 	},
 	{
 		title: '高稳定',
-		description: '基于高性能网关，针对用户集群调优，保障 99.995% 的超高稳定性和极低资源消耗。',
+		description: '基于高性能网关，可保障 99.995% 的超高稳定性和极低资源消耗。',
 		image: HighStabilityImage,
 	},
 	{
 		title: '强隔离',
-		description: '基于 Firecracker、Cilium、OpenEBS 等技术实现用户隔离、空间隔离、计算隔离和存储的强安全隔离',
+		description: '基于 Firecracker、Cilium、OpenEBS 等技术实现用户、空间、计算和存储的强安全隔离',
 		image: HighIsolationImage,
 	},
 ];

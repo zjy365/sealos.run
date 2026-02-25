@@ -5,7 +5,7 @@ export type ArrowDirection = 'up' | 'down' | 'left' | 'right';
 export type FeatureItem = {
 	icon: StaticImageData;
 	title: string;
-	description: string;
+	description: React.ReactNode;
 };
 
 export type BlockItem = string | { type: 'arrow'; direction?: ArrowDirection };

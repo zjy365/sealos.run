@@ -1,20 +1,11 @@
 import Image from 'next/image';
 import { LaunchpadBoxImage } from '@/assets/app-boxes';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
-import { Hero1Image, Hero2Image, Hero3Image, HeroBgImage } from '../assets';
+import { Hero1Image, Hero2Image, Hero3Image } from '../assets';
 
 export function HeroSection() {
 	return (
 		<div className='flex flex-col items-center gap-8 py-12'>
-			<div className='absolute top-0 -z-10 h-96 w-full opacity-60'>
-				<Image
-					src={HeroBgImage}
-					className='overflow-visible object-cover object-top lg:object-contain'
-					alt=''
-					fill
-				/>
-			</div>
-
 			<div className='flex flex-col items-center gap-6'>
 				<div className='flex flex-col items-center gap-6 sm:flex-row'>
 					<Image
@@ -22,17 +13,17 @@ export function HeroSection() {
 						alt='App Launchpad'
 						className='size-24'
 					/>
-					<h1 className='text-4xl font-semibold sm:text-5xl'>应用部署解决方案</h1>
+					<h1 className='text-4xl font-semibold sm:text-5xl'>应用部署</h1>
 				</div>
 				<p className='text-muted-foreground text-center text-base sm:text-lg'>
-					无需购买云服务器，Sealos 提供 Docker 容器可视化操作， 支持微服务到单体应用全栈部署
+					提供 Docker 容器图形化页面操作， 支持微服务到单体应用全栈部署
 				</p>
 			</div>
 			<LandingOutlineButton
 				href='#'
 				size='lg'
 			>
-				立即体验
+				创建应用
 			</LandingOutlineButton>
 			<div
 				className='relative mt-12 w-full'

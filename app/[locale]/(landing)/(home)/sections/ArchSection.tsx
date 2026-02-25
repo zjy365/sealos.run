@@ -455,8 +455,8 @@ export function ArchSection() {
 
 			<div className='flex w-full items-center justify-center'>
 				<p className='text-sm font-medium sm:text-2xl lg:text-3xl'>
-					<span>Sealos</span>
-					的能力，远不止于此
+					
+					高扩展的技术架构，无限的应用生态扩展
 				</p>
 			</div>
 

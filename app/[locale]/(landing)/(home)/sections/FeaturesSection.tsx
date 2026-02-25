@@ -11,10 +11,9 @@ export function FeaturesSection() {
 		<div className='flex w-full flex-col gap-16'>
 			<div className='flex w-full flex-col justify-between gap-6 md:flex-row md:items-center'>
 				<div className='flex flex-col gap-4'>
-					<h2 className='text-xl font-semibold sm:text-3xl'>企业级智能云平台</h2>
+					<h2 className='text-xl font-semibold sm:text-3xl'>企业级<span className='text-brand'>智能上云</span>平台</h2>
 					<p className='text-muted-foreground text-xs sm:text-base'>
-						集应用管理、云开发、数据服务、AI
-						模型四大核心能力，提供开发到运维的全链路解决方案，让应用构建、部署和管理变得更简单。
+						集应用设计、开发、测试、上线、运维为一体，提供开发到运维的全链路解决方案。
 					</p>
 				</div>
 				<LandingOutlineButton
