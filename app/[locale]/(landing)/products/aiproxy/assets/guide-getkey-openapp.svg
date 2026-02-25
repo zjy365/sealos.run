@@ -22,7 +22,6 @@
       <text
         xml:space="preserve"
         fill="#111827"
-        font-family="Geist"
         font-size="14"
         font-weight="500"
         letter-spacing="0em"
@@ -46,7 +45,6 @@
       <text
         xml:space="preserve"
         fill="#111827"
-        font-family="Geist"
         font-size="14"
         font-weight="500"
         letter-spacing="0em"
@@ -81,7 +79,6 @@
       <text
         xml:space="preserve"
         fill="#2563eb"
-        font-family="Geist"
         font-size="14"
         font-weight="500"
         letter-spacing="0em"
@@ -93,7 +90,6 @@
       <text
         xml:space="preserve"
         fill="#2563eb"
-        font-family="Geist"
         font-size="14"
         font-weight="500"
         letter-spacing="0em"
@@ -315,7 +311,6 @@
       <text
         xml:space="preserve"
         fill="#18181b"
-        font-family="Geist"
         font-size="26.1"
         font-weight="500"
         letter-spacing="0"
@@ -375,7 +370,6 @@
         <text
           xml:space="preserve"
           fill="#18181b"
-          font-family="Geist"
           font-size="14"
           font-weight="500"
           letter-spacing="0"
@@ -406,7 +400,6 @@
         <text
           xml:space="preserve"
           fill="#18181b"
-          font-family="Geist"
           font-size="14"
           font-weight="500"
           letter-spacing="0"
