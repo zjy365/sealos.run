@@ -164,7 +164,7 @@ export function StepsSection() {
 				>
 					<CarouselContent
 						className={{
-							wrapper: 'lg:w-4/5 mx-auto',
+							wrapper: 'mx-auto lg:w-4/5',
 						}}
 					>
 						{steps.map((step) => (
