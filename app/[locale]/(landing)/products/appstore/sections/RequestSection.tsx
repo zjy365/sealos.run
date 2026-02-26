@@ -2,6 +2,7 @@ import { CheckOverFrameIcon, FlatArrowRightIcon, LightningOverFrameIcon, Questio
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { Icon } from '@/libs/components/ui/icon';
 import { Input } from '@/libs/components/ui/input';
+import { Config } from '@/libs/config';
 
 function FeaturePill({ icon, text }: { icon: Parameters<typeof Icon>[0]['src']; text: string }) {
 	return (
@@ -18,6 +19,8 @@ function FeaturePill({ icon, text }: { icon: Parameters<typeof Icon>[0]['src']; 
 }
 
 export function RequestSection() {
+	const { contactLink } = Config.components.navbar;
+
 	return (
 		<div
 			id='request'
@@ -44,9 +47,11 @@ export function RequestSection() {
 				<Input
 					className='min-w-0 flex-1 border-0 bg-transparent px-0 py-0 text-base shadow-none focus-visible:border-transparent focus-visible:ring-0'
 					placeholder='输入 GitHub 仓库地址（https://github.com/usemame/repo）'
+					name='repo'
+					aria-label='输入 GitHub 仓库地址'
 				/>
 				<LandingOutlineButton
-					href='#'
+					href={contactLink}
 					size='md'
 					icon={FlatArrowRightIcon}
 					className='shrink-0 text-base font-semibold'

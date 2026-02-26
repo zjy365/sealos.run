@@ -6,6 +6,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Badge } from '@/libs/components/ui/badge';
 import { Icon } from '@/libs/components/ui/icon';
+import { cn } from '@/libs/utils/styling';
 import { StepDecoration } from './StepDecoration';
 
 interface StepItemProps {
@@ -111,7 +112,10 @@ export function StepItem({ icon, title, description, tags, image, variant, hideD
 				)}
 			</div>
 			<div
-				className={`relative w-full overflow-hidden ${hideDecoration ? '' : variant === 'left' ? 'pr-24' : 'pl-24'}`}
+				className={cn(
+					'relative w-full overflow-hidden',
+					hideDecoration ? null : variant === 'left' ? 'pr-24' : 'pl-24',
+				)}
 			>
 				<Image
 					src={image}

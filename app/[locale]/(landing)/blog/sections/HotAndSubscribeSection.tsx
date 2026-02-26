@@ -13,7 +13,7 @@ export default async function HotAndSubscribeSection({ locale }: { locale: strin
 	return (
 		<section className='container'>
 			<div className='flex items-start'>
-				<div className='w-[60%]'>
+				<div className='w-3/5'>
 					<div className='mb-8 flex items-center gap-2'>
 						<Icon
 							src={FireIcon}
@@ -33,9 +33,9 @@ export default async function HotAndSubscribeSection({ locale }: { locale: strin
 					</ul>
 				</div>
 
-				<div className='border-brand mx-19 h-48 w-px self-center border-l border-dashed' />
+				<div className='border-brand mx-16 h-48 w-px self-center border-l border-dashed' />
 
-				<div className='w-[100%]'>
+				<div className='min-w-0 flex-1'>
 					<div className='mb-8 flex items-center gap-2'>
 						<Icon
 							src={BoxIcon}
@@ -47,6 +47,12 @@ export default async function HotAndSubscribeSection({ locale }: { locale: strin
 					<div className='flex gap-5'>
 						<Input
 							placeholder={t('emailPlaceholder')}
+							type='email'
+							name='email'
+							autoComplete='email'
+							inputMode='email'
+							spellCheck={false}
+							aria-label={t('emailPlaceholder')}
 							className='bg-muted h-14 flex-1 rounded-none border-none'
 						/>
 

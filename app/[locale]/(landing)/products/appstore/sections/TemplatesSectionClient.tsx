@@ -28,20 +28,20 @@ function CategoryPill({ active, children, onClick }: { active: boolean; children
 function StackedHexagons({ text }: { text?: string }) {
 	return (
 		<div className='flex items-center pr-3'>
-			<div className='text-brand relative z-3 -mr-3 flex size-7 items-center justify-center'>
+			<div className='text-brand relative z-30 -mr-3 flex size-7 items-center justify-center'>
 				<Icon
 					src={HexagonIcon}
 					className='size-full'
 				/>
-				{text && <span className='absolute text-[10px] leading-none font-medium text-white'>{text}</span>}
+				{text && <span className='absolute text-xs leading-none font-medium text-white'>{text}</span>}
 			</div>
-			<div className='relative z-2 -mr-3 size-7 text-zinc-300'>
+			<div className='relative z-20 -mr-3 size-7 text-zinc-300'>
 				<Icon
 					src={HexagonIcon}
 					className='size-full'
 				/>
 			</div>
-			<div className='relative z-1 size-7 text-zinc-200'>
+			<div className='relative z-10 size-7 text-zinc-200'>
 				<Icon
 					src={HexagonIcon}
 					className='size-full'

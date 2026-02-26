@@ -13,6 +13,7 @@ import type { AppStoreTrendItem } from '@/libs/appstore/types';
 import { getAppStoreTrends } from '@/libs/appstore/utils';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { Icon } from '@/libs/components/ui/icon';
+import { Config } from '@/libs/config';
 
 const rankIconMap = {
 	1: Number01Icon,
@@ -24,6 +25,7 @@ const rankIconMap = {
 
 function TrendRow({ data }: { data: AppStoreTrendItem }) {
 	const rankIcon = rankIconMap[data.rank] ?? Number01Icon;
+	const { signinLink } = Config.components.navbar;
 
 	return (
 		<div className='flex items-center justify-between gap-8 border-b border-white px-9 py-8 last:border-b-0'>
@@ -85,7 +87,7 @@ function TrendRow({ data }: { data: AppStoreTrendItem }) {
 				</div>
 
 				<LandingOutlineButton
-					href='#'
+					href={signinLink}
 					size='md'
 					icon={FlatArrowRightIcon}
 				>

@@ -1,7 +1,10 @@
 import { PlayIcon } from '@/assets/icons';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
+import { Config } from '@/libs/config';
 
 export function CTASection() {
+	const { contactLink, signinLink } = Config.components.navbar;
+
 	return (
 		<div className='flex w-full flex-col items-start justify-between gap-12 lg:flex-row lg:items-end'>
 			<div className='flex flex-col items-start justify-between gap-4'>
@@ -19,7 +22,7 @@ export function CTASection() {
 			</div>
 			<div className='flex w-full flex-col gap-4 sm:w-auto sm:flex-row'>
 				<LandingOutlineButton
-					href='#'
+					href={contactLink}
 					size='lg'
 					borderStyle='dashed'
 					className='w-full sm:w-auto'
@@ -29,7 +32,7 @@ export function CTASection() {
 					预约演示
 				</LandingOutlineButton>
 				<LandingOutlineButton
-					href='#'
+					href={signinLink}
 					size='lg'
 					borderStyle='solid'
 					className='w-full sm:w-auto'

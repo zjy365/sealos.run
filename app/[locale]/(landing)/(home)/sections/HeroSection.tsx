@@ -5,6 +5,7 @@ import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
 import { SimpleIcon } from '@/libs/components/ui/simple-icon';
+import { Config } from '@/libs/config';
 import { HeroBg } from '../components/HeroBg';
 
 const cloudProviders: Array<{ name: string; icon: StaticImageData }> = [
@@ -27,6 +28,8 @@ const cloudProviders: Array<{ name: string; icon: StaticImageData }> = [
 ];
 
 export function HeroSection() {
+	const { signinLink } = Config.components.navbar;
+
 	return (
 		<div className='relative flex flex-col justify-between'>
 			<HeroBg />
@@ -50,9 +53,7 @@ export function HeroSection() {
 							))}
 						</div>
 					</div>
-					<h1 className='text-4xl leading-tight font-semibold sm:text-[2.625rem] xl:text-5xl'>
-						以应用为中心的智能云操作系统
-					</h1>
+					<h1 className='text-4xl leading-tight font-semibold sm:text-5xl'>以应用为中心的智能云操作系统</h1>
 				</div>
 
 				<div className='relative flex flex-row-reverse items-center justify-end lg:flex-row lg:justify-start'>
@@ -67,7 +68,7 @@ export function HeroSection() {
 						/>
 					</Button>
 					<LandingOutlineButton
-						href=''
+						href={signinLink}
 						size='lg'
 					>
 						开始体验

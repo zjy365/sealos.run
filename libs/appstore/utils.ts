@@ -1,5 +1,6 @@
 import 'server-only';
 
+import React from 'react';
 import { APPSTORE_CATEGORIES, APPSTORE_TREND_RANKS } from './constants';
 import { appstore } from './source';
 import type { AppStoreCategory, AppStoreTemplate, AppStoreTrendItem, AppStoreTrendRank } from './types';
@@ -44,6 +45,10 @@ function safeSlug(page: AppStorePage, locale: string): string {
 }
 
 export function getAppStoreTemplates(locale: string = 'zh'): AppStoreTemplate[] {
+	return getAppStoreTemplatesCached(locale);
+}
+
+const getAppStoreTemplatesCached = React.cache((locale: string): AppStoreTemplate[] => {
 	const pages = appstore
 		.getPages(locale)
 		.filter((p) => isLocaleMatch(p, locale))
@@ -66,9 +71,13 @@ export function getAppStoreTemplates(locale: string = 'zh'): AppStoreTemplate[] 
 			thumbnail: data.thumbnail,
 		};
 	});
-}
+});
 
 export function getAppStoreTrends(locale: string = 'zh'): AppStoreTrendItem[] {
+	return getAppStoreTrendsCached(locale);
+}
+
+const getAppStoreTrendsCached = React.cache((locale: string): AppStoreTrendItem[] => {
 	const pages = appstore
 		.getPages(locale)
 		.filter((p) => isLocaleMatch(p, locale))
@@ -98,6 +107,6 @@ export function getAppStoreTrends(locale: string = 'zh'): AppStoreTrendItem[] {
 	});
 
 	return mapped.sort((a, b) => a.rank - b.rank);
-}
+});
 
 export { APPSTORE_CATEGORIES };

@@ -32,9 +32,11 @@ export function HeroSection() {
 				<Input
 					className='min-w-0 flex-1 border-0 bg-transparent px-0 py-0 text-base shadow-none focus-visible:border-transparent focus-visible:ring-0'
 					placeholder='搜索项目名称、GitHub 仓库或关键词...'
+					name='q'
+					aria-label='搜索应用'
 				/>
 				<LandingOutlineButton
-					href='#'
+					href='#templates'
 					size='md'
 					className='shrink-0 text-base font-semibold'
 				>

@@ -19,7 +19,7 @@ export function StepsSectionLine() {
 	}, []);
 
 	return (
-		<div className='text-brand absolute top-54 left-0 -z-10 h-[calc(100%-13.5rem)] overflow-visible pl-6 lg:w-full'>
+		<div className='text-brand absolute top-56 bottom-0 left-0 -z-10 overflow-visible pl-6 lg:w-full'>
 			{/* Mobile/Tablet: simple left vertical line */}
 			<svg
 				className='h-full w-full lg:hidden'

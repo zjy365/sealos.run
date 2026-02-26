@@ -1,5 +1,5 @@
 import { Icon } from '@/libs/components/ui/icon';
-import type { FeaturesConfig } from '../../utils/features-config.types';
+import type { FeaturesConfig } from '../../utils/features.types';
 
 interface FeaturesListProps {
 	config: FeaturesConfig;

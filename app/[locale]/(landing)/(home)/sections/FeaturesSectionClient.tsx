@@ -7,7 +7,7 @@ import { FeaturesScene } from '../components/FeaturesScene';
 import { FeaturesHeader } from '../components/FeaturesScene/FeaturesHeader';
 import { FeaturesImage } from '../components/FeaturesScene/FeaturesImage';
 import { FeaturesList } from '../components/FeaturesScene/FeaturesList';
-import { aiproxyConfig, databaseConfig, devboxConfig, launchpadConfig, ossConfig } from '../utils/features-config';
+import { aiproxyConfig, databaseConfig, devboxConfig, launchpadConfig, ossConfig } from '../utils/features.config';
 import styles from './FeaturesSectionClient.module.css';
 
 const TOTAL_ITEMS = 5;

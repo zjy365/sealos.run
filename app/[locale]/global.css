@@ -139,6 +139,22 @@
 		margin-right: auto;
 	}
 
+	.border-hairline {
+		border-width: 0.5px;
+	}
+	.border-t-hairline {
+		border-top-width: 0.5px;
+	}
+	.border-r-hairline {
+		border-right-width: 0.5px;
+	}
+	.border-b-hairline {
+		border-bottom-width: 0.5px;
+	}
+	.border-l-hairline {
+		border-left-width: 0.5px;
+	}
+
 	@keyframes scroll-left {
 		0% {
 			transform: translateX(0);

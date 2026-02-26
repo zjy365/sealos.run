@@ -10,7 +10,7 @@ const privateCloudFeatures = ['支持离线环境部署', '数据本地化，满
 
 export function PrivateDeploySection() {
 	return (
-		<div className='relative min-h-200 w-full'>
+		<div className='relative min-h-screen w-full'>
 			{/* Left content */}
 			<div className='top-0 flex flex-col items-start gap-6 xl:absolute xl:top-1/2 xl:max-w-lg xl:-translate-y-1/2'>
 				<div className='flex flex-col items-start gap-3'>
@@ -25,7 +25,7 @@ export function PrivateDeploySection() {
 
 			{/* Right content area */}
 			<div className='right-0 bottom-0 flex w-full justify-center overflow-x-scroll overflow-y-hidden xl:justify-end'>
-				<div className='relative ml-24 flex min-w-148 flex-col gap-6 p-8'>
+				<div className='relative ml-24 flex min-w-max flex-col gap-6 p-8'>
 					{/* Card area - above the image */}
 					<div className='flex'>
 						{/* Public cloud card - left side, overlapped by right card */}
@@ -142,7 +142,7 @@ export function PrivateDeploySection() {
 						<Image
 							src={SealosPrivateDeployBoxImage}
 							alt='Sealos 私有部署架构'
-							className='w-88'
+							className='w-96'
 						/>
 						{/* Gradient mask on bottom half blending into background */}
 						<div
