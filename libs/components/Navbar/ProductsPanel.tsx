@@ -138,7 +138,7 @@ const navMenuItems: NavMenuItem[] = [
 		content: {
 			title: '应用商店',
 			description: '丰富的应用模板，快速部署',
-			href: '/products/app',
+			href: '/products/appstore',
 			features: <AppStoreFeatures />,
 		},
 	},
