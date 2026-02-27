@@ -17,7 +17,7 @@ export default async function AppStorePage({ params }: { params: Promise<{ local
 						src={HeroBgImage}
 						alt=''
 						priority
-						className='mx-auto h-auto w-full max-w-360'
+						className='mx-auto h-auto w-full max-w-360 min-w-200'
 					/>
 				</div>
 				<div className='container mx-auto px-6'>
@@ -35,7 +35,7 @@ export default async function AppStorePage({ params }: { params: Promise<{ local
 
 			<section className='relative w-full overflow-hidden py-16'>
 				<div className='pointer-events-none absolute inset-x-0 bottom-0 -z-10 select-none'>
-					<div className='mx-auto w-full max-w-360'>
+					<div className='mx-auto w-full max-w-360 min-w-200'>
 						<Image
 							src={ReqBgImage}
 							alt=''

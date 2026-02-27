@@ -62,7 +62,7 @@ const productItems = [
 		href: '/products/aiproxy',
 		icon: ModelIcon,
 	},
-	{ id: 'app', label: '应用', href: '/products/app', icon: CubesIcon },
+	{ id: 'app', label: '应用', href: '/products/appstore', icon: CubesIcon },
 ] as const;
 
 export function NavbarMobileNav({ links, contactHref, contactLabel, signinHref, signinLabel }: NavbarMobileNavProps) {

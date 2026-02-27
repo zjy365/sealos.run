@@ -17,10 +17,10 @@ export function HeroSection() {
 							className='size-full'
 						/>
 					</div>
-					<p className='text-xl leading-normal font-normal'>应用商店</p>
+					<p className='text-xl font-normal'>应用商店</p>
 				</div>
 
-				<p className='text-center text-5xl leading-none font-semibold'>
+				<p className='text-center text-4xl leading-normal font-semibold sm:text-5xl'>
 					<span>让复杂的</span>
 					<span className='text-brand'>开源项目部署</span>
 					<span>变得像安装App一样</span>
@@ -50,7 +50,7 @@ export function HeroSection() {
 					size='md'
 					borderStyle='dashed'
 					showIcon={false}
-					className='text-lg leading-normal font-medium'
+					className='text-lg font-medium'
 				>
 					<span className='inline-flex items-center justify-center gap-2'>
 						<span className='size-6'>
@@ -67,7 +67,7 @@ export function HeroSection() {
 					size='md'
 					borderStyle='dashed'
 					showIcon={false}
-					className='text-lg leading-normal font-medium'
+					className='text-lg font-medium'
 				>
 					<span className='inline-flex items-center justify-center gap-2'>
 						<span className='size-6'>

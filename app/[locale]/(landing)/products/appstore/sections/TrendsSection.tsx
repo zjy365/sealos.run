@@ -28,8 +28,8 @@ function TrendRow({ data }: { data: AppStoreTrendItem }) {
 	const { signinLink } = Config.components.navbar;
 
 	return (
-		<div className='flex items-center justify-between gap-8 border-b border-white px-9 py-8 last:border-b-0'>
-			<div className='flex min-w-0 items-center gap-8'>
+		<div className='flex flex-col gap-4 border-b border-white p-6 last:border-b-0 sm:flex-row sm:items-center sm:justify-between md:gap-8 md:px-9 md:py-8'>
+			<div className='flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center md:gap-8'>
 				<div className='flex items-center gap-4'>
 					<div className='text-brand size-6'>
 						<Icon
@@ -37,16 +37,10 @@ function TrendRow({ data }: { data: AppStoreTrendItem }) {
 							className='size-full'
 						/>
 					</div>
-					<div className='text-brand size-6'>
-						<Icon
-							src={AppIcon}
-							className='size-full'
-						/>
-					</div>
 				</div>
 
 				<div className='flex min-w-0 items-center gap-5'>
-					<div className='flex size-12 items-center justify-center overflow-hidden bg-zinc-50'>
+					<div className='flex size-12 shrink-0 items-center justify-center overflow-hidden bg-zinc-50'>
 						<div className='text-foreground size-10'>
 							<Icon
 								src={AppIcon}
@@ -56,16 +50,18 @@ function TrendRow({ data }: { data: AppStoreTrendItem }) {
 					</div>
 
 					<div className='flex min-w-0 flex-col'>
-						<p className='text-foreground text-lg leading-normal font-medium'>{data.title}</p>
-						<p className='text-muted-foreground truncate text-sm leading-normal font-normal'>
+						<p className='text-foreground truncate text-lg leading-normal font-medium text-nowrap'>
+							{data.title}
+						</p>
+						<p className='text-muted-foreground truncate text-sm leading-normal font-normal text-nowrap'>
 							{data.description}
 						</p>
 					</div>
 				</div>
 			</div>
 
-			<div className='flex shrink-0 items-center gap-9'>
-				<div className='text-muted-foreground flex items-center gap-4 text-base leading-normal font-normal'>
+			<div className='flex shrink-0 items-center gap-3 md:gap-9'>
+				<div className='text-muted-foreground order-2 flex items-center gap-4 text-base leading-normal font-normal sm:order-1'>
 					<div className='flex items-center gap-1'>
 						<div className='text-brand size-6'>
 							<Icon
@@ -90,6 +86,7 @@ function TrendRow({ data }: { data: AppStoreTrendItem }) {
 					href={signinLink}
 					size='md'
 					icon={FlatArrowRightIcon}
+					className='order-1 sm:order-2'
 				>
 					部署
 				</LandingOutlineButton>

@@ -159,10 +159,10 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 
 	return (
 		<div className='bg-zinc-50'>
-			<div className='border-brand container mx-auto flex flex-col border-y border-dashed lg:flex-row'>
+			<div className='border-brand container mx-auto flex flex-col border-y border-dashed xl:flex-row'>
 				{/* Left: region + unit price table */}
-				<div className='border-brand flex w-full flex-col gap-12 border-b border-dashed px-6 py-10 lg:w-120 lg:border-r lg:border-b-0 lg:px-20 lg:pr-10'>
-					<div className='flex flex-col gap-4'>
+				<div className='border-brand flex w-full flex-col gap-12 border-b border-dashed px-6 py-10 sm:flex-row xl:w-120 xl:flex-col xl:border-r xl:border-b-0 xl:px-20 xl:pr-10'>
+					<div className='flex flex-1 flex-col gap-4'>
 						{regions.map((r) => {
 							const active = r.id === regionId;
 							return (
@@ -187,7 +187,7 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 						})}
 					</div>
 
-					<div className='flex flex-col gap-3'>
+					<div className='flex flex-1 flex-col gap-3'>
 						<div className='flex items-center gap-3'>
 							<div className='text-brand size-6'>
 								<Icon
@@ -211,7 +211,7 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 									key={row.key}
 									className='grid grid-cols-[1fr_auto_auto] items-center border-b border-zinc-100 px-4 py-2 text-sm last:border-b-0'
 								>
-									<span className='text-zinc-900'>{row.name}</span>
+									<span className='min-w-16 text-zinc-900'>{row.name}</span>
 									<span className='w-28 text-zinc-900'>{row.unit}</span>
 									<span className='w-24 text-right text-zinc-900'>
 										{cny.format(row.get(unitPrices))}
@@ -450,7 +450,7 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 								))}
 							</div>
 
-							<div className='border-brand h-48 w-px border-r border-dashed' />
+							<div className='border-brand hidden h-48 w-px border-r border-dashed lg:block' />
 
 							<div className='flex w-full max-w-md flex-col gap-4'>
 								<p className='text-base whitespace-pre-wrap text-zinc-900'>

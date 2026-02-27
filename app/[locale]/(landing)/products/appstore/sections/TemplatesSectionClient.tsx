@@ -33,7 +33,7 @@ function StackedHexagons({ text }: { text?: string }) {
 					src={HexagonIcon}
 					className='size-full'
 				/>
-				{text && <span className='absolute text-xs leading-none font-medium text-white'>{text}</span>}
+				{text && <span className='text-brand absolute text-xs leading-none font-medium'>{text}</span>}
 			</div>
 			<div className='relative z-20 -mr-3 size-7 text-zinc-300'>
 				<Icon
@@ -133,7 +133,7 @@ export function TemplatesSectionClient({ templates }: { templates: AppStoreTempl
 					'max-h-[60vh] lg:max-h-[55vh]',
 				)}
 			>
-				<div className='grid w-full grid-cols-1 gap-8 lg:grid-cols-3'>
+				<div className='grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
 					{filtered.map((t) => (
 						<TemplateCard
 							key={t.slug}

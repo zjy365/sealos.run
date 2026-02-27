@@ -46,7 +46,7 @@ export function RequestSection() {
 			<form className='bg-muted flex w-full max-w-4xl items-center justify-between py-2.5 pr-2 pl-5'>
 				<Input
 					className='min-w-0 flex-1 border-0 bg-transparent px-0 py-0 text-base shadow-none focus-visible:border-transparent focus-visible:ring-0'
-					placeholder='输入 GitHub 仓库地址（https://github.com/usemame/repo）'
+					placeholder='输入 GitHub 仓库地址'
 					name='repo'
 					aria-label='输入 GitHub 仓库地址'
 				/>

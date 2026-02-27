@@ -7,12 +7,12 @@ export function HeroSection() {
 
 	return (
 		<div className='relative flex h-128 w-full flex-col justify-end gap-6 py-36'>
-			<div className='pointer-events-none absolute inset-0 -z-10'>
+			<div className='pointer-events-none absolute inset-0 -z-10 -translate-y-24 transform lg:translate-y-0'>
 				<Image
 					src={HeroBgImage}
 					alt=''
 					fill
-					className='overflow-visible object-cover object-right'
+					className='overflow-visible object-cover object-center lg:object-right'
 					priority
 				/>
 			</div>
