@@ -24,6 +24,8 @@ import { getMDXComponents } from '@/mdx-components';
 import { BlogSidebar } from './components/BlogSidebar';
 import { TableOfContents } from './components/TableOfContents';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateStaticParams() {
 	const posts = blog.getPages();
 	return posts.map((post) => ({
