@@ -69,12 +69,9 @@ const DIAL_SCROLL_CONFIG: DialScrollConfig = {
 
 const DIAL_3D_CONFIG: Dial3dConfig = {
 	perspectivePx: 900,
-	tiltXDeg: 60,
-	tiltYDeg: -8,
+	tiltXDeg: -60,
+	tiltYDeg: -16,
 	tiltZDeg: 0,
-	// tiltXDeg: 0,
-	// tiltYDeg: 0,
-	// tiltZDeg: 0,
 };
 
 function degToRad(deg: number) {
@@ -108,7 +105,7 @@ const CALLOUT_LINE_CONFIG = {
 	endPaddingPx: 16,
 	textOffsetYPx: 10,
 	strokeWidth: 1,
-	dash: '1.59 1.59',
+	dash: '2 2',
 } as const;
 
 function MilestoneGraphic() {
@@ -420,7 +417,7 @@ function MilestoneGraphic() {
 										/>
 									</svg>
 									<div
-										className='text-foreground absolute text-2xl leading-none font-semibold'
+										className='text-foreground absolute text-md leading-none font-medium'
 										style={{
 											left: callout.stageWidth - CALLOUT_LINE_CONFIG.endPaddingPx,
 											top: baselineY - CALLOUT_LINE_CONFIG.textOffsetYPx,
@@ -459,10 +456,10 @@ export function MilestoneSection() {
 	return (
 		<div
 			ref={sectionRef}
-			className='pointer-events-none -mt-108 flex w-full flex-col items-center gap-16'
+			className='pointer-events-none -mt-96 flex w-full flex-col items-center gap-16'
 		>
 			<motion.div
-				className='sticky top-108 flex max-w-2xl flex-col items-center gap-4 text-center'
+				className='sticky top-96 flex max-w-2xl flex-col items-center gap-4 text-center'
 				style={{ opacity: headerOpacity }}
 			>
 				<h2 className='text-3xl leading-none font-semibold'>
