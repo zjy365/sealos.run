@@ -45,7 +45,7 @@ export function ContactSection() {
 							>
 								<Icon
 									src={item.iconImage}
-									className='size-5 text-brand'
+									className='text-brand size-5'
 								/>
 								<p className='text-base leading-normal'>
 									<span className='text-foreground'>{item.label}: </span>

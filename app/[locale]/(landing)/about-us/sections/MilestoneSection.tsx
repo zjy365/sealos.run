@@ -417,7 +417,7 @@ function MilestoneGraphic() {
 										/>
 									</svg>
 									<div
-										className='text-foreground absolute text-md leading-none font-medium'
+										className='text-foreground text-md absolute leading-none font-medium'
 										style={{
 											left: callout.stageWidth - CALLOUT_LINE_CONFIG.endPaddingPx,
 											top: baselineY - CALLOUT_LINE_CONFIG.textOffsetYPx,
