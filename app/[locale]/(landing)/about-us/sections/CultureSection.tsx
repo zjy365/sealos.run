@@ -18,7 +18,7 @@ export function CultureSection() {
 				{culture.items.map((item) => (
 					<div
 						key={item.title}
-						className='overflow-hidden rounded-xl border border-zinc-100 bg-zinc-50'
+						className='overflow-hidden border border-zinc-100 bg-zinc-50'
 					>
 						<div className='text-muted-foreground flex h-64 items-center justify-center bg-zinc-200 text-sm'>
 							图片占位

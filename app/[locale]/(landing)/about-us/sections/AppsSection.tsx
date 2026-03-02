@@ -196,7 +196,7 @@ function SideIconItem({ item, delay, visible }: { item: AppIconData; delay: numb
 			>
 				<Icon
 					src={item.iconSrc}
-					className='text-brand size-4 sm:size-8'
+					className='text-brand size-3 sm:size-8'
 				/>
 				<p className='text-foreground mt-1 scale-75 text-[8px] leading-none whitespace-nowrap sm:scale-100 sm:text-[10px]'>
 					{item.name}

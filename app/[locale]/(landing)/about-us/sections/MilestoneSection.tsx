@@ -19,11 +19,11 @@ type MilestoneYear = {
 };
 
 const MILESTONES: MilestoneYear[] = [
-	{ year: '2021', content: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' },
-	{ year: '2022', content: 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB' },
-	{ year: '2023', content: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC' },
-	{ year: '2024', content: 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD' },
-	{ year: '2025', content: 'EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE' },
+	{ year: '2021', content: 'AAAAA AAAAA AAAAA AAAAA AAAAA AAAA AAA' },
+	{ year: '2022', content: 'BBBBB BBBBB BBBBB BBBBB BBBBB BBBB BBB' },
+	{ year: '2023', content: 'CCCCC CCCCC CCCCC CCCCC CCCCC CCCC CCC' },
+	{ year: '2024', content: 'DDDDD DDDDD DDDDD DDDDD DDDDD DDDD DDD' },
+	{ year: '2025', content: 'EEEEE EEEEE EEEEE EEEEE EEEEE EEEE EEE' },
 ];
 
 type DialLayoutConfig = {
@@ -106,6 +106,10 @@ const CALLOUT_LINE_CONFIG = {
 	textOffsetYPx: 10,
 	strokeWidth: 1,
 	dash: '2 2',
+	// Ensure the callout label sits above the marker on narrow screens
+	minGapAboveMarkerPx: 24,
+	// Guarantee a minimum horizontal segment length for the callout label
+	minSegmentWidthPx: 160,
 } as const;
 
 function MilestoneGraphic() {
@@ -222,17 +226,53 @@ function MilestoneGraphic() {
 
 		update(el.offsetWidth, el.offsetHeight);
 
-		const observer = new ResizeObserver((entries) => {
-			const entry = entries[0];
-			if (!entry) {
-				return;
-			}
-			update(entry.contentRect.width, entry.contentRect.height);
-		});
+		const observer =
+			typeof ResizeObserver !== 'undefined'
+				? new ResizeObserver((entries) => {
+						const entry = entries[0];
+						if (!entry) {
+							return;
+						}
+						update(entry.contentRect.width, entry.contentRect.height);
+						// Re-measure callout when dial size changes
+						requestAnimationFrame(() => {
+							measureActiveMarker();
+						});
+					})
+				: null;
 
-		observer.observe(el);
-		return () => observer.disconnect();
-	}, []);
+		if (observer) observer.observe(el);
+		return () => observer?.disconnect();
+	}, [measureActiveMarker]);
+
+	// Ensure callout responds to container size changes (e.g., viewport/responsive layout changes)
+	React.useEffect(() => {
+		if (activeMilestoneIndex == null) {
+			return;
+		}
+
+		const stage = stageRef.current;
+		if (!stage) {
+			return;
+		}
+
+		let raf = 0;
+		const ro =
+			typeof ResizeObserver !== 'undefined'
+				? new ResizeObserver(() => {
+						cancelAnimationFrame(raf);
+						raf = requestAnimationFrame(() => {
+							measureActiveMarker();
+						});
+					})
+				: null;
+
+		ro?.observe(stage);
+		return () => {
+			ro?.disconnect();
+			cancelAnimationFrame(raf);
+		};
+	}, [activeMilestoneIndex, measureActiveMarker]);
 
 	const yearNodes = React.useMemo(() => {
 		if (!dialSizePx) {
@@ -387,12 +427,17 @@ function MilestoneGraphic() {
 				{activeMilestoneIndex != null && callout && (
 					<div className='pointer-events-none absolute inset-0'>
 						{(() => {
-							const baselineY = Math.max(1, callout.stageHeight * CALLOUT_LINE_CONFIG.baselineYRatio);
+							const baseY = Math.max(1, callout.stageHeight * CALLOUT_LINE_CONFIG.baselineYRatio);
+							// Keep the callout line/label above the marker by a minimum gap
+							const desiredMaxY = Math.max(1, callout.y - CALLOUT_LINE_CONFIG.minGapAboveMarkerPx);
+							const baselineY = Math.min(baseY, desiredMaxY);
 							const slope = CALLOUT_LINE_CONFIG.kinkDxPx / CALLOUT_LINE_CONFIG.kinkDyPx;
 							const dy = Math.max(0, callout.y - baselineY);
-							const kinkX = callout.x + dy * slope;
-							const kinkY = baselineY;
 							const endX = callout.stageWidth - CALLOUT_LINE_CONFIG.endPaddingPx;
+							const kinkXRaw = callout.x + dy * slope;
+							// Ensure the horizontal segment has a minimum width to avoid 1-char lines
+							const kinkX = Math.max(8, Math.min(kinkXRaw, endX - CALLOUT_LINE_CONFIG.minSegmentWidthPx));
+							const kinkY = baselineY;
 							const endY = baselineY;
 
 							return (
@@ -416,17 +461,34 @@ function MilestoneGraphic() {
 											vectorEffect='non-scaling-stroke'
 										/>
 									</svg>
-									<div
-										className='text-foreground text-md absolute leading-none font-medium'
-										style={{
-											left: callout.stageWidth - CALLOUT_LINE_CONFIG.endPaddingPx,
-											top: baselineY - CALLOUT_LINE_CONFIG.textOffsetYPx,
-											transform: 'translate(-100%, -100%)',
-											whiteSpace: 'nowrap',
-										}}
-									>
-										{MILESTONES[activeMilestoneIndex]?.content ?? ''}
-									</div>
+									{(() => {
+										// The label should not extend left of the polyline's kink.
+										// Constrain its max width to the available segment length.
+										const availableWidth = Math.max(1, endX - kinkX - 8);
+
+										return (
+											<div
+												className='text-foreground text-md absolute font-medium'
+												style={{
+													left: callout.stageWidth - CALLOUT_LINE_CONFIG.endPaddingPx,
+													top: baselineY - CALLOUT_LINE_CONFIG.textOffsetYPx,
+													transform: 'translate(-100%, -100%)',
+													maxWidth: availableWidth,
+													whiteSpace: 'normal',
+													overflowWrap: 'break-word',
+													wordBreak: 'normal',
+													textWrap: 'balance',
+													width: '100%',
+													WebkitHyphens: 'auto',
+													hyphens: 'auto',
+													textAlign: 'right',
+													lineHeight: 1.2,
+												}}
+											>
+												{MILESTONES[activeMilestoneIndex]?.content ?? ''}
+											</div>
+										);
+									})()}
 								</>
 							);
 						})()}
