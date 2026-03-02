@@ -17,7 +17,7 @@ export default async function AboutUsPage() {
 				<AppsSection />
 			</section>
 
-			<section className='container mx-auto px-6 py-16'>
+			<section className='mx-auto w-full max-w-screen overflow-x-clip px-6 py-16'>
 				<MilestoneSection />
 			</section>
 

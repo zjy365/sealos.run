@@ -181,11 +181,10 @@ function SideIconItem({ item, delay, visible }: { item: AppIconData; delay: numb
 
 	return (
 		<div
-			className='absolute'
+			className='absolute -translate-x-1/2 -translate-y-1/2 -rotate-90 sm:rotate-0'
 			style={{
 				left: toPercentX(center.x),
 				top: toPercentY(center.y),
-				transform: 'translate(-50%, -50%)',
 			}}
 		>
 			<motion.div
@@ -197,9 +196,11 @@ function SideIconItem({ item, delay, visible }: { item: AppIconData; delay: numb
 			>
 				<Icon
 					src={item.iconSrc}
-					className='text-brand size-8'
+					className='text-brand size-4 sm:size-8'
 				/>
-				<p className='text-foreground mt-1 text-[10px] leading-none whitespace-nowrap'>{item.name}</p>
+				<p className='text-foreground mt-1 scale-75 text-[8px] leading-none whitespace-nowrap sm:scale-100 sm:text-[10px]'>
+					{item.name}
+				</p>
 			</motion.div>
 		</div>
 	);
@@ -243,6 +244,7 @@ function CenterOrbitItem({
 			}}
 		>
 			<motion.div
+				className='origin-center -rotate-90 sm:rotate-0'
 				style={{
 					x: orbitRadius,
 					y: '-50%',
@@ -253,7 +255,7 @@ function CenterOrbitItem({
 				}}
 			>
 				<motion.div
-					className='bg-background/95 flex size-20 cursor-pointer flex-col items-center justify-center'
+					className='bg-background/95 flex aspect-square size-8 cursor-pointer flex-col items-center justify-center sm:size-20'
 					whileHover={{
 						x: [0, -2, 2, -2, 2, 0],
 					}}
@@ -265,7 +267,9 @@ function CenterOrbitItem({
 						src={item.iconSrc}
 						className='text-brand size-full'
 					/>
-					<p className='text-foreground mt-2 text-sm leading-none whitespace-nowrap'>{item.name}</p>
+					<p className='text-foreground mt-2 scale-75 text-[10px] leading-none whitespace-nowrap sm:scale-100 sm:text-sm'>
+						{item.name}
+					</p>
 				</motion.div>
 			</motion.div>
 		</motion.div>
@@ -324,7 +328,7 @@ export function AppsSection() {
 	return (
 		<div
 			ref={sectionRef}
-			className='flex w-full flex-col items-center gap-16'
+			className='flex w-full flex-col items-center gap-16 pb-[calc(200vw-16rem)] sm:pb-0'
 		>
 			<div className='flex max-w-2xl flex-col items-center gap-4 text-center'>
 				<h2 className='text-3xl leading-none font-semibold'>
@@ -334,10 +338,10 @@ export function AppsSection() {
 				<p className='text-muted-foreground text-base leading-normal'>{APPS_CONTENT.subtitle}</p>
 			</div>
 
-			<div className='w-full'>
+			<div className='w-full scale-[calc(calc(1010/422)-0.25)] rotate-90 sm:scale-100 sm:rotate-0'>
 				<div
 					ref={orbitRootRef}
-					className='relative mx-auto w-full max-w-6xl'
+					className='relative mx-auto w-full max-w-6xl translate-x-[40%] sm:translate-x-0'
 					style={{
 						aspectRatio: `${SVG_VIEW_BOX.width} / ${SVG_VIEW_BOX.height}`,
 					}}
