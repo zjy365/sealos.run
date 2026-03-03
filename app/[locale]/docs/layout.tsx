@@ -27,6 +27,18 @@ export default async function Layout({
 			</header>
 
 			<main className='relative min-h-screen'>
+				<style>
+					{`
+					#nd-docs-layout {
+						--fd-banner-height: calc(var(--sealos-navbar-height) + var(--sealos-banner-height));
+						border-bottom: 1px solid var(--color-border);
+					}
+
+					#nd-sidebar-mobile {
+						top: var(--fd-docs-row-1);
+					}
+					`}
+				</style>
 				<DocsLayout
 					{...baseOptions(locale)}
 					tree={tree}
