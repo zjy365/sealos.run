@@ -92,7 +92,7 @@ const archLayers: ArchLayer[] = [
 						tl: [true, true],
 						tr: [true, false],
 					},
-					className: 'px-1 pt-3 pb-8',
+					className: 'px-1 pt-3 pb-8 [&_:nth-child(2)_span]:text-sm xl:[&_:nth-child(2)_span]:text-base',
 				},
 				{
 					title: '数据库提供商',
@@ -103,7 +103,7 @@ const archLayers: ArchLayer[] = [
 						tl: [true, true],
 						tr: [true, true],
 					},
-					className: 'px-1 pt-3 pb-8',
+					className: 'px-1 pt-3 pb-8 [&_:nth-child(3)_span]:text-xs xl:[&_:nth-child(3)_span]:text-sm',
 				},
 				{
 					title: '稳定生产',
@@ -136,7 +136,8 @@ const archLayers: ArchLayer[] = [
 						tl: [false, true],
 						tr: [true, false],
 					},
-					className: 'pl-6 pr-1 pt-3 pb-8',
+					className:
+						'pl-6 pr-1 pt-3 pb-8 [&>div>div:nth-child(1)>div:nth-child(1)>span]:text-xs xl:[&>div>div:nth-child(1)>div:nth-child(1)>span]:text-base',
 				},
 				{
 					title: '多租户',

@@ -7,7 +7,7 @@ interface FeaturesListProps {
 
 export function FeaturesList({ config }: FeaturesListProps) {
 	return (
-		<div className='flex flex-col gap-8 lg:flex-row lg:pt-8 xl:flex-col'>
+		<div className='flex flex-col gap-8 lg:flex-row xl:flex-col xl:pt-8'>
 			{config.features.map((feature) => (
 				<div
 					key={feature.title}

@@ -54,7 +54,7 @@ export function FeaturesSection() {
 				<div className='border-brand h-px w-full border-t border-dashed' />
 			</div>
 
-			<div className='grid grid-cols-2 gap-6 lg:grid-cols-3'>
+			<div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'>
 				{features.map((feature) => (
 					<div
 						key={feature.title}
@@ -71,7 +71,7 @@ export function FeaturesSection() {
 							</div>
 							<div className='flex flex-col gap-2 p-8'>
 								<h3 className='text-xl font-medium'>{feature.title}</h3>
-								<p className='text-muted-foreground text-sm'>{feature.description}</p>
+								<p className='text-muted-foreground min-h-[2lh] text-sm'>{feature.description}</p>
 							</div>
 						</div>
 						<div className='z-10 -mb-64 h-64 w-full bg-zinc-100' />

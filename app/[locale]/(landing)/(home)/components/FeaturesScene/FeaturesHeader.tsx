@@ -23,7 +23,7 @@ export function FeaturesHeader({ config }: FeaturesHeaderProps) {
 					/>
 				</Button>
 			</div>
-			<div className='text-base font-semibold whitespace-pre-wrap sm:text-2xl sm:font-medium'>
+			<div className='h-[3lh] text-base font-semibold text-balance whitespace-pre-wrap sm:text-2xl sm:font-medium xl:h-[2lh]'>
 				{config.description}
 			</div>
 		</div>

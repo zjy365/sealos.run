@@ -83,7 +83,7 @@
 					"links": {
 						"devbox": "DevBox",
 						"databases": "数据库",
-						"appstore": "App Store"
+						"appstore": "应用商店"
 					}
 				},
 				"services": {
@@ -114,7 +114,7 @@
 				"solutions": "解决方案",
 				"pricing": "定价",
 				"docs": "文档",
-				"appstore": "App Store",
+				"appstore": "应用商店",
 				"about-us": "关于我们"
 			},
 			"buttons": {

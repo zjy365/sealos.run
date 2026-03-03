@@ -27,7 +27,7 @@ export function NavbarActions({ contactHref, contactLabel, signinHref, signinLab
 						asChild
 						className={cn(
 							buttonVariants({ variant: 'secondary' }),
-							'h-10 min-w-32 flex-row border-none bg-transparent px-4 py-2 hover:bg-white/15',
+							'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 h-10 min-w-32 flex-row border-none bg-transparent px-4 py-2',
 						)}
 					>
 						<a
@@ -49,7 +49,7 @@ export function NavbarActions({ contactHref, contactLabel, signinHref, signinLab
 						asChild
 						className={cn(
 							buttonVariants(),
-							'bg-primary text-primary-foreground hover:bg-brand flex h-10 w-24 items-center justify-center px-0 shadow',
+							'bg-primary text-primary-foreground hover:bg-brand hover:text-background flex h-10 w-24 items-center justify-center px-0 shadow',
 						)}
 					>
 						<a href={signinHref}>
