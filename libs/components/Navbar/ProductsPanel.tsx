@@ -600,8 +600,8 @@ export function ProductsPanel() {
 		// Prefer the longest matching href prefix
 		const withHref = navMenuItems.filter((i) => i.content?.href);
 		const matched = withHref
-			.filter((i) => path === i.content!.href || path.startsWith(`${i.content!.href}/`))
-			.sort((a, b) => (b.content!.href!.length - a.content!.href!.length))
+			.filter((i) => path === i.content?.href || path.startsWith(`${i.content?.href}/`))
+			.sort((a, b) => b.content?.href?.length ?? 0 - (a.content?.href?.length ?? 1))
 			.at(0);
 		return matched ?? null;
 	}, []);

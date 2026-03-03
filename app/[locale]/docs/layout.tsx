@@ -34,6 +34,10 @@ export default async function Layout({
 						border-bottom: 1px solid var(--color-border);
 					}
 
+					#nd-sidebar {
+						background-color: var(--color-background)
+					}
+
 					#nd-sidebar-mobile {
 						top: var(--fd-docs-row-1);
 					}
@@ -42,6 +46,7 @@ export default async function Layout({
 				<DocsLayout
 					{...baseOptions(locale)}
 					tree={tree}
+					themeSwitch={{ enabled: false }}
 				>
 					{children}
 				</DocsLayout>
