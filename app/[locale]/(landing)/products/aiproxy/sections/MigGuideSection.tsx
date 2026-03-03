@@ -115,7 +115,7 @@ export function MigGuideSection({ signinHref }: { signinHref: string }) {
 					</div>
 				</div>
 
-				<div className='relative flex items-start justify-center pb-12 lg:w-1/2 lg:py-12 lg:pl-4'>
+				<div className='relative flex items-start justify-center overflow-y-scroll pb-12 lg:w-1/2 lg:py-12 lg:pl-4'>
 					<AnimatePresence mode='wait'>
 						<motion.div
 							key={activeScene.id}

@@ -124,6 +124,11 @@
 	--color-sidebar-ring: var(--sidebar-ring);
 }
 
+:root {
+	--sealos-navbar-height: 4rem;
+	--sealos-banner-height: 0rem;
+}
+
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
