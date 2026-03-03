@@ -181,7 +181,7 @@ export function ComparisonSection() {
 			</div>
 			<div className='w-full max-w-full overflow-x-scroll'>
 				<div className='relative min-w-5xl'>
-					<div className='bg-foreground text-background relative left-[66.66%] z-10 w-64 rounded-tr-3xl py-4 pl-4 font-normal whitespace-nowrap'>
+					<div className='bg-foreground text-background relative left-2/3 z-10 w-64 rounded-tr-3xl py-4 pl-4 font-normal whitespace-nowrap'>
 						推荐选择
 					</div>
 
@@ -247,7 +247,7 @@ export function ComparisonSection() {
 							])}
 						</tbody>
 					</table>
-					<div className='border-brand pointer-events-none absolute top-14 left-2/3 h-[calc(100%-3.5rem)] w-1/3 rounded-none border' />
+					<div className='border-brand pointer-events-none absolute top-14 bottom-0 left-2/3 w-1/3 rounded-none border' />
 				</div>
 			</div>
 		</div>

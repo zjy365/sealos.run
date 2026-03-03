@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import { OssBoxImage } from '@/assets/app-boxes';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
-import { HeroBgImage } from './assets';
+import { Config } from '@/libs/config';
+import { HeroBgImage } from '../assets';
 
 export function HeroSection() {
+	const { signinLink } = Config.components.navbar;
+
 	return (
 		<div className='flex flex-col py-12'>
 			<div className='flex flex-col items-start lg:flex-row lg:items-center'>
@@ -31,7 +34,7 @@ export function HeroSection() {
 						支持海量数据存储，为你的应用提供可靠的云端存储解决方案。
 					</p>
 					<LandingOutlineButton
-						href='#'
+						href={signinLink}
 						size='lg'
 					>
 						创建存储桶

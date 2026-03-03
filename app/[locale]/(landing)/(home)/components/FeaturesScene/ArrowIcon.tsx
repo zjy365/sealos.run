@@ -1,4 +1,4 @@
-import type { ArrowDirection } from '../../utils/features-config.types';
+import type { ArrowDirection } from '../../utils/features.types';
 
 export function ArrowIcon({
 	size = 8,

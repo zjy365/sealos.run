@@ -36,7 +36,7 @@ const scenes = [
 	},
 ];
 
-export function MigGuideSection() {
+export function MigGuideSection({ signinHref }: { signinHref: string }) {
 	const containerRef = React.useRef<HTMLDivElement>(null);
 
 	const { scrollYProgress } = useScroll({
@@ -74,7 +74,7 @@ export function MigGuideSection() {
 			style={{ minHeight: '200vh' }}
 		>
 			<div className='sticky top-16 pr-6 pl-16 sm:pl-24 lg:top-64 lg:flex lg:h-[calc(100dvh-24rem)] lg:flex-row'>
-				<div className='border-brand flex h-96 flex-col justify-between border-dashed pt-12 lg:h-full lg:w-1/2 lg:border-r-[0.5px] lg:py-12'>
+				<div className='border-brand flex h-96 flex-col justify-between border-dashed pt-12 lg:h-full lg:w-1/2 lg:border-r lg:py-12'>
 					<VerticalDashedLine
 						iconY='14.5rem'
 						className='-top-48 h-[max(calc(100%+24rem),calc(100dvh+24rem))] max-h-dvh'
@@ -109,7 +109,7 @@ export function MigGuideSection() {
 					</div>
 					<div className='flex justify-end pr-4'>
 						<LandingOutlineButton
-							href='#'
+							href={signinHref}
 							size='lg'
 						>
 							快速开始

@@ -12,7 +12,7 @@ import {
 	ScaleIcon,
 	SliderIcon,
 } from '@/assets/icons';
-import type { FeaturesConfig } from './features-config.types';
+import type { FeaturesConfig } from './features.types';
 
 export const launchpadConfig: FeaturesConfig = {
 	title: '应用管理',

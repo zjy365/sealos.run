@@ -1,6 +1,7 @@
 import { ArchitectureBoxIcon, FramedCheckIcon, MoreIcon, SealosBoxIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
 import { VerticalDashedLine } from '@/libs/components/VerticalDashedLine';
+import { Config } from '@/libs/config';
 import { FeaturesSectionWrapper } from './components/FeaturesSectionWrapper';
 import { ArchSection } from './sections/ArchSection';
 import { CTASection } from './sections/CTASection';
@@ -11,6 +12,8 @@ import { PrivateDeploySection } from './sections/PrivateDeploySection';
 import { SecuritySection } from './sections/SecuritySection';
 
 export default async function HomePage() {
+	const { signinLink } = Config.components.navbar;
+
 	return (
 		<div className='flex w-full flex-col'>
 			<section>
@@ -38,7 +41,7 @@ export default async function HomePage() {
 			</section>
 
 			<section className='relative container mx-auto h-340 pr-6 pb-28 pl-16 sm:h-300 sm:pl-32 lg:h-240 xl:h-188'>
-				<FeaturesSectionWrapper />
+				<FeaturesSectionWrapper signinHref={signinLink} />
 			</section>
 
 			<section className='relative container mx-auto pt-1.5 pr-6 pb-28 pl-16 sm:pt-4 sm:pl-24'>

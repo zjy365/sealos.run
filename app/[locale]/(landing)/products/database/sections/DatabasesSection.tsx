@@ -2,6 +2,7 @@ import type { StaticImageData } from 'next/image';
 import { KafkaIcon, MilvusIcon, MongodbIcon, MysqlIcon, PostgresIcon, RedisIcon } from '@/assets/app-icons';
 import { FlatArrowRightIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
+import { Config } from '@/libs/config';
 import { Link } from '@/libs/i18n/navigation';
 
 const databases: Array<{
@@ -42,6 +43,8 @@ const databases: Array<{
 ];
 
 export function DatabasesSection() {
+	const { signinLink } = Config.components.navbar;
+
 	return (
 		<div className='flex flex-col gap-8'>
 			<div className='flex flex-col gap-3'>
@@ -71,7 +74,7 @@ export function DatabasesSection() {
 						</div>
 						<div className='border-t border-dashed border-zinc-400 px-4 py-3'>
 							<Link
-								href='#'
+								href={signinLink}
 								className='text-muted-foreground hover:text-foreground flex items-center gap-2 text-sm transition-colors'
 							>
 								<span>安装</span>

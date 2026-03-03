@@ -1,5 +1,5 @@
 import { cn } from '@/libs/utils/styling';
-import type { BlockItem, EngineFeature } from '../../utils/features-config.types';
+import type { BlockItem, EngineFeature } from '../../utils/features.types';
 import { ArrowIcon } from './ArrowIcon';
 
 interface FeaturesRendererProps {

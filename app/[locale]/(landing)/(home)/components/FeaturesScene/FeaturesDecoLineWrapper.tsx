@@ -1,7 +1,7 @@
 'use client';
 
 import type React from 'react';
-import { useFeatures } from '../../contexts/FeaturesContext';
+import { useFeatures } from '../../utils/features-context';
 import { FeaturesDecoLine } from './FeaturesDecoLine';
 
 interface FeaturesDecoLineWrapperProps {

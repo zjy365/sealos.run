@@ -37,7 +37,7 @@ export const Config = (() => {
 					},
 					{
 						textI18nKey: t('components.navbar.links.pricing'),
-						href: '/pricing',
+						href: '/pricing/payg',
 					},
 					{
 						textI18nKey: t('components.navbar.links.docs'),
@@ -45,7 +45,7 @@ export const Config = (() => {
 					},
 					{
 						textI18nKey: t('components.navbar.links.appstore'),
-						href: '/appstore',
+						href: '/products/appstore',
 					},
 					{
 						textI18nKey: t('components.navbar.links.about-us'),

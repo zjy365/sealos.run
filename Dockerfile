@@ -1,5 +1,7 @@
 FROM node:24-alpine AS base
 
+RUN apk add --no-cache git
+
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
@@ -46,7 +48,12 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 # Ensuring no unnecessary permissions are given and add necessary permissions for it to run server.js properly.
-RUN chmod -R a-w+x . && chmod -R a+x .next node_modules
+# Keep most of the filesystem read-only, but allow Next.js to write cache files under `.next/cache`.
+RUN chmod -R a-w+x . \
+	&& mkdir -p .next/cache \
+	&& chown -R nextjs:nodejs .next \
+	&& chmod -R u+rwX .next \
+	&& chmod -R a+rx node_modules
 
 USER nextjs
 

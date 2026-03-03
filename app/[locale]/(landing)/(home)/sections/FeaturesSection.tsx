@@ -1,10 +1,10 @@
 'use client';
 
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
-import { useFeatures } from '../contexts/FeaturesContext';
+import { useFeatures } from '../utils/features-context';
 import { FeaturesSectionClient } from './FeaturesSectionClient';
 
-export function FeaturesSection() {
+export function FeaturesSection({ signinHref }: { signinHref: string }) {
 	const { activeBoxIndex, setActiveBoxIndex } = useFeatures();
 
 	return (
@@ -18,7 +18,7 @@ export function FeaturesSection() {
 				</div>
 				<LandingOutlineButton
 					className='w-fit'
-					href=''
+					href={signinHref}
 				>
 					立即体验
 				</LandingOutlineButton>

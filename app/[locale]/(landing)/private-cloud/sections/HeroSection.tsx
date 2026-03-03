@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
+import { Config } from '@/libs/config';
 import { HeroBgImage } from '../assets';
 
 export function HeroSection() {
+	const { contactLink } = Config.components.navbar;
+
 	return (
 		<div className='relative flex min-h-180 flex-col items-end gap-6 py-12 text-right'>
 			<div className='pointer-events-none absolute inset-0 z-0'>
@@ -25,7 +28,7 @@ export function HeroSection() {
 				</div>
 				<div className='mt-40 flex items-center'>
 					<LandingOutlineButton
-						href=''
+						href={contactLink}
 						size='lg'
 					>
 						获取报价

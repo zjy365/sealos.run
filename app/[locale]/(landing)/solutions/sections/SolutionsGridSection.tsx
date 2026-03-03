@@ -428,9 +428,9 @@ function SolutionsTabPill({
 			size='default'
 			onClick={onClick}
 			className={cn(
-				'h-10 px-4 py-1.5 text-xl leading-normal transition-colors',
+				'px-4 text-xs leading-normal transition-colors sm:text-xl',
 				active
-					? 'border-border text-foreground bg-white font-semibold'
+					? 'border-border text-foreground bg-white sm:font-semibold'
 					: 'border-border text-muted-foreground bg-transparent font-normal hover:bg-white/70',
 			)}
 		>
@@ -454,8 +454,8 @@ function TagPill({ text }: { text: string }) {
 
 function SolutionCard({ data }: { data: SolutionCardData }) {
 	return (
-		<div className='border-brand border-dashed py-10 not-nth-last-[-n+4]:border-b'>
-			<div className='border-brand flex flex-col gap-16 border-dashed px-8 not-[&:nth-child(4n)>div]:border-r'>
+		<div className='border-brand border-b border-dashed py-10 nth-last-[-n+1]:border-none sm:nth-last-[-n+2]:border-none lg:nth-last-[-n+4]:border-none'>
+			<div className='border-brand flex flex-col gap-16 border-dashed px-8 sm:not-[&:nth-child(2n)>div]:border-r lg:not-[&:nth-child(4n)>div]:border-r'>
 				<div className='flex flex-col gap-5'>
 					<div className='flex items-center gap-2'>
 						<div className='size-6'>
