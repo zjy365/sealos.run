@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import { LaunchpadBoxImage } from '@/assets/app-boxes';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
-import { Hero1Image, Hero2Image, Hero3Image } from '../assets';
+import { Config } from '@/libs/config';
+import { Hero1Image, Hero2Image, Hero3Image, HeroBgImage } from '../assets';
 
 export function HeroSection() {
+	const { signinLink } = Config.components.navbar;
+
 	return (
 		<div className='flex flex-col items-center gap-8 py-12'>
 			<div className='flex flex-col items-center gap-6'>
@@ -20,7 +23,7 @@ export function HeroSection() {
 				</p>
 			</div>
 			<LandingOutlineButton
-				href='#'
+				href={signinLink}
 				size='lg'
 			>
 				创建应用

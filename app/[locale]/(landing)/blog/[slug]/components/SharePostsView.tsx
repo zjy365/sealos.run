@@ -26,9 +26,14 @@ export function SharePostsView({ title, shareButtons = [] }: SharePostsViewProps
 						key={button.textI18nKey}
 						type='button'
 						onClick={() => handleShare(button.linkTemplate, button.onClick)}
-						className='text-muted-foreground hover:text-foreground flex items-center gap-2 text-base transition-colors'
+						className='text-muted-foreground hover:text-foreground focus-visible:ring-ring/50 flex items-center gap-2 rounded-sm text-base transition-colors focus-visible:ring-2 focus-visible:outline-none'
 					>
-						<div className='size-5'>{button.icon}</div>
+						<div
+							className='size-5'
+							aria-hidden='true'
+						>
+							{button.icon}
+						</div>
 						<span>{t(button.textI18nKey)}</span>
 					</button>
 				))}

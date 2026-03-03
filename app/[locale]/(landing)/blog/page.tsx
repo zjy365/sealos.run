@@ -4,6 +4,8 @@ import HeroSection from './sections/HeroSection';
 import HotAndSubscribeSection from './sections/HotAndSubscribeSection';
 import HotPostsSection from './sections/HotPostsSection';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
 	const { locale } = await params;
 	return (

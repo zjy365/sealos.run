@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
+import { Config } from '@/libs/config';
 import { HeroBgImage } from '../assets';
 
 export function HeroSection() {
+	const { signinLink } = Config.components.navbar;
+
 	return (
 		<div className='relative flex min-h-80 flex-col gap-12 py-12 lg:flex-row lg:items-center'>
 			<div className='pointer-events-none absolute right-0 h-[150%] w-full lg:h-[200%]'>
@@ -20,7 +23,7 @@ export function HeroSection() {
 					全面兼容主流数据库生态，分布式存储，支持快速扩展与无缝迁移
 				</p>
 				<LandingOutlineButton
-					href='#'
+					href={signinLink}
 					size='lg'
 					className='w-fit'
 				>

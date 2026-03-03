@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { source } from '@/libs/docs/source';
 import { getMDXComponents } from '@/mdx-components';
 
+export const dynamic = 'force-dynamic';
+
 interface DocsParams {
 	params: Promise<{ slug: string[]; locale: string }>;
 }

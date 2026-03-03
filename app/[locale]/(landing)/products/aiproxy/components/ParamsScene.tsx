@@ -52,7 +52,7 @@ export function ParamsScene() {
 								<Badge
 									variant='outline'
 									size='sm'
-									className='border-brand text-brand border-dashed'
+									className='border-brand text-brand border border-dashed'
 								>
 									{param.type}
 								</Badge>

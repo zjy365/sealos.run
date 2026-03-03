@@ -1,7 +1,7 @@
 import { FlatArrowRightIcon } from '@/assets/icons';
 import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
-import type { FeaturesConfig } from '../../utils/features-config.types';
+import type { FeaturesConfig } from '../../utils/features.types';
 
 interface FeaturesHeaderProps {
 	config: FeaturesConfig;

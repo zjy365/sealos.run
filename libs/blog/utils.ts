@@ -1,4 +1,5 @@
 import type { StaticImageData } from 'next/image';
+import React from 'react';
 import { Config } from '@/libs/config';
 import DefaultBlogCoverImage from '../../assets/default-blog-cover.svg';
 import { blog } from './source';
@@ -22,6 +23,10 @@ function getImageSrc(src: string | StaticImageData | undefined): string {
  * @returns Array of blog posts sorted by date (newest first)
  */
 export function getAllPosts(locale: string = 'zh'): BlogPost[] {
+	return getAllPostsCached(locale);
+}
+
+const getAllPostsCached = React.cache((locale: string): BlogPost[] => {
 	const allPages = blog.getPages(locale);
 
 	const pages = allPages.filter((page) => {
@@ -65,7 +70,7 @@ export function getAllPosts(locale: string = 'zh'): BlogPost[] {
 			} as BlogPost;
 		})
 		.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-}
+});
 
 /**
  * Get hot posts sorted by view count.

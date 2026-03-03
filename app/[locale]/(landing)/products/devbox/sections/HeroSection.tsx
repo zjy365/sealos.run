@@ -13,9 +13,12 @@ import {
 } from '@/assets/app-icons';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { Icon } from '@/libs/components/ui/icon';
+import { Config } from '@/libs/config';
 import { HeroBgImage } from '../assets';
 
 export function HeroSection() {
+	const { signinLink } = Config.components.navbar;
+
 	const languages = [
 		{ name: 'Claude Code', icon: ClaudeCodeIcon },
 		{ name: 'Python', icon: PythonIcon },
@@ -52,7 +55,7 @@ export function HeroSection() {
 					</div>
 					<div className='flex items-center gap-8'>
 						<LandingOutlineButton
-							href='#'
+							href={signinLink}
 							size='lg'
 							className='w-fit'
 						>

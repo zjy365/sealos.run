@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Badge } from '@/libs/components/ui/badge';
-import { TypePrivateImage, TypePublicReadImage, TypePublicReadWriteImage } from './assets';
+import { TypePrivateImage, TypePublicReadImage, TypePublicReadWriteImage } from '../assets';
 
 const storageTypes = [
 	{

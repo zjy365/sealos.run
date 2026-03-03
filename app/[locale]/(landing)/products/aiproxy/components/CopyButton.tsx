@@ -25,7 +25,7 @@ export function CopyButton({ code }: CopyButtonProps) {
 		<button
 			type='button'
 			onClick={handleCopy}
-			className='flex items-center gap-2 rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400 hover:bg-zinc-100'
+			className='focus-visible:ring-ring/50 flex items-center gap-2 rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400 hover:bg-zinc-100 focus-visible:ring-2 focus-visible:outline-none'
 			aria-label='复制代码'
 		>
 			{copied ? '已复制' : '点击复制'}

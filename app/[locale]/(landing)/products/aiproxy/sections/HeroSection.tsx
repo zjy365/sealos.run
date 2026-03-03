@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
+import { Config } from '@/libs/config';
 import { HeroBgImage } from '../assets';
 
 export function HeroSection() {
+	const { signinLink } = Config.components.navbar;
+
 	return (
 		<div className='relative flex min-h-120 flex-col gap-20 py-12'>
 			<div className='absolute -z-10 h-full w-full'>
@@ -25,14 +28,14 @@ export function HeroSection() {
 			</div>
 			<div className='flex flex-col gap-4 sm:flex-row'>
 				<LandingOutlineButton
-					href='#'
+					href={signinLink}
 					size='lg'
 					borderStyle='solid'
 				>
 					获取 API Key
 				</LandingOutlineButton>
 				<LandingOutlineButton
-					href='#'
+					href={signinLink}
 					size='lg'
 					borderStyle='dashed'
 					showIcon={false}

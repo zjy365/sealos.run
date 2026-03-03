@@ -6,7 +6,7 @@ import {
 	FeatureElasticImage,
 	FeaturePerfImage,
 	FeatureReliableImage,
-} from './assets';
+} from '../assets';
 
 const features = [
 	{

@@ -1,4 +1,4 @@
-import type { FeaturesConfig } from '../../utils/features-config.types';
+import type { FeaturesConfig } from '../../utils/features.types';
 import { FeaturesRenderer } from './FeaturesRenderer';
 
 interface FeaturesImageProps {

@@ -1,6 +1,7 @@
 import { FramedQuestionIcon, ModelIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
 import { VerticalDashedLine } from '@/libs/components/VerticalDashedLine';
+import { Config } from '@/libs/config';
 import { CTASection } from './sections/CTASection';
 import { FAQSection } from './sections/FAQSection';
 import { FeaturesSection } from './sections/FeaturesSection';
@@ -9,6 +10,8 @@ import { MigGuideSection } from './sections/MigGuideSection';
 import { ModelsSection } from './sections/ModelsSection';
 
 export default async function AiproxyPage() {
+	const { signinLink } = Config.components.navbar;
+
 	return (
 		<div className='flex w-full flex-col'>
 			<section className='container mx-auto px-6 pt-16 pb-6'>
@@ -31,7 +34,7 @@ export default async function AiproxyPage() {
 
 			<section className='relative container mx-auto'>
 				{/* Decoration line is inside the section */}
-				<MigGuideSection />
+				<MigGuideSection signinHref={signinLink} />
 			</section>
 
 			<section className='relative container mx-auto py-16 pt-20 pr-6 pl-16 sm:pl-24'>
