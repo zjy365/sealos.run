@@ -6,7 +6,7 @@ import { FeaturesSection } from '../sections/FeaturesSection';
 import { FeaturesProvider } from '../utils/features-context';
 import { FeaturesDecoLineWrapper } from './FeaturesScene/FeaturesDecoLineWrapper';
 
-export function FeaturesSectionWrapper({ signinHref }: { signinHref: string }) {
+export function FeaturesSectionWrapper() {
 	return (
 		<FeaturesProvider>
 			<FeaturesDecoLineWrapper className='[--icon-base-size:1.5rem] sm:[--icon-base-size:3rem]'>
@@ -15,7 +15,7 @@ export function FeaturesSectionWrapper({ signinHref }: { signinHref: string }) {
 					className='size-full'
 				/>
 			</FeaturesDecoLineWrapper>
-			<FeaturesSection signinHref={signinHref} />
+			<FeaturesSection />
 		</FeaturesProvider>
 	);
 }

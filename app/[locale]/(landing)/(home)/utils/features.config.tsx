@@ -18,25 +18,24 @@ export const launchpadConfig: FeaturesConfig = {
 	title: '应用管理',
 	description: (
 		<>
-			<p>基于 Kubernetes 的可视化服务，</p>
-			<p>支持所有 Docker 镜像的一键部署能力</p>
+			<p>支持所有 Docker 镜像一键容器化部署</p>
 		</>
 	),
 	features: [
 		{
 			icon: MonitorIcon,
-			title: '公网测试',
-			description: '系统分配二级域名，支持HTTPS访问',
+			title: '域名分配',
+			description: '自动分配二级域名，默认开启 HTTPS',
 		},
 		{
 			icon: ScaleIcon,
-			title: '弹性伸缩',
-			description: '高峰自动扩容，低峰期自动释放资源',
+			title: '智能伸缩',
+			description: '秒级扩容保障稳定，自动缩容极致降本',
 		},
 		{
 			icon: IsolateIcon,
-			title: '资源隔离',
-			description: '应用和租户级网络隔离能力',
+			title: '安全隔离',
+			description: '应用、空间、租户的数据强隔离机制',
 		},
 	],
 	engineFeatures: [
@@ -46,7 +45,7 @@ export const launchpadConfig: FeaturesConfig = {
 		},
 		{
 			type: 'block',
-			title: '编排引擎',
+			title: '交互与接入层',
 			orientation: 'horizontal',
 			items: ['用户界面', 'YAML 编辑', '模板部署', '批量管理'],
 		},
@@ -55,7 +54,7 @@ export const launchpadConfig: FeaturesConfig = {
 		},
 		{
 			type: 'block',
-			title: '编排引擎',
+			title: '调度控制器',
 			orientation: 'horizontal',
 			items: ['配置解析', '资源计算', '生命周期管理', '弹性伸缩'],
 		},
@@ -78,27 +77,26 @@ export const aiproxyConfig: FeaturesConfig = {
 	description: (
 		<>
 			<p>
-				<span>全球 </span>
-				<span className='text-brand'>200+ </span>模型集成，涵盖
+				<span>一个接口 </span>
+				，连接全球 200+ 顶尖 AI 模型
 			</p>
-			<p>语言、语音、图片和视频等多模态场景。</p>
 		</>
 	),
 	features: [
 		{
 			icon: IntoIcon,
-			title: '一键接入',
-			description: '一个 API Key 调用所有模型',
+			title: '统一鉴权',
+			description: '一个 API Key，即可按需调用全球任意主流模型。',
 		},
 		{
 			icon: ApiIcon,
-			title: '统一接口',
-			description: '标准化的 API 接口，兼容 Open AI 格式',
+			title: 'OpenAI',
+			description: '标准 OpenAI 接口规范，替换地址即可无缝迁移',
 		},
 		{
 			icon: LightningOverFrameIcon,
-			title: '高性能',
-			description: '分布式架构，支持横向扩展，智能缓存机制，响应速度提升 50%',
+			title: '高并发网关',
+			description: '分布式架构，支持智能路由与高频缓存',
 		},
 	],
 	engineFeatures: [
@@ -112,7 +110,7 @@ export const aiproxyConfig: FeaturesConfig = {
 				{
 					type: 'block',
 					title: 'MCP 生态',
-					items: ['公共 MCP 服务器', 'MCP 配置管理', 'OpenAPI 转 MCP'],
+					items: ['MCP 服务市场', 'MCP 配置管理', 'OpenAPI 协议转换'],
 				},
 				{
 					type: 'arrow',
@@ -122,7 +120,7 @@ export const aiproxyConfig: FeaturesConfig = {
 					type: 'block',
 					title: '网关层',
 					orientation: 'vertical',
-					items: ['AI Proxy 网关', { type: 'arrow', direction: 'down' }, '超时/重试'],
+					items: ['高性能路由网关', { type: 'arrow', direction: 'down' }, '智能重试与熔断'],
 				},
 				{
 					type: 'arrow',
@@ -131,7 +129,7 @@ export const aiproxyConfig: FeaturesConfig = {
 				{
 					type: 'block',
 					title: '配额监控',
-					items: ['计费系统', '监控与分析', '配额管理'],
+					items: ['精细化计费', '全链路监控', '配额管理'],
 				},
 			],
 		},
@@ -148,9 +146,9 @@ export const aiproxyConfig: FeaturesConfig = {
 				{ type: 'arrow', direction: 'right' },
 				'联网搜索插件',
 				{ type: 'arrow', direction: 'right' },
-				'思考模式插件',
+				'深度思考 (Deep Think)',
 				{ type: 'arrow', direction: 'right' },
-				'流式伪装插件',
+				'流式输出优化',
 			],
 		},
 		{
@@ -170,35 +168,32 @@ export const devboxConfig: FeaturesConfig = {
 	title: 'DevBox',
 	description: (
 		<>
-			<p>集开发、测试、上线于一体的</p>
-			<p>
-				<span className='text-brand'>云开发</span>平台
-			</p>
+			<p>开发、测试、上线，一站式云端闭环</p>
 		</>
 	),
 	features: [
 		{
 			icon: EditorIcon,
-			title: '公网测试',
-			description: '系统分配二级域名，支持HTTPS访问',
+			title: '公网预览',
+			description: '自动分配 HTTPS 二级域名，服务一键暴露公网',
 		},
 		{
 			icon: BoxIcon,
 			title: '容器化上线',
-			description: '集成 Docker 技术，一键打包镜像，自动化容器编排发布',
+			description: '基于 Docker 标准自动构建镜像，一键发布至生产环境',
 		},
 		{
 			icon: IsolateIcon,
-			title: '环境隔离',
-			description: '提供与线上完全一致的测试环境',
+			title: '环境一致',
+			description: '开发环境与生产环境严格同构，消除环境差异',
 		},
 	],
 	engineFeatures: [
 		{
 			type: 'block',
-			title: '用户',
+			title: '用户层',
 			orientation: 'horizontal',
-			items: ['Web 页面', 'IDE 远程开发', 'API 调用', 'MCP 扩展'],
+			items: ['Web 控制台', 'Cloud IDE', 'API 调用', 'MCP 扩展'],
 		},
 		{
 			type: 'arrow',
@@ -207,7 +202,7 @@ export const devboxConfig: FeaturesConfig = {
 			type: 'block',
 			title: 'DevBox 控制器',
 			items: [
-				['创建/删除', '实例状态', '代码更新', '版本控制'],
+				['生命周期管理', '实例状态', '代码更新', '版本控制'],
 				['网络入口', '数据库配置'],
 			],
 		},
@@ -224,7 +219,7 @@ export const devboxConfig: FeaturesConfig = {
 					{ type: 'arrow', direction: 'right' },
 					'镜像仓库',
 					{ type: 'arrow', direction: 'right' },
-					'对象存储',
+					'持久化存储',
 				],
 				[
 					{
@@ -240,22 +235,22 @@ export const devboxConfig: FeaturesConfig = {
 
 export const ossConfig: FeaturesConfig = {
 	title: '对象存储',
-	description: <p>分布式架构存储，S3 接口连接，支持故障自愈</p>,
+	description: <p>完全兼容 S3 的高性能分布式对象存储</p>,
 	features: [
 		{
 			icon: FramedPrivateIcon,
 			title: '数据加密',
-			description: '基于 K8S 存储/网络隔离，TLS加密传输',
+			description: '租户级网络隔离，支持 TLS 全链路传输加密',
 		},
 		{
 			icon: IntoIcon,
-			title: '平滑接入',
-			description: '近乎裸机的速度体验，提供各语言 SDK',
+			title: '极致读写',
+			description: '基于高性能分布式架构，提供接近裸机的 I/O 吞吐',
 		},
 		{
 			icon: SliderIcon,
-			title: '弹性扩展',
-			description: '按使用量计费，存储容量按需无限扩展',
+			title: '按需弹性',
+			description: '存储空间随数据增长自动伸缩，按实际用量计费',
 		},
 	],
 	engineFeatures: [
@@ -328,12 +323,7 @@ export const databaseConfig: FeaturesConfig = {
 	title: '数据库',
 	description: (
 		<>
-			<p>全面兼容所有数据库生态，</p>
-			<p>
-				<span className='text-black'>Chat2DB</span>
-				{` 驱动的 `}
-				<span className='text-brand'>AI 数据管理</span>平台
-			</p>
+			<p>全面兼容Mysql、Redis等所有数据库生态</p>
 		</>
 	),
 	features: [
@@ -358,7 +348,7 @@ export const databaseConfig: FeaturesConfig = {
 			type: 'block',
 			title: '用户接入层',
 			orientation: 'horizontal',
-			items: ['Web 控制台', 'Chat2DB', 'CLI 工具', '外网访问', 'API 调用'],
+			items: ['可视化控制台', 'AI 智能客户端 (Chat2DB) ', 'CLI 工具', '外网访问', 'API 调用'],
 		},
 		{
 			type: 'arrow',
@@ -367,7 +357,7 @@ export const databaseConfig: FeaturesConfig = {
 			type: 'block',
 			title: '服务管理层',
 			orientation: 'horizontal',
-			items: ['日志分析', '数据导入/导出', '监控告警', '备份恢复', '参数配置'],
+			items: ['日志分析', '数据迁移/同步', '可观测性平台', '备份恢复', '参数配置'],
 		},
 		{
 			type: 'arrow',
@@ -389,7 +379,7 @@ export const databaseConfig: FeaturesConfig = {
 			title: '基础设施层',
 			items: [
 				['计算资源', '存储资源', '网络组件', '监控组件'],
-				['CPU/内存', 'Minio/SSD', 'Minio/负载均衡', 'Prometheus/Grafana'],
+				['CPU/内存', '高性能持久化存储', 'Minio/负载均衡', 'Prometheus/Grafana'],
 			],
 		},
 	],

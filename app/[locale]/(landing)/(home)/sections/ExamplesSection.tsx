@@ -5,26 +5,26 @@ import { Icon } from '@/libs/components/ui/icon';
 const examples = [
 	{
 		icon: Number01Icon,
-		title: '1 分钟部署 AI Agent 平台',
-		description: '应用商店一键部署 FastGPT，秒级启动企业级 AI Agent。',
+		title: '1 分钟搭建企业级 AI Agent',
+		description: '应用商店一键部署，集成 FastGPT、N8N等，秒级启动专属企业 AI 助手。',
 		tag: '应用商店',
 	},
 	{
 		icon: Number02Icon,
-		title: '10 秒完成全球 200+ 模型调用',
-		description: '智能负载均衡 + 按需计费，5秒创建多模型聚合服务。',
+		title: '10 秒接入全球 200+ 主流大模型 ',
+		description: '聚合 OpenAI/Claude 等前沿模型，智能分流保障高可用，一个 Key 畅连全球 AI。',
 		tag: 'AI Proxy',
 	},
 	{
 		icon: Number03Icon,
-		title: '3 分钟发布一个博客网站',
-		description: '文件批量上传，静态网站托管，3分钟绑定域名',
+		title: ' 3 分钟上线博客',
+		description: '极简静态托管服务，支持批量上传与自定义域名',
 		tag: '对象存储',
 	},
 	{
 		icon: Number04Icon,
 		title: '10 分钟开发上线一个AI应用',
-		description: '预装多语言全栈开发环境，零配置本地AI 编码，平台一键部署上线。',
+		description: '云端预设开发环境，零配置开启本地 AI 编码，无缝衔接一键部署上线。',
 		tag: 'DevBox',
 	},
 ];
@@ -32,7 +32,7 @@ const examples = [
 export function ExamplesSection() {
 	return (
 		<div className='flex w-full flex-col items-start gap-6'>
-			<h2 className='text-xl font-semibold sm:text-3xl'>快速上云</h2>
+			<h2 className='text-xl font-semibold sm:text-3xl'>开发者首选</h2>
 			<div className='grid w-full grid-cols-1 gap-10 sm:grid-cols-2 xl:grid-cols-4'>
 				{examples.map((example) => (
 					<div

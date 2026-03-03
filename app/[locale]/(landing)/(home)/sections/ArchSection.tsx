@@ -53,11 +53,11 @@ const fullBorder: BorderConfig = {
 
 const archLayers: ArchLayer[] = [
 	{
-		label: '访问',
+		label: '交互接入层',
 		content: {
 			type: 'simple',
 			title: '用户访问',
-			items: ['命令行界面 (CLI)', 'API', '图形用户界面 (GUI)'],
+			items: ['开发者终端 （Sealos CLI）', '开放 API 网关', '桌面级 Web 控制台'],
 			border: {
 				bl: [true, true],
 				br: [true, true],
@@ -68,13 +68,13 @@ const archLayers: ArchLayer[] = [
 		},
 	},
 	{
-		label: '应用层',
+		label: 'AI 原生应用层',
 		content: {
 			type: 'columns',
 			items: [
 				{
-					title: '需求生成',
-					items: ['需求分析 Agent', '需求采集', '文档生成', '更新修改'],
+					title: '产品梳理',
+					items: ['Jotlin 需求分析', '需求挖掘', '文档生成', '版本管理'],
 					border: {
 						bl: [true, true],
 						br: [true, false],
@@ -84,8 +84,8 @@ const archLayers: ArchLayer[] = [
 					className: 'pl-6 pr-1 pt-3 pb-8',
 				},
 				{
-					title: '智能开发',
-					items: ['云端环境', 'Cursor/Vscode/Windsurf', '自动域名证书', '一键发布'],
+					title: '在线开发',
+					items: ['DevBox 云端环境', '10+ IDE 深度集成', '自动网络配置', 'CI/CD 流水线'],
 					border: {
 						bl: [true, true],
 						br: [true, true],
@@ -95,8 +95,13 @@ const archLayers: ArchLayer[] = [
 					className: 'px-1 pt-3 pb-8 [&_:nth-child(2)_span]:text-sm xl:[&_:nth-child(2)_span]:text-base',
 				},
 				{
-					title: '数据库提供商',
-					items: ['高可用', '高性能', 'PgSQL/MySQL/Mongo/Redis', 'Chat2sql 数据 Agent'],
+					title: '中间件',
+					items: [
+						'全栈数据库支持 (SQL/NoSQL)',
+						'PgSQL/MySQL/Mongo/Redis',
+						'数据交互 (Chat2DB)',
+						'企业级高可用集群',
+					],
 					border: {
 						bl: [true, false],
 						br: [true, true],
@@ -106,8 +111,8 @@ const archLayers: ArchLayer[] = [
 					className: 'px-1 pt-3 pb-8 [&_:nth-child(3)_span]:text-xs xl:[&_:nth-child(3)_span]:text-sm',
 				},
 				{
-					title: '稳定生产',
-					items: ['AI ops 智能运维', '自动域名证书', '横向伸缩', '高稳定性'],
+					title: '智能运维',
+					items: ['故障自愈', '证书自动续期', 'HPA 弹性伸缩', '高稳定性'],
 					border: {
 						bl: [true, false],
 						br: [true, true],
@@ -120,7 +125,7 @@ const archLayers: ArchLayer[] = [
 		},
 	},
 	{
-		label: '控制器',
+		label: '核心管控层',
 		content: {
 			type: 'columns',
 			items: [
@@ -128,7 +133,7 @@ const archLayers: ArchLayer[] = [
 					title: '网络',
 					items: [
 						['Http/WS/GRPC', '自动证书'],
-						['TCP/UDP', '流量调度'],
+						['TCP/UDP', '全局流量治理'],
 					],
 					border: {
 						bl: [true, true],
@@ -141,7 +146,7 @@ const archLayers: ArchLayer[] = [
 				},
 				{
 					title: '多租户',
-					items: ['基于角色的访问控制', '安全隔离/团队协作'],
+					items: ['RBAC 权限体系', '沙箱隔离与多工作区'],
 					border: {
 						bl: [true, true],
 						br: [true, true],
@@ -153,8 +158,8 @@ const archLayers: ArchLayer[] = [
 				{
 					title: '存储',
 					items: [
-						['备份/恢复', '扩容'],
-						['持久卷', '高性能存储'],
+						['容灾备份机制', '扩容'],
+						['持久卷', '分布式存储引擎'],
 					],
 					border: {
 						bl: [true, false],
@@ -168,13 +173,13 @@ const archLayers: ArchLayer[] = [
 		},
 	},
 	{
-		label: '集群',
+		label: '分布式集群层',
 		content: {
 			type: 'grid',
 			items: [
 				{
-					title: 'Sealos Kubernetes 集群 SG',
-					items: ['CN', 'CRI', 'CSI', '网关', '监控', '通知', '计量'],
+					title: 'Sealos Kubernetes 集群 SG /CN',
+					items: ['CNI 网络插件', 'CRI 容器运行时', 'CSI 存储插件', '网关', '监控', '告警', '精细化计量计费'],
 					columns: 3,
 					border: {
 						bl: [false, true],
@@ -184,26 +189,14 @@ const archLayers: ArchLayer[] = [
 					},
 					className: 'pl-6 pr-1 pt-3 pb-8',
 				},
-				{
-					title: 'Sealos Kubernetes 集群 CN',
-					items: ['CN', 'CRI', 'CSI', '网关', '监控', '通知', '计量'],
-					columns: 3,
-					border: {
-						bl: [true, true],
-						br: [false, true],
-						tl: [true, false],
-						tr: [false, true],
-					},
-					className: 'pr-6 pl-1 pt-3 pb-8',
-				},
 			],
 		},
 	},
 	{
-		label: '基础设施',
+		label: '混合基础设施',
 		content: {
 			type: 'simple',
-			items: ['阿里云', '谷歌云', '亚马逊云', '裸金属服务器'],
+			items: ['虚拟机', '物理机', 'AWS', 'GPU服务器'],
 			border: fullBorder,
 			className: 'px-6 py-3',
 		},
@@ -451,15 +444,9 @@ export function ArchSection() {
 	return (
 		<div className='flex w-full flex-col items-start gap-14'>
 			<h2 className='text-xl font-semibold sm:text-3xl'>
-				<span>系统</span>架构
+				<span>系统架构</span>
 			</h2>
-
-			<div className='flex w-full items-center justify-center'>
-				<p className='text-sm font-medium sm:text-2xl lg:text-3xl'>
-					<span>Sealos</span>
-					的能力，远不止于此
-				</p>
-			</div>
+			<p className='text-muted-foreground text-xs sm:text-base'>从内核到应用，构建 AI 时代的新一代云基础设施。</p>
 
 			<div className='w-full max-w-full overflow-x-scroll'>
 				<div className='flex w-full min-w-5xl flex-col'>
