@@ -22,12 +22,12 @@ const securityFeatures = [
 
 export function SecuritySection() {
 	return (
-		<div className='flex flex-col gap-8'>
+		<div className='flex flex-col'>
 			<h2 className='text-xl font-semibold sm:text-3xl'>安全稳定</h2>
-			<p className='text-muted-foreground text-xs sm:text-base'>
+			<p className='text-muted-foreground mt-4 text-xs sm:text-base'>
 				从内核级隔离到金融级 SLA 承诺，让您的每一次业务请求都得到可靠响应。{' '}
 			</p>
-			<div className='grid w-full grid-cols-1 items-start gap-6 lg:grid-cols-3'>
+			<div className='mt-8 grid w-full grid-cols-1 items-start gap-6 lg:grid-cols-3'>
 				{securityFeatures.map((feature) => (
 					<div
 						key={feature.title}

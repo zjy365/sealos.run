@@ -9,7 +9,7 @@ export function CTASection() {
 			<div className='flex flex-col items-start justify-between gap-4'>
 				<p className='text-xl font-medium whitespace-pre-wrap'>Sealos</p>
 				<div className='flex flex-col justify-center'>
-					<p className='text-2xl font-semibold whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
+					<p className='text-2xl font-semibold text-balance whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
 						注册即领免费额度，30 秒开启云原生开发之旅。
 					</p>
 				</div>

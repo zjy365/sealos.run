@@ -14,7 +14,7 @@ export function CTASection() {
 					<span>「统一监控」</span>
 				</div>
 				<div className='flex flex-col justify-center'>
-					<p className='text-2xl font-semibold whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
+					<p className='text-2xl font-semibold text-balance whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
 						马上集成 AI Proxy，30 秒跑通首个调用
 					</p>
 				</div>

@@ -24,7 +24,7 @@ export function PrivateDeploySection() {
 			</div>
 
 			{/* Right content area */}
-			<div className='right-0 bottom-0 flex w-full justify-center overflow-x-scroll overflow-y-hidden xl:justify-end'>
+			<div className='right-0 bottom-0 flex w-full justify-center overflow-x-scroll overflow-y-hidden xl:-mt-[25%] xl:justify-end xl:pt-[25%]'>
 				<div className='relative ml-24 flex min-w-max flex-col gap-6 p-8'>
 					{/* Card area - above the image */}
 					<div className='flex'>

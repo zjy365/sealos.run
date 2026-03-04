@@ -92,7 +92,7 @@ const archLayers: ArchLayer[] = [
 						tl: [true, true],
 						tr: [true, false],
 					},
-					className: 'px-1 pt-3 pb-8 [&_:nth-child(2)_span]:text-sm xl:[&_:nth-child(2)_span]:text-base',
+					className: 'px-1 pt-3 pb-8',
 				},
 				{
 					title: '中间件',
@@ -108,7 +108,8 @@ const archLayers: ArchLayer[] = [
 						tl: [true, true],
 						tr: [true, true],
 					},
-					className: 'px-1 pt-3 pb-8 [&_:nth-child(3)_span]:text-xs xl:[&_:nth-child(3)_span]:text-sm',
+					className:
+						'px-1 pt-3 pb-8 [&>div>:nth-child(n+1):nth-child(-n+2)_span]:text-xs xl:[&>div>:nth-child(n+1):nth-child(-n+2)_span]:text-sm',
 				},
 				{
 					title: '智能运维',
@@ -167,7 +168,8 @@ const archLayers: ArchLayer[] = [
 						tl: [true, false],
 						tr: [false, true],
 					},
-					className: 'pr-6 pl-1 pt-3 pb-8',
+					className:
+						'pr-6 pl-1 pt-3 pb-8 [&>div>div:nth-child(2)>div:nth-child(2)>span]:text-sm xl:[&>div>div:nth-child(2)>div:nth-child(2)>span]:text-base',
 				},
 			],
 		},
