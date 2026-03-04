@@ -12,7 +12,7 @@ import styles from './FeaturesSectionClient.module.css';
 
 const TOTAL_ITEMS = 5;
 const CONFIGS = [launchpadConfig, devboxConfig, databaseConfig, aiproxyConfig, ossConfig];
-const CAROUSEL_INTERVAL = 5000;
+const CAROUSEL_INTERVAL = 50000;
 
 interface FeaturesSectionClientProps {
 	activeBoxIndex: number;

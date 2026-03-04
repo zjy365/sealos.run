@@ -21,7 +21,6 @@ export function OrgsSection() {
 
 	return (
 		<div className='flex w-full flex-col items-start gap-4 sm:items-center'>
-			<p className='text-muted-foreground shrink-0 text-base'>Sealos 深受全球企业的信赖</p>
 			<div className='pointer-events-none relative w-full overflow-hidden'>
 				{/* Left gradient fade */}
 				<div className='from-background pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-linear-to-r to-transparent' />

@@ -14,7 +14,7 @@ export function CTASection() {
 					<span>「按量计费」</span>
 				</div>
 				<div className='flex flex-col justify-center'>
-					<p className='text-2xl font-semibold whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
+					<p className='text-2xl font-semibold text-balance whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
 						加入数十万开发者，让容器部署变得
 						<span className='text-brand'>简单高效</span>
 					</p>

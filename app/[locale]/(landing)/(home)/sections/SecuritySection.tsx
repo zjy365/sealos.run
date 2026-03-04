@@ -3,28 +3,31 @@ import { HighIsolationImage, HighPerfImage, HighStabilityImage } from '../assets
 
 const securityFeatures = [
 	{
-		title: '高性能',
-		description: '自研轻量级负载均衡器， 可支撑超大规模数万节点集群运行。',
+		title: '超大规模集群调度',
+		description: '核心自研轻量级负载均衡引擎，轻松支撑数万节点并发运行。性能无损，从容应对海量业务吞吐。',
 		image: HighPerfImage,
 	},
 	{
-		title: '高稳定',
-		description: '基于高性能网关，针对用户集群调优，保障 99.995% 的超高稳定性和极低资源消耗。',
+		title: '99.995% 可用性',
+		description: '深度调优的高性能网关，以极低资源消耗保障业务连续在线。提供 99.995% SLA 承诺，业务稳如泰山。',
 		image: HighStabilityImage,
 	},
 	{
-		title: '强隔离',
-		description: '基于 Firecracker、Cilium、OpenEBS 等技术实现用户隔离、空间隔离、计算隔离和存储的强安全隔离',
+		title: '沙箱级多维安全隔离',
+		description:
+			'采用虚拟化级强隔离方案。通过内核级技术（Firecracker/Cilium）构建独立安全沙箱，彻底杜绝多租户干扰。',
 		image: HighIsolationImage,
 	},
 ];
 
 export function SecuritySection() {
 	return (
-		<div className='flex flex-col gap-8'>
+		<div className='flex flex-col'>
 			<h2 className='text-xl font-semibold sm:text-3xl'>安全稳定</h2>
-
-			<div className='grid w-full grid-cols-1 items-start gap-6 lg:grid-cols-3'>
+			<p className='text-muted-foreground mt-4 text-xs sm:text-base'>
+				从内核级隔离到金融级 SLA 承诺，让您的每一次业务请求都得到可靠响应。{' '}
+			</p>
+			<div className='mt-8 grid w-full grid-cols-1 items-start gap-6 lg:grid-cols-3'>
 				{securityFeatures.map((feature) => (
 					<div
 						key={feature.title}
