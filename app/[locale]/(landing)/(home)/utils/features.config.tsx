@@ -41,13 +41,13 @@ export const launchpadConfig: FeaturesConfig = {
 	engineFeatures: [
 		{
 			type: 'arrow',
-			title: '用户请求',
+			title: '用户创建',
 		},
 		{
 			type: 'block',
 			title: '交互与接入层',
 			orientation: 'horizontal',
-			items: ['用户界面', 'YAML 编辑', '模板部署', '批量管理'],
+			items: ['Docker 地址', '资源配置', '网络配置', '高级参数'],
 		},
 		{
 			type: 'arrow',
@@ -56,14 +56,14 @@ export const launchpadConfig: FeaturesConfig = {
 			type: 'block',
 			title: '调度控制器',
 			orientation: 'horizontal',
-			items: ['配置解析', '资源计算', '生命周期管理', '弹性伸缩'],
+			items: ['配置解析', '资源计算', '多副本启停', '弹性伸缩'],
 		},
 		{
 			type: 'arrow',
 		},
 		{
 			type: 'block',
-			title: 'Kubernetes 集群',
+			title: 'Kubernetes 资源',
 			items: [
 				['Deployment', 'Ingress', 'Service', 'PVC'],
 				['Configmap', 'Secret', 'HPA'],
@@ -172,6 +172,11 @@ export const devboxConfig: FeaturesConfig = {
 		</>
 	),
 	features: [
+		{
+			icon: IsolateIcon,
+			title: '本地开发',
+			description: '本地IDE/IDEA一键连接，随时随地远程开发',
+		},
 		{
 			icon: EditorIcon,
 			title: '公网预览',

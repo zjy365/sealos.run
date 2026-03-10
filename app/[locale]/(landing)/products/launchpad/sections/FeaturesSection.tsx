@@ -17,17 +17,17 @@ export function FeaturesSection() {
 		},
 		{
 			title: '弹性伸缩',
-			description: '预配置 Docker 命令及 YAML 文件，只需填写镜像地址，自动构建运行',
+			description: '支持 CPU/GPU/内存 弹性配置，高峰自动扩容，低峰自动释放资源',
 			image: FeatureElasticImage,
 		},
 		{
-			title: '免费域名',
-			description: '每个应用默认分配二级域名，默认配置HTTPS，支持绑定自己的域名',
+			title: '测试域名',
+			description: '分配单独的二级测试域名，配置HTTPS，支持域名一键绑定',
 			image: FeatureDomainImage,
 		},
 		{
 			title: '安全隔离',
-			description: '每个应用默认分配二级域名，默认配置HTTPS，支持绑定自己的域名',
+			description: '采用 Firecracker + Cilium + OpenEBS，构建多租户安全隔离平台',
 			image: FeatureIsolationImage,
 		},
 		{
@@ -37,7 +37,7 @@ export function FeaturesSection() {
 		},
 		{
 			title: '持续集成和部署',
-			description: '内置 CI/CD 能力，只需更新镜像地址，便可自动构建和重新部署应用',
+			description: '内置 CI/CD ，只需更新镜像地址，便可自动构建和重新部署应用',
 			image: FeatureCicdImage,
 		},
 	];

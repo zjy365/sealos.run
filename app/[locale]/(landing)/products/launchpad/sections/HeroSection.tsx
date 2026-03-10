@@ -25,17 +25,17 @@ export function HeroSection() {
 						alt='App Launchpad'
 						className='size-24'
 					/>
-					<h1 className='text-4xl font-semibold sm:text-5xl'>应用部署解决方案</h1>
+					<h1 className='text-4xl font-semibold sm:text-5xl'>应用部署</h1>
 				</div>
 				<p className='text-muted-foreground text-center text-base sm:text-lg'>
-					无需购买云服务器，Sealos 提供 Docker 容器可视化操作， 支持微服务到单体应用全栈部署
+					提供 Docker 容器图形化页面操作， 支持微服务到单体应用全栈部署
 				</p>
 			</div>
 			<LandingOutlineButton
 				href={signinLink}
 				size='lg'
 			>
-				立即体验
+				创建应用
 			</LandingOutlineButton>
 			<div
 				className='relative mt-12 w-full'
