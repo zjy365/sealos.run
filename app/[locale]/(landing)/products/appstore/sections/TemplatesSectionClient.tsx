@@ -128,7 +128,7 @@ export function TemplatesSectionClient({ templates }: { templates: AppStoreTempl
 			<div
 				ref={scrollRef}
 				className={cn(
-					'w-full overflow-y-auto overscroll-contain bg-linear-to-b from-white to-zinc-50 px-5 py-10',
+					'w-full overflow-y-auto bg-linear-to-b from-white to-zinc-50 px-5 py-10',
 					// show ~2 rows, scroll for the rest
 					'max-h-[60vh] lg:max-h-[55vh]',
 				)}

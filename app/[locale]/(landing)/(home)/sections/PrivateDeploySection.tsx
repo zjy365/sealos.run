@@ -18,13 +18,13 @@ export function PrivateDeploySection() {
 					<h2 className='text-xl font-semibold sm:text-3xl'>满足不同企业的多样化需求</h2>
 				</div>
 				<p className='text-muted-foreground text-base whitespace-pre-wrap'>
-					统一的 Kubernetes
-					云原生架构，提供标准化抽象层。无论底层基础设施如何变化，上层应用和运维流程保持一致，让企业以相同技术栈灵活应对公有云、私有云等不同部署需求。
+					基于统一的 Kubernetes
+					云原生内核，屏蔽底层基础设施差异。无论是公有云的极速创新，还是私有云的安全合规，企业都能享受一致的高效开发与运维体验。
 				</p>
 			</div>
 
 			{/* Right content area */}
-			<div className='right-0 bottom-0 flex w-full justify-center overflow-x-scroll overflow-y-hidden xl:justify-end'>
+			<div className='right-0 bottom-0 flex w-full justify-center overflow-x-scroll overflow-y-hidden xl:-mt-[25%] xl:justify-end xl:pt-[25%]'>
 				<div className='relative ml-24 flex min-w-max flex-col gap-6 p-8'>
 					{/* Card area - above the image */}
 					<div className='flex'>
@@ -56,7 +56,7 @@ export function PrivateDeploySection() {
 								/>
 								<div className='flex flex-1 flex-col items-start gap-1'>
 									<h3 className='w-full text-xl font-medium'>公有云</h3>
-									<p className='text-muted-foreground w-full text-base'>开箱即用的云操作系统</p>
+									<p className='text-muted-foreground w-full text-base'>极速创新的 Serverless 体验</p>
 								</div>
 							</div>
 							<div className='flex w-full flex-col items-start gap-2'>
@@ -116,7 +116,7 @@ export function PrivateDeploySection() {
 											/>
 										</Button>
 									</div>
-									<p className='text-muted-foreground text-base'>企业级安全可控的云操作系统</p>
+									<p className='text-muted-foreground text-base'>自主可控的数据资产堡垒</p>
 								</div>
 							</div>
 							<div className='flex w-full flex-col items-start gap-2'>

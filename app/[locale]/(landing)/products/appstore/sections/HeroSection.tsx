@@ -52,13 +52,11 @@ export function HeroSection() {
 					showIcon={false}
 					className='text-lg font-medium'
 				>
-					<span className='inline-flex items-center justify-center gap-2'>
-						<span className='size-6'>
-							<Icon
-								src={FireIcon}
-								className='size-full'
-							/>
-						</span>
+					<span className='flex gap-2'>
+						<Icon
+							src={FireIcon}
+							className='size-6'
+						/>
 						<span>浏览热门应用</span>
 					</span>
 				</LandingOutlineButton>
@@ -69,13 +67,11 @@ export function HeroSection() {
 					showIcon={false}
 					className='text-lg font-medium'
 				>
-					<span className='inline-flex items-center justify-center gap-2'>
-						<span className='size-6'>
-							<Icon
-								src={SubmitIcon}
-								className='size-full'
-							/>
-						</span>
+					<span className='flex gap-2'>
+						<Icon
+							src={SubmitIcon}
+							className='size-6'
+						/>
 						<span>提交项目</span>
 					</span>
 				</LandingOutlineButton>

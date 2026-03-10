@@ -44,7 +44,7 @@ import {
 } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
 import { NavigationMenuLink } from '@/libs/components/ui/navigation-menu';
-import { Link } from '@/libs/i18n/navigation';
+import { Link, usePathname } from '@/libs/i18n/navigation';
 import { cn } from '@/libs/utils/styling';
 import { Badge } from '../ui/badge';
 import { buttonVariants } from '../ui/button';
@@ -593,15 +593,38 @@ function AppStoreFeatures() {
 }
 
 export function ProductsPanel() {
+	const pathname = usePathname();
+
+	const getMatchedItem = React.useCallback((path: string | null | undefined) => {
+		if (!path) return null;
+		// Prefer the longest matching href prefix
+		const withHref = navMenuItems.filter((i) => i.content?.href);
+		const matched = withHref
+			.filter((i) => path === i.content?.href || path.startsWith(`${i.content?.href}/`))
+			.sort((a, b) => b.content?.href?.length ?? 0 - (a.content?.href?.length ?? 1))
+			.at(0);
+		return matched ?? null;
+	}, []);
+
 	const [selectedItem, setSelectedItem] = React.useState<NavMenuItem | null>(
-		navMenuItems.find((item) => item.content) || null,
+		getMatchedItem(pathname) || navMenuItems.find((item) => item.content) || null,
 	);
+
+	const prevPathnameRef = React.useRef(pathname);
+	React.useEffect(() => {
+		if (prevPathnameRef.current === pathname) return;
+		prevPathnameRef.current = pathname;
+		const matched = getMatchedItem(pathname);
+		if (matched) setSelectedItem(matched);
+	}, [getMatchedItem, pathname]);
 
 	return (
 		<div className='bg-card border-hairline flex w-3xl border-dashed border-blue-400 p-0'>
 			{/* Left Sidebar */}
 			<div className='border-r-hairline flex w-40 flex-col gap-2 border-dashed border-blue-400 px-4 py-6'>
 				{navMenuItems.map((item) => {
+					const href = item.content?.href;
+					const isActive = !!href && (pathname === href || (pathname?.startsWith(`${href}/`) ?? false));
 					const isSelected = selectedItem?.id === item.id;
 					return (
 						<button
@@ -612,13 +635,15 @@ export function ProductsPanel() {
 								'flex items-center gap-2 rounded-md px-2 py-2 text-sm transition-colors',
 								isSelected
 									? 'text-foreground font-medium'
-									: 'text-muted-foreground hover:text-foreground',
+									: isActive
+										? 'text-foreground'
+										: 'text-muted-foreground hover:text-foreground',
 							)}
 						>
 							<div
 								className={cn(
 									'flex size-4 items-center justify-center',
-									isSelected ? 'text-primary' : 'text-muted-foreground',
+									isSelected || isActive ? 'text-primary' : 'text-muted-foreground',
 								)}
 							>
 								<Icon

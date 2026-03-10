@@ -53,7 +53,9 @@ export function HeroSection() {
 							))}
 						</div>
 					</div>
-					<h1 className='text-4xl leading-tight font-semibold sm:text-5xl'>以应用为中心的智能云操作系统</h1>
+					<h1 className='text-4xl leading-tight font-semibold sm:text-5xl'>
+						应用为中心的智能<span className='text-brand'>云操作系统</span>
+					</h1>
 				</div>
 
 				<div className='relative flex flex-row-reverse items-center justify-end lg:flex-row lg:justify-start'>
@@ -71,7 +73,7 @@ export function HeroSection() {
 						href={signinLink}
 						size='lg'
 					>
-						开始体验
+						立即上云
 					</LandingOutlineButton>
 				</div>
 			</div>

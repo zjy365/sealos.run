@@ -29,6 +29,9 @@ export default async function RootLayout({ children, params }: Props) {
 		<html
 			lang={actualLoacle}
 			className={inter.className}
+			style={{
+				colorScheme: 'light',
+			}}
 			suppressHydrationWarning
 		>
 			<head>

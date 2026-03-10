@@ -10,8 +10,6 @@ import { ApiCallScene } from '../components/ApiCallScene';
 import { GetKeyScene } from '../components/GetKeyScene';
 import { ParamsScene } from '../components/ParamsScene';
 
-const SCENE_COUNT = 3;
-
 const scenes = [
 	{
 		id: 'getkey',
@@ -44,7 +42,7 @@ export function MigGuideSection({ signinHref }: { signinHref: string }) {
 		offset: ['start start', 'end end'],
 	});
 
-	const sceneIndex = useTransform(scrollYProgress, [0, 1 / SCENE_COUNT, 2 / SCENE_COUNT, 1], [0, 1, 2, 2], {
+	const sceneIndex = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [0, 1, 1, 2, 2], {
 		clamp: true,
 	});
 
@@ -53,7 +51,7 @@ export function MigGuideSection({ signinHref }: { signinHref: string }) {
 	React.useEffect(() => {
 		const unsubscribe = sceneIndex.on('change', (latest) => {
 			const index = Math.floor(latest);
-			const clampedIndex = Math.max(0, Math.min(SCENE_COUNT - 1, index));
+			const clampedIndex = Math.max(0, Math.min(3 - 1, index));
 			setActiveSceneIndex(clampedIndex);
 		});
 
@@ -71,7 +69,7 @@ export function MigGuideSection({ signinHref }: { signinHref: string }) {
 	return (
 		<div
 			ref={containerRef}
-			style={{ minHeight: '200vh' }}
+			style={{ minHeight: '300vh' }}
 		>
 			<div className='sticky top-16 pr-6 pl-16 sm:pl-24 lg:top-64 lg:flex lg:h-[calc(100dvh-24rem)] lg:flex-row'>
 				<div className='border-brand flex h-96 flex-col justify-between border-dashed pt-12 lg:h-full lg:w-1/2 lg:border-r lg:py-12'>
@@ -117,7 +115,7 @@ export function MigGuideSection({ signinHref }: { signinHref: string }) {
 					</div>
 				</div>
 
-				<div className='relative flex items-start justify-center pb-12 lg:w-1/2 lg:py-12 lg:pl-4'>
+				<div className='relative flex items-start justify-center overflow-y-scroll pb-12 lg:w-1/2 lg:py-12 lg:pl-4'>
 					<AnimatePresence mode='wait'>
 						<motion.div
 							key={activeScene.id}

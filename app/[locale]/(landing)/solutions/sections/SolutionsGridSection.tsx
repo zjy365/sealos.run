@@ -511,7 +511,7 @@ export function SolutionsGridSection() {
 				<div
 					ref={scrollRef}
 					className={cn(
-						'w-full overflow-y-auto overscroll-contain',
+						'w-full overflow-y-auto',
 						// roughly show ~2 rows by default, scroll for the rest
 						'max-h-140 sm:max-h-155 lg:max-h-140',
 					)}
