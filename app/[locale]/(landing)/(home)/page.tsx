@@ -25,7 +25,6 @@ export default async function HomePage() {
 				<VerticalDashedLine
 					enableScrollAnimation
 					mask={[['0rem', '1.75rem']]}
-					
 					className='w-6 [--icon-size:1.5rem] sm:w-12 sm:[--icon-scale-base:2]'
 				>
 					<Icon
