@@ -44,7 +44,7 @@ interface NavbarMobileNavProps {
 const productItems = [
 	{
 		id: 'launchpad',
-		label: '容器',
+		label: '应用管理',
 		href: '/products/launchpad',
 		icon: BoxIcon,
 	},

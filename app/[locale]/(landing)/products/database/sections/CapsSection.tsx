@@ -9,33 +9,33 @@ const features: Array<{
 }> = [
 	{
 		icon: ClockCounterIcon,
-		title: '部署速度快 75%',
-		description: '一个 YAML，全栈自动化，集群、备份、监控、安全一次性配置完成',
+		title: '秒级部署',
+		description: '可视化界面配置，30秒内自动拉起包含主从架构、监控告警、自动备份的生产级数据库',
 	},
 	{
 		icon: TrendingDownIcon,
-		title: '成本降低 60%',
-		description: '0.4元/核心，0.2元/GB，传统云数据库 30% 的价格',
+		title: '极致降本',
+		description: '0.4元/核心，0.2元/GB，闲置自动缩容，综合成本降低 60%。',
 	},
 	{
 		icon: CheckOverFrameIcon,
-		title: '99.9% 可用性 SLA',
-		description: '多副本 + 跨地域 + 智能故障切换，2 秒检测，5 秒自动恢复',
+		title: '高可用',
+		description: '多副本跨域容灾，秒级完成主从切换，业务零感知。',
 	},
 	{
 		icon: RocketIcon,
-		title: '零维护开销',
-		description: '自动更新、补丁和维护操作',
+		title: '自动维护',
+		description: '自动更新、自动补丁、自动维护，彻底告别运维负担。',
 	},
 	{
 		icon: ModelIcon,
-		title: 'AI 数据分析',
-		description: '内置 Chat2DB，自然语言转 SQL',
+		title: '数据分析',
+		description: '内置 Chat2DB，支持自然语言提问直接生成查询语句。',
 	},
 	{
 		icon: ApiIcon,
-		title: '开发者优先的 API',
-		description: 'RESTful API 和 CLI 工具，无缝集成',
+		title: '云原生生态',
+		description: 'RESTful API + CLI 工具，无缝集成到任何工作流。',
 	},
 ];
 
@@ -47,7 +47,7 @@ export function CapsSection() {
 					为什么选择 <span className='text-brand'>Sealos 数据库</span>
 				</h2>
 				<p className='text-muted-foreground text-xs sm:text-base'>
-					极速部署 + 企业级稳定性 + AI 智能分析，为开发者而建，受企业信赖
+					原生集成多副本高可用架构与智能故障自愈机制，为您提供 99.9% SLA 的生产级保障。
 				</p>
 			</div>
 

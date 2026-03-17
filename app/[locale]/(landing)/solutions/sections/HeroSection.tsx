@@ -50,7 +50,7 @@ export function HeroSection() {
 			<h1 className='text-foreground text-center text-4xl leading-none font-semibold sm:text-5xl'>
 				<span>{`"`}</span>
 				<span className='text-brand'>一键部署</span>
-				<span>，让复杂的K8s变得</span>
+				<span>，让复杂的 K8s 变得</span>
 				<span className='text-brand'>简单易用</span>
 				<span>{`"`}</span>
 			</h1>

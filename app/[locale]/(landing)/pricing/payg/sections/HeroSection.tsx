@@ -3,7 +3,7 @@ import { Badge } from '@/libs/components/ui/badge';
 import { HeroBgImage } from '../../assets';
 
 export function HeroSection() {
-	const highlights = ['简单透明的单价', '即开即用', '暂停不计费'];
+	const highlights = ['超低单价', '即开即用', '暂停不计费'];
 
 	return (
 		<div className='relative flex h-128 w-full flex-col justify-end gap-6 py-36'>

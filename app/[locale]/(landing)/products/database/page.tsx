@@ -1,7 +1,6 @@
 import { CapsSection } from './sections/CapsSection';
 import { CTASection } from './sections/CTASection';
 import { DatabasesSection } from './sections/DatabasesSection';
-import { FeaturesSection } from './sections/FeaturesSection';
 import { HeroSection } from './sections/HeroSection';
 
 export default async function DatabasePage() {
@@ -17,10 +16,6 @@ export default async function DatabasePage() {
 
 			<section className='container mx-auto px-6 py-16'>
 				<CapsSection />
-			</section>
-
-			<section className='container mx-auto px-6 py-16'>
-				<FeaturesSection />
 			</section>
 
 			<section className='flex w-full flex-col items-center bg-zinc-100 py-12'>

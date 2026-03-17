@@ -11,23 +11,23 @@ import {
 export function FeaturesSection() {
 	const features = [
 		{
-			title: '一键容器化',
-			description: '预配置 Docker 命令及 YAML 文件，只需填写镜像地址，自动构建运行',
+			title: '可视化',
+			description: '仅需填写镜像名称与端口，10秒即可将 Docker 容器部署至生产级集群。',
 			image: FeatureContainerImage,
 		},
 		{
 			title: '弹性伸缩',
-			description: '支持 CPU/GPU/内存 弹性配置，高峰自动扩容，低峰自动释放资源',
+			description: '基于 CPU/内存负载指标自动调节副本数量，在流量洪峰到来前秒级扩容，流量退去后自动缩容降本。',
 			image: FeatureElasticImage,
 		},
 		{
-			title: '测试域名',
-			description: '分配单独的二级测试域名，配置HTTPS，支持域名一键绑定',
+			title: '域名配置',
+			description: '自动申请和续期 SSL 证书，域名绑定即开启 HTTPS，无需手动配置 Nginx',
 			image: FeatureDomainImage,
 		},
 		{
-			title: '安全隔离',
-			description: '采用 Firecracker + Cilium + OpenEBS，构建多租户安全隔离平台',
+			title: '高可用',
+			description: '利用 K8s 调度器自动监测实例健康状态，节点故障时毫秒级自动迁移容器，服务永不中断。',
 			image: FeatureIsolationImage,
 		},
 		{
@@ -36,15 +36,15 @@ export function FeaturesSection() {
 			image: FeaturePaygImage,
 		},
 		{
-			title: '持续集成和部署',
-			description: '内置 CI/CD ，只需更新镜像地址，便可自动构建和重新部署应用',
+			title: '热更新',
+			description: '修改配置无需重启应用，环境变量实时生效，零停机配置变更。',
 			image: FeatureCicdImage,
 		},
 	];
 
 	return (
 		<div className='flex flex-col gap-8'>
-			<h2 className='text-center text-xl font-semibold sm:text-3xl'>Docker 容器化部署功能特性</h2>
+			<h2 className='text-center text-xl font-semibold sm:text-3xl'>功能特性</h2>
 
 			<div className='grid grid-cols-1 items-end gap-6 sm:grid-cols-2 lg:grid-cols-3'>
 				{features.map((feature) => (

@@ -10,9 +10,10 @@ const scenarios = [
 				className='size-full'
 			/>
 		),
-		title: '媒体存储',
-		description: '存储和分发图片、视频、音频等多媒体文件，支持 CDN 加速',
-		tags: ['用户头像和相册', '视频点播平台', '音乐流媒体服务', '图片素材库'],
+		title: 'AI 模型与数据集',
+		description:
+			'专为高性能计算（HPC）优化。在 Sealos 内网实现 TB 级训练数据与模型权重的极速加载，显著减少 GPU 等待时间。',
+		tags: ['模型权重存储', '训练数据集', '向量库后端', 'PyTorch/TF'],
 	},
 	{
 		icon: (
@@ -21,9 +22,10 @@ const scenarios = [
 				className='size-full'
 			/>
 		),
-		title: '网站资源',
-		description: '托管静态网站资源，提升加载速度和用户体验',
-		tags: ['静态网站托管', 'CSS/JS 文件存储', 'Web 应用资源', 'CDN 源站存储'],
+		title: '云原生构建产物',
+		description:
+			'CI/CD 流水线的最佳缓冲池。统一存储 Docker 镜像层、Helm Charts 包及构建日志，支持 S3 协议无缝对接主流 DevOps 工具。',
+		tags: ['镜像仓库后端', '流水线缓存', 'Terraform State', '构建日志'],
 	},
 	{
 		icon: (
@@ -32,9 +34,10 @@ const scenarios = [
 				className='size-full'
 			/>
 		),
-		title: '数据备份',
-		description: '安全可靠的数据备份和归档，支持版本控制和生命周期管理',
-		tags: ['数据库备份', '日志归档存储', '文档版本管理', '灾难恢复备份'],
+		title: '静态网站托管',
+		description:
+			'像传文件一样发布网站。一键托管 HTML/CSS/JS 构建产物，支持 自定义域名 与 HTTPS，轻松实现现代化的前后端分离架构。',
+		tags: ['前端 Dist 托管', '文档/博客站', '动静分离', 'CDN 源站'],
 	},
 	{
 		icon: (
@@ -43,9 +46,10 @@ const scenarios = [
 				className='size-full'
 			/>
 		),
-		title: '移动应用',
-		description: '为移动应用提供文件存储服务，支持直传和断点续传',
-		tags: ['用户生成内容', '应用更新包', '离线数据同步', '多端文件同步'],
+		title: '容灾备份与归档',
+		description:
+			'业务数据的最后一道防线。自动化存储 数据库快照 (Snapshots) 与系统审计日志，支持 对象锁定 (WORM) 技术，有效防御勒索软件与意外删除。',
+		tags: ['数据库冷备', '日志长期归档', '防勒索锁定', '多跨区域复制'],
 	},
 ];
 

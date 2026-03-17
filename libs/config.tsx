@@ -23,8 +23,8 @@ export const Config = (() => {
 		pages: {},
 		components: {
 			navbar: {
-				contactLink: 'https://sealos.io/contact',
-				signinLink: 'https://usw.sealos.io/?openapp=system-brain',
+				contactLink: 'https://cloud.sealos.run/',
+				signinLink: 'https://cloud.sealos.run/',
 				links: [
 					{
 						textI18nKey: t('components.navbar.links.products'),

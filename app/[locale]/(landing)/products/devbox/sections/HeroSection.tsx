@@ -51,7 +51,7 @@ export function HeroSection() {
 						<span className='text-brand'>云开发平台</span>
 					</h1>
 					<div className='text-muted-foreground gap-2 text-lg'>
-						「开箱即用，开发框架预装」 「云端环境，本地远程开发」 「一键构建镜像，秒级发布上线」
+						「内置所有语言框架」 「云端环境隔离」 「自动构建镜像」 「一键发布上线」
 					</div>
 					<div className='flex items-center gap-8'>
 						<LandingOutlineButton
@@ -59,19 +59,15 @@ export function HeroSection() {
 							size='lg'
 							className='w-fit'
 						>
-							创建环境
+							选择语言
 						</LandingOutlineButton>
-						<p className='text-muted-foreground text-sm'>
-							<span>注册即领，</span>
-							<span className='text-foreground'>免费使用14天</span>
-						</p>
 					</div>
 				</div>
 			</div>
 
 			{/* Bottom: Supported Languages */}
 			<div className='flex w-full flex-col items-center gap-6 md:flex-row md:gap-12'>
-				<p className='text-muted-foreground w-fit text-center text-base text-nowrap'>支持所有编程语言</p>
+				<p className='text-muted-foreground w-fit text-center text-base text-nowrap'>支持所有编程语言框架</p>
 				<div className='flex w-full flex-wrap items-center justify-center gap-6 lg:gap-8'>
 					{languages.map((lang) => (
 						<div

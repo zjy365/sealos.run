@@ -38,7 +38,7 @@ export function RequestSection() {
 					</div>
 				</div>
 				<p className='text-muted-foreground text-base leading-normal font-normal'>
-					我们支持几乎所有 <span className='text-brand'>Docker</span> 化的{' '}
+					我们支持所有 <span className='text-brand'>Docker</span> 化的{' '}
 					<span className='text-brand'>GitHub</span> 项目！
 				</p>
 			</div>

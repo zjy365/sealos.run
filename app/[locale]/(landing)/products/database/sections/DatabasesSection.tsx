@@ -50,7 +50,7 @@ export function DatabasesSection() {
 			<div className='flex flex-col gap-3'>
 				<h2 className='text-xl font-medium sm:text-2xl'>支持的数据库</h2>
 				<p className='text-muted-foreground text-xs sm:text-base'>
-					全面兼容主流数据库生态，分布式存储，支持快速扩展与无缝迁移。
+					从关系型数据库到向量检索，从缓存中间件到消息队列，满足 AI 应用与微服务架构的一切存储需求。
 				</p>
 			</div>
 

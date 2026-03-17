@@ -20,7 +20,7 @@ export function StepsSection() {
 					className='size-full'
 				/>
 			),
-			title: '基础配置',
+			title: '填入镜像',
 			description: '填写 Docker 镜像地址，自定义云服务器资源，单日消耗实时预览',
 			image: Step1Image,
 		},
@@ -31,7 +31,7 @@ export function StepsSection() {
 					className='size-full'
 				/>
 			),
-			title: '网络配置',
+			title: '选择端口',
 			description: '配置网络访问方式',
 			image: Step2Image,
 		},
@@ -42,7 +42,7 @@ export function StepsSection() {
 					className='size-full'
 				/>
 			),
-			title: '高级配置',
+			title: '配置变量',
 			description: '高级配置选项',
 			image: Step3Image,
 		},
@@ -92,7 +92,7 @@ export function StepsSection() {
 
 	return (
 		<div className='flex flex-col gap-12'>
-			<h2 className='text-center text-xl font-semibold sm:text-3xl'>简单 4 步, 1 分钟完成Docker容器化部署</h2>
+			<h2 className='text-center text-xl font-semibold sm:text-3xl'>简单 4 步，完成部署</h2>
 			<div className='flex flex-col gap-8'>
 				<div className='flex items-center justify-center'>
 					{steps.map((step, index) => (

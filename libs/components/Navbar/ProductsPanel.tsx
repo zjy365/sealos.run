@@ -66,7 +66,7 @@ interface NavMenuItem {
 const navMenuItems: NavMenuItem[] = [
 	{
 		id: 'launchpad',
-		label: '容器',
+		label: '应用管理',
 		icon: BoxIcon,
 		largeImage: LaunchpadBoxImage,
 		largeImageAlt: '应用管理',
@@ -92,7 +92,7 @@ const navMenuItems: NavMenuItem[] = [
 	},
 	{
 		id: 'oss',
-		label: '存储',
+		label: '对象存储',
 		icon: ObjectStorageIcon,
 		largeImage: OssBoxImage,
 		largeImageAlt: '对象存储',
@@ -105,7 +105,7 @@ const navMenuItems: NavMenuItem[] = [
 	},
 	{
 		id: 'devbox',
-		label: '云开发',
+		label: 'DevBox',
 		icon: RocketIcon,
 		largeImage: DevboxBoxImage,
 		largeImageAlt: 'DevBox',
@@ -118,7 +118,7 @@ const navMenuItems: NavMenuItem[] = [
 	},
 	{
 		id: 'aiproxy',
-		label: 'AI 模型',
+		label: 'AI 网关',
 		icon: ModelIcon,
 		largeImage: AiproxyBoxImage,
 		largeImageAlt: 'AI Proxy',
@@ -131,7 +131,7 @@ const navMenuItems: NavMenuItem[] = [
 	},
 	{
 		id: 'app',
-		label: '应用',
+		label: '开源应用',
 		icon: CubesIcon,
 		largeImage: AppstoreBoxImage,
 		largeImageAlt: '应用商店',

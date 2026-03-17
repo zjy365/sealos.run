@@ -4,20 +4,20 @@ import { TypePrivateImage, TypePublicReadImage, TypePublicReadWriteImage } from 
 
 const storageTypes = [
 	{
-		type: 'private',
+		type: 'Private',
 		label: '私有访问',
 		description: '仅允许经过身份验证的用户访问存储桶内容，适用于存储敏感数据或内部使用',
 		image: TypePrivateImage,
 	},
 	{
-		type: 'publicRead',
+		type: 'PublicRead',
 		label: '公共读',
 		description:
 			'允许所有人读取存储桶内对象 (无需身份验证)，但写入操作仍需认证，适用于内容分发、静态网站托管等场景',
 		image: TypePublicReadImage,
 	},
 	{
-		type: 'publicReadWrite',
+		type: 'PublicReadWrite',
 		label: '公共读写',
 		description: '开放完整的读写权限 (需谨慎使用)，适用于需要临时文件共享或协作的场景，生产环境不建议开启',
 		image: TypePublicReadWriteImage,

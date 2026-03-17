@@ -6,9 +6,9 @@ const steps = [
 	{
 		number: 1,
 		icon: Number01Icon,
-		title: '配置开发环境',
-		description: '统一的环境标准,独立的运行空间',
-		tags: ['自定义云资源', '内置框架'],
+		title: '配置环境',
+		description: '统一的环境标准，独立的运行空间',
+		tags: ['自定义资源', '内置语言框架', '支持自安装'],
 		image: StepCreateImage,
 		side: 'left' as const,
 	},
@@ -16,7 +16,7 @@ const steps = [
 		number: 2,
 		icon: Number02Icon,
 		title: '开发调试',
-		description: '独立测试域名,实时线上测试',
+		description: '独立测试域名，实时线上测试',
 		tags: ['二级域名', '实时更新'],
 		image: StepDevImage,
 		side: 'left' as const,
@@ -24,9 +24,9 @@ const steps = [
 	{
 		number: 3,
 		icon: Number03Icon,
-		title: '选择开发工具',
-		description: '支持所有 IDE/IDEA 通过 SSH 连接',
-		tags: ['云端存储', '代码导入'],
+		title: '选择工具',
+		description: '支持所有 IDE/IDEA 通过 SSH 一键连接',
+		tags: ['云端存储', '代码拖入'],
 		image: StepIdeImage,
 		side: 'right' as const,
 	},
@@ -34,7 +34,7 @@ const steps = [
 		number: 4,
 		icon: Number04Icon,
 		title: '发布上线',
-		description: '一键打包 OCL 镜像, 自动创建正式环境',
+		description: '一键打包 OCI 镜像，自动创建正式环境',
 		tags: ['版本管理', '环境隔离'],
 		image: StepDeployImage,
 		side: 'right' as const,
@@ -49,21 +49,11 @@ export function StepsSection() {
 		<div className='flex flex-col gap-8 pl-12 lg:pl-0'>
 			<div className='flex flex-col items-center gap-4'>
 				<h2 className='text-center text-xl font-semibold sm:text-3xl'>
-					从想法到上线,只需
+					从想法到上线，只需
 					<span className='text-brand'>几分钟</span>
 				</h2>
-				<div className='text-muted-foreground flex items-center gap-2 text-xs sm:text-lg'>
-					<span>内置环境</span>
-					<span>|</span>
-					<span>本地开发</span>
-					<span>|</span>
-					<span>线上测试</span>
-					<span>|</span>
-					<span>一键部署</span>
-					<span>|</span>
-					<span>环境隔离</span>
-				</div>
-				<p className='text-muted-foreground text-center text-xs sm:text-base'>零配置零维护,让你专注写代码</p>
+
+				<p className='text-muted-foreground text-center text-xs sm:text-base'>零配置，让你专注写代码</p>
 			</div>
 
 			<div className='flex w-full flex-col gap-8 lg:flex-row'>

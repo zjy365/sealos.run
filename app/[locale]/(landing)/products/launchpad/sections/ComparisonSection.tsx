@@ -2,39 +2,29 @@ export function ComparisonSection() {
 	const comparisonData = [
 		{
 			category: '对比项',
-			sealos: 'Sealos Docker 部署',
+			sealos: 'Sealos 部署',
 			traditional: '传统 Docker 部署',
 			isHeader: true,
 		},
 		{
-			category: '部署时间',
-			sealos: '1 分钟',
-			traditional: '30 分钟',
-		},
-		{
-			category: '资源利用率',
-			sealos: '70-80%',
-			traditional: '20-40%',
-		},
-		{
-			category: '扩容速度',
-			sealos: '3-5 秒',
+			category: '部署',
+			sealos: '10 秒全栈交付',
 			traditional: '小时级',
 		},
 		{
-			category: '更新应用',
-			sealos: '替换镜像',
-			traditional: '重新构建',
+			category: '迭代',
+			sealos: '滚动更新',
+			traditional: '停机更新',
 		},
 		{
-			category: '学习成本',
-			sealos: '可视化操作页面',
-			traditional: '需要容器，网格，运维能力',
+			category: '运维',
+			sealos: '全托管',
+			traditional: '人力运维',
 		},
 		{
-			category: '运维人力',
-			sealos: 'Sealos 技术团队支持',
-			traditional: '需要运维团队',
+			category: '资源',
+			sealos: '极致利用',
+			traditional: '低效闲置',
 		},
 	];
 
@@ -45,7 +35,7 @@ export function ComparisonSection() {
 		<div className='flex flex-col gap-16'>
 			<div className='flex flex-col items-center gap-4 text-center'>
 				<h2 className='text-xl font-semibold sm:text-3xl'>
-					为什么选择 <span className='text-brand'>Sealos Docker</span> 部署
+					为什么选择 <span className='text-brand'>Sealos</span> 部署
 				</h2>
 				<p className='text-muted-foreground text-base'>传统 Docker 部署的痛点，我们都帮您解决了</p>
 			</div>

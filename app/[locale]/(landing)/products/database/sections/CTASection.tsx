@@ -8,10 +8,12 @@ export function CTASection() {
 	return (
 		<div className='flex w-full flex-col items-start justify-between gap-12 lg:flex-row lg:items-end'>
 			<div className='flex flex-col items-start justify-between gap-4'>
-				<p className='text-muted-foreground text-base'>准备开始了吗？</p>
+				<p className='text-muted-foreground text-base'>
+					Sealos 陪伴数十万开发者，保障每一次与数据读写的安全极速
+				</p>
 				<div className='flex flex-col justify-center'>
 					<p className='text-2xl font-semibold sm:text-3xl lg:text-4xl'>
-						加入 <span className='text-brand'>数千名开发者</span> 的选择
+						体验 <span className='text-brand'>Serverless</span> 时代的数据库管理方式
 					</p>
 				</div>
 			</div>
@@ -24,7 +26,7 @@ export function CTASection() {
 					iconContainerClassName='bg-transparent group-hover:bg-transparent text-foreground group-hover:text-brand'
 					icon={PlayIcon}
 				>
-					预约演示
+					查看文档
 				</LandingOutlineButton>
 				<LandingOutlineButton
 					href={signinLink}
@@ -32,7 +34,7 @@ export function CTASection() {
 					className='h-11 w-full gap-4 pr-1 pl-4 text-base sm:h-14 sm:w-auto sm:gap-6 sm:px-6 sm:text-xl'
 					iconContainerClassName='size-9'
 				>
-					免费试用
+					开始您的云原生之旅
 				</LandingOutlineButton>
 			</div>
 		</div>

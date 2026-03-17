@@ -19,7 +19,7 @@ export function CTASection() {
 						<span className='text-brand'>简单高效</span>
 					</p>
 				</div>
-				<p className='text-muted-foreground text-sm'>立即体验 Sealos Docker 部署的智能化</p>
+				<p className='text-muted-foreground text-sm'>立即体验 Sealos的自动化</p>
 			</div>
 			<div className='flex w-full flex-col gap-4 sm:w-auto sm:flex-row'>
 				<LandingOutlineButton
@@ -30,7 +30,7 @@ export function CTASection() {
 					iconContainerClassName='bg-transparent group-hover:bg-transparent text-foreground group-hover:text-brand'
 					icon={PlayIcon}
 				>
-					预约演示
+					查看文档
 				</LandingOutlineButton>
 				<LandingOutlineButton
 					href={signinLink}
@@ -38,7 +38,7 @@ export function CTASection() {
 					borderStyle='solid'
 					className='w-full sm:w-auto'
 				>
-					立即注册
+					前往创建
 				</LandingOutlineButton>
 			</div>
 		</div>
