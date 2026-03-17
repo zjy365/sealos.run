@@ -10,8 +10,8 @@ export function CTASection() {
 				<p className='text-xl font-medium whitespace-pre-wrap'>Sealos</p>
 				<div className='flex flex-col justify-center'>
 					<p className='text-2xl font-semibold text-balance whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
-						轻松实现复杂开发流程，让创意
-						<span className='text-brand'>触手可及</span>
+						获取企业专属
+						<span className='text-brand'>解决方案</span>
 					</p>
 				</div>
 			</div>
@@ -19,7 +19,7 @@ export function CTASection() {
 				href={signinLink}
 				size='lg'
 			>
-				立即体验
+				立即获取
 			</LandingOutlineButton>
 		</div>
 	);

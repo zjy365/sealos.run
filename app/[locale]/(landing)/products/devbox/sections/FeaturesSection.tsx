@@ -33,59 +33,59 @@ interface FeatureSectionData {
 
 const featureSectionsData: FeatureSectionData[] = [
 	{
-		title: '统一环境,独立运行',
-		description: '统一的环境标准,独立的运行空间',
+		title: '标准环境，秒级部署',
+		description: '告别繁琐配置。 一键拉起标准开发环境，确保开发与生产 100% 同构，彻底终结“环境不一致”隐患。',
 		features: [
 			{
 				icon: FramedCodeIcon,
-				title: '开发到生产的无缝体验',
-				description: '部署时打包整个容器(代码+依赖+运行时),环境100%一致',
+				title: '生产级同构',
+				description: '开发环境即容器本身，代码上线 0 差异，杜绝“在我电脑上能跑”的 Bug。',
 			},
 			{
 				icon: IsolateIcon,
 				title: '项目间完全隔离',
-				description: '独立的容器实例,开发、测试与生产环境不会互相影响',
+				description: '独立的容器实例，开发、测试与生产环境不会互相影响',
 			},
 		],
 		image: FeatureIsolationImage,
 		imageAlt: '统一环境,独立运行',
 	},
 	{
-		title: '云端协作开发',
-		description: '云端开发环境,本地AI IDE/IDEA助力编程',
+		title: '云端澎湃算力，本地丝滑体验',
+		description: '将编译交给云端， 通过 VS Code Remote 无缝连接，轻薄本也能跑微服务/大模型。',
 		features: [
 			{
 				icon: ObjectStorageIcon,
-				title: '云端存储',
-				description: '项目代码云端存储,随时随地协同编码',
+				title: '原生 IDE 支持',
+				description: '完美兼容 VS Code / JetBrains等，保留所有插件、主题与快捷键习惯，手感如初',
 			},
 			{
 				icon: PreviewIcon,
 				title: '线上预览',
-				description: '多设备实时预览,手机电脑平板边写边测',
+				description: '多设备实时预览提示，手机电脑平板边写边测',
 			},
 			{
 				icon: PersonIcon,
-				title: '团队空间',
-				description: '所有项目集中展示,权限精细控制,项目完全隔离',
+				title: '弹性伸缩',
+				description: '编译/训练时一键扩容 CPU 内存，任务结束自动释放，用最低成本换最高效率',
 			},
 		],
 		image: FeatureCollabImage,
 		imageAlt: '云端协作开发',
 	},
 	{
-		title: '秒级发布上线',
-		description: '容器化预构建+自动部署,实现真正的秒级上线',
+		title: '开发即上线，构建发布一气呵成',
+		description: '打破运维边界，在 Devbox 内直接完成镜像构建与服务更新，自动配置域名证书，秒级对外发布。',
 		features: [
 			{
 				icon: FramedSaveIcon,
-				title: '版本管理',
-				description: 'Git 集成,OCI 标准镜像格式,系统自动化构建',
+				title: '构建与发版',
+				description: '内置镜像构建，无需复杂流水线，源码一键打包镜像并更新至生产服务。',
 			},
 			{
 				icon: RocketIcon,
-				title: '发布上线',
-				description: '一键发布,自动化容器编排,环境一致并相互隔离',
+				title: '自动域名 SSL',
+				description: '自动签发 HTTPS 证书与公网域名，让您的创意瞬间可被全球安全访问。',
 			},
 		],
 		image: FeatureQuickImage,

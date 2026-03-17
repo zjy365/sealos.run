@@ -11,11 +11,11 @@ export function HeroSection() {
 		<div className='flex flex-col py-12'>
 			<div className='flex flex-col items-start lg:flex-row lg:items-center'>
 				<div className='flex flex-1 flex-col gap-6'>
-					<p className='text-2xl font-medium'>云原生对象存储</p>
-					<h1 className='text-4xl font-semibold lg:text-5xl'>
-						安全、可扩展、高性能的
-						<span className='text-brand'>对象存储服务</span>
-					</h1>
+					<p className='text-2xl font-medium'>
+						兼容
+						<span className='text-brand'> S3 </span>协议
+					</p>
+					<h1 className='text-4xl font-semibold lg:text-5xl'>云原生对象存储</h1>
 				</div>
 				<div className='hidden shrink-0 lg:block'>
 					<Image
@@ -31,13 +31,13 @@ export function HeroSection() {
 			<div className='relative min-h-50'>
 				<div className='flex max-w-xs flex-col items-start gap-12 md:ml-40 lg:ml-56 xl:ml-72 2xl:ml-88'>
 					<p className='text-muted-foreground text-xl lg:text-2xl'>
-						支持海量数据存储，为你的应用提供可靠的云端存储解决方案。
+						按需付费，从 GB 到 PB 无缝扩展，成本降低 70%。
 					</p>
 					<LandingOutlineButton
 						href={signinLink}
 						size='lg'
 					>
-						创建存储桶
+						立即创建
 					</LandingOutlineButton>
 				</div>
 

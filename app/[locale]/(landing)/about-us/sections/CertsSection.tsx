@@ -1,6 +1,6 @@
 const CERTS_CONTENT = {
 	title: { prefix: '我们获得的', highlight: '权威认证' },
-	items: ['ISO 27001', 'KISMS认证', '网络安全等级保护', 'SOC 鉴证审计', 'CSA STAR金牌认证'],
+	items: ['CNAS测试报告', 'CMA测试报告', '等保三级', '软件著作权'],
 } as const;
 
 export function CertsSection() {

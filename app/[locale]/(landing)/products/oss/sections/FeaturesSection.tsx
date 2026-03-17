@@ -10,33 +10,35 @@ import {
 
 const features = [
 	{
-		title: '高性能访问',
-		description: '全球CDN加速，毫秒级响应时间，支持高并发访问',
+		title: '全球加速 & 内网互通',
+		description: '容器与存储在同一集群内网高速互通，无流量费。外网支持全球 CDN 边缘加速，毫秒级响应。',
 		image: FeaturePerfImage,
 	},
 	{
-		title: '安全可靠',
-		description: '端到端加密，多重数据冗余，99.9999999% 数据持久性',
+		title: '11个9 的数据持久性',
+		description:
+			'基于纠删码 (Erasure Coding) 与位衰减保护技术。多副本冗余存储，从根本上杜绝硬件故障导致的数据丢失。',
 		image: FeatureReliableImage,
 	},
 	{
-		title: '弹性扩展',
-		description: '自动扩展存储容量，无需预规划，按使用量付费',
+		title: '按量付费，零运维',
+		description: '告别容量预估与扩容焦虑。存储空间随数据增长自动伸缩，存多少付多少，成本透明可控。',
 		image: FeatureElasticImage,
 	},
 	{
-		title: 'RESTful API',
-		description: '标准 S3 兼容 API，丰富的 SDK 支持，快速集成',
+		title: '100% 兼容 S3 协议',
+		description:
+			'无缝对接 AWS S3 SDK 与工具链（如 AWS CLI, rclone）。无需修改代码，即可将现有应用平滑迁移至 Sealos。',
 		image: FeatureApiImage,
 	},
 	{
-		title: '访问控制',
-		description: '细粒度权限管理，支持 IAM 策略和预签名 URL',
+		title: '预签名 URL 与细粒度鉴权',
+		description: '支持预签名 URL、访问密钥与细粒度权限控制，满足前端直传、临时授权与多角色访问场景。',
 		image: FeatureAccessImage,
 	},
 	{
-		title: '数据分析',
-		description: '详细的访问日志和系统分析，实时监控存储使用情况',
+		title: '可视化监控与审计',
+		description: '提供仪表盘级的用量统计。实时查看存储容量、API 请求数及流量带宽，让每一分钱的去向都清晰可见。',
 		image: FeatureAnalysisImage,
 	},
 ];

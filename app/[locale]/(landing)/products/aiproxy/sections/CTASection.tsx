@@ -15,10 +15,12 @@ export function CTASection() {
 				</div>
 				<div className='flex flex-col justify-center'>
 					<p className='text-2xl font-semibold text-balance whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
-						马上集成 AI Proxy，30 秒跑通首个调用
+						只需一行代码，30 秒接入全球顶尖模型
 					</p>
 				</div>
-				<p className='text-muted-foreground text-sm'>海外访问请使用 usw.sealos.io</p>
+				<p className='text-muted-foreground text-sm'>
+					完美兼容 OpenAI 协议，无缝适配 LangChain 与各类开源应用，海外模型请使用 usw.sealos.io
+				</p>
 			</div>
 			<div className='flex w-full flex-col gap-4 sm:w-auto sm:flex-row'>
 				<LandingOutlineButton
@@ -29,7 +31,7 @@ export function CTASection() {
 					iconContainerClassName='bg-transparent group-hover:bg-transparent text-foreground group-hover:text-brand'
 					icon={PlayIcon}
 				>
-					预约演示
+					查看文档
 				</LandingOutlineButton>
 				<LandingOutlineButton
 					href={signinLink}
@@ -37,7 +39,7 @@ export function CTASection() {
 					borderStyle='solid'
 					className='w-full sm:w-auto'
 				>
-					立即注册
+					立即创建
 				</LandingOutlineButton>
 			</div>
 		</div>

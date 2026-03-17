@@ -18,16 +18,16 @@ export function HeroSection() {
 			</div>
 
 			<div className='flex flex-1 flex-col gap-6'>
-				<h1 className='text-4xl font-semibold'>云原生数据库</h1>
+				<h1 className='text-4xl font-semibold'>高可用数据库</h1>
 				<p className='text-muted-foreground max-w-2xl text-base sm:text-lg'>
-					全面兼容主流数据库生态，分布式存储，支持快速扩展与无缝迁移
+					内置自动备份、故障自愈与监控告警，告别繁琐的主从配置与集群维护。
 				</p>
 				<LandingOutlineButton
 					href={signinLink}
 					size='lg'
 					className='w-fit'
 				>
-					立即体验
+					立即创建
 				</LandingOutlineButton>
 			</div>
 		</div>

@@ -28,14 +28,15 @@ export function HeroSection() {
 					<h1 className='text-4xl font-semibold sm:text-5xl'>应用部署</h1>
 				</div>
 				<p className='text-muted-foreground text-center text-base sm:text-lg'>
-					提供 Docker 容器图形化页面操作， 支持微服务到单体应用全栈部署
+					提供 Docker 容器图形化页面操作， 告别 YAML 复杂编排，一键交付生产级 Docker
+					容器，支持微服务到单体应用全栈部署
 				</p>
 			</div>
 			<LandingOutlineButton
 				href={signinLink}
 				size='lg'
 			>
-				创建应用
+				立即创建
 			</LandingOutlineButton>
 			<div
 				className='relative mt-12 w-full'
