@@ -10,7 +10,8 @@ export function CTASection() {
 				<p className='text-xl font-medium whitespace-pre-wrap'>Cost Efficiency</p>
 				<div className='flex flex-col justify-center'>
 					<p className='text-2xl font-semibold text-balance whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
-						告别预付费捆绑，享受<span className='text-brand'>极致</span>的云成本效益
+						告别预付费捆绑，享受<span className='text-brand'>极致</span>
+						的云成本效益
 					</p>
 				</div>
 			</div>

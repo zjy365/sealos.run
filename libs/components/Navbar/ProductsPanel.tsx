@@ -43,11 +43,8 @@ import {
 	RocketIcon,
 } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
-import { NavigationMenuLink } from '@/libs/components/ui/navigation-menu';
 import { Link, usePathname } from '@/libs/i18n/navigation';
 import { cn } from '@/libs/utils/styling';
-import { Badge } from '../ui/badge';
-import { buttonVariants } from '../ui/button';
 
 interface NavMenuItem {
 	id: string;
@@ -150,43 +147,57 @@ function LaunchpadFeatures() {
 			title: '容器服务',
 			description: '提供高性能可伸缩的容器应用管理能力',
 			icon: CubeIcon,
+			href: '/products/launchpad',
 		},
 		{
 			title: '定时任务',
 			description: '可视化创建和管理 Kubernetes 资源、状态',
 			icon: ClockCounterIcon,
+			href: '/products/launchpad',
 		},
 		{
 			title: '免费域名',
 			description: '分配公网域名，自动配置 HTTPS、TLS',
 			icon: GlobalIcon,
+			href: '/products/launchpad',
 		},
 		{
 			title: '终端',
 			description: '基于 Web 的容器终端访问',
 			icon: EditorIcon,
+			href: '/products/launchpad',
 		},
 	];
 
 	return (
-		<div className='px-8 pt-0 pb-8'>
+		<div className='px-8 pt-6 pb-8'>
 			<div className='grid grid-cols-2 gap-6'>
 				{features.map((feature) => (
-					<div
+					<Link
+						href={feature.href}
 						key={feature.title}
-						className='flex items-start gap-3 px-0 py-3'
 					>
-						<div className='text-primary size-6 shrink-0'>
+						<div
+							key={feature.title}
+							className='group flex items-center gap-3 bg-linear-to-r from-white via-white to-white px-0 py-3 transition-colors hover:via-blue-100'
+						>
+							<div className='text-primary size-6 shrink-0'>
+								<Icon
+									src={feature.icon}
+									className='text-brand size-6'
+								/>
+							</div>
+							<div className='flex flex-1 flex-col gap-1'>
+								<h4 className='text-foreground text-sm font-normal'>{feature.title}</h4>
+								<p className='text-muted-foreground text-xs'>{feature.description}</p>
+							</div>
+
 							<Icon
-								src={feature.icon}
-								className='text-brand size-6'
+								src={FlatArrowRightIcon}
+								className='text-muted-foreground group-hover:text-brand size-6 stroke-2'
 							/>
 						</div>
-						<div className='flex flex-1 flex-col gap-1'>
-							<h4 className='text-foreground text-sm font-normal'>{feature.title}</h4>
-							<p className='text-muted-foreground text-xs'>{feature.description}</p>
-						</div>
-					</div>
+					</Link>
 				))}
 			</div>
 		</div>
@@ -198,45 +209,64 @@ function DatabaseFeatures() {
 		{
 			name: 'PostgreSQL',
 			icon: PostgresIcon,
+			href: '/products/database',
 		},
 		{
 			name: 'MongoDB',
 			icon: MongodbIcon,
+			href: '/products/database',
 		},
 		{
 			name: 'MySQL',
 			icon: MysqlIcon,
+			href: '/products/database',
 		},
 		{
 			name: 'Redis',
 			icon: RedisIcon,
+			href: '/products/database',
 		},
 		{
 			name: 'Kafka',
 			icon: KafkaIcon,
+			href: '/products/database',
 		},
 		{
 			name: 'Milvus',
 			icon: MilvusIcon,
+			href: '/products/database',
 		},
 	];
 
 	return (
-		<div className='px-8 pt-0 pb-8'>
+		<div className='px-8 pt-6 pb-8'>
 			<div className='grid grid-cols-3 gap-2.5'>
 				{databases.map((db) => (
-					<div
+					<Link
+						href={db.href}
 						key={db.name}
-						className='border-border flex flex-1 flex-col items-start gap-2 border p-5'
 					>
-						<div className='flex size-8 items-center justify-center'>
-							<Icon
-								src={db.icon}
-								className='size-8'
-							/>
+						<div
+							key={db.name}
+							className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white p-5 transition-colors hover:via-blue-100'
+						>
+							<div className='w-full'>
+								<div className='flex size-8 items-center justify-center'>
+									<Icon
+										src={db.icon}
+										className='size-8'
+									/>
+								</div>
+								<p className='text-foreground mt-2 text-xs'>{db.name}</p>
+							</div>
+							<div className='size-6'>
+								<Icon
+									src={FramedPlusIcon}
+									className='group-hover:text-brand size-full'
+								/>
+							</div>
 						</div>
-						<p className='text-foreground text-xs'>{db.name}</p>
-					</div>
+					</Link>
 				))}
 			</div>
 		</div>
@@ -263,8 +293,8 @@ function OSSFeatures() {
 	];
 
 	return (
-		<div className='px-8 pt-0 pb-8'>
-			<div className='flex flex-col gap-6 py-3'>
+		<div className='px-8 pt-6 pb-8'>
+			<div className='grid grid-cols-2 gap-6 py-3'>
 				{storageTypes.map((type) => (
 					<div
 						key={type.title}
@@ -292,55 +322,99 @@ function DevBoxFeatures() {
 		{
 			name: 'Java',
 			icon: JavaIcon,
+			href: '/products/devbox',
 		},
 		{
 			name: 'Python',
 			icon: PythonIcon,
+			href: '/products/devbox',
 		},
 		{
 			name: 'Node.js',
 			icon: NodejsIcon,
+			href: '/products/devbox',
+		},
+		{
+			name: 'Node.js 2',
+			icon: NodejsIcon,
+			href: '/products/devbox',
+		},
+		{
+			name: 'Node.js 3',
+			icon: NodejsIcon,
+			href: '/products/devbox',
+		},
+		{
+			name: 'Node.js 4',
+			icon: NodejsIcon,
+			href: '/products/devbox',
 		},
 		{
 			name: 'Go',
 			icon: GolangIcon,
+			href: '/products/devbox',
 		},
 		{
 			name: 'Rust',
 			icon: RustIcon,
+			href: '/products/devbox',
 		},
-		{ name: 'C++', icon: null },
+		{
+			name: 'C++',
+			icon: null,
+			href: '/products/devbox',
+		},
 		{
 			name: 'PHP',
 			icon: PhpIcon,
+			href: '/products/devbox',
 		},
-		{ name: 'Ruby', icon: null },
+		{
+			name: 'Ruby',
+			icon: null,
+			href: '/products/devbox',
+		},
 		{
 			name: '更多',
 			icon: FramedPlusIcon,
+			href: '/products/devbox',
 		},
 	];
 
 	return (
-		<div className='px-8 pb-8'>
+		<div className='px-8 pt-6 pb-8'>
 			<div className='grid grid-cols-4 gap-2.5'>
 				{languages.map((lang) => (
-					<div
+					<Link
+						href={lang.href}
 						key={lang.name}
-						className='border-border flex items-center gap-2 border px-3 py-4'
 					>
-						{lang.icon ? (
-							<div className='flex size-6 items-center justify-center'>
+						<div
+							key={lang.name}
+							className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'
+						>
+							<div className='flex w-full items-center gap-2'>
+								{lang.icon ? (
+									<div className='flex size-6 items-center justify-center'>
+										<Icon
+											src={lang.icon}
+											className={lang.name === '更多' ? 'text-brand size-6' : 'size-6'}
+										/>
+									</div>
+								) : (
+									<div className='size-6' />
+								)}
+								<p className='text-foreground text-xs'>{lang.name}</p>
+							</div>
+
+							<div className='size-5'>
 								<Icon
-									src={lang.icon}
-									className={lang.name === '更多' ? 'text-brand size-6' : 'size-6'}
+									src={FramedPlusIcon}
+									className='group-hover:text-brand size-full'
 								/>
 							</div>
-						) : (
-							<div className='size-6' />
-						)}
-						<p className='text-foreground text-xs'>{lang.name}</p>
-					</div>
+						</div>
+					</Link>
 				))}
 			</div>
 		</div>
@@ -348,106 +422,74 @@ function DevBoxFeatures() {
 }
 
 function AIProxyFeatures() {
-	const [activeTab, setActiveTab] = React.useState('千问');
+	const [activeProvider, setActiveProvider] = React.useState('千问');
 
-	const tabs = ['千问', '豆包', '智谱'];
+	const categories = ['千问', '豆包', '智谱'];
 
-	const modelsByTab: Record<string, Array<{ name: string; tags: string[] }>> = {
+	const providersData: Record<string, Array<{ name: string; icon: null; href: string }>> = {
 		千问: [
-			{
-				name: 'qwen-turbo',
-				tags: ['聊天补全', '工具调用', '128K'],
-			},
-			{
-				name: 'qwen-plus',
-				tags: ['聊天补全', '工具调用', '128K'],
-			},
-			{
-				name: 'qwen-max',
-				tags: ['聊天补全', '工具调用', '128K'],
-			},
-			{
-				name: 'qwen-vl-max',
-				tags: ['聊天补全', '视觉', '工具调用', '128K', '4K 输出'],
-			},
+			{ name: 'qwen-turbo', icon: null, href: '/products/aiproxy' },
+			{ name: 'qwen-turbo 2', icon: null, href: '/products/aiproxy' },
+			{ name: 'qwen-turbo 3', icon: null, href: '/products/aiproxy' },
 		],
 		豆包: [
-			{
-				name: 'doubao-pro',
-				tags: ['聊天补全', '工具调用', '128K'],
-			},
-			{
-				name: 'doubao-lite',
-				tags: ['聊天补全', '工具调用', '64K'],
-			},
-			{
-				name: 'doubao-vision',
-				tags: ['聊天补全', '视觉', '工具调用', '128K'],
-			},
+			{ name: '1', icon: null, href: '/products/aiproxy' },
+			{ name: '2', icon: null, href: '/products/aiproxy' },
 		],
 		智谱: [
-			{
-				name: 'glm-4',
-				tags: ['聊天补全', '工具调用', '128K'],
-			},
-			{
-				name: 'glm-4-plus',
-				tags: ['聊天补全', '工具调用', '128K'],
-			},
-			{
-				name: 'glm-4v',
-				tags: ['聊天补全', '视觉', '工具调用', '128K'],
-			},
+			{ name: '1', icon: null, href: '/products/aiproxy' },
+			{ name: '2', icon: null, href: '/products/aiproxy' },
 		],
 	};
 
-	const models = modelsByTab[activeTab] || [];
+	const items = providersData[activeProvider] || [];
 
 	return (
-		<div className='px-8 pt-0 pb-8'>
+		<div className='px-8 pt-6 pb-8'>
 			<div className='flex flex-col gap-5'>
-				{/* Tabs */}
-				<div className='border-border flex border-b'>
-					{tabs.map((tab) => (
+				{/* Category Tabs */}
+				<div className='border-border flex'>
+					{categories.map((cat) => (
 						<button
-							key={tab}
+							key={cat}
 							type='button'
-							onClick={() => setActiveTab(tab)}
+							onClick={() => setActiveProvider(cat)}
 							className={cn(
-								'rounded-t-md px-3 py-2 text-xs transition-colors',
-								activeTab === tab
-									? 'text-foreground border-foreground border-b-2'
-									: 'text-muted-foreground hover:text-foreground',
+								'hover:bg-input rounded-t-md px-3 py-2 text-xs transition-colors',
+								activeProvider === cat
+									? 'text-foreground border-brand border-b-2'
+									: 'text-muted-foreground hover:text-foreground hover:rounded-md',
 							)}
 						>
-							{tab}
+							{cat}
 						</button>
 					))}
 				</div>
 
-				{/* Models */}
-				<div className='flex flex-col gap-4'>
-					{models.map((model) => (
-						<div
-							key={model.name}
-							className='flex items-center gap-3'
+				{/* Content Grid */}
+				<div className='grid grid-cols-3 gap-2.5'>
+					{items.map((item) => (
+						<Link
+							href={item.href}
+							key={item.name}
 						>
-							<p className='text-foreground text-xs whitespace-nowrap'>{model.name}</p>
-							<div className='flex flex-wrap gap-2'>
-								{model.tags.map((tag, tagIndex) => (
-									<Badge
-										key={tag}
-										variant={tagIndex === 0 ? 'default' : 'outline'}
-									>
-										{tagIndex === 0 && (
-											<span className='bg-brand inline-block size-1.5 shrink-0 rounded-full' />
-										)}
+							<div
+								key={item.name}
+								className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'
+							>
+								<div className='flex w-full items-center gap-2'>
+									<div className='size-6' />
+									<p className='text-foreground text-xs'>{item.name}</p>
+								</div>
 
-										{tag}
-									</Badge>
-								))}
+								<div className='size-5'>
+									<Icon
+										src={FramedPlusIcon}
+										className='group-hover:text-brand size-full'
+									/>
+								</div>
 							</div>
-						</div>
+						</Link>
 					))}
 				</div>
 			</div>
@@ -460,117 +502,117 @@ function AppStoreFeatures() {
 
 	const categories = ['AI', '数据库', '应用', '工具', '低代码', '后端', 'DevOps', '游戏', '监控', '博客', '存储'];
 
-	const appsByCategory: Record<string, Array<{ name: string; icon: null }>> = {
+	const appsByCategory: Record<string, Array<{ name: string; icon: null; href: string }>> = {
 		AI: [
-			{ name: 'ChatGPT', icon: null },
-			{ name: 'Claude', icon: null },
-			{ name: 'Midjourney', icon: null },
-			{ name: 'Stable Diffusion', icon: null },
-			{ name: 'DALL-E', icon: null },
-			{ name: 'GPT-4', icon: null },
+			{ name: 'ChatGPT', icon: null, href: '/products/appstore' },
+			{ name: 'Claude', icon: null, href: '/products/appstore' },
+			{ name: 'Midjourney', icon: null, href: '/products/appstore' },
+			{ name: 'Stable Diffusion', icon: null, href: '/products/appstore' },
+			{ name: 'DALL-E', icon: null, href: '/products/appstore' },
+			{ name: 'GPT-4', icon: null, href: '/products/appstore' },
 		],
 		数据库: [
-			{ name: 'PostgreSQL', icon: null },
-			{ name: 'MySQL', icon: null },
-			{ name: 'MongoDB', icon: null },
-			{ name: 'Redis', icon: null },
-			{ name: 'Elasticsearch', icon: null },
-			{ name: 'InfluxDB', icon: null },
+			{ name: 'PostgreSQL', icon: null, href: '/products/appstore' },
+			{ name: 'MySQL', icon: null, href: '/products/appstore' },
+			{ name: 'MongoDB', icon: null, href: '/products/appstore' },
+			{ name: 'Redis', icon: null, href: '/products/appstore' },
+			{ name: 'Elasticsearch', icon: null, href: '/products/appstore' },
+			{ name: 'InfluxDB', icon: null, href: '/products/appstore' },
 		],
 		应用: [
-			{ name: 'AFFiNE', icon: null },
-			{ name: 'WordPress', icon: null },
-			{ name: 'Ghost', icon: null },
-			{ name: 'Gitea', icon: null },
-			{ name: 'Jupyter', icon: null },
-			{ name: 'VS Code', icon: null },
+			{ name: 'AFFiNE', icon: null, href: '/products/appstore' },
+			{ name: 'WordPress', icon: null, href: '/products/appstore' },
+			{ name: 'Ghost', icon: null, href: '/products/appstore' },
+			{ name: 'Gitea', icon: null, href: '/products/appstore' },
+			{ name: 'Jupyter', icon: null, href: '/products/appstore' },
+			{ name: 'VS Code', icon: null, href: '/products/appstore' },
 		],
 		工具: [
-			{ name: 'Jenkins', icon: null },
-			{ name: 'GitLab', icon: null },
-			{ name: 'SonarQube', icon: null },
-			{ name: 'Grafana', icon: null },
-			{ name: 'Prometheus', icon: null },
-			{ name: 'ELK Stack', icon: null },
+			{ name: 'Jenkins', icon: null, href: '/products/appstore' },
+			{ name: 'GitLab', icon: null, href: '/products/appstore' },
+			{ name: 'SonarQube', icon: null, href: '/products/appstore' },
+			{ name: 'Grafana', icon: null, href: '/products/appstore' },
+			{ name: 'Prometheus', icon: null, href: '/products/appstore' },
+			{ name: 'ELK Stack', icon: null, href: '/products/appstore' },
 		],
 		低代码: [
-			{ name: 'Appsmith', icon: null },
-			{ name: 'Retool', icon: null },
-			{ name: 'Budibase', icon: null },
-			{ name: 'NocoDB', icon: null },
-			{ name: 'ToolJet', icon: null },
-			{ name: 'Metabase', icon: null },
+			{ name: 'Appsmith', icon: null, href: '/products/appstore' },
+			{ name: 'Retool', icon: null, href: '/products/appstore' },
+			{ name: 'Budibase', icon: null, href: '/products/appstore' },
+			{ name: 'NocoDB', icon: null, href: '/products/appstore' },
+			{ name: 'ToolJet', icon: null, href: '/products/appstore' },
+			{ name: 'Metabase', icon: null, href: '/products/appstore' },
 		],
 		后端: [
-			{ name: 'Node.js', icon: null },
-			{ name: 'Python', icon: null },
-			{ name: 'Go', icon: null },
-			{ name: 'Java', icon: null },
-			{ name: 'PHP', icon: null },
-			{ name: 'Ruby', icon: null },
+			{ name: 'Node.js', icon: null, href: '/products/appstore' },
+			{ name: 'Python', icon: null, href: '/products/appstore' },
+			{ name: 'Go', icon: null, href: '/products/appstore' },
+			{ name: 'Java', icon: null, href: '/products/appstore' },
+			{ name: 'PHP', icon: null, href: '/products/appstore' },
+			{ name: 'Ruby', icon: null, href: '/products/appstore' },
 		],
 		DevOps: [
-			{ name: 'Kubernetes', icon: null },
-			{ name: 'Docker', icon: null },
-			{ name: 'Terraform', icon: null },
-			{ name: 'Ansible', icon: null },
-			{ name: 'ArgoCD', icon: null },
-			{ name: 'Helm', icon: null },
+			{ name: 'Kubernetes', icon: null, href: '/products/appstore' },
+			{ name: 'Docker', icon: null, href: '/products/appstore' },
+			{ name: 'Terraform', icon: null, href: '/products/appstore' },
+			{ name: 'Ansible', icon: null, href: '/products/appstore' },
+			{ name: 'ArgoCD', icon: null, href: '/products/appstore' },
+			{ name: 'Helm', icon: null, href: '/products/appstore' },
 		],
 		游戏: [
-			{ name: 'Minecraft', icon: null },
-			{ name: 'Terraria', icon: null },
-			{ name: 'Factorio', icon: null },
-			{ name: 'Valheim', icon: null },
-			{ name: 'Rust', icon: null },
-			{ name: 'ARK', icon: null },
+			{ name: 'Minecraft', icon: null, href: '/products/appstore' },
+			{ name: 'Terraria', icon: null, href: '/products/appstore' },
+			{ name: 'Factorio', icon: null, href: '/products/appstore' },
+			{ name: 'Valheim', icon: null, href: '/products/appstore' },
+			{ name: 'Rust', icon: null, href: '/products/appstore' },
+			{ name: 'ARK', icon: null, href: '/products/appstore' },
 		],
 		监控: [
-			{ name: 'Grafana', icon: null },
-			{ name: 'Prometheus', icon: null },
-			{ name: 'Loki', icon: null },
-			{ name: 'Jaeger', icon: null },
-			{ name: 'Zabbix', icon: null },
-			{ name: 'Nagios', icon: null },
+			{ name: 'Grafana', icon: null, href: '/products/appstore' },
+			{ name: 'Prometheus', icon: null, href: '/products/appstore' },
+			{ name: 'Loki', icon: null, href: '/products/appstore' },
+			{ name: 'Jaeger', icon: null, href: '/products/appstore' },
+			{ name: 'Zabbix', icon: null, href: '/products/appstore' },
+			{ name: 'Nagios', icon: null, href: '/products/appstore' },
 		],
 		博客: [
-			{ name: 'Ghost', icon: null },
-			{ name: 'WordPress', icon: null },
-			{ name: 'Hexo', icon: null },
-			{ name: 'Hugo', icon: null },
-			{ name: 'Jekyll', icon: null },
-			{ name: 'Gatsby', icon: null },
+			{ name: 'Ghost', icon: null, href: '/products/appstore' },
+			{ name: 'WordPress', icon: null, href: '/products/appstore' },
+			{ name: 'Hexo', icon: null, href: '/products/appstore' },
+			{ name: 'Hugo', icon: null, href: '/products/appstore' },
+			{ name: 'Jekyll', icon: null, href: '/products/appstore' },
+			{ name: 'Gatsby', icon: null, href: '/products/appstore' },
 		],
 		存储: [
-			{ name: 'MinIO', icon: null },
-			{ name: 'Nextcloud', icon: null },
-			{ name: 'SeaweedFS', icon: null },
-			{ name: 'Ceph', icon: null },
-			{ name: 'GlusterFS', icon: null },
-			{ name: 'Longhorn', icon: null },
+			{ name: 'MinIO', icon: null, href: '/products/appstore' },
+			{ name: 'Nextcloud', icon: null, href: '/products/appstore' },
+			{ name: 'SeaweedFS', icon: null, href: '/products/appstore' },
+			{ name: 'Ceph', icon: null, href: '/products/appstore' },
+			{ name: 'GlusterFS', icon: null, href: '/products/appstore' },
+			{ name: 'Longhorn', icon: null, href: '/products/appstore' },
 		],
 	};
 
 	const apps = appsByCategory[activeCategory] || [];
 
 	return (
-		<div className='px-8 pt-0 pb-8'>
+		<div className='px-8 pt-6 pb-8'>
 			<div className='flex flex-col gap-5'>
 				{/* Category Tabs */}
-				<div className='border-border flex overflow-x-auto border-b'>
-					{categories.map((category) => (
+				<div className='border-border flex'>
+					{categories.map((cat) => (
 						<button
-							key={category}
+							key={cat}
 							type='button'
-							onClick={() => setActiveCategory(category)}
+							onClick={() => setActiveCategory(cat)}
 							className={cn(
-								'rounded-t-md px-3 py-2 text-xs whitespace-nowrap transition-colors',
-								activeCategory === category
-									? 'text-foreground border-foreground border-b-2'
-									: 'text-muted-foreground hover:text-foreground',
+								'hover:bg-input rounded-t-md px-3 py-2 text-xs transition-colors',
+								activeCategory === cat
+									? 'text-foreground border-brand border-b-2'
+									: 'text-muted-foreground hover:text-foreground hover:rounded-md',
 							)}
 						>
-							{category}
+							{cat}
 						</button>
 					))}
 				</div>
@@ -578,13 +620,27 @@ function AppStoreFeatures() {
 				{/* Apps Grid */}
 				<div className='grid grid-cols-3 gap-2.5'>
 					{apps.map((app) => (
-						<div
+						<Link
+							href={app.href}
 							key={app.name}
-							className='border-border flex items-center gap-2 border px-3 py-4'
 						>
-							<div className='size-6' />
-							<p className='text-foreground text-xs'>{app.name}</p>
-						</div>
+							<div
+								key={app.name}
+								className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'
+							>
+								<div className='flex w-full items-center gap-2'>
+									<div className='size-6' />
+									<p className='text-foreground text-xs'>{app.name}</p>
+								</div>
+
+								<div className='size-5'>
+									<Icon
+										src={FramedPlusIcon}
+										className='group-hover:text-brand size-full'
+									/>
+								</div>
+							</div>
+						</Link>
 					))}
 				</div>
 			</div>
@@ -619,9 +675,9 @@ export function ProductsPanel() {
 	}, [getMatchedItem, pathname]);
 
 	return (
-		<div className='bg-card border-hairline flex w-3xl border-dashed border-blue-400 p-0'>
+		<div className='border-hairline border-brand container m-2 flex w-full border-dashed p-0'>
 			{/* Left Sidebar */}
-			<div className='border-r-hairline flex w-40 flex-col gap-2 border-dashed border-blue-400 px-4 py-6'>
+			<div className='border-r-hairline border-brand flex w-64 flex-col gap-2 border-dashed px-6 py-8'>
 				{navMenuItems.map((item) => {
 					const href = item.content?.href;
 					const isActive = !!href && (pathname === href || (pathname?.startsWith(`${href}/`) ?? false));
@@ -632,23 +688,23 @@ export function ProductsPanel() {
 							type='button'
 							onClick={() => setSelectedItem(item)}
 							className={cn(
-								'flex items-center gap-2 rounded-md px-2 py-2 text-sm transition-colors',
+								'flex cursor-pointer items-center gap-2.5 rounded-md px-2 py-2 text-sm transition-colors',
 								isSelected
-									? 'text-foreground font-medium'
+									? 'text-foreground bg-input font-medium'
 									: isActive
 										? 'text-foreground'
-										: 'text-muted-foreground hover:text-foreground',
+										: 'text-muted-foreground hover:text-foreground hover:bg-input',
 							)}
 						>
 							<div
 								className={cn(
-									'flex size-4 items-center justify-center',
+									'flex size-5 items-center justify-center',
 									isSelected || isActive ? 'text-primary' : 'text-muted-foreground',
 								)}
 							>
 								<Icon
 									src={item.icon}
-									className='size-4'
+									className='size-full'
 								/>
 							</div>
 							<span>{item.label}</span>
@@ -660,38 +716,41 @@ export function ProductsPanel() {
 			{/* Right Content */}
 			{selectedItem?.content && (
 				<div className='flex flex-1 flex-col'>
-					{/* Header */}
-					<div className='flex items-center justify-between px-8 pt-10 pb-5'>
-						<div className='flex items-center gap-4'>
-							{selectedItem.largeImage && (
-								<div className='flex size-12 shrink-0 items-center justify-center'>
-									<Image
-										src={selectedItem.largeImage}
-										alt={selectedItem.largeImageAlt || ''}
-										className='size-12'
-									/>
-								</div>
+					<Link href={selectedItem.content.href ?? '#'}>
+						{/* Header */}
+						<div
+							className={cn(
+								'group flex items-center justify-between bg-linear-to-r from-white via-white to-white px-8 py-6 transition-colors',
+								selectedItem.content.href && 'hover:via-blue-100',
 							)}
-							<div className='flex flex-col gap-1'>
-								<h3 className='text-foreground text-base font-normal'>{selectedItem.content.title}</h3>
-								<p className='text-muted-foreground text-xs'>{selectedItem.content.description}</p>
+						>
+							<div className='flex items-center gap-4'>
+								{selectedItem.largeImage && (
+									<div className='flex size-12 shrink-0 items-center justify-center'>
+										<Image
+											src={selectedItem.largeImage}
+											alt={selectedItem.largeImageAlt || ''}
+											className='size-12'
+										/>
+									</div>
+								)}
+								<div className='flex flex-col gap-1'>
+									<h3 className='text-foreground text-base font-normal'>
+										{selectedItem.content.title}
+									</h3>
+									<p className='text-muted-foreground text-xs'>{selectedItem.content.description}</p>
+								</div>
 							</div>
+							{selectedItem.content.href && (
+								<Icon
+									src={FlatArrowRightIcon}
+									className='group-hover:text-brand size-6 stroke-2'
+								/>
+							)}
 						</div>
-						{selectedItem.content.href && (
-							<NavigationMenuLink
-								asChild
-								className={cn(buttonVariants({ variant: 'outline' }), 'flex-row')}
-							>
-								<Link href={selectedItem.content.href}>
-									<span>详情</span>
-									<Icon
-										src={FlatArrowRightIcon}
-										className='size-5 stroke-2'
-									/>
-								</Link>
-							</NavigationMenuLink>
-						)}
-					</div>
+					</Link>
+
+					<div className='border-brand border-hairline mx-8 w-[calc(100%-4rem)] border-t border-dashed' />
 
 					{/* Features Content */}
 					{selectedItem.content.features}

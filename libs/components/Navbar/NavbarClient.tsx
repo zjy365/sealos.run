@@ -1,15 +1,11 @@
 'use client';
 
-import {
-	NavigationMenu,
-	NavigationMenuContent,
-	NavigationMenuItem,
-	NavigationMenuLink,
-	NavigationMenuList,
-	NavigationMenuTrigger,
-} from '@/libs/components/ui/navigation-menu';
+import { AnimatePresence, motion } from 'motion/react';
+import React from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslations } from '@/libs/i18n/client';
-import { Link } from '@/libs/i18n/navigation';
+import { Link, usePathname } from '@/libs/i18n/navigation';
+import { cn } from '@/libs/utils/styling';
 
 interface NavLink {
 	textI18nKey: string;
@@ -23,35 +19,109 @@ interface NavbarClientProps {
 
 export function NavbarClient({ links }: NavbarClientProps) {
 	const t = useTranslations();
+	const pathname = usePathname();
+	const [openedPanel, setOpenedPanel] = React.useState('');
+	const [mounted, setMounted] = React.useState(false);
+	const prevPathnameRef = React.useRef(pathname);
+
+	const openedItem = links.find((item) => item.href === openedPanel && item.panel);
+
+	React.useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	React.useEffect(() => {
+		if (!openedPanel) return;
+		const onKeyDown = (event: KeyboardEvent) => {
+			if (event.key === 'Escape') setOpenedPanel('');
+		};
+		window.addEventListener('keydown', onKeyDown);
+		return () => window.removeEventListener('keydown', onKeyDown);
+	}, [openedPanel]);
+
+	React.useEffect(() => {
+		if (prevPathnameRef.current === pathname) return;
+		prevPathnameRef.current = pathname;
+		setOpenedPanel('');
+	}, [pathname]);
 
 	return (
-		<NavigationMenu viewport={false}>
-			<NavigationMenuList className='gap-0'>
-				{links.map((item) => {
-					if (item.panel) {
+		<>
+			<nav className='flex items-center'>
+				<ul className='flex items-center gap-0'>
+					{links.map((item) => {
+						if (item.panel) {
+							const isOpen = openedPanel === item.href;
+							return (
+								<li
+									key={item.href}
+									className='relative'
+								>
+									<button
+										type='button'
+										aria-expanded={isOpen}
+										onClick={() => setOpenedPanel(isOpen ? '' : item.href)}
+										className={cn(
+											'h-auto rounded-md bg-transparent px-5 py-2 text-sm font-normal transition-colors',
+											isOpen
+												? 'bg-accent/50 text-accent-foreground'
+												: 'hover:bg-accent hover:text-accent-foreground',
+										)}
+									>
+										{t(item.textI18nKey)}
+									</button>
+								</li>
+							);
+						}
+
 						return (
-							<NavigationMenuItem key={item.href}>
-								<NavigationMenuTrigger className='data-[state=open]:bg-accent/50 h-auto bg-transparent px-5 py-2 text-sm font-normal'>
+							<li key={item.href}>
+								<Link
+									href={item.href}
+									className='hover:bg-accent hover:text-accent-foreground inline-flex h-auto rounded-md bg-transparent px-5 py-2 text-sm font-normal transition-colors'
+								>
 									{t(item.textI18nKey)}
-								</NavigationMenuTrigger>
-								<NavigationMenuContent className='bg-background! rounded-none! shadow-none!'>
-									{item.panel}
-								</NavigationMenuContent>
-							</NavigationMenuItem>
+								</Link>
+							</li>
 						);
-					}
-					return (
-						<NavigationMenuItem key={item.href}>
-							<NavigationMenuLink
-								asChild
-								className='h-auto bg-transparent px-5 py-2 text-sm font-normal'
-							>
-								<Link href={item.href}>{t(item.textI18nKey)}</Link>
-							</NavigationMenuLink>
-						</NavigationMenuItem>
-					);
-				})}
-			</NavigationMenuList>
-		</NavigationMenu>
+					})}
+				</ul>
+			</nav>
+
+			{mounted &&
+				createPortal(
+					<>
+						<AnimatePresence>
+							{openedPanel && (
+								<motion.button
+									type='button'
+									aria-label='Close products panel overlay'
+									onClick={() => setOpenedPanel('')}
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									exit={{ opacity: 0 }}
+									transition={{ duration: 0.2, ease: [0.32, 0.72, 0, 1] }}
+									className='fixed inset-x-0 top-16 bottom-0 z-40 hidden bg-black/35 lg:block'
+								/>
+							)}
+						</AnimatePresence>
+
+						<AnimatePresence>
+							{openedItem?.panel && (
+								<motion.div
+									initial={{ height: 0 }}
+									animate={{ height: 'auto' }}
+									exit={{ height: 0 }}
+									transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+									className='bg-card border-hairline fixed inset-x-0 top-16 z-50 hidden w-screen overflow-hidden border-t lg:block'
+								>
+									{openedItem.panel}
+								</motion.div>
+							)}
+						</AnimatePresence>
+					</>,
+					document.body,
+				)}
+		</>
 	);
 }

@@ -22,7 +22,7 @@ export function NavbarContainer({ children }: NavbarContainerProps) {
 		<NavbarMobileContext.Provider value={{ open, setOpen }}>
 			<div
 				className={cn(
-					'w-full shadow-sm backdrop-blur-lg transition-colors duration-400',
+					'w-full backdrop-blur-lg transition-colors duration-400',
 					open ? 'bg-background lg:bg-background/5' : 'bg-background/5',
 				)}
 			>
