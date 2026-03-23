@@ -1,0 +1,28 @@
+---
+title: 镜像拉取失败
+description: 内置 `Dockerhub` 代理，支持国内外镜像一键拉取。
+seoTitle: Sealos 镜像拉取失败排查指南
+seoDescription: 当 Sealos 应用管理中出现镜像拉取失败时，按镜像地址、标签、私有仓库认证和网络访问四类问题快速排查。
+keywords:
+  - Sealos
+  - 镜像拉取失败
+  - ImagePullBackOff
+  - 私有镜像仓库
+  - 镜像认证
+  - 应用管理排障
+---
+
+当应用创建后迟迟起不来，或者事件里直接提示镜像拉取失败。
+![镜像拉取失败](./img/dianjixiangq.png)
+
+## 镜像地址
+
+比如仓库名、组织名或标签拼写错误，使用了不存在或不稳定的标签，例如漂移中的 `latest`
+
+![镜像拉取失败](./img/dianjixiangq.png)
+
+## 私有仓库
+
+认证是否已经正确配置
+
+![镜像拉取失败](./img/gonggongjingx.png)

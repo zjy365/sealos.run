@@ -4,6 +4,7 @@ import { stopwords as mandarinStopwords } from '@orama/stopwords/mandarin';
 import { createTokenizer } from '@orama/tokenizers/mandarin';
 import type { NextRequest } from 'next/server';
 import { blog } from '@/libs/blog/source';
+import { routing } from '@/libs/i18n/routing';
 
 export const revalidate = false;
 
@@ -47,7 +48,7 @@ async function getSearchDB() {
 			title: page.data.title,
 			description: page.data.description ?? '',
 			url: page.url,
-			locale: page.locale ?? 'zh',
+			locale: routing.defaultLocale,
 			category: (page.data as { category?: string }).category ?? '',
 		});
 	}
@@ -66,15 +67,15 @@ async function getSearchDB() {
 export async function GET(request: NextRequest) {
 	const searchParams = request.nextUrl.searchParams;
 	const query = searchParams.get('q');
-	const locale = searchParams.get('locale') || 'zh';
+	const locale = searchParams.get('locale') || routing.defaultLocale;
 	const category = searchParams.get('category');
 	const debug = searchParams.get('debug');
 
 	if (debug === 'true') {
-		const allPages = [...blog.getPages(locale)].map((page) => ({
+		const allPages = [...blog.getPages()].map((page) => ({
 			url: page.url,
 			title: page.data.title,
-			locale: page.locale,
+			locale: routing.defaultLocale,
 		}));
 		return Response.json({
 			debug: true,

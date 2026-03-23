@@ -4,8 +4,17 @@ import { defineConfig, defineDocs } from 'fumadocs-mdx/config';
 import lastModified from 'fumadocs-mdx/plugins/last-modified';
 import { z } from 'zod';
 
+const docsFrontmatterSchema = pageSchema.extend({
+	keywords: z.union([z.string(), z.array(z.string())]).optional(),
+	seoTitle: z.string().optional(),
+	seoDescription: z.string().optional(),
+});
+
 export const docs = defineDocs({
 	dir: 'content/docs',
+	docs: {
+		schema: docsFrontmatterSchema,
+	},
 });
 
 export const blog = defineDocs({

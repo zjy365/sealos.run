@@ -17,7 +17,6 @@ function getImageSrc(src: string | StaticImageData | undefined): string {
 
 /**
  * Get all blog posts for a specific locale.
- * Filters posts by file extension to ensure only posts for the specified locale are returned.
  *
  * @param locale - The locale to filter posts by
  * @returns Array of blog posts sorted by date (newest first)
@@ -27,23 +26,8 @@ export function getAllPosts(locale: string = 'zh'): BlogPost[] {
 }
 
 const getAllPostsCached = React.cache((locale: string): BlogPost[] => {
-	const allPages = blog.getPages(locale);
-
-	const pages = allPages.filter((page) => {
-		// Use page.url to infer file extension since page.file may not be available
-		// URL format: /blog/slug or /locale/blog/slug
-		const url = page.url;
-		const slug = page.slugs[page.slugs.length - 1] || '';
-
-		// For English locale, check if URL contains .en pattern or slug ends with .en
-		if (locale === 'en') {
-			return url.includes('.en') || slug.includes('.en');
-		}
-		// For other locales (zh), exclude .en files
-		return !url.includes('.en') && !slug.includes('.en');
-	});
-
-	return pages
+	return blog
+		.getPages()
 		.map((page) => {
 			const data = page.data as Partial<BlogPost> & {
 				thumbnail?: string;

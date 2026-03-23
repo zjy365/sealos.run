@@ -10,11 +10,8 @@ export const i18n = defineI18n({
 
 export const { provider: i18nUIProvider } = defineI18nUI(i18n, {
 	translations: {
-		en: {
-			displayName: 'English',
-		},
 		zh: {
-			displayName: 'Chinese',
+			displayName: '中文',
 		},
 	},
 });

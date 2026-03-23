@@ -22,19 +22,6 @@ function getCategory(data: AppStorePageData): AppStoreCategory | undefined {
 	return isAppStoreCategory(raw) ? raw : undefined;
 }
 
-/**
- * `fumadocs` i18n currently may include both `.en` and `.zh` pages.
- * We follow the project's blog filtering strategy to ensure locale-correct results.
- */
-function isLocaleMatch(page: AppStorePage, locale: string): boolean {
-	const slug = page.slugs[page.slugs.length - 1] || '';
-	const url = page.url;
-	const isEn = url.includes('.en') || slug.includes('.en');
-
-	if (locale === 'en') return isEn;
-	return !isEn;
-}
-
 function normalizeUrl(page: AppStorePage, locale: string): string {
 	return page.url.replace(new RegExp(`^/${locale}`), '');
 }
@@ -49,10 +36,7 @@ export function getAppStoreTemplates(locale: string = 'zh'): AppStoreTemplate[] 
 }
 
 const getAppStoreTemplatesCached = React.cache((locale: string): AppStoreTemplate[] => {
-	const pages = appstore
-		.getPages(locale)
-		.filter((p) => isLocaleMatch(p, locale))
-		.filter((p) => p.slugs[0] === 'templates');
+	const pages = appstore.getPages().filter((p) => p.slugs[0] === 'templates');
 
 	return pages.map((p) => {
 		const data = p.data;
@@ -78,10 +62,7 @@ export function getAppStoreTrends(locale: string = 'zh'): AppStoreTrendItem[] {
 }
 
 const getAppStoreTrendsCached = React.cache((locale: string): AppStoreTrendItem[] => {
-	const pages = appstore
-		.getPages(locale)
-		.filter((p) => isLocaleMatch(p, locale))
-		.filter((p) => p.slugs[0] === 'trends');
+	const pages = appstore.getPages().filter((p) => p.slugs[0] === 'trends');
 
 	const mapped = pages.map((p) => {
 		const data = p.data;
