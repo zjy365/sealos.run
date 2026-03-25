@@ -1,0 +1,41 @@
+---
+title: 修改域名
+description: 私有云部署中的域名解析配置说明，包含主域名、通配域名和 Hub 域名的指向规则。
+seoTitle: Sealos 私有云域名配置指南
+seoDescription: 配置 Sealos 私有云的主域名、通配域名和 Hub 域名解析，明确公网 IP 与私网 IP 的指向规则，完成平台访问入口准备。
+keywords:
+  - Sealos
+  - Sealos 私有云
+  - 私有云域名配置
+  - DNS 解析
+  - 通配域名
+  - Hub 域名
+  - A 记录
+  - 公网 IP
+---
+
+将域名 `cloud.example.com` 的 A 记录解析到 Master 节点 IP 和节点 IP。
+
+### 常见口径：
+
+- `cloud.example.com` 和 `*.cloud.example.com` 解析到公网 IP
+- `hub.cloud.example.com` 解析到私网 IP
+
+### 示例：
+
+```text
+cloud.example.com      A    192.168.1.10
+cloud.example.com      A    192.168.1.11
+cloud.example.com      A    192.168.1.12
+cloud.example.com      A    192.168.1.13
+
+*.cloud.example.com    A    192.168.1.10
+*.cloud.example.com    A    192.168.1.11
+*.cloud.example.com    A    192.168.1.12
+*.cloud.example.com    A    192.168.1.13
+
+hub.cloud.example.com  A    192.168.1.10
+hub.cloud.example.com  A    192.168.1.11
+hub.cloud.example.com  A    192.168.1.12
+hub.cloud.example.com  A    192.168.1.13
+```

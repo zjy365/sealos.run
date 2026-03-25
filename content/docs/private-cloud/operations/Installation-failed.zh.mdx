@@ -1,0 +1,25 @@
+---
+title: 安装失败
+description: 私有云安装失败时的基础排查顺序与检查项说明。
+seoTitle: Sealos 私有云安装失败排查指南
+seoDescription: 当 Sealos 私有云安装失败时，从安装日志、配置文件、节点资源、网络连通性和关联文档五个方向快速定位问题。
+keywords:
+  - Sealos
+  - Sealos 私有云
+  - 私有云安装失败
+  - 安装排查
+  - install.log
+  - sealos.env
+  - 节点资源
+  - 网络连通性
+---
+
+
+
+建议按下面顺序排查：
+
+1. 检查日志：`tail -f /root/.sealos/cloud/install.log`
+2. 验证配置：确认 `sealos.env` 和 `alias.yaml` 正确
+3. 检查资源：确认节点 CPU、内存、磁盘充足
+4. 网络测试：确认节点间网络互通，SSH 可达
+5. 回看部署准备、许可证和故障排查文档

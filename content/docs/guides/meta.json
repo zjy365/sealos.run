@@ -1,0 +1,15 @@
+{
+  "title": "使用指南",
+  "pages": [
+    "feature-list",
+    "account-workspace",
+    "app-management",
+    "devbox",
+    "ai-proxy",
+    "appstore",
+    "databases",
+    "object-storage",
+    "cron-jobs",
+    "terminal"
+  ]
+}

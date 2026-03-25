@@ -1,0 +1,8 @@
+{
+  "title": "费用账单",
+  "pages": [
+    "billing-history",
+    "resource-quotas",
+    "invoice-details"
+  ]
+}
