@@ -1,0 +1,24 @@
+---
+title: 查看日志
+description: 私有云安装与排障时查看安装日志和组件运行状态的方法。
+seoTitle: Sealos 私有云安装日志与组件状态查看
+seoDescription: 使用 install.log 和 kubectl get pods -A 查看 Sealos 私有云安装过程、组件启动状态和异常线索，快速定位部署问题。
+keywords:
+  - Sealos
+  - Sealos 私有云
+  - 私有云日志
+  - 安装日志
+  - install.log
+  - kubectl get pods
+  - 组件状态
+  - 部署排查
+---
+```bash
+tail -f /root/.sealos/cloud/install.log
+```
+
+查看组件状态：
+
+```bash
+kubectl get pods -A
+```
