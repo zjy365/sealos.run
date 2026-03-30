@@ -1,5 +1,0 @@
-{
-  "title": "文档中心",
-  "root": true,
-  "pages": ["index", "getting-started", "guides", "billing", "private-cloud"]
-}

@@ -1,9 +1,0 @@
-{
-	"title": "应用管理",
-	"pages": [
-		"image-pull-failed",
-		"app-exits-immediately",
-		"page-unreachable",
-		"data-lost-after-restart"
-	]
-}

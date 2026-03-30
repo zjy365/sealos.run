@@ -5,15 +5,15 @@ import lastModified from 'fumadocs-mdx/plugins/last-modified';
 import { z } from 'zod';
 
 export const docs = defineDocs({
-	dir: 'content/docs',
+	dir: 'content/content/docs',
 });
 
 export const blog = defineDocs({
-	dir: 'content/blog',
+	dir: 'content/content/blog',
 });
 
 export const appstore = defineDocs({
-	dir: 'content/appstore',
+	dir: 'content/content/appstore',
 	docs: {
 		schema: pageSchema.extend({
 			category: z.string().optional(),
