@@ -1,0 +1,678 @@
+---
+title: DevOps 实践：构建高效的 CI/CD 流水线
+description: 从代码提交到生产部署，打造全自动化的持续交付体系
+date: 2024-01-12
+author: 刘伟
+category: DevOps 实践
+tags:
+  - DevOps
+  - CI/CD
+  - GitOps
+  - 自动化
+readingTime: 16
+views: 2134
+---
+
+# DevOps 实践：构建高效的 CI/CD 流水线
+
+DevOps 已经成为现代软件开发的标准实践。本文将分享如何构建一个高效、可靠的 CI/CD 流水线，实现从代码提交到生产部署的全自动化。
+
+## CI/CD 基本概念
+
+### 持续集成 (CI)
+
+持续集成是指频繁地将代码集成到主分支，并自动运行测试和构建。
+
+**核心实践：**
+
+- 频繁提交代码
+- 自动化测试
+- 快速反馈
+- 保持主分支可部署
+
+### 持续交付/部署 (CD)
+
+- **持续交付**：确保代码随时可以部署到生产环境
+- **持续部署**：代码通过所有测试后自动部署到生产环境
+
+## 使用 GitHub Actions 构建 CI 流水线
+
+### 基础工作流
+
+```yaml
+# .github/workflows/ci.yml
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run tests
+        run: npm run test:coverage
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/lcov.info
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist/
+```
+
+### Docker 镜像构建
+
+```yaml
+# .github/workflows/docker.yml
+name: Docker Build
+
+on:
+  push:
+    branches: [main]
+    tags:
+      - 'v*'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+```
+
+## GitOps 实践
+
+### ArgoCD 部署
+
+```bash
+# 在 Sealos 上安装 ArgoCD
+sealos run labring/argocd:latest
+```
+
+### 应用配置
+
+```yaml
+# argocd/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/myorg/myapp
+    targetRevision: HEAD
+    path: k8s
+
+    # Kustomize 配置
+    kustomize:
+      namePrefix: prod-
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: production
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+```
+
+### 多环境管理
+
+```
+k8s/
+├── base/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── kustomization.yaml
+├── overlays/
+│   ├── dev/
+│   │   ├── kustomization.yaml
+│   │   └── replicas.yaml
+│   ├── staging/
+│   │   ├── kustomization.yaml
+│   │   └── replicas.yaml
+│   └── production/
+│       ├── kustomization.yaml
+│       ├── replicas.yaml
+│       └── resources.yaml
+```
+
+```yaml
+# k8s/base/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - deployment.yaml
+  - service.yaml
+
+commonLabels:
+  app: myapp
+```
+
+```yaml
+# k8s/overlays/production/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+  - ../../base
+
+namePrefix: prod-
+
+replicas:
+  - name: myapp
+    count: 5
+
+resources:
+  - hpa.yaml
+  - ingress.yaml
+
+configMapGenerator:
+  - name: app-config
+    literals:
+      - LOG_LEVEL=error
+      - CACHE_ENABLED=true
+```
+
+## 自动化测试策略
+
+### 测试金字塔
+
+```
+        /\
+       /  \  E2E Tests (5%)
+      /____\
+     /      \
+    / Integr \ Integration Tests (15%)
+   /__________\
+  /            \
+ /   Unit Tests \ Unit Tests (80%)
+/________________\
+```
+
+### 单元测试
+
+```typescript
+// user.service.test.ts
+import { describe, it, expect, beforeEach } from 'vitest';
+import { UserService } from './user.service';
+
+describe('UserService', () => {
+  let userService: UserService;
+
+  beforeEach(() => {
+    userService = new UserService();
+  });
+
+  describe('createUser', () => {
+    it('should create user with valid data', async () => {
+      const userData = {
+        email: 'test@example.com',
+        name: 'Test User',
+      };
+
+      const user = await userService.createUser(userData);
+
+      expect(user.id).toBeDefined();
+      expect(user.email).toBe(userData.email);
+    });
+
+    it('should throw error for duplicate email', async () => {
+      const userData = {
+        email: 'test@example.com',
+        name: 'Test User',
+      };
+
+      await userService.createUser(userData);
+
+      await expect(userService.createUser(userData)).rejects.toThrow(
+        'Email already exists',
+      );
+    });
+  });
+});
+```
+
+### 集成测试
+
+```typescript
+// api.integration.test.ts
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { createTestServer } from './test-helpers';
+
+describe('User API Integration Tests', () => {
+  let server;
+  let request;
+
+  beforeAll(async () => {
+    server = await createTestServer();
+    request = server.request;
+  });
+
+  afterAll(async () => {
+    await server.close();
+  });
+
+  it('should create and retrieve user', async () => {
+    // Create user
+    const createResponse = await request.post('/api/users').send({
+      email: 'test@example.com',
+      name: 'Test User',
+    });
+
+    expect(createResponse.status).toBe(201);
+    const userId = createResponse.body.id;
+
+    // Retrieve user
+    const getResponse = await request.get(`/api/users/${userId}`);
+
+    expect(getResponse.status).toBe(200);
+    expect(getResponse.body.email).toBe('test@example.com');
+  });
+});
+```
+
+### E2E 测试
+
+```typescript
+// e2e/user-flow.spec.ts
+import { test, expect } from '@playwright/test';
+
+test.describe('User Registration Flow', () => {
+  test('should register and login successfully', async ({ page }) => {
+    // Navigate to registration page
+    await page.goto('/register');
+
+    // Fill registration form
+    await page.fill('input[name="email"]', 'test@example.com');
+    await page.fill('input[name="password"]', 'password123');
+    await page.fill('input[name="name"]', 'Test User');
+
+    // Submit form
+    await page.click('button[type="submit"]');
+
+    // Wait for redirect to dashboard
+    await page.waitForURL('/dashboard');
+
+    // Verify user is logged in
+    await expect(page.locator('.user-name')).toHaveText('Test User');
+  });
+});
+```
+
+## 自动化部署策略
+
+### 蓝绿部署
+
+```yaml
+# blue-green-deployment.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+spec:
+  selector:
+    app: myapp
+    version: blue # 切换到 green 进行部署
+  ports:
+    - port: 80
+      targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-blue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: myapp
+        version: blue
+    spec:
+      containers:
+        - name: myapp
+          image: myapp:v1.0.0
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+      version: green
+  template:
+    metadata:
+      labels:
+        app: myapp
+        version: green
+    spec:
+      containers:
+        - name: myapp
+          image: myapp:v1.1.0
+```
+
+### 金丝雀发布
+
+```yaml
+# canary-deployment.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: myapp
+spec:
+  replicas: 10
+  strategy:
+    canary:
+      steps:
+        - setWeight: 10 # 10% 流量到新版本
+        - pause: { duration: 5m }
+        - setWeight: 20
+        - pause: { duration: 5m }
+        - setWeight: 50
+        - pause: { duration: 5m }
+        - setWeight: 100
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: myapp
+          image: myapp:v1.1.0
+```
+
+## 监控和可观测性
+
+### Prometheus 指标采集
+
+```typescript
+// metrics.ts
+import { Registry, Counter, Histogram } from 'prom-client';
+
+export const register = new Registry();
+
+// HTTP 请求计数器
+export const httpRequestsTotal = new Counter({
+  name: 'http_requests_total',
+  help: 'Total number of HTTP requests',
+  labelNames: ['method', 'path', 'status'],
+  registers: [register],
+});
+
+// HTTP 请求延迟
+export const httpRequestDuration = new Histogram({
+  name: 'http_request_duration_seconds',
+  help: 'HTTP request duration in seconds',
+  labelNames: ['method', 'path', 'status'],
+  buckets: [0.1, 0.5, 1, 2, 5],
+  registers: [register],
+});
+
+// 业务指标
+export const ordersCreated = new Counter({
+  name: 'orders_created_total',
+  help: 'Total number of orders created',
+  registers: [register],
+});
+```
+
+```typescript
+// middleware.ts
+export function metricsMiddleware(req, res, next) {
+  const start = Date.now();
+
+  res.on('finish', () => {
+    const duration = (Date.now() - start) / 1000;
+
+    httpRequestsTotal.inc({
+      method: req.method,
+      path: req.route?.path || req.path,
+      status: res.statusCode,
+    });
+
+    httpRequestDuration.observe(
+      {
+        method: req.method,
+        path: req.route?.path || req.path,
+        status: res.statusCode,
+      },
+      duration,
+    );
+  });
+
+  next();
+}
+```
+
+### 告警规则
+
+```yaml
+# prometheus-rules.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: myapp-alerts
+spec:
+  groups:
+    - name: myapp
+      interval: 30s
+      rules:
+        - alert: HighErrorRate
+          expr: |
+            sum(rate(http_requests_total{status=~"5.."}[5m])) by (service)
+            /
+            sum(rate(http_requests_total[5m])) by (service)
+            > 0.05
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: 'High error rate detected'
+            description: 'Service {{ $labels.service }} has error rate above 5%'
+
+        - alert: HighLatency
+          expr: |
+            histogram_quantile(0.95,
+              sum(rate(http_request_duration_seconds_bucket[5m])) by (le, service)
+            ) > 2
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: 'High latency detected'
+            description: '95th percentile latency is above 2 seconds'
+```
+
+## 在 Sealos 上的 DevOps 实践
+
+### 一键部署完整 DevOps 工具链
+
+```bash
+# 安装 GitLab
+sealos run labring/gitlab:latest
+
+# 安装 Harbor 镜像仓库
+sealos run labring/harbor:latest
+
+# 安装 ArgoCD
+sealos run labring/argocd:latest
+
+# 安装监控栈
+sealos run labring/prometheus-stack:latest
+```
+
+### 使用 Sealos Actions
+
+```yaml
+# .github/workflows/deploy-to-sealos.yml
+name: Deploy to Sealos
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build and Push Docker Image
+        run: |
+          docker build -t myapp:${{ github.sha }} .
+          docker push myapp:${{ github.sha }}
+
+      - name: Deploy to Sealos
+        uses: labring/sealos-action@v1
+        with:
+          sealos-token: ${{ secrets.SEALOS_TOKEN }}
+          app-name: myapp
+          image: myapp:${{ github.sha }}
+          replicas: 3
+```
+
+## 最佳实践总结
+
+### 1. 版本控制
+
+- 所有配置代码化
+- 使用语义化版本
+- 分支策略（GitFlow / Trunk-Based）
+
+### 2. 自动化测试
+
+- 测试覆盖率 > 80%
+- 快速反馈（< 10 分钟）
+- 并行执行测试
+
+### 3. 持续部署
+
+- 小批量频繁发布
+- 自动化回滚机制
+- 渐进式发布
+
+### 4. 监控告警
+
+- 全面的指标收集
+- 合理的告警阈值
+- 快速响应机制
+
+## 总结
+
+构建高效的 CI/CD 流水线是 DevOps 实践的核心。关键要素包括：
+
+- 自动化一切可以自动化的流程
+- 快速反馈和持续改进
+- 完善的测试和监控体系
+- 安全可靠的部署策略
+
+使用 Sealos 这样的平台，可以大大简化 DevOps 工具链的搭建和维护，让团队专注于业务价值的交付。
+
+## 参考资源
+
+- [The Phoenix Project](https://itrevolution.com/the-phoenix-project/)
+- [Accelerate](https://itrevolution.com/accelerate-book/)
+- [GitOps Principles](https://opengitops.dev/)
+- [DORA Metrics](https://www.devops-research.com/research.html)

@@ -1,0 +1,292 @@
+---
+title: Docker 容器安全最佳实践指南
+description: 从镜像构建到运行时安全，全面提升容器安全性的实用技巧
+date: 2024-01-20
+author: 李明
+category: Docker 容器技术
+tags:
+  - Docker
+  - 安全加固
+  - 最佳实践
+readingTime: 15
+views: 3421
+
+featured: true
+---
+
+# Docker 容器安全最佳实践指南
+
+容器技术虽然提供了轻量级的隔离机制，但安全问题不容忽视。本文总结了 Docker 容器安全的各个方面，帮助你构建更安全的容器化应用。
+
+## 镜像安全
+
+### 1. 使用官方和可信镜像
+
+```dockerfile
+# 推荐：使用官方镜像
+FROM node:18-alpine
+
+# 避免：使用未知来源的镜像
+# FROM random-user/node:latest
+```
+
+### 2. 最小化镜像体积
+
+使用多阶段构建减少攻击面：
+
+```dockerfile
+# 构建阶段
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+# 运行阶段
+FROM node:18-alpine
+WORKDIR /app
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+USER node
+CMD ["node", "server.js"]
+```
+
+### 3. 镜像扫描
+
+使用工具扫描镜像漏洞：
+
+```bash
+# 使用 Trivy 扫描镜像
+trivy image myapp:latest
+
+# 使用 Docker Scout
+docker scout cves myapp:latest
+```
+
+## 运行时安全
+
+### 1. 非 root 用户运行
+
+```dockerfile
+FROM alpine:latest
+
+# 创建非特权用户
+RUN addgroup -g 1000 appgroup && \
+    adduser -D -u 1000 -G appgroup appuser
+
+USER appuser
+```
+
+### 2. 只读文件系统
+
+```bash
+docker run --read-only --tmpfs /tmp myapp:latest
+```
+
+### 3. 资源限制
+
+```bash
+docker run -d \
+  --memory="512m" \
+  --cpus="1.0" \
+  --pids-limit=100 \
+  myapp:latest
+```
+
+## 网络安全
+
+### 1. 自定义网络
+
+```bash
+# 创建自定义网络
+docker network create --driver bridge myapp-network
+
+# 在自定义网络中运行容器
+docker run -d --network=myapp-network --name webapp myapp:latest
+```
+
+### 2. 限制容器间通信
+
+```bash
+# 禁用容器间通信
+docker network create --driver bridge --internal secure-network
+```
+
+## Secrets 管理
+
+### 1. 使用 Docker Secrets
+
+```bash
+# 创建 secret
+echo "mysecretpassword" | docker secret create db_password -
+
+# 使用 secret
+docker service create \
+  --name myapp \
+  --secret db_password \
+  myapp:latest
+```
+
+### 2. 避免在镜像中硬编码敏感信息
+
+```dockerfile
+# ❌ 错误示例
+ENV API_KEY="sk-1234567890abcdef"
+
+# ✅ 正确做法：使用环境变量或 secrets
+ENV API_KEY=""
+```
+
+## AppArmor 和 SELinux
+
+### AppArmor 配置示例
+
+```bash
+# 使用 AppArmor 配置文件
+docker run --security-opt apparmor=docker-default myapp:latest
+```
+
+### SELinux 标签
+
+```bash
+# 设置 SELinux 标签
+docker run --security-opt label=level:s0:c100,c200 myapp:latest
+```
+
+## 在 Sealos 上的容器安全
+
+Sealos 提供了开箱即用的安全功能：
+
+1. **自动 TLS 证书**：为所有应用自动配置 HTTPS
+2. **网络隔离**：基于 Namespace 的天然隔离
+3. **资源配额**：自动设置合理的资源限制
+4. **镜像扫描**：集成镜像安全扫描
+
+```bash
+# 在 Sealos 上部署应用自动应用安全最佳实践
+sealos run myapp:latest
+```
+
+## 安全扫描和审计
+
+### 1. 运行时监控
+
+使用 Falco 进行运行时安全监控：
+
+```bash
+# 安装 Falco
+sealos run labring/falco:latest
+
+# 查看安全事件
+kubectl logs -n falco -l app=falco -f
+```
+
+### 2. 定期审计
+
+```bash
+# Docker Bench Security
+docker run -it --net host --pid host --userns host --cap-add audit_control \
+  -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST \
+  -v /var/lib:/var/lib \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /etc:/etc --label docker_bench_security \
+  docker/docker-bench-security
+```
+
+## 供应链安全
+
+### 1. 启用 Content Trust
+
+```bash
+# 启用 Docker Content Trust
+export DOCKER_CONTENT_TRUST=1
+
+# 签名并推送镜像
+docker push myapp:latest
+```
+
+### 2. SBOM（软件物料清单）
+
+```bash
+# 生成 SBOM
+syft packages myapp:latest -o json > sbom.json
+
+# 使用 SBOM 进行漏洞分析
+grype sbom:sbom.json
+```
+
+## Kubernetes 环境下的容器安全
+
+### Pod Security Standards
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: production
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/warn: restricted
+```
+
+### Security Context
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-pod
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    fsGroup: 2000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: app
+      image: myapp:latest
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop:
+            - ALL
+```
+
+## 安全检查清单
+
+构建阶段：
+
+- [ ] 使用官方或可信基础镜像
+- [ ] 多阶段构建减少镜像体积
+- [ ] 不在镜像中包含敏感信息
+- [ ] 扫描镜像漏洞
+- [ ] 签名镜像
+
+部署阶段：
+
+- [ ] 使用非 root 用户运行
+- [ ] 设置资源限制
+- [ ] 启用只读文件系统
+- [ ] 使用 Secrets 管理敏感信息
+- [ ] 配置网络策略
+
+运行时：
+
+- [ ] 启用运行时安全监控
+- [ ] 定期更新镜像
+- [ ] 审计日志
+- [ ] 限制容器权限
+
+## 总结
+
+容器安全是一个持续的过程，需要在开发、构建、部署和运行的各个阶段都予以重视。通过遵循本文的最佳实践，你可以大大提升容器化应用的安全性。
+
+使用 Sealos 这样的平台，很多安全配置都是开箱即用的，让你在保证安全的同时提高开发效率。
+
+## 参考资源
+
+- [CIS Docker Benchmark](https://www.cisecurity.org/benchmark/docker)
+- [NIST Application Container Security Guide](https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-190.pdf)
+- [Docker Security Best Practices](https://docs.docker.com/develop/security-best-practices/)

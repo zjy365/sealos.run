@@ -1,0 +1,60 @@
+---
+title: Docker Container Security Best Practices Guide
+description: Practical tips to enhance container security from image building to runtime
+date: 2024-01-20
+author: Ming Li
+category: Docker Container Technology
+tags:
+  - Docker
+  - Security
+  - Best Practices
+readingTime: 15
+views: 3421
+featured: true
+---
+
+# Docker Container Security Best Practices Guide
+
+While container technology provides lightweight isolation mechanisms, security issues cannot be ignored. This article summarizes various aspects of Docker container security to help you build more secure containerized applications.
+
+## Image Security
+
+### 1. Use Official and Trusted Images
+
+```dockerfile
+# Recommended: Use official images
+FROM node:18-alpine
+
+# Avoid: Use images from unknown sources
+# FROM random-user/node:latest
+```
+
+### 2. Minimize Image Size
+
+Use multi-stage builds to reduce attack surface:
+
+```dockerfile
+# Build stage
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Runtime stage
+FROM node:18-alpine
+WORKDIR /app
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+USER node
+CMD ["node", "server.js"]
+```
+
+## Summary
+
+Container security is a continuous process that requires attention at all stages of development, build, deployment, and runtime. By following the best practices in this article, you can greatly improve the security of your containerized applications.
+
+## References
+
+- [CIS Docker Benchmark](https://www.cisecurity.org/benchmark/docker)
+- [NIST Application Container Security Guide](https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-190.pdf)
+- [Docker Security Best Practices](https://docs.docker.com/develop/security-best-practices/)

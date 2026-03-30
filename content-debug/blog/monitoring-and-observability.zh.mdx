@@ -1,0 +1,775 @@
+---
+title: 云原生监控与可观测性：Prometheus + Grafana 实践
+description: 构建完整的监控体系，实现系统的全面可观测性
+date: 2024-01-10
+author: 赵敏
+category: 监控告警
+tags:
+  - Prometheus
+  - Grafana
+  - 监控告警
+  - 可观测性
+readingTime: 14
+views: 1654
+---
+
+# 云原生监控与可观测性：Prometheus + Grafana 实践
+
+在云原生时代，可观测性变得越来越重要。本文将介绍如何使用 Prometheus 和 Grafana 构建完整的监控体系。
+
+## 可观测性三大支柱
+
+### 1. 指标 (Metrics)
+
+时间序列数据，用于监控系统状态和性能。
+
+```typescript
+// 应用指标示例
+{
+  metric: "http_requests_total",
+  labels: {
+    method: "GET",
+    path: "/api/users",
+    status: "200"
+  },
+  value: 12345,
+  timestamp: 1704432000
+}
+```
+
+### 2. 日志 (Logs)
+
+离散的事件记录，包含详细的上下文信息。
+
+```json
+{
+  "timestamp": "2024-01-10T10:30:00Z",
+  "level": "error",
+  "service": "user-service",
+  "message": "Failed to connect to database",
+  "error": "Connection timeout after 30s",
+  "trace_id": "abc123"
+}
+```
+
+### 3. 追踪 (Traces)
+
+分布式系统中请求的完整调用链路。
+
+```
+Request Trace:
+├─ api-gateway (100ms)
+│  ├─ user-service (30ms)
+│  │  └─ database-query (20ms)
+│  └─ order-service (50ms)
+│     ├─ inventory-check (15ms)
+│     └─ payment-process (25ms)
+```
+
+## Prometheus 部署和配置
+
+### 在 Sealos 上安装 Prometheus
+
+```bash
+# 一键安装 Prometheus + Grafana + AlertManager
+sealos run labring/prometheus-stack:latest
+```
+
+### Prometheus 配置
+
+```yaml
+# prometheus.yml
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'sealos-prod'
+    region: 'us-west-1'
+
+# 告警管理器配置
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - alertmanager:9093
+
+# 规则文件
+rule_files:
+  - 'alerts/*.yml'
+
+# 采集配置
+scrape_configs:
+  # Prometheus 自身监控
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Kubernetes 节点监控
+  - job_name: 'kubernetes-nodes'
+    kubernetes_sd_configs:
+      - role: node
+    relabel_configs:
+      - source_labels: [__address__]
+        regex: '(.*):10250'
+        replacement: '${1}:9100'
+        target_label: __address__
+      - action: labelmap
+        regex: __meta_kubernetes_node_label_(.+)
+
+  # Kubernetes Pods 监控
+  - job_name: 'kubernetes-pods'
+    kubernetes_sd_configs:
+      - role: pod
+    relabel_configs:
+      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+        action: keep
+        regex: true
+      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+        action: replace
+        target_label: __metrics_path__
+        regex: (.+)
+      - source_labels:
+          [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+        action: replace
+        regex: ([^:]+)(?::\d+)?;(\d+)
+        replacement: $1:$2
+        target_label: __address__
+```
+
+## 应用监控
+
+### Node.js 应用集成
+
+```typescript
+// app.ts
+import express from 'express';
+import {
+  Registry,
+  collectDefaultMetrics,
+  Counter,
+  Histogram,
+} from 'prom-client';
+
+const app = express();
+const register = new Registry();
+
+// 收集默认指标
+collectDefaultMetrics({ register });
+
+// 自定义指标
+const httpRequestsTotal = new Counter({
+  name: 'http_requests_total',
+  help: 'Total number of HTTP requests',
+  labelNames: ['method', 'path', 'status'],
+  registers: [register],
+});
+
+const httpRequestDuration = new Histogram({
+  name: 'http_request_duration_seconds',
+  help: 'HTTP request duration',
+  labelNames: ['method', 'path', 'status'],
+  buckets: [0.1, 0.3, 0.5, 0.7, 1, 3, 5, 7, 10],
+  registers: [register],
+});
+
+// 指标中间件
+app.use((req, res, next) => {
+  const start = Date.now();
+
+  res.on('finish', () => {
+    const duration = (Date.now() - start) / 1000;
+    const path = req.route?.path || req.path;
+
+    httpRequestsTotal.inc({
+      method: req.method,
+      path,
+      status: res.statusCode.toString(),
+    });
+
+    httpRequestDuration.observe(
+      {
+        method: req.method,
+        path,
+        status: res.statusCode.toString(),
+      },
+      duration,
+    );
+  });
+
+  next();
+});
+
+// 暴露指标端点
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', register.contentType);
+  res.end(await register.metrics());
+});
+
+// 业务路由
+app.get('/api/users', async (req, res) => {
+  // 业务逻辑...
+  res.json({ users: [] });
+});
+
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
+```
+
+### Kubernetes 部署配置
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+      annotations:
+        # Prometheus 采集配置
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '3000'
+        prometheus.io/path: '/metrics'
+    spec:
+      containers:
+        - name: myapp
+          image: myapp:latest
+          ports:
+            - containerPort: 3000
+              name: http
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+```
+
+## PromQL 查询语言
+
+### 基础查询
+
+```text
+# 即时查询
+http_requests_total
+
+# 带标签过滤
+http_requests_total{method="GET", status="200"}
+
+# 正则匹配
+http_requests_total{path=~"/api/.*"}
+
+# 范围查询（最近 5 分钟）
+http_requests_total[5m]
+```
+
+### 聚合函数
+
+```text
+# 求和
+sum(http_requests_total) by (method)
+
+# 平均值
+avg(http_request_duration_seconds) by (path)
+
+# 最大值和最小值
+max(http_request_duration_seconds)
+min(http_request_duration_seconds)
+
+# 计数
+count(http_requests_total)
+```
+
+### 速率计算
+
+```text
+# 每秒请求数（QPS）
+rate(http_requests_total[5m])
+
+# 每秒请求数，按 path 分组
+sum(rate(http_requests_total[5m])) by (path)
+
+# 错误率
+sum(rate(http_requests_total{status=~"5.."}[5m]))
+/
+sum(rate(http_requests_total[5m]))
+```
+
+### 分位数计算
+
+```text
+# P95 延迟
+histogram_quantile(0.95,
+  sum(rate(http_request_duration_seconds_bucket[5m])) by (le)
+)
+
+# P99 延迟，按服务分组
+histogram_quantile(0.99,
+  sum(rate(http_request_duration_seconds_bucket[5m])) by (le, service)
+)
+```
+
+## Grafana 仪表板
+
+### 创建仪表板
+
+```json
+{
+  "dashboard": {
+    "title": "Application Metrics",
+    "panels": [
+      {
+        "title": "Request Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "sum(rate(http_requests_total[5m])) by (service)",
+            "legendFormat": "{{service}}"
+          }
+        ]
+      },
+      {
+        "title": "Error Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "sum(rate(http_requests_total{status=~\"5..\"}[5m])) by (service) / sum(rate(http_requests_total[5m])) by (service)",
+            "legendFormat": "{{service}}"
+          }
+        ]
+      },
+      {
+        "title": "Latency",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.50, sum(rate(http_request_duration_seconds_bucket[5m])) by (le, service))",
+            "legendFormat": "{{service}} - P50"
+          },
+          {
+            "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le, service))",
+            "legendFormat": "{{service}} - P95"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### 常用面板模板
+
+**系统资源监控：**
+
+```text
+# CPU 使用率
+100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
+
+# 内存使用率
+100 * (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)
+
+# 磁盘使用率
+100 * (1 - node_filesystem_avail_bytes / node_filesystem_size_bytes)
+
+# 网络流量
+rate(node_network_receive_bytes_total[5m])
+rate(node_network_transmit_bytes_total[5m])
+```
+
+**应用性能监控：**
+
+```text
+# 请求成功率
+sum(rate(http_requests_total{status=~"2.."}[5m]))
+/
+sum(rate(http_requests_total[5m]))
+* 100
+
+# 平均响应时间
+avg(rate(http_request_duration_seconds_sum[5m])
+/
+rate(http_request_duration_seconds_count[5m]))
+
+# 并发连接数
+sum(http_active_connections)
+```
+
+## 告警配置
+
+### AlertManager 配置
+
+```yaml
+# alertmanager.yml
+global:
+  resolve_timeout: 5m
+  smtp_smarthost: 'smtp.example.com:587'
+  smtp_from: 'alertmanager@example.com'
+  smtp_auth_username: 'alertmanager'
+  smtp_auth_password: 'password'
+
+route:
+  group_by: ['alertname', 'cluster']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 12h
+  receiver: 'team-email'
+
+  routes:
+    # 高优先级告警
+    - match:
+        severity: critical
+      receiver: 'team-pager'
+      continue: true
+
+    # 数据库告警
+    - match:
+        service: database
+      receiver: 'dba-team'
+
+receivers:
+  - name: 'team-email'
+    email_configs:
+      - to: 'team@example.com'
+        headers:
+          Subject: '[{{ .Status }}] {{ .GroupLabels.alertname }}'
+
+  - name: 'team-pager'
+    pagerduty_configs:
+      - service_key: 'your-pagerduty-key'
+
+  - name: 'dba-team'
+    slack_configs:
+      - api_url: 'https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK'
+        channel: '#database-alerts'
+        title: '{{ .GroupLabels.alertname }}'
+        text: '{{ range .Alerts }}{{ .Annotations.description }}{{ end }}'
+```
+
+### 告警规则
+
+```yaml
+# alerts/application.yml
+groups:
+  - name: application
+    interval: 30s
+    rules:
+      # 高错误率告警
+      - alert: HighErrorRate
+        expr: |
+          sum(rate(http_requests_total{status=~"5.."}[5m])) by (service)
+          /
+          sum(rate(http_requests_total[5m])) by (service)
+          > 0.05
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: '服务 {{ $labels.service }} 错误率过高'
+          description: '错误率为 {{ $value | humanizePercentage }}'
+
+      # 高延迟告警
+      - alert: HighLatency
+        expr: |
+          histogram_quantile(0.95,
+            sum(rate(http_request_duration_seconds_bucket[5m])) by (le, service)
+          ) > 2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: '服务 {{ $labels.service }} 延迟过高'
+          description: 'P95 延迟为 {{ $value }}s'
+
+      # 服务不可用告警
+      - alert: ServiceDown
+        expr: up{job="kubernetes-pods"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: '服务 {{ $labels.pod }} 不可用'
+          description: 'Pod {{ $labels.pod }} 已停止响应'
+
+      # 内存使用率告警
+      - alert: HighMemoryUsage
+        expr: |
+          container_memory_usage_bytes{pod!=""} 
+          / 
+          container_spec_memory_limit_bytes{pod!=""} 
+          > 0.9
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: 'Pod {{ $labels.pod }} 内存使用率过高'
+          description: '内存使用率为 {{ $value | humanizePercentage }}'
+```
+
+## 日志聚合 - Loki
+
+### Loki 安装
+
+```bash
+# 在 Sealos 上安装 Loki
+sealos run labring/loki-stack:latest
+```
+
+### Promtail 配置
+
+```yaml
+# promtail-config.yaml
+server:
+  http_listen_port: 9080
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: kubernetes-pods
+    kubernetes_sd_configs:
+      - role: pod
+
+    relabel_configs:
+      - source_labels: [__meta_kubernetes_pod_label_app]
+        target_label: app
+      - source_labels: [__meta_kubernetes_pod_name]
+        target_label: pod
+      - source_labels: [__meta_kubernetes_namespace]
+        target_label: namespace
+
+    pipeline_stages:
+      - docker: {}
+      - json:
+          expressions:
+            level: level
+            message: message
+            trace_id: trace_id
+      - labels:
+          level:
+          trace_id:
+```
+
+### LogQL 查询
+
+```text
+# 查询特定服务的日志
+{app="myapp"}
+
+# 错误日志
+{app="myapp"} |= "error"
+{app="myapp"} | json | level="error"
+
+# 统计错误数
+sum(count_over_time({app="myapp"} | json | level="error" [5m]))
+
+# 按服务分组统计
+sum by (service) (count_over_time({job="kubernetes-pods"} [5m]))
+
+# 慢查询日志
+{app="myapp"} | json | duration > 1000
+```
+
+## 分布式追踪 - Jaeger
+
+### Jaeger 部署
+
+```bash
+# 在 Sealos 上安装 Jaeger
+sealos run labring/jaeger:latest
+```
+
+### OpenTelemetry 集成
+
+```typescript
+// tracing.ts
+import { NodeSDK } from '@opentelemetry/sdk-node';
+import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
+import { JaegerExporter } from '@opentelemetry/exporter-jaeger';
+import { Resource } from '@opentelemetry/resources';
+import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
+
+const jaegerExporter = new JaegerExporter({
+  endpoint: 'http://jaeger:14268/api/traces',
+});
+
+const sdk = new NodeSDK({
+  resource: new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: 'myapp',
+    [SemanticResourceAttributes.SERVICE_VERSION]: '1.0.0',
+  }),
+  traceExporter: jaegerExporter,
+  instrumentations: [getNodeAutoInstrumentations()],
+});
+
+sdk.start();
+
+process.on('SIGTERM', () => {
+  sdk
+    .shutdown()
+    .then(() => console.log('Tracing terminated'))
+    .catch((error) => console.log('Error terminating tracing', error))
+    .finally(() => process.exit(0));
+});
+```
+
+### 手动创建 Span
+
+```typescript
+import { trace } from '@opentelemetry/api';
+
+const tracer = trace.getTracer('myapp');
+
+export async function processOrder(orderId: string) {
+  const span = tracer.startSpan('processOrder');
+
+  try {
+    span.setAttribute('order.id', orderId);
+
+    // 验证订单
+    const validateSpan = tracer.startSpan('validateOrder', {
+      parent: span,
+    });
+    await validateOrder(orderId);
+    validateSpan.end();
+
+    // 处理支付
+    const paymentSpan = tracer.startSpan('processPayment', {
+      parent: span,
+    });
+    await processPayment(orderId);
+    paymentSpan.end();
+
+    span.setStatus({ code: SpanStatusCode.OK });
+  } catch (error) {
+    span.recordException(error);
+    span.setStatus({ code: SpanStatusCode.ERROR });
+    throw error;
+  } finally {
+    span.end();
+  }
+}
+```
+
+## SLO/SLI 监控
+
+### 定义 SLI
+
+```yaml
+# SLI 定义
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceLevelIndicator
+metadata:
+  name: api-availability
+spec:
+  service: myapp
+
+  # 可用性 SLI
+  availabilitySLI:
+    totalQuery: |
+      sum(rate(http_requests_total[5m]))
+    goodQuery: |
+      sum(rate(http_requests_total{status!~"5.."}[5m]))
+
+  # 延迟 SLI
+  latencySLI:
+    totalQuery: |
+      sum(rate(http_request_duration_seconds_count[5m]))
+    goodQuery: |
+      sum(rate(http_request_duration_seconds_bucket{le="1.0"}[5m]))
+```
+
+### SLO 目标
+
+```yaml
+# SLO 定义
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceLevelObjective
+metadata:
+  name: api-slo
+spec:
+  service: myapp
+
+  objectives:
+    # 可用性目标：99.9%
+    - name: availability
+      target: 0.999
+      window: 30d
+
+    # 延迟目标：95% 的请求在 1 秒内完成
+    - name: latency
+      target: 0.95
+      window: 30d
+
+  # 错误预算告警
+  alerting:
+    burnRateAlerts:
+      - severity: warning
+        for: 1h
+        long: 1h
+        short: 5m
+        factor: 2
+```
+
+## 成本优化
+
+### 指标保留策略
+
+```yaml
+# Prometheus 配置
+storage:
+  tsdb:
+    retention.time: 15d
+    retention.size: 50GB
+
+# 降采样配置（使用 Thanos 或 Cortex）
+downsampling:
+  - resolution: 5m
+    retention: 90d
+  - resolution: 1h
+    retention: 365d
+```
+
+### 采集优化
+
+```yaml
+# 减少不必要的标签
+metric_relabel_configs:
+  - source_labels: [__name__]
+    regex: 'go_.*'
+    action: drop
+
+# 降低采集频率
+scrape_interval: 30s # 非关键服务
+```
+
+## 总结
+
+构建完整的可观测性体系需要：
+
+- **指标监控**：使用 Prometheus 收集和存储时序数据
+- **日志聚合**：使用 Loki 集中管理日志
+- **分布式追踪**：使用 Jaeger 追踪请求链路
+- **可视化**：使用 Grafana 创建仪表板
+- **告警**：使用 AlertManager 及时发现问题
+
+在 Sealos 上，这些工具都可以一键部署，大大简化了监控体系的搭建。
+
+## 参考资源
+
+- [Prometheus 文档](https://prometheus.io/docs/)
+- [Grafana 文档](https://grafana.com/docs/)
+- [OpenTelemetry](https://opentelemetry.io/)
+- [SRE Book - Monitoring Distributed Systems](https://sre.google/sre-book/monitoring-distributed-systems/)

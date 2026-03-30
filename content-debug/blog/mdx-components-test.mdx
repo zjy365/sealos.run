@@ -1,0 +1,214 @@
+---
+title: MDX 组件测试页面
+description: 测试所有 Markdown 元素和自定义 MDX 组件的展示效果
+date: 2024-01-01
+author: 测试作者
+category: Kubernetes 教程
+tags:
+  - 测试
+  - MDX
+  - 组件
+readingTime: 10
+views: 0
+featured: true
+---
+
+# MDX 组件测试页面
+
+这是一个用于测试所有 Markdown 元素和自定义 MDX 组件的页面。
+
+## 基础文本格式
+
+这是一段普通文本。支持 **粗体文字**、_斜体文字_、~~删除线~~、以及 `行内代码`。
+
+你也可以使用 [链接文本](https://sealos.io) 来创建超链接。
+
+### 三级标题示例
+
+这是三级标题下的内容。
+
+#### 四级标题示例
+
+这是四级标题下的内容。
+
+## 列表
+
+### 无序列表
+
+- 第一项
+- 第二项
+  - 嵌套项 2.1
+  - 嵌套项 2.2
+- 第三项
+
+### 有序列表
+
+1. 第一步
+2. 第二步
+   1. 子步骤 2.1
+   2. 子步骤 2.2
+3. 第三步
+
+### 任务列表
+
+- [x] 已完成的任务
+- [ ] 未完成的任务
+- [ ] 另一个未完成的任务
+
+## 引用
+
+> 这是一段引用文字。
+>
+> 引用可以包含多个段落。
+>
+> —— 引用来源
+
+## 代码块
+
+### JavaScript 代码
+
+```javascript
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+  return `Welcome to Sealos, ${name}`;
+}
+
+greet('Developer');
+```
+
+### Shell 命令
+
+```bash
+# 安装 Sealos
+curl -sfL https://raw.githubusercontent.com/labring/sealos/main/scripts/install.sh | sh -s v4.3.0
+
+# 查看版本
+sealos version
+```
+
+### YAML 配置
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+```
+
+## 自定义 Callout 组件
+
+### 信息提示（默认）
+
+<Callout title="重要提示">
+  这是一个信息提示框。用于展示一般性的提示信息。支持 **Markdown** 格式的内容。
+</Callout>
+
+### 警告提示
+
+<Callout type="warning" title="注意事项">
+  这是一个警告提示框。用于提醒用户需要注意的事项。请仔细阅读相关说明。
+</Callout>
+
+### 危险提示
+
+<Callout type="danger" title="危险操作">
+  这是一个危险提示框。执行以下操作前请务必备份数据！不当操作可能导致数据丢失。
+</Callout>
+
+### 成功提示
+
+<Callout type="success" title="操作成功">
+  这是一个成功提示框。用于展示操作成功的消息和后续步骤。
+</Callout>
+
+## 表格
+
+### 基础表格
+
+| 组件 | 最低要求 | 推荐配置 | 说明                  |
+| ---- | -------- | -------- | --------------------- |
+| CPU  | 2核      | 4核      | 生产环境建议 4 核以上 |
+| 内存 | 4GB      | 8GB      | 根据应用负载调整      |
+| 磁盘 | 50GB     | 100GB    | 建议使用 SSD          |
+| 网络 | 1Gbps    | 10Gbps   | 低延迟网络更佳        |
+
+### 复杂表格
+
+| 功能     | 社区版 | 专业版 |  企业版  |
+| -------- | :----: | :----: | :------: |
+| 基础功能 |   ✅   |   ✅   |    ✅    |
+| 高级功能 |   ❌   |   ✅   |    ✅    |
+| 技术支持 |  社区  |  邮件  |   7x24   |
+| 价格     |  免费  | $99/月 | 联系销售 |
+
+## 水平分隔线
+
+---
+
+## 图片
+
+![Sealos Logo](https://sealos.io/logo.svg)
+
+## 嵌套的复杂示例
+
+### Kubernetes 部署最佳实践
+
+1. **准备工作**
+
+   <Callout title="环境检查">
+     在开始部署前，请确保： - 所有节点已安装 Docker - 网络互通且防火墙规则正确 -
+     系统时间已同步
+   </Callout>
+
+2. **安装集群**
+
+   ```bash
+   # 初始化主节点
+   sealos run labring/kubernetes:v1.25.0 --masters 192.168.0.2
+
+   # 添加工作节点
+   sealos add --nodes 192.168.0.3,192.168.0.4
+   ```
+
+3. **验证安装**
+
+   | 检查项   | 命令                  | 预期结果         |
+   | -------- | --------------------- | ---------------- |
+   | 节点状态 | `kubectl get nodes`   | 所有节点 Ready   |
+   | Pod 状态 | `kubectl get pods -A` | 所有 Pod Running |
+   | 服务状态 | `kubectl get svc -A`  | 服务正常暴露     |
+
+4. **常见问题**
+
+   <Callout type="warning" title="节点无法加入集群">
+     如果节点无法加入集群，请检查： - 网络连接是否正常 - Token 是否过期 -
+     防火墙规则是否正确
+   </Callout>
+
+## 特殊符号和格式
+
+行内数学表达式：E = mc²
+
+特殊字符：© ® ™ → ← ↑ ↓ ✓ ✗
+
+## 总结
+
+本测试页面展示了：
+
+- ✅ 所有基础 Markdown 元素
+- ✅ 自定义 Callout 组件（4 种类型）
+- ✅ 自定义表格样式
+- ✅ 代码高亮
+- ✅ 嵌套和组合使用
+
+<Callout type="success" title="测试完成">
+  如果你能看到以上所有元素正常渲染，说明 MDX 配置正确！
+</Callout>

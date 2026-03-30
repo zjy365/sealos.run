@@ -1,0 +1,467 @@
+---
+title: 在 Kubernetes 上运行数据库：实战指南
+description: 让数据库部署变得像安装手机 App 一样简单，5分钟搞定生产级数据库集群
+date: 2024-01-25
+author: 王芳
+category: 数据库管理
+tags:
+  - 数据库
+  - PostgreSQL
+  - MySQL
+  - MongoDB
+  - 高可用
+readingTime: 18
+views: 2890
+
+featured: true
+---
+
+# 在 Kubernetes 上运行数据库：实战指南
+
+在 Kubernetes 上运行有状态应用，特别是数据库，曾经被认为是一个挑战。但随着 StatefulSet、Operator 等技术的成熟，在 K8s 上运行数据库已经成为最佳实践。
+
+## 为什么要在 Kubernetes 上运行数据库
+
+### 优势
+
+1. **统一的运维体验**：与应用使用相同的部署和管理方式
+2. **自动化运维**：使用 Operator 实现自动备份、恢复、扩容
+3. **资源隔离和弹性**：更好的资源利用率和弹性伸缩能力
+4. **多租户支持**：轻松为不同团队提供隔离的数据库实例
+
+### 挑战
+
+- 性能开销
+- 存储管理
+- 网络延迟
+- 备份和恢复
+- 高可用配置
+
+## 在 Sealos 上一键部署数据库
+
+Sealos 数据库功能让数据库部署变得极其简单：
+
+### 1. PostgreSQL
+
+```bash
+# 使用 Sealos CLI 部署 PostgreSQL
+sealos run labring/postgresql-cluster:15.0.0
+
+# 或者在 Sealos 云控制台点击即可部署
+```
+
+### 2. MySQL
+
+```yaml
+# mysql-cluster.yaml
+apiVersion: apps.sealos.io/v1beta1
+kind: Database
+metadata:
+  name: mysql-prod
+spec:
+  type: mysql
+  version: '8.0'
+  replicas: 3
+  storage: 100Gi
+  resources:
+    cpu: '2'
+    memory: '4Gi'
+```
+
+```bash
+kubectl apply -f mysql-cluster.yaml
+```
+
+### 3. MongoDB
+
+在 Sealos 控制台：
+
+1. 进入「数据库」应用
+2. 选择 MongoDB
+3. 配置规格和副本数
+4. 点击部署
+
+## 存储配置
+
+### StorageClass 选择
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ssd-storage # 使用 SSD 存储类
+  resources:
+    requests:
+      storage: 100Gi
+```
+
+### 本地存储 vs 网络存储
+
+| 类型     | 优势           | 劣势               | 适用场景       |
+| -------- | -------------- | ------------------ | -------------- |
+| 本地存储 | 高性能、低延迟 | 节点绑定、不可迁移 | 高性能数据库   |
+| 网络存储 | 高可用、可迁移 | 性能稍差           | 一般业务数据库 |
+
+## StatefulSet 配置
+
+### PostgreSQL StatefulSet 示例
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+spec:
+  serviceName: postgres
+  replicas: 3
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15-alpine
+          ports:
+            - containerPort: 5432
+              name: postgres
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '1'
+            limits:
+              memory: '4Gi'
+              cpu: '2'
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ['ReadWriteOnce']
+        storageClassName: ssd-storage
+        resources:
+          requests:
+            storage: 100Gi
+```
+
+## 高可用配置
+
+### 1. 主从复制
+
+```yaml
+# PostgreSQL 主从配置
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgres-cluster
+spec:
+  instances: 3
+
+  postgresql:
+    parameters:
+      max_connections: '200'
+      shared_buffers: '1GB'
+
+  bootstrap:
+    initdb:
+      database: myapp
+      owner: myuser
+
+  storage:
+    size: 100Gi
+    storageClass: ssd-storage
+```
+
+### 2. 自动故障转移
+
+使用 Operator 实现自动故障检测和切换：
+
+```yaml
+apiVersion: mysql.presslabs.org/v1alpha1
+kind: MysqlCluster
+metadata:
+  name: mysql-cluster
+spec:
+  replicas: 3
+  secretName: mysql-secret
+
+  podSpec:
+    resources:
+      requests:
+        memory: 2Gi
+        cpu: 1
+
+  volumeSpec:
+    persistentVolumeClaim:
+      storageClassName: ssd-storage
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 100Gi
+```
+
+## 备份和恢复
+
+### 自动备份
+
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: postgres-backup
+spec:
+  schedule: '0 2 * * *' # 每天凌晨 2 点
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: backup
+              image: postgres:15-alpine
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  pg_dump -h postgres -U $POSTGRES_USER $POSTGRES_DB | \
+                  gzip > /backup/backup-$(date +%Y%m%d-%H%M%S).sql.gz
+              env:
+                - name: POSTGRES_USER
+                  value: myuser
+                - name: POSTGRES_DB
+                  value: mydb
+                - name: PGPASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: postgres-secret
+                      key: password
+              volumeMounts:
+                - name: backup
+                  mountPath: /backup
+          volumes:
+            - name: backup
+              persistentVolumeClaim:
+                claimName: backup-pvc
+          restartPolicy: OnFailure
+```
+
+### Sealos 内置备份
+
+Sealos 数据库自带备份功能：
+
+1. 自动定时备份
+2. 支持手动备份
+3. 一键恢复到任意时间点
+4. 备份存储在对象存储中，安全可靠
+
+## 性能优化
+
+### 1. 资源配置
+
+```yaml
+resources:
+  requests:
+    memory: '4Gi'
+    cpu: '2'
+  limits:
+    memory: '8Gi'
+    cpu: '4'
+```
+
+### 2. 存储 I/O 优化
+
+- 使用 SSD 存储
+- 配置合适的 IOPS
+- 启用直接 I/O
+
+### 3. 网络优化
+
+```yaml
+# 使用 ClusterIP 服务减少网络跳转
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+spec:
+  type: ClusterIP
+  clusterIP: None # Headless service
+  selector:
+    app: postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
+```
+
+### 4. PostgreSQL 参数优化
+
+```sql
+-- 连接池
+max_connections = 200
+
+-- 内存配置
+shared_buffers = 4GB
+effective_cache_size = 12GB
+work_mem = 64MB
+maintenance_work_mem = 1GB
+
+-- WAL 配置
+wal_buffers = 16MB
+checkpoint_completion_target = 0.9
+max_wal_size = 4GB
+
+-- 查询优化
+random_page_cost = 1.1  -- SSD 存储
+effective_io_concurrency = 200
+```
+
+## 监控和告警
+
+### Prometheus + Grafana
+
+```yaml
+# PostgreSQL Exporter
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-exporter
+  template:
+    metadata:
+      labels:
+        app: postgres-exporter
+    spec:
+      containers:
+        - name: exporter
+          image: prometheuscommunity/postgres-exporter
+          ports:
+            - containerPort: 9187
+          env:
+            - name: DATA_SOURCE_NAME
+              value: 'postgresql://user:password@postgres:5432/mydb?sslmode=disable'
+```
+
+### 关键指标
+
+- 连接数
+- 查询延迟
+- 缓存命中率
+- 磁盘 I/O
+- 复制延迟
+- 死锁数量
+
+## 生产环境最佳实践
+
+### 1. 安全配置
+
+```yaml
+# 网络策略
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: postgres-netpol
+spec:
+  podSelector:
+    matchLabels:
+      app: postgres
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: backend
+      ports:
+        - protocol: TCP
+          port: 5432
+```
+
+### 2. 资源隔离
+
+- 使用独立的 Namespace
+- 配置 ResourceQuota
+- 设置 LimitRange
+
+### 3. 容量规划
+
+```yaml
+# PVC 自动扩容
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+  annotations:
+    volume.kubernetes.io/storage-resizer: kubernetes.io/aws-ebs
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+```
+
+## 常见问题排查
+
+### Pod 一直重启
+
+```bash
+# 查看 Pod 日志
+kubectl logs postgres-0 --previous
+
+# 查看事件
+kubectl describe pod postgres-0
+
+# 检查存储
+kubectl get pvc
+kubectl describe pvc data-postgres-0
+```
+
+### 性能下降
+
+```bash
+# 检查资源使用
+kubectl top pod postgres-0
+
+# 查看慢查询
+kubectl exec -it postgres-0 -- psql -U myuser -d mydb
+# 在 psql 中执行
+SELECT * FROM pg_stat_statements ORDER BY total_time DESC LIMIT 10;
+```
+
+## 总结
+
+在 Kubernetes 上运行数据库已经成为可行且推荐的方案。使用 Sealos 这样的平台，可以大大简化数据库的部署和运维工作，让你专注于业务逻辑。
+
+关键要点：
+
+- 选择合适的存储方案
+- 配置高可用和自动故障转移
+- 实施完善的备份策略
+- 持续监控和优化性能
+
+## 相关资源
+
+- [Sealos 数据库文档](https://sealos.run/docs/database)
+- [PostgreSQL Operator](https://postgres-operator.readthedocs.io/)
+- [MySQL Operator](https://github.com/mysql/mysql-operator)
+- [MongoDB Operator](https://www.mongodb.com/kubernetes/operator)
