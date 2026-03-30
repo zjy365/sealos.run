@@ -1,5 +1,3 @@
-import type { Range } from './libs/types';
-
 declare module '*.svg' {
 	// Copied from `InlinedSvgData`
 	const value: {
@@ -17,11 +15,11 @@ declare module '*.svg' {
 		vars?: {
 			strokeWidth: {
 				ph: string;
-				ranges: Range[];
+				ranges: import('./libs/types').Range[];
 			};
 			vectorEffect: {
 				ph: string;
-				ranges: Range[];
+				ranges: import('./libs/types').Range[];
 				values: { scaling: string; 'non-scaling': string };
 			};
 		};
