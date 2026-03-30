@@ -1,5 +1,24 @@
 {
 	"pages": {
+		"appstore": {
+			"sections": {
+				"templates": {
+					"categories": {
+						"all": "所有",
+						"tool": "工具",
+						"ai": "AI",
+						"database": "数据库",
+						"low-code": "低代码",
+						"backend": "后端",
+						"dev-ops": "运维",
+						"monitor": "监控",
+						"game": "游戏",
+						"blog": "博客",
+						"storage": "存储"
+					}
+				}
+			}
+		},
 		"blog": {
 			"post": {
 				"readingTime": "{minutes} 分钟阅读",

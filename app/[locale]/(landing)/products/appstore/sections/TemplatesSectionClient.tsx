@@ -1,12 +1,14 @@
 'use client';
 
 import React from 'react';
-import { AppIcon, HexagonIcon } from '@/assets/icons';
-import { APPSTORE_CATEGORIES } from '@/libs/appstore/constants';
+import { HexagonIcon } from '@/assets/icons';
+import { APPSTORE_CATEGORY_META } from '@/libs/appstore/constants';
 import type { AppStoreCategory, AppStoreTemplate } from '@/libs/appstore/types';
 import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
+import { useTranslations } from '@/libs/i18n/client';
 import { cn } from '@/libs/utils/styling';
+import { AppStoreIcon } from '../components/AppStoreIcon';
 
 function CategoryPill({ active, children, onClick }: { active: boolean; children: string; onClick: () => void }) {
 	return (
@@ -57,13 +59,14 @@ function TemplateCard({ data }: { data: AppStoreTemplate }) {
 			<div className='flex flex-col gap-2'>
 				<div className='flex items-start justify-between'>
 					<div className='flex items-center gap-3'>
-						<div className='flex size-16 items-center justify-center overflow-hidden bg-zinc-50'>
-							<div className='text-foreground size-12'>
-								<Icon
-									src={AppIcon}
-									className='size-full'
-								/>
-							</div>
+						<div className='flex size-16 items-center justify-center overflow-hidden rounded-2xl bg-zinc-50'>
+							<AppStoreIcon
+								alt={data.title}
+								fallbackClassName='size-12'
+								imageClassName='object-contain'
+								src={data.thumbnail}
+								className='size-12'
+							/>
 						</div>
 
 						<div className='flex min-w-0 flex-col gap-1'>
@@ -100,27 +103,28 @@ function TemplateCard({ data }: { data: AppStoreTemplate }) {
 }
 
 export function TemplatesSectionClient({ templates }: { templates: AppStoreTemplate[] }) {
-	const [activeCategory, setActiveCategory] = React.useState<AppStoreCategory>('所有');
+	const t = useTranslations('pages.appstore.sections.templates');
+	const [activeCategory, setActiveCategory] = React.useState<AppStoreCategory>('all');
 	const scrollRef = React.useRef<HTMLDivElement | null>(null);
 
 	const filtered = React.useMemo(() => {
-		if (activeCategory === '所有') return templates;
+		if (activeCategory === 'all') return templates;
 		return templates.filter((t) => t.category === activeCategory);
 	}, [templates, activeCategory]);
 
 	return (
 		<div className='flex w-full flex-col gap-12'>
 			<div className='flex w-full flex-wrap items-center justify-center gap-2'>
-				{APPSTORE_CATEGORIES.map((c) => (
+				{APPSTORE_CATEGORY_META.map((category) => (
 					<CategoryPill
-						key={c}
-						active={activeCategory === c}
+						key={category.slug}
+						active={activeCategory === category.slug}
 						onClick={() => {
 							if (scrollRef.current) scrollRef.current.scrollTop = 0;
-							setActiveCategory(c);
+							setActiveCategory(category.slug);
 						}}
 					>
-						{c}
+						{t(`categories.${category.labelKey}`)}
 					</CategoryPill>
 				))}
 			</div>

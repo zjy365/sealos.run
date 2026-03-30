@@ -1,13 +1,14 @@
 import type { APPSTORE_CATEGORIES, APPSTORE_TREND_RANKS } from './constants';
 
 export type AppStoreCategory = (typeof APPSTORE_CATEGORIES)[number];
+export type AppStoreTemplateCategory = Exclude<AppStoreCategory, 'all'>;
 export type AppStoreTrendRank = (typeof APPSTORE_TREND_RANKS)[number];
 
 export type AppStoreTemplate = {
 	slug: string;
 	title: string;
 	description: string;
-	category: Exclude<AppStoreCategory, '所有'>;
+	category: AppStoreTemplateCategory;
 	starsText?: string;
 	versionText?: string;
 	trendDeltaText?: string;

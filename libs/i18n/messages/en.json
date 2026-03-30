@@ -1,5 +1,24 @@
 {
 	"pages": {
+		"appstore": {
+			"sections": {
+				"templates": {
+					"categories": {
+						"all": "All",
+						"tool": "Tool",
+						"ai": "AI",
+						"database": "Database",
+						"low-code": "Low-code",
+						"backend": "Backend",
+						"dev-ops": "DevOps",
+						"monitor": "Monitoring",
+						"game": "Game",
+						"blog": "Blog",
+						"storage": "Storage"
+					}
+				}
+			}
+		},
 		"blog": {
 			"post": {
 				"readingTime": "{minutes} 分钟阅读",

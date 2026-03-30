@@ -1,5 +1,4 @@
 import {
-	AppIcon,
 	FlatArrowRightIcon,
 	Number01Icon,
 	Number02Icon,
@@ -14,6 +13,7 @@ import { getAppStoreTrends } from '@/libs/appstore/utils';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { Icon } from '@/libs/components/ui/icon';
 import { Config } from '@/libs/config';
+import { AppStoreIcon } from '../components/AppStoreIcon';
 
 const rankIconMap = {
 	1: Number01Icon,
@@ -40,13 +40,14 @@ function TrendRow({ data }: { data: AppStoreTrendItem }) {
 				</div>
 
 				<div className='flex min-w-0 items-center gap-5'>
-					<div className='flex size-12 shrink-0 items-center justify-center overflow-hidden bg-zinc-50'>
-						<div className='text-foreground size-10'>
-							<Icon
-								src={AppIcon}
-								className='size-full'
-							/>
-						</div>
+					<div className='flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-zinc-50'>
+						<AppStoreIcon
+							alt={data.title}
+							fallbackClassName='size-10'
+							imageClassName='object-contain'
+							src={data.thumbnail}
+							className='size-10'
+						/>
 					</div>
 
 					<div className='flex min-w-0 flex-col'>

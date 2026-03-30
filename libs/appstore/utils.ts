@@ -3,7 +3,13 @@ import 'server-only';
 import React from 'react';
 import { APPSTORE_CATEGORIES, APPSTORE_TREND_RANKS } from './constants';
 import { appstore } from './source';
-import type { AppStoreCategory, AppStoreTemplate, AppStoreTrendItem, AppStoreTrendRank } from './types';
+import type {
+	AppStoreCategory,
+	AppStoreTemplate,
+	AppStoreTemplateCategory,
+	AppStoreTrendItem,
+	AppStoreTrendRank,
+} from './types';
 
 type AppStorePage = ReturnType<typeof appstore.getPages>[number];
 type AppStorePageData = AppStorePage['data'];
@@ -58,7 +64,7 @@ const getAppStoreTemplatesCached = React.cache((locale: string): AppStoreTemplat
 		const data = p.data;
 		const title = data.title ?? '';
 		const description = data.description ?? '';
-		const category = (getCategory(data) ?? '工具') as Exclude<AppStoreCategory, '所有'>;
+		const category = (getCategory(data) ?? 'tool') as AppStoreTemplateCategory;
 
 		return {
 			slug: safeSlug(p, locale),
