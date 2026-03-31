@@ -60,7 +60,7 @@ export function StepsSection() {
 				{/* Left side: two steps */}
 				<div className='flex flex-1 flex-col gap-20'>
 					{/* Desktop: show left steps with original variant */}
-					<div className='hidden lg:flex lg:flex-col lg:gap-20'>
+					<div className='hidden lg:flex lg:flex-col lg:gap-40'>
 						{leftSteps.map((step) => (
 							<StepItem
 								key={step.number}
@@ -103,7 +103,7 @@ export function StepsSection() {
 				</div>
 
 				{/* Right side: two steps - hidden on md and below */}
-				<div className='hidden flex-1 flex-col gap-20 lg:mt-64 lg:flex'>
+				<div className='hidden flex-1 flex-col gap-40 lg:mt-64 lg:flex'>
 					{rightSteps.map((step) => (
 						<StepItem
 							key={step.number}

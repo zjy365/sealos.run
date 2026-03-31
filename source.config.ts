@@ -1,8 +1,25 @@
 import { remarkNpm } from 'fumadocs-core/mdx-plugins';
 import { pageSchema } from 'fumadocs-core/source/schema';
-import { defineConfig, defineDocs } from 'fumadocs-mdx/config';
+import { defineCollections, defineConfig, defineDocs } from 'fumadocs-mdx/config';
 import lastModified from 'fumadocs-mdx/plugins/last-modified';
 import { z } from 'zod';
+
+const aiproxyModelTypeSchema = z.enum([
+	'unknown',
+	'chat-completion',
+	'text-completion',
+	'embedding',
+	'moderation',
+	'image-generation',
+	'text-edit',
+	'text-to-speech',
+	'speech-to-text',
+	'audio-translation',
+	'rerank',
+	'pdf-parse',
+]);
+
+const aiproxyCapabilitySchema = z.enum(['tool_choice', 'vision', 'coder']);
 
 export const docs = defineDocs({
 	dir: 'content/content/docs',
@@ -24,6 +41,23 @@ export const appstore = defineDocs({
 			rank: z.coerce.number().int().min(1).max(5).optional(),
 		}),
 	},
+});
+
+export const aiproxyModels = defineCollections({
+	type: 'meta',
+	dir: 'content/content/aiproxy-models',
+	schema: z.object({
+		name: z.string(),
+		ownerKey: z.string(),
+		type: aiproxyModelTypeSchema,
+		contextSize: z.coerce.number().int().positive().optional(),
+		maxOutputTokens: z.coerce.number().int().positive().optional(),
+		maxInputTokens: z.coerce.number().int().positive().optional(),
+		rpm: z.coerce.number().int().nonnegative(),
+		inputPrice: z.coerce.number().nonnegative(),
+		outputPrice: z.coerce.number().nonnegative(),
+		capabilities: z.array(aiproxyCapabilitySchema).default([]),
+	}),
 });
 
 export default defineConfig({

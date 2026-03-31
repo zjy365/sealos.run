@@ -1,4 +1,5 @@
 import { FramedQuestionIcon, ModelIcon } from '@/assets/icons';
+import { getAiproxyModels } from '@/libs/aiproxy/utils';
 import { Icon } from '@/libs/components/ui/icon';
 import { VerticalDashedLine } from '@/libs/components/VerticalDashedLine';
 import { Config } from '@/libs/config';
@@ -11,6 +12,7 @@ import { ModelsSection } from './sections/ModelsSection';
 
 export default async function AiproxyPage() {
 	const { signinLink } = Config.components.navbar;
+	const models = getAiproxyModels();
 
 	return (
 		<div className='flex w-full flex-col'>
@@ -29,7 +31,7 @@ export default async function AiproxyPage() {
 						className='size-full'
 					/>
 				</VerticalDashedLine>
-				<ModelsSection />
+				<ModelsSection models={models} />
 			</section>
 
 			<section className='relative container mx-auto'>

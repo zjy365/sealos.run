@@ -1,0 +1,57 @@
+// [TODO] Use i18n
+
+export const AIPROXY_MODEL_TYPE_LABELS = {
+	unknown: '未知',
+	'chat-completion': '聊天补全',
+	'text-completion': '文本补全',
+	embedding: '文本嵌入',
+	moderation: '内容审核',
+	'image-generation': '图像生成',
+	'text-edit': '文本编辑',
+	'text-to-speech': '语音合成',
+	'speech-to-text': '语音转录',
+	'audio-translation': '音频翻译',
+	rerank: '重排序',
+	'pdf-parse': 'PDF解析',
+} as const;
+
+export const AIPROXY_CAPABILITY_LABELS = {
+	tool_choice: '工具调用',
+	vision: '视觉',
+	coder: '代码编写',
+} as const;
+
+export const AIPROXY_OWNER_LABELS = {
+	openai: 'OpenAI',
+	alibaba: '阿里',
+	tencent: '腾讯',
+	xunfei: '讯飞',
+	deepseek: 'DeepSeek',
+	moonshot: '月之暗面',
+	minimax: 'MiniMax',
+	baidu: '百度',
+	google: '谷歌',
+	baai: 'BAAI',
+	funaudiollm: '趣音大模型',
+	doubao: '豆包',
+	fishaudio: '鱼声科技',
+	chatglm: '智谱清言',
+	stabilityai: 'Stability AI',
+	netease: '网易',
+	ai360: '360智脑',
+	anthropic: 'Anthropic',
+	meta: 'Meta',
+	baichuan: '百川智能',
+	mistral: 'Mistral AI',
+	openchat: 'OpenChat',
+	microsoft: '微软',
+	defog: 'Defog',
+	nexusflow: 'NexusFlow',
+	cohere: 'Cohere',
+	huggingface: 'Hugging Face',
+	lingyiwanwu: '零一万物',
+	stepfun: 'StepFun',
+	streamlake: 'StreamLake',
+	jina: 'Jina AI',
+	unknown: '未知',
+} as const;

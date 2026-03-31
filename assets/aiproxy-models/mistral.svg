@@ -1,0 +1,30 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  data-colorful="true"
+  data-type="icon"
+  viewBox="0 0 20 20"
+>
+  <path fill="#fece00" d="M3.84 3.4h2.64v2.64H3.84zm10.56 0h2.64v2.64H14.4z" />
+  <path fill="#ffa301" d="M3.84 6.04h2.64v2.64H3.84z" />
+  <path
+    fill="#fe4900"
+    d="M3.84 11.32h2.64v2.64H3.84zm5.28 0h2.64v2.64H9.12zm5.28 0h2.64v2.64H14.4z"
+  />
+  <path fill="#ffa301" d="M11.76 6.04h2.64v2.64h-2.64z" />
+  <path fill="#ff6f00" d="M3.84 8.68h2.64v2.64H3.84z" />
+  <path
+    fill="#fe0107"
+    d="M3.84 13.96h2.64v2.64H3.84zm10.56 0h2.64v2.64H14.4z"
+  />
+  <path fill="#ff6f00" d="M11.76 8.68h2.64v2.64h-2.64z" />
+  <path fill="#ffa301" d="M6.48 6.04h2.64v2.64H6.48zm7.92 0h2.64v2.64H14.4z" />
+  <path
+    fill="#ff6f00"
+    d="M6.48 8.68h2.64v2.64H6.48zm7.92 0h2.64v2.64H14.4zm-5.28 0h2.64v2.64H9.12z"
+  />
+  <path
+    fill="#191d1d"
+    d="M2.96 3.4h.88v13.2h-.88zm10.56 0h.88v2.64h-.88zm-2.64 2.64h.88v2.64h-.88zm-2.64 5.28h.88v2.64h-.88zm5.28 0h.88v5.28h-.88z"
+  />
+</svg>

@@ -1,62 +1,170 @@
 'use client';
 
-import type { StaticImageData } from 'next/image';
 import React from 'react';
-import { ChevronDownIcon, ChevronUpIcon, EyeIcon, SearchIcon, ToolIcon, XIcon } from '@/assets/icons';
+import {
+	Ai360Icon,
+	AlibabaIcon,
+	AnthropicIcon,
+	BaaiIcon,
+	BaichuanIcon,
+	BaiduIcon,
+	ChatglmIcon,
+	CohereIcon,
+	DeepseekIcon,
+	DefogIcon,
+	DoubaoIcon,
+	FishaudioIcon,
+	GoogleIcon,
+	HuggingfaceIcon,
+	LingyiwanwuIcon,
+	MetaIcon,
+	MicrosoftIcon,
+	MinimaxIcon,
+	MistralIcon,
+	MoonshotIcon,
+	NeteaseIcon,
+	NexusflowIcon,
+	OpenaiIcon,
+	OpenchatIcon,
+	StabilityaiIcon,
+	StepfunIcon,
+	StreamlakeIcon,
+	TencentIcon,
+	UnknownIcon,
+	XunfeiIcon,
+} from '@/assets/aiproxy-models';
+import { ChevronDownIcon, ChevronUpIcon, EyeIcon, FramedCodeIcon, SearchIcon, ToolIcon, XIcon } from '@/assets/icons';
+import type { AiproxyModel, AiproxyModelCapability } from '@/libs/aiproxy/types';
 import { Badge } from '@/libs/components/ui/badge';
 import { Icon } from '@/libs/components/ui/icon';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/libs/components/ui/select';
+import type { InlinedSvgData } from '@/libs/types';
 import { cn } from '@/libs/utils/styling';
 
-type TagData = {
-	label: string;
-	icon?: StaticImageData;
+type SortDirection = 'asc' | 'desc' | null;
+
+const TABLE_ROW_HEIGHT = 64;
+const VISIBLE_ROW_COUNT = 8;
+const TABLE_BODY_HEIGHT = TABLE_ROW_HEIGHT * VISIBLE_ROW_COUNT;
+const TABLE_COLUMNS = [400, 180, 120, 220, 220] as const;
+
+const OWNER_ICONS = {
+	ai360: Ai360Icon,
+	alibaba: AlibabaIcon,
+	anthropic: AnthropicIcon,
+	baai: BaaiIcon,
+	baichuan: BaichuanIcon,
+	baidu: BaiduIcon,
+	chatglm: ChatglmIcon,
+	cohere: CohereIcon,
+	deepseek: DeepseekIcon,
+	defog: DefogIcon,
+	doubao: DoubaoIcon,
+	fishaudio: FishaudioIcon,
+	funaudiollm: AlibabaIcon,
+	google: GoogleIcon,
+	huggingface: HuggingfaceIcon,
+	jina: UnknownIcon,
+	lingyiwanwu: LingyiwanwuIcon,
+	meta: MetaIcon,
+	microsoft: MicrosoftIcon,
+	minimax: MinimaxIcon,
+	mistral: MistralIcon,
+	moonshot: MoonshotIcon,
+	netease: NeteaseIcon,
+	nexusflow: NexusflowIcon,
+	openai: OpenaiIcon,
+	openchat: OpenchatIcon,
+	stabilityai: StabilityaiIcon,
+	stepfun: StepfunIcon,
+	streamlake: StreamlakeIcon,
+	tencent: TencentIcon,
+	default: UnknownIcon,
+	unknown: UnknownIcon,
+	xunfei: XunfeiIcon,
+} as const;
+
+const CAPABILITY_ICONS: Record<AiproxyModelCapability, InlinedSvgData> = {
+	coder: FramedCodeIcon,
+	tool_choice: ToolIcon,
+	vision: EyeIcon,
 };
 
-const models = [
-	{
-		name: 'Doubao-pro-32k',
-		type: '聊天补全',
-		rpm: '240',
-		inputPrice: '0.23',
-		outputPrice: '0.24',
-		tags: [
-			{ label: '视觉', icon: EyeIcon },
-			{ label: '工具调用', icon: ToolIcon },
-			{ label: '128K' },
-			{ label: '4K 输出' },
-		] satisfies TagData[],
-	},
-	{
-		name: 'deepseek-reasoner',
-		type: '聊天补全',
-		rpm: '240',
-		inputPrice: '0.23',
-		outputPrice: '0.24',
-		tags: [{ label: '深度思考' }, { label: '128K' }] satisfies TagData[],
-	},
-	{
-		name: 'Doubao-pro-32k',
-		type: '聊天补全',
-		rpm: '240',
-		inputPrice: '0.23',
-		outputPrice: '0.24',
-		tags: [
-			{ label: '视觉', icon: EyeIcon },
-			{ label: '工具调用', icon: ToolIcon },
-			{ label: '128K' },
-			{ label: '4K 输出' },
-		] satisfies TagData[],
-	},
-	{
-		name: 'deepseek-reasoner',
-		type: '聊天补全',
-		rpm: '240',
-		inputPrice: '0.23',
-		outputPrice: '0.24',
-		tags: [{ label: '深度思考' }, { label: '128K' }] satisfies TagData[],
-	},
-];
+type ModelMetaTag = {
+	key: string;
+	label: string;
+	icon?: InlinedSvgData;
+};
+
+function formatTokens(value?: number) {
+	if (value == null) return '-';
+	if (value >= 1000000 && value % 1000000 === 0) return `${value / 1000000}M`;
+	if (value >= 1024 && value % 1024 === 0) return `${value / 1024}K`;
+	if (value >= 1000 && value % 1000 === 0) return `${value / 1000}K`;
+	return new Intl.NumberFormat('en-US').format(value);
+}
+
+function formatPrice(value: number) {
+	return new Intl.NumberFormat('en-US', {
+		maximumFractionDigits: 6,
+		minimumFractionDigits: value > 0 && value < 0.01 ? 4 : 2,
+	}).format(value);
+}
+
+function getOwnerIcon(ownerKey: string) {
+	return OWNER_ICONS[ownerKey as keyof typeof OWNER_ICONS] ?? UnknownIcon;
+}
+
+function normalizeSearchValue(value: string) {
+	return value
+		.trim()
+		.toLowerCase()
+		.replace(/[-_\s]+/g, '');
+}
+
+function matchesModelName(modelName: string, query: string) {
+	const normalizedQuery = normalizeSearchValue(query);
+	if (!normalizedQuery) return true;
+
+	const normalizedName = normalizeSearchValue(modelName);
+	return normalizedName.includes(normalizedQuery);
+}
+
+function getModelMetaTags(model: AiproxyModel) {
+	const tags: ModelMetaTag[] = model.capabilities.map((capability, index) => ({
+		icon: CAPABILITY_ICONS[capability],
+		key: `${model.slug}-${capability}`,
+		label: model.capabilityLabels[index] ?? capability,
+	}));
+
+	if (model.contextSize) {
+		tags.push({
+			key: `${model.slug}-context-size`,
+			label: formatTokens(model.contextSize),
+		});
+	}
+
+	if (model.maxOutputTokens) {
+		tags.push({
+			key: `${model.slug}-max-output-tokens`,
+			label: `${formatTokens(model.maxOutputTokens)} 输出`,
+		});
+	}
+
+	return tags;
+}
+
+function OwnerIcon({ ownerKey, ownerLabel, className }: { ownerKey: string; ownerLabel: string; className?: string }) {
+	return (
+		<div className={cn('flex shrink-0 items-center justify-center rounded-full bg-white', className)}>
+			<Icon
+				src={getOwnerIcon(ownerKey)}
+				alt={`${ownerLabel} icon`}
+				className='size-full'
+			/>
+		</div>
+	);
+}
 
 function SearchBox({
 	isOpen,
@@ -73,13 +181,12 @@ function SearchBox({
 }) {
 	return (
 		<>
-			{/* 小屏幕：始终显示搜索框 */}
 			<div className='flex h-10 w-full items-center gap-2 rounded-full border border-zinc-300 bg-white pr-2 pl-4 sm:hidden'>
 				<input
 					type='text'
 					placeholder='根据模型名称搜索'
 					value={query}
-					onChange={(e) => onQueryChange(e.target.value)}
+					onChange={(event) => onQueryChange(event.target.value)}
 					className='flex-1 outline-none'
 				/>
 				<Icon
@@ -88,7 +195,6 @@ function SearchBox({
 				/>
 			</div>
 
-			{/* 大屏幕：按钮或搜索框 */}
 			{!isOpen ? (
 				<button
 					onClick={onOpen}
@@ -106,8 +212,8 @@ function SearchBox({
 						type='text'
 						placeholder='根据模型名称搜索'
 						value={query}
-						onChange={(e) => onQueryChange(e.target.value)}
-						className='w-64 outline-none'
+						onChange={(event) => onQueryChange(event.target.value)}
+						className='w-full outline-none'
 					/>
 					<button
 						onClick={onClose}
@@ -125,11 +231,65 @@ function SearchBox({
 	);
 }
 
-export function ModelsSection() {
+function PriceSortButton({ direction, onClick }: { direction: SortDirection; onClick: () => void }) {
+	return (
+		<button
+			type='button'
+			onClick={onClick}
+			className='flex items-center'
+		>
+			<Icon
+				src={direction === 'desc' ? ChevronDownIcon : ChevronUpIcon}
+				className={cn('size-4', direction ? 'text-brand' : 'text-muted-foreground')}
+			/>
+		</button>
+	);
+}
+
+export function ModelsSection({ models }: { models: AiproxyModel[] }) {
 	const [isSearchOpen, setIsSearchOpen] = React.useState(false);
 	const [searchQuery, setSearchQuery] = React.useState('');
-	const [sortInput, setSortInput] = React.useState<'asc' | 'desc' | null>(null);
-	const [sortOutput, setSortOutput] = React.useState<'asc' | 'desc' | null>(null);
+	const [selectedOwner, setSelectedOwner] = React.useState('all');
+	const [selectedType, setSelectedType] = React.useState('all');
+	const [sortInput, setSortInput] = React.useState<SortDirection>(null);
+	const [sortOutput, setSortOutput] = React.useState<SortDirection>(null);
+
+	const ownerOptions = React.useMemo(() => {
+		return Array.from(new Map(models.map((model) => [model.ownerKey, model.ownerLabel])).entries()).map(
+			([value, label]) => ({ value, label }),
+		);
+	}, [models]);
+
+	const typeOptions = React.useMemo(() => {
+		return Array.from(new Map(models.map((model) => [model.type, model.typeLabel])).entries()).map(
+			([value, label]) => ({
+				value,
+				label,
+			}),
+		);
+	}, [models]);
+
+	const filteredModels = React.useMemo(() => {
+		const list = models.filter((model) => {
+			if (selectedOwner !== 'all' && model.ownerKey !== selectedOwner) return false;
+			if (selectedType !== 'all' && model.type !== selectedType) return false;
+
+			return matchesModelName(model.name, searchQuery);
+		});
+
+		const sorted = [...list];
+		if (sortInput) {
+			sorted.sort((a, b) => (sortInput === 'asc' ? a.inputPrice - b.inputPrice : b.inputPrice - a.inputPrice));
+		}
+
+		if (sortOutput) {
+			sorted.sort((a, b) =>
+				sortOutput === 'asc' ? a.outputPrice - b.outputPrice : b.outputPrice - a.outputPrice,
+			);
+		}
+
+		return sorted;
+	}, [models, searchQuery, selectedOwner, selectedType, sortInput, sortOutput]);
 
 	return (
 		<div className='flex flex-col gap-8'>
@@ -137,39 +297,66 @@ export function ModelsSection() {
 				<div className='flex items-center gap-3'>
 					<h2 className='text-4xl font-semibold'>模型广场</h2>
 					<Badge variant='outline'>
-						<div className='bg-brand mr-1.5 size-1.5 rounded-full' />
-						示例数据
+						{filteredModels.length} / {models.length} 个模型
 					</Badge>
 				</div>
-				<p className='text-muted-foreground text-sm'>价格较官方低 5%-10% (以平台标价为准)</p>
+				<p className='text-muted-foreground text-sm'>价格较官方低 5%–10%（以平台标价为准）</p>
 			</div>
 
-			<div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6'>
+			<div className='flex flex-col flex-wrap gap-x-8 gap-y-2 md:flex-row md:items-center'>
 				<div className='flex w-full items-center gap-3 sm:w-auto'>
-					<span className='w-20 shrink-0 text-base font-semibold'>系列/厂商</span>
-					<Select defaultValue='all'>
-						<SelectTrigger className='min-w-0 flex-1 bg-white'>
+					<span className='shrink-0 text-base font-semibold'>系列/厂商</span>
+					<Select
+						value={selectedOwner}
+						onValueChange={setSelectedOwner}
+					>
+						<SelectTrigger className='w-40 min-w-0 flex-1 bg-white'>
 							<SelectValue placeholder='全部' />
 						</SelectTrigger>
 						<SelectContent>
 							<SelectItem value='all'>全部</SelectItem>
-							<SelectItem value='vendor'>系列/厂商</SelectItem>
+							{ownerOptions.map((owner) => (
+								<SelectItem
+									key={owner.value}
+									value={owner.value}
+								>
+									<div className='flex items-center gap-2'>
+										<OwnerIcon
+											ownerKey={owner.value}
+											ownerLabel={owner.label}
+											className='size-4'
+										/>
+										<span>{owner.label}</span>
+									</div>
+								</SelectItem>
+							))}
 						</SelectContent>
 					</Select>
 				</div>
 				<div className='flex w-full items-center gap-3 sm:w-auto'>
-					<span className='w-20 shrink-0 text-base font-semibold'>类型</span>
-					<Select defaultValue='all'>
-						<SelectTrigger className='min-w-0 flex-1 bg-white'>
+					<span className='shrink-0 text-base font-semibold'>类型</span>
+					<Select
+						value={selectedType}
+						onValueChange={setSelectedType}
+					>
+						<SelectTrigger className='w-40 min-w-0 flex-1 bg-white'>
 							<SelectValue placeholder='全部' />
 						</SelectTrigger>
 						<SelectContent>
 							<SelectItem value='all'>全部</SelectItem>
-							<SelectItem value='type'>类型</SelectItem>
+							{typeOptions.map((type) => (
+								<SelectItem
+									key={type.value}
+									value={type.value}
+								>
+									{type.label}
+								</SelectItem>
+							))}
 						</SelectContent>
 					</Select>
 				</div>
-				<div className='w-full sm:ml-auto sm:w-auto'>
+
+				<div className='w-full lg:ml-auto lg:w-auto'>
 					<SearchBox
 						isOpen={isSearchOpen}
 						query={searchQuery}
@@ -183,106 +370,153 @@ export function ModelsSection() {
 				</div>
 			</div>
 
-			<div className='overflow-x-auto'>
-				<table className='w-full border-collapse'>
-					<thead>
-						<tr className='border-b border-zinc-200'>
-							<th className='px-4 py-3 text-left text-sm font-medium'>模型名称</th>
-							<th className='px-4 py-3 text-left text-sm font-medium'>模型类型</th>
-							<th className='px-4 py-3 text-left text-sm font-medium'>RPM</th>
-							<th className='px-4 py-3 text-left text-sm font-medium'>
-								<div className='flex items-center gap-2'>
-									<span>输入单价/1k tokens</span>
-									<button
-										type='button'
-										onClick={() => {
-											if (sortInput === 'asc') {
-												setSortInput('desc');
-											} else if (sortInput === 'desc') {
-												setSortInput(null);
-											} else {
-												setSortInput('asc');
-											}
-										}}
-										className='flex items-center'
-									>
-										<Icon
-											src={sortInput === 'desc' ? ChevronDownIcon : ChevronUpIcon}
-											className={cn('size-4', sortInput ? 'text-brand' : 'text-muted-foreground')}
-										/>
-									</button>
-								</div>
-							</th>
-							<th className='px-4 py-3 text-left text-sm font-medium'>
-								<div className='flex items-center gap-2'>
-									<span>输出单价/1k tokens</span>
-									<button
-										type='button'
-										onClick={() => {
-											if (sortOutput === 'asc') {
-												setSortOutput('desc');
-											} else if (sortOutput === 'desc') {
-												setSortOutput(null);
-											} else {
-												setSortOutput('asc');
-											}
-										}}
-										className='flex items-center'
-									>
-										<Icon
-											src={sortOutput === 'desc' ? ChevronDownIcon : ChevronUpIcon}
-											className={cn(
-												'size-4',
-												sortOutput ? 'text-brand' : 'text-muted-foreground',
-											)}
-										/>
-									</button>
-								</div>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						{models.map((model, index) => (
-							<tr
-								key={`${model.name}-${index}`}
-								className='border-b border-zinc-100'
-							>
-								<td className='px-4 py-4'>
-									<div className='flex flex-col gap-2'>
-										<span className='font-medium'>{model.name}</span>
-										<div className='flex flex-wrap gap-2'>
-											{model.tags.map((tag, tagIndex) => (
-												<Badge
-													key={`${tag.label}-${tagIndex}`}
-													variant='outline'
-													size='sm'
-													className='border-dashed'
-												>
-													{tag.icon && (
-														<Icon
-															src={tag.icon}
-															className='text-brand size-3'
-														/>
-													)}
-													{tag.label}
-												</Badge>
-											))}
+			<div className='border-hairline overflow-hidden border border-zinc-200 bg-white'>
+				<div className='overflow-x-auto'>
+					<div className='min-w-6xl'>
+						<table className='w-full border-collapse'>
+							<colgroup>
+								<col style={{ width: `${TABLE_COLUMNS[0]}px` }} />
+								<col style={{ width: `${TABLE_COLUMNS[1]}px` }} />
+								<col style={{ width: `${TABLE_COLUMNS[2]}px` }} />
+								<col style={{ width: `${TABLE_COLUMNS[3]}px` }} />
+								<col style={{ width: `${TABLE_COLUMNS[4]}px` }} />
+							</colgroup>
+							<thead>
+								<tr className='bg-zinc-100'>
+									<th className='px-4 py-3 text-left text-sm font-medium text-zinc-500'>模型名称</th>
+									<th className='px-4 py-3 text-left text-sm font-medium text-zinc-500'>模型类型</th>
+									<th className='px-4 py-3 text-left text-sm font-medium text-zinc-500'>RPM</th>
+									<th className='px-4 py-3 text-left text-sm font-medium text-zinc-500'>
+										<div className='flex items-center gap-2'>
+											<span>输入单价/1K tokens</span>
+											<PriceSortButton
+												direction={sortInput}
+												onClick={() => {
+													setSortInput((current) => {
+														if (current === 'asc') return 'desc';
+														if (current === 'desc') return null;
+														return 'asc';
+													});
+													setSortOutput(null);
+												}}
+											/>
 										</div>
-									</div>
-								</td>
-								<td className='px-4 py-4'>
-									<Badge variant='outline'>
-										<div className='bg-brand mr-1.5 size-1.5 rounded-full' />
-										{model.type}
-									</Badge>
-								</td>
-								<td className='px-4 py-4 text-sm'>{model.rpm}</td>
-								<td className='px-4 py-4 text-sm'>{model.inputPrice}</td>
-								<td className='px-4 py-4 text-sm'>{model.outputPrice}</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
+									</th>
+									<th className='px-4 py-3 text-left text-sm font-medium text-zinc-500'>
+										<div className='flex items-center gap-2'>
+											<span>输出单价/1K tokens</span>
+											<PriceSortButton
+												direction={sortOutput}
+												onClick={() => {
+													setSortOutput((current) => {
+														if (current === 'asc') return 'desc';
+														if (current === 'desc') return null;
+														return 'asc';
+													});
+													setSortInput(null);
+												}}
+											/>
+										</div>
+									</th>
+								</tr>
+							</thead>
+						</table>
+
+						<div
+							className='overflow-y-auto'
+							style={{ maxHeight: `${TABLE_BODY_HEIGHT}px` }}
+						>
+							<table className='w-full border-collapse'>
+								<colgroup>
+									<col style={{ width: `${TABLE_COLUMNS[0]}px` }} />
+									<col style={{ width: `${TABLE_COLUMNS[1]}px` }} />
+									<col style={{ width: `${TABLE_COLUMNS[2]}px` }} />
+									<col style={{ width: `${TABLE_COLUMNS[3]}px` }} />
+									<col style={{ width: `${TABLE_COLUMNS[4]}px` }} />
+								</colgroup>
+								<tbody>
+									{filteredModels.map((model) => (
+										<tr
+											key={model.slug}
+											className='border-b border-zinc-100 align-middle last:border-b-0'
+											style={{ height: `${TABLE_ROW_HEIGHT}px` }}
+										>
+											<td className='px-4 py-3 align-middle'>
+												<div className='flex min-w-0 items-center gap-3'>
+													<OwnerIcon
+														ownerKey={model.ownerKey}
+														ownerLabel={model.ownerLabel}
+														className='size-8'
+													/>
+													<div className='flex min-w-0 flex-col justify-center gap-1'>
+														<div className='flex flex-col'>
+															<span className='truncate text-sm font-medium text-zinc-900'>
+																{model.name}
+															</span>
+														</div>
+														<div className='flex flex-wrap gap-1'>
+															<Badge
+																variant='outline'
+																size='sm'
+																className='text-muted-foreground border-zinc-400 px-2'
+															>
+																{model.ownerLabel}
+															</Badge>
+															{getModelMetaTags(model).map((tag) => (
+																<Badge
+																	key={tag.key}
+																	variant='outline'
+																	size='sm'
+																	className='text-muted-foreground border-zinc-400 px-2'
+																>
+																	{tag.icon && (
+																		<Icon
+																			src={tag.icon}
+																			className='size-3'
+																		/>
+																	)}
+																	{tag.label}
+																</Badge>
+															))}
+														</div>
+													</div>
+												</div>
+											</td>
+											<td className='px-4 py-3 align-middle'>
+												<Badge
+													variant='outline'
+													className='border-zinc-400 px-3 py-1 text-xs text-zinc-900'
+												>
+													<div className='bg-brand mr-1.5 size-1.5 rounded-full' />
+													{model.typeLabel}
+												</Badge>
+											</td>
+											<td className='px-4 py-3 align-middle text-sm text-zinc-600'>
+												{model.rpm}
+											</td>
+											<td className='px-4 py-3 align-middle text-sm text-zinc-600'>
+												{formatPrice(model.inputPrice)}
+											</td>
+											<td className='px-4 py-3 align-middle text-sm text-zinc-600'>
+												{formatPrice(model.outputPrice)}
+											</td>
+										</tr>
+									))}
+									{filteredModels.length === 0 && (
+										<tr>
+											<td
+												colSpan={5}
+												className='text-muted-foreground px-4 py-10 text-center text-sm'
+											>
+												未找到符合条件的模型。
+											</td>
+										</tr>
+									)}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

@@ -10,37 +10,34 @@ export function HeroSection() {
 	return (
 		<div className='flex flex-col py-12'>
 			<div className='flex flex-col items-start lg:flex-row lg:items-center'>
-				<div className='flex flex-1 flex-col gap-6'>
+				<div className='flex flex-1 flex-col'>
 					<p className='text-2xl font-medium'>
 						兼容
 						<span className='text-brand'> S3 </span>协议
 					</p>
-					<h1 className='text-4xl font-semibold lg:text-5xl'>云原生对象存储</h1>
-				</div>
-				<div className='hidden shrink-0 lg:block'>
-					<Image
-						src={OssBoxImage}
-						alt='对象存储'
-						className='size-24'
-					/>
-				</div>
-			</div>
+					<h1 className='mt-8 text-4xl font-semibold lg:text-5xl'>云原生对象存储</h1>
 
-			<div className='border-brand mt-14 mb-14 h-px w-full border-t border-dashed' />
-
-			<div className='relative min-h-50'>
-				<div className='flex max-w-xs flex-col items-start gap-12 md:ml-40 lg:ml-56 xl:ml-72 2xl:ml-88'>
-					<p className='text-muted-foreground text-xl lg:text-2xl'>
+					<p className='text-muted-foreground mt-12 text-xl lg:text-2xl'>
 						按需付费，从 GB 到 PB 无缝扩展，成本降低 70%。
 					</p>
 					<LandingOutlineButton
 						href={signinLink}
 						size='lg'
+						className='mt-12 w-fit'
 					>
 						立即创建
 					</LandingOutlineButton>
 				</div>
+				<div className='mr-52.75 mb-12 hidden shrink-0 self-end lg:block'>
+					<Image
+						src={OssBoxImage}
+						alt='对象存储'
+						className='size-36'
+					/>
+				</div>
+			</div>
 
+			<div className='relative min-h-80'>
 				<div className='absolute top-0 -z-10 h-full w-full'>
 					<Image
 						src={HeroBgImage}
