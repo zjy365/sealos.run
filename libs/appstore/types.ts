@@ -9,6 +9,7 @@ export type AppStoreTemplate = {
 	title: string;
 	description: string;
 	category: AppStoreTemplateCategory;
+	deployCount?: number;
 	starsText?: string;
 	versionText?: string;
 	trendDeltaText?: string;

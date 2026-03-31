@@ -71,6 +71,7 @@ const getAppStoreTemplatesCached = React.cache((locale: string): AppStoreTemplat
 			title,
 			description,
 			category,
+			deployCount: data.deployCount,
 			starsText: data.starsText,
 			versionText: data.versionText,
 			trendDeltaText: data.trendDeltaText,

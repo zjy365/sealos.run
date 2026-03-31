@@ -4,11 +4,16 @@ import React from 'react';
 import { HexagonIcon } from '@/assets/icons';
 import { APPSTORE_CATEGORY_META } from '@/libs/appstore/constants';
 import type { AppStoreCategory, AppStoreTemplate } from '@/libs/appstore/types';
+import { Badge } from '@/libs/components/ui/badge';
 import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
 import { useTranslations } from '@/libs/i18n/client';
 import { cn } from '@/libs/utils/styling';
 import { AppStoreIcon } from '../components/AppStoreIcon';
+
+const categoryLabelKeyMap = Object.fromEntries(
+	APPSTORE_CATEGORY_META.map((item) => [item.slug, item.labelKey]),
+) as Record<AppStoreCategory, string | undefined>;
 
 function CategoryPill({ active, children, onClick }: { active: boolean; children: string; onClick: () => void }) {
 	return (
@@ -29,7 +34,7 @@ function CategoryPill({ active, children, onClick }: { active: boolean; children
 
 function StackedHexagons({ text }: { text?: string }) {
 	return (
-		<div className='flex items-center pr-3'>
+		<div className='flex items-center pr-1'>
 			<div className='text-brand relative z-30 -mr-3 flex size-7 items-center justify-center'>
 				<Icon
 					src={HexagonIcon}
@@ -53,50 +58,47 @@ function StackedHexagons({ text }: { text?: string }) {
 	);
 }
 
-function TemplateCard({ data }: { data: AppStoreTemplate }) {
+function TemplateCard({ data, categoryName }: { data: AppStoreTemplate; categoryName?: string }) {
 	return (
-		<div className='flex flex-col gap-6'>
-			<div className='flex flex-col gap-2'>
-				<div className='flex items-start justify-between'>
-					<div className='flex items-center gap-3'>
-						<div className='flex size-16 items-center justify-center overflow-hidden rounded-2xl bg-zinc-50'>
-							<AppStoreIcon
-								alt={data.title}
-								fallbackClassName='size-12'
-								imageClassName='object-contain'
-								src={data.thumbnail}
-								className='size-12'
-							/>
-						</div>
-
-						<div className='flex min-w-0 flex-col gap-1'>
-							<p className='text-foreground truncate text-lg leading-normal font-medium'>{data.title}</p>
-							<p className='text-muted-foreground truncate text-sm leading-normal font-normal'>
-								{[data.starsText, data.versionText].filter(Boolean).join(' / ')}
-							</p>
-						</div>
+		<div className='flex flex-col gap-2 rounded-lg border p-6'>
+			<div className='flex items-start justify-between'>
+				<div className='flex items-center gap-3'>
+					<div className='flex size-16 items-center justify-center overflow-hidden rounded-2xl bg-zinc-50'>
+						<AppStoreIcon
+							alt={data.title}
+							fallbackClassName='size-12'
+							imageClassName='object-contain'
+							src={data.thumbnail}
+							className='size-12'
+						/>
 					</div>
 
-					<div className='text-muted-foreground flex items-center gap-1 text-sm leading-normal font-normal'>
-						<StackedHexagons text='S' />
-						{data.trendDeltaText && <span>{data.trendDeltaText}</span>}
+					<div className='flex min-w-0 flex-col gap-0.5'>
+						<p className='text-foreground truncate text-lg leading-normal font-medium'>{data.title}</p>
+						<p className='text-muted-foreground truncate text-sm leading-normal font-normal'>
+							{[data.starsText, data.versionText].filter(Boolean).join(' / ')}
+						</p>
 					</div>
 				</div>
 
-				<p className='text-foreground line-clamp-1 text-sm leading-normal font-normal'>{data.description}</p>
+				<div className='text-muted-foreground flex items-center text-sm leading-normal font-normal'>
+					<StackedHexagons text='S' />
+					{data.deployCount && <span>+{data.deployCount}</span>}
+				</div>
 			</div>
 
-			<div className='aspect-19/10 w-full overflow-hidden bg-zinc-100'>
-				{data.thumbnail ? (
-					// biome-ignore lint/performance/noImgElement: thumbnails are static local files for now.
-					<img
-						alt=''
-						className='size-full object-cover'
-						src={data.thumbnail}
-					/>
-				) : (
-					<div className='size-full bg-linear-to-br from-zinc-200 to-zinc-50' />
-				)}
+			<p className='text-foreground line-clamp-3 h-[3lh] text-sm leading-normal font-normal'>
+				{data.description}
+			</p>
+
+			<div className='mt-4 flex gap-2'>
+				<Badge
+					className='bg-accent text-muted-foreground rounded-sm border-none'
+					size='sm'
+				>
+					<div className='bg-brand mr-1 h-1.5 w-1.5 rounded-full' />
+					{categoryName ?? data.category}
+				</Badge>
 			</div>
 		</div>
 	);
@@ -137,11 +139,16 @@ export function TemplatesSectionClient({ templates }: { templates: AppStoreTempl
 					'max-h-[60vh] lg:max-h-[55vh]',
 				)}
 			>
-				<div className='grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
-					{filtered.map((t) => (
+				<div className='grid w-full grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3'>
+					{filtered.map((template) => (
 						<TemplateCard
-							key={t.slug}
-							data={t}
+							key={template.slug}
+							categoryName={
+								categoryLabelKeyMap[template.category]
+									? t(`categories.${categoryLabelKeyMap[template.category]}`)
+									: undefined
+							}
+							data={template}
 						/>
 					))}
 				</div>

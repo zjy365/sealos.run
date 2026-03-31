@@ -34,6 +34,7 @@ export const appstore = defineDocs({
 	docs: {
 		schema: pageSchema.extend({
 			category: z.string().optional(),
+			deployCount: z.coerce.number().int().positive().optional(),
 			starsText: z.string().optional(),
 			versionText: z.string().optional(),
 			trendDeltaText: z.string().optional(),
