@@ -1,5 +1,6 @@
 'use client';
 
+import type { StaticImageData } from 'next/image';
 import React from 'react';
 import {
 	AppIcon,
@@ -22,7 +23,6 @@ import {
 	appTypes,
 	calculatorDefaults,
 	GiB_BYTES,
-	newUserCredit,
 	type RegionId,
 	regions,
 	unitPricesByRegion,
@@ -42,7 +42,7 @@ function fromGiB(gib: number) {
 	return gib * GiB_BYTES;
 }
 
-function useCnyFormatter() {
+function useCnyFormatter(maximumFractionDigits: number) {
 	return React.useMemo(
 		() =>
 			new Intl.NumberFormat('zh-CN', {
@@ -50,9 +50,9 @@ function useCnyFormatter() {
 				currency: 'CNY',
 				currencyDisplay: 'narrowSymbol',
 				minimumFractionDigits: 0,
-				maximumFractionDigits: 2,
+				maximumFractionDigits,
 			}),
-		[],
+		[maximumFractionDigits],
 	);
 }
 
@@ -117,8 +117,72 @@ function FieldLabel({ icon, label }: { icon: Parameters<typeof Icon>[0]['src']; 
 	);
 }
 
+type RuntimeUnit = 'hour' | 'day' | 'week' | 'month' | 'year';
+
+const runtimeUnitConfig: Record<RuntimeUnit, { hours: number; min: number; max: number; label: string }> = {
+	hour: {
+		hours: 1,
+		min: 1,
+		max: 24,
+		label: '小时',
+	},
+	day: {
+		hours: 24,
+		min: 1,
+		max: 30,
+		label: '天',
+	},
+	week: {
+		hours: 24 * 7,
+		min: 1,
+		max: 52,
+		label: '周',
+	},
+	month: {
+		hours: 24 * 30,
+		min: 1,
+		max: 12,
+		label: '月',
+	},
+	year: {
+		hours: 24 * 365,
+		min: 1,
+		max: 5,
+		label: '年',
+	},
+};
+
+function runtimeValueToHours(value: number, unit: RuntimeUnit) {
+	return value * runtimeUnitConfig[unit].hours;
+}
+
+function hoursToRuntimeValue(hours: number, unit: RuntimeUnit) {
+	return Math.max(1, Math.ceil(hours / runtimeUnitConfig[unit].hours));
+}
+
+function getRuntimeConstraints(unit: RuntimeUnit) {
+	return {
+		min: runtimeUnitConfig[unit].min,
+		max: runtimeUnitConfig[unit].max,
+		unitLabel: runtimeUnitConfig[unit].label,
+	};
+}
+
+function RegionVendorIcon({ icon, name }: { icon: StaticImageData; name: string }) {
+	return (
+		<span className='flex shrink-0 items-center justify-center'>
+			<Icon
+				src={icon}
+				className='size-5'
+				alt={`${name} icon`}
+			/>
+		</span>
+	);
+}
+
 export function CalculatorSection({ signinHref }: { signinHref: string }) {
-	const cny = useCnyFormatter();
+	const preciseCny = useCnyFormatter(6);
+	const totalCny = useCnyFormatter(2);
 
 	const [regionId, setRegionId] = React.useState<RegionId>(calculatorDefaults.regionId);
 	const [appTypeId, setAppTypeId] = React.useState<AppTypeId>(calculatorDefaults.appTypeId);
@@ -128,9 +192,13 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 	const [memoryBytes, setMemoryBytes] = React.useState<number>(calculatorDefaults.memoryBytes);
 	const [storageBytes, setStorageBytes] = React.useState<number>(calculatorDefaults.storageBytes);
 	const [ports, setPorts] = React.useState<number>(calculatorDefaults.ports);
-	const [runtimeHoursPerDay, setRuntimeHoursPerDay] = React.useState<number>(calculatorDefaults.runtimeHoursPerDay);
+	const [runtimeUnit, setRuntimeUnit] = React.useState<RuntimeUnit>('hour');
+	const [runtimeValue, setRuntimeValue] = React.useState<number>(calculatorDefaults.runtimeHoursPerDay);
 
 	const unitPrices = unitPricesByRegion[regionId];
+	const runtimeHours = runtimeValueToHours(runtimeValue, runtimeUnit);
+	const runtimeConstraints = getRuntimeConstraints(runtimeUnit);
+	const runtimeDisplayLabel = `${runtimeValue}${runtimeConstraints.unitLabel}`;
 
 	const memoryGiB = toGiB(memoryBytes);
 	const storageGiB = toGiB(storageBytes);
@@ -142,20 +210,22 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 		const portPerHour = ports * unitPrices.portHour;
 
 		const perHour = cpuPerHour + memoryPerHour + storagePerHour + portPerHour;
-		const perDay = perHour * runtimeHoursPerDay;
-		const perMonth = perDay * 30;
+		// cost for exactly 1 of the selected unit (shown in breakdown column)
+		const unitHours = runtimeUnitConfig[runtimeUnit].hours;
+		const perDay = perHour * runtimeUnitConfig.day.hours;
+		const total = perHour * runtimeHours;
 
 		return {
-			perDayBreakdown: {
-				cpu: cpuPerHour * runtimeHoursPerDay,
-				memory: memoryPerHour * runtimeHoursPerDay,
-				storage: storagePerHour * runtimeHoursPerDay,
-				port: portPerHour * runtimeHoursPerDay,
+			breakdown: {
+				cpu: cpuPerHour * unitHours,
+				memory: memoryPerHour * unitHours,
+				storage: storagePerHour * unitHours,
+				port: portPerHour * unitHours,
 			},
 			perDay,
-			perMonth,
+			total,
 		};
-	}, [cpuCores, memoryGiB, ports, runtimeHoursPerDay, storageGiB, unitPrices]);
+	}, [cpuCores, memoryGiB, ports, runtimeHours, runtimeUnit, storageGiB, unitPrices]);
 
 	return (
 		<div className='bg-zinc-50'>
@@ -172,16 +242,34 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 									onClick={() => setRegionId(r.id)}
 									aria-pressed={active}
 									className={cn(
-										'flex w-full items-center justify-between rounded-full border px-4 py-3 text-left transition-colors',
+										'flex w-full items-center justify-between gap-4 rounded-full border px-4 py-3 text-left transition-colors',
 										active
 											? 'border-foreground bg-white text-zinc-900'
 											: 'border-border text-muted-foreground bg-transparent hover:bg-white/60',
 									)}
 								>
-									<span className={cn('text-xl', active ? 'font-semibold' : 'font-normal')}>
+									<div className='flex min-w-0 items-center gap-3'>
+										<RegionVendorIcon
+											icon={r.vendorIcon}
+											name={r.vendor}
+										/>
+										<div
+											className={cn(
+												'min-w-0 truncate text-lg',
+												active ? 'font-medium text-zinc-900' : 'text-zinc-500',
+											)}
+										>
+											{r.vendor}
+										</div>
+									</div>
+									<div
+										className={cn(
+											'shrink-0 text-lg',
+											active ? 'font-medium text-zinc-900' : 'text-zinc-500',
+										)}
+									>
 										{r.label}
-									</span>
-									<span className='text-lg'>{r.vendor}</span>
+									</div>
 								</button>
 							);
 						})}
@@ -214,7 +302,7 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 									<span className='min-w-16 text-zinc-900'>{row.name}</span>
 									<span className='w-28 text-zinc-900'>{row.unit}</span>
 									<span className='w-24 text-right text-zinc-900'>
-										{cny.format(row.get(unitPrices))}
+										{preciseCny.format(row.get(unitPrices))}
 									</span>
 								</div>
 							))}
@@ -377,25 +465,51 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 								/>
 								<div className='flex flex-wrap items-center gap-4'>
 									<NumberInput
-										value={runtimeHoursPerDay}
-										onValueChange={(v) => setRuntimeHoursPerDay(clampInt(v ?? 1, 1, 24))}
-										min={1}
-										max={24}
+										value={runtimeValue}
+										onValueChange={(v) =>
+											setRuntimeValue(
+												clampInt(
+													v ?? runtimeConstraints.min,
+													runtimeConstraints.min,
+													runtimeConstraints.max,
+												),
+											)
+										}
+										min={runtimeConstraints.min}
+										max={runtimeConstraints.max}
 										stepper={1}
 										decimalScale={0}
 										className='h-10 w-24 text-center'
 									/>
 									<Select
-										value='hour'
-										onValueChange={() => {}}
+										value={runtimeUnit}
+										onValueChange={(v) => {
+											const nextUnit = v as RuntimeUnit;
+											const nextConstraints = getRuntimeConstraints(nextUnit);
+											const nextValue = clampInt(
+												hoursToRuntimeValue(runtimeHours, nextUnit),
+												nextConstraints.min,
+												nextConstraints.max,
+											);
+
+											setRuntimeUnit(nextUnit);
+											setRuntimeValue(nextValue);
+										}}
 									>
-										<SelectTrigger className='h-10 w-28 rounded-lg'>
+										<SelectTrigger className='h-10! w-28 rounded-lg shadow-xs'>
 											<SelectValue />
 										</SelectTrigger>
 										<SelectContent>
 											<SelectItem value='hour'>小时</SelectItem>
+											<SelectItem value='day'>天</SelectItem>
+											<SelectItem value='week'>周</SelectItem>
+											<SelectItem value='month'>月</SelectItem>
+											<SelectItem value='year'>年</SelectItem>
 										</SelectContent>
 									</Select>
+									<span className='text-muted-foreground text-sm'>
+										最多 {runtimeConstraints.max} {runtimeConstraints.unitLabel}
+									</span>
 								</div>
 							</div>
 						</div>
@@ -411,25 +525,25 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 										key: 'cpu',
 										label: 'CPU',
 										icon: CpuIcon,
-										value: costs.perDayBreakdown.cpu,
+										value: costs.breakdown.cpu,
 									},
 									{
 										key: 'memory',
 										label: '内存',
 										icon: MemoryIcon,
-										value: costs.perDayBreakdown.memory,
+										value: costs.breakdown.memory,
 									},
 									{
 										key: 'storage',
 										label: '存储卷',
 										icon: DiskIcon,
-										value: costs.perDayBreakdown.storage,
+										value: costs.breakdown.storage,
 									},
 									{
 										key: 'port',
 										label: '端口',
 										icon: PortIcon,
-										value: costs.perDayBreakdown.port,
+										value: costs.breakdown.port,
 									},
 								].map((row) => (
 									<div
@@ -445,7 +559,9 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 											</div>
 											<span className='text-zinc-900'>{row.label}</span>
 										</div>
-										<span className='text-zinc-600'>{cny.format(row.value)}/天</span>
+										<span className='text-zinc-600'>
+											{preciseCny.format(row.value)} / 1{runtimeConstraints.unitLabel}
+										</span>
 									</div>
 								))}
 							</div>
@@ -453,20 +569,17 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 							<div className='border-brand hidden h-48 w-px border-r border-dashed lg:block' />
 
 							<div className='flex w-full max-w-md flex-col gap-4'>
-								<p className='text-base whitespace-pre-wrap text-zinc-900'>
-									新用户 {cny.format(newUserCredit.creditCny)} 免费额度可用{' '}
-									<span className='text-brand'>{newUserCredit.validDays}</span> 天
-								</p>
-
 								<div className='flex flex-wrap items-center gap-x-10 gap-y-2 text-xl font-semibold'>
 									<div className='flex items-center gap-2'>
-										<span className='text-zinc-900'>每天总计:</span>
-										<span className='text-brand'>{cny.format(costs.perDay)}</span>
+										<span className='text-zinc-900'>每天预估:</span>
+										<span className='text-brand'>{totalCny.format(costs.perDay)}</span>
 									</div>
-									<div className='flex items-center gap-2'>
-										<span className='text-zinc-900'>月预估:</span>
-										<span className='text-brand'>{cny.format(costs.perMonth)}</span>
-									</div>
+									{runtimeUnit !== 'day' && (
+										<div className='flex items-center gap-2'>
+											<span className='text-zinc-900'>{runtimeDisplayLabel}预估:</span>
+											<span className='text-brand'>{totalCny.format(costs.total)}</span>
+										</div>
+									)}
 								</div>
 							</div>
 
@@ -504,7 +617,17 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 						<input
 							type='hidden'
 							name='paygRuntimeHoursPerDay'
-							value={runtimeHoursPerDay}
+							value={runtimeHours}
+						/>
+						<input
+							type='hidden'
+							name='paygRuntimeUnit'
+							value={runtimeUnit}
+						/>
+						<input
+							type='hidden'
+							name='paygRuntimeValue'
+							value={runtimeValue}
 						/>
 						<input
 							type='hidden'

@@ -100,7 +100,7 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
 		};
 
 		return (
-			<div className='border-input has-[input:focus-visible]:ring-ring/50 has-[input:focus-visible]:border-ring flex items-center overflow-hidden rounded-lg border shadow-sm transition-shadow has-[input:focus-visible]:ring-[3px]'>
+			<div className='border-input has-[input:focus-visible]:ring-ring/50 has-[input:focus-visible]:border-ring flex items-center overflow-hidden rounded-lg border shadow-xs transition-shadow has-[input:focus-visible]:ring-[3px]'>
 				<Button
 					type='button'
 					aria-label='Decrease value'
