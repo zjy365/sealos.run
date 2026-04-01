@@ -199,6 +199,7 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 	const runtimeHours = runtimeValueToHours(runtimeValue, runtimeUnit);
 	const runtimeConstraints = getRuntimeConstraints(runtimeUnit);
 	const runtimeDisplayLabel = `${runtimeValue}${runtimeConstraints.unitLabel}`;
+	const shouldShowSelectedPeriodEstimate = runtimeUnit !== 'day' || runtimeValue > 1;
 
 	const memoryGiB = toGiB(memoryBytes);
 	const storageGiB = toGiB(storageBytes);
@@ -574,7 +575,7 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 										<span className='text-zinc-900'>每天预估:</span>
 										<span className='text-brand'>{totalCny.format(costs.perDay)}</span>
 									</div>
-									{runtimeUnit !== 'day' && (
+									{shouldShowSelectedPeriodEstimate && (
 										<div className='flex items-center gap-2'>
 											<span className='text-zinc-900'>{runtimeDisplayLabel}预估:</span>
 											<span className='text-brand'>{totalCny.format(costs.total)}</span>
