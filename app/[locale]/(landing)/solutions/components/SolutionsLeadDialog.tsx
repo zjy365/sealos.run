@@ -20,11 +20,8 @@ import { cn } from '@/libs/utils/styling';
 
 const scenarioOptions = [
 	{ label: '集群管理', value: 'cluster_management' },
-	{ label: '应用托管', value: 'app_hosting' },
-	{ label: '数据存储', value: 'data_storage' },
-	{ label: 'AI 算力', value: 'ai_computing' },
-	{ label: '多租户管理', value: 'multi_tenant' },
-	{ label: '私有化部署', value: 'private_deployment' },
+	{ label: '应用管理', value: 'app_management' },
+	{ label: 'GPU调度', value: 'gpu_scheduling' },
 ] as const;
 
 const scenarioValues = scenarioOptions.map((option) => option.value) as [

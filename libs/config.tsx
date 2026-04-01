@@ -24,7 +24,7 @@ export const Config = (() => {
 			solutions: {
 				contactForm: {
 					endpoint: 'https://j2dpsclzou.sealosgzg.site/submit-contact-form',
-					version: 'b43916a5-73f5-4de9-984a-0339c958adcd',
+					version: 'ff15c990-cf33-47bc-b5fc-b886cbc6e28e',
 				},
 			},
 		},
