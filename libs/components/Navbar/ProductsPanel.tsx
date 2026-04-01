@@ -4,6 +4,38 @@ import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import React from 'react';
 import {
+	Ai360Icon,
+	AlibabaIcon,
+	AnthropicIcon,
+	BaaiIcon,
+	BaichuanIcon,
+	BaiduIcon,
+	ChatglmIcon,
+	CohereIcon,
+	DeepseekIcon,
+	DefogIcon,
+	DoubaoIcon,
+	FishaudioIcon,
+	GoogleIcon,
+	HuggingfaceIcon,
+	LingyiwanwuIcon,
+	MetaIcon,
+	MicrosoftIcon,
+	MinimaxIcon,
+	MistralIcon,
+	MoonshotIcon,
+	NeteaseIcon,
+	NexusflowIcon,
+	OpenaiIcon,
+	OpenchatIcon,
+	StabilityaiIcon,
+	StepfunIcon,
+	StreamlakeIcon,
+	TencentIcon,
+	UnknownIcon,
+	XunfeiIcon,
+} from '@/assets/aiproxy-models';
+import {
 	AiproxyBoxImage,
 	AppstoreBoxImage,
 	DatabaseBoxImage,
@@ -26,6 +58,7 @@ import {
 	RustIcon,
 } from '@/assets/app-icons';
 import {
+	AppIcon,
 	BoxIcon,
 	ClockCounterIcon,
 	CubeIcon,
@@ -45,6 +78,46 @@ import {
 import { Icon } from '@/libs/components/ui/icon';
 import { Link, usePathname } from '@/libs/i18n/navigation';
 import { cn } from '@/libs/utils/styling';
+import type { AIProxyProviderPanelData, AppStoreCategoryPanelData, ProductsPanelData } from './products-panel.types';
+
+const AIPROXY_OWNER_ICONS = {
+	ai360: Ai360Icon,
+	alibaba: AlibabaIcon,
+	anthropic: AnthropicIcon,
+	baai: BaaiIcon,
+	baichuan: BaichuanIcon,
+	baidu: BaiduIcon,
+	chatglm: ChatglmIcon,
+	cohere: CohereIcon,
+	deepseek: DeepseekIcon,
+	defog: DefogIcon,
+	doubao: DoubaoIcon,
+	fishaudio: FishaudioIcon,
+	funaudiollm: AlibabaIcon,
+	google: GoogleIcon,
+	huggingface: HuggingfaceIcon,
+	jina: UnknownIcon,
+	lingyiwanwu: LingyiwanwuIcon,
+	meta: MetaIcon,
+	microsoft: MicrosoftIcon,
+	minimax: MinimaxIcon,
+	mistral: MistralIcon,
+	moonshot: MoonshotIcon,
+	netease: NeteaseIcon,
+	nexusflow: NexusflowIcon,
+	openai: OpenaiIcon,
+	openchat: OpenchatIcon,
+	stabilityai: StabilityaiIcon,
+	stepfun: StepfunIcon,
+	streamlake: StreamlakeIcon,
+	tencent: TencentIcon,
+	unknown: UnknownIcon,
+	xunfei: XunfeiIcon,
+} as const;
+
+function getAIProxyOwnerIcon(ownerKey: string) {
+	return AIPROXY_OWNER_ICONS[ownerKey as keyof typeof AIPROXY_OWNER_ICONS] ?? UnknownIcon;
+}
 
 interface NavMenuItem {
 	id: string;
@@ -60,86 +133,88 @@ interface NavMenuItem {
 	};
 }
 
-const navMenuItems: NavMenuItem[] = [
-	{
-		id: 'launchpad',
-		label: '应用管理',
-		icon: BoxIcon,
-		largeImage: LaunchpadBoxImage,
-		largeImageAlt: '应用管理',
-		content: {
-			title: '应用管理',
-			description: '原生 K8s 架构，可视化页面配置',
-			href: '/products/launchpad',
-			features: <LaunchpadFeatures />,
+function getNavMenuItems({ aiproxyProviders, appStoreCategories }: ProductsPanelData): NavMenuItem[] {
+	return [
+		{
+			id: 'launchpad',
+			label: '应用管理',
+			icon: BoxIcon,
+			largeImage: LaunchpadBoxImage,
+			largeImageAlt: '应用管理',
+			content: {
+				title: '应用管理',
+				description: '原生 K8s 架构，可视化页面配置',
+				href: '/products/launchpad',
+				features: <LaunchpadFeatures />,
+			},
 		},
-	},
-	{
-		id: 'database',
-		label: '数据库',
-		icon: DatabaseIcon,
-		largeImage: DatabaseBoxImage,
-		largeImageAlt: '数据库服务',
-		content: {
-			title: '数据库服务',
-			description: '提供多种数据库类型，一键部署和管理',
-			href: '/products/database',
-			features: <DatabaseFeatures />,
+		{
+			id: 'database',
+			label: '数据库',
+			icon: DatabaseIcon,
+			largeImage: DatabaseBoxImage,
+			largeImageAlt: '数据库服务',
+			content: {
+				title: '数据库服务',
+				description: '提供多种数据库类型，一键部署和管理',
+				href: '/products/database',
+				features: <DatabaseFeatures />,
+			},
 		},
-	},
-	{
-		id: 'oss',
-		label: '对象存储',
-		icon: ObjectStorageIcon,
-		largeImage: OssBoxImage,
-		largeImageAlt: '对象存储',
-		content: {
-			title: '对象存储',
-			description: '高性能、可扩展的对象存储服务',
-			href: '/products/oss',
-			features: <OSSFeatures />,
+		{
+			id: 'oss',
+			label: '对象存储',
+			icon: ObjectStorageIcon,
+			largeImage: OssBoxImage,
+			largeImageAlt: '对象存储',
+			content: {
+				title: '对象存储',
+				description: '高性能、可扩展的对象存储服务',
+				href: '/products/oss',
+				features: <OSSFeatures />,
+			},
 		},
-	},
-	{
-		id: 'devbox',
-		label: 'DevBox',
-		icon: RocketIcon,
-		largeImage: DevboxBoxImage,
-		largeImageAlt: 'DevBox',
-		content: {
-			title: 'DevBox',
-			description: '云端开发环境，支持多种编程语言和框架',
-			href: '/products/devbox',
-			features: <DevBoxFeatures />,
+		{
+			id: 'devbox',
+			label: 'DevBox',
+			icon: RocketIcon,
+			largeImage: DevboxBoxImage,
+			largeImageAlt: 'DevBox',
+			content: {
+				title: 'DevBox',
+				description: '云端开发环境，支持多种编程语言和框架',
+				href: '/products/devbox',
+				features: <DevBoxFeatures />,
+			},
 		},
-	},
-	{
-		id: 'aiproxy',
-		label: 'AI 网关',
-		icon: ModelIcon,
-		largeImage: AiproxyBoxImage,
-		largeImageAlt: 'AI Proxy',
-		content: {
-			title: 'AI Proxy',
-			description: '统一的 AI 模型代理服务',
-			href: '/products/aiproxy',
-			features: <AIProxyFeatures />,
+		{
+			id: 'aiproxy',
+			label: 'AI 网关',
+			icon: ModelIcon,
+			largeImage: AiproxyBoxImage,
+			largeImageAlt: 'AI Proxy',
+			content: {
+				title: 'AI Proxy',
+				description: '统一的 AI 模型代理服务',
+				href: '/products/aiproxy',
+				features: <AIProxyFeatures providers={aiproxyProviders} />,
+			},
 		},
-	},
-	{
-		id: 'app',
-		label: '开源应用',
-		icon: CubesIcon,
-		largeImage: AppstoreBoxImage,
-		largeImageAlt: '应用商店',
-		content: {
-			title: '应用商店',
-			description: '丰富的应用模板，快速部署',
-			href: '/products/appstore',
-			features: <AppStoreFeatures />,
+		{
+			id: 'app',
+			label: '开源应用',
+			icon: CubesIcon,
+			largeImage: AppstoreBoxImage,
+			largeImageAlt: '应用商店',
+			content: {
+				title: '应用商店',
+				description: '丰富的应用模板，快速部署',
+				href: '/products/appstore',
+				features: <AppStoreFeatures categories={appStoreCategories} />,
+			},
 		},
-	},
-];
+	];
+}
 
 function LaunchpadFeatures() {
 	const features = [
@@ -421,64 +496,53 @@ function DevBoxFeatures() {
 	);
 }
 
-function AIProxyFeatures() {
-	const [activeProvider, setActiveProvider] = React.useState('千问');
+function AIProxyFeatures({ providers }: { providers: AIProxyProviderPanelData[] }) {
+	const defaultProvider = providers[0]?.ownerLabel ?? '';
+	const [activeProvider, setActiveProvider] = React.useState(defaultProvider);
 
-	const categories = ['千问', '豆包', '智谱'];
+	React.useEffect(() => {
+		if (!providers.some((provider) => provider.ownerLabel === activeProvider)) {
+			setActiveProvider(defaultProvider);
+		}
+	}, [activeProvider, defaultProvider, providers]);
 
-	const providersData: Record<string, Array<{ name: string; icon: null; href: string }>> = {
-		千问: [
-			{ name: 'qwen-turbo', icon: null, href: '/products/aiproxy' },
-			{ name: 'qwen-turbo 2', icon: null, href: '/products/aiproxy' },
-			{ name: 'qwen-turbo 3', icon: null, href: '/products/aiproxy' },
-		],
-		豆包: [
-			{ name: '1', icon: null, href: '/products/aiproxy' },
-			{ name: '2', icon: null, href: '/products/aiproxy' },
-		],
-		智谱: [
-			{ name: '1', icon: null, href: '/products/aiproxy' },
-			{ name: '2', icon: null, href: '/products/aiproxy' },
-		],
-	};
-
-	const items = providersData[activeProvider] || [];
+	const activeItems = providers.find((provider) => provider.ownerLabel === activeProvider) ?? providers[0];
 
 	return (
 		<div className='px-8 pt-6 pb-8'>
 			<div className='flex flex-col gap-5'>
-				{/* Category Tabs */}
-				<div className='border-border flex'>
-					{categories.map((cat) => (
+				<div className='border-border flex flex-wrap gap-1'>
+					{providers.map((provider) => (
 						<button
-							key={cat}
+							key={provider.ownerKey}
 							type='button'
-							onClick={() => setActiveProvider(cat)}
+							onClick={() => setActiveProvider(provider.ownerLabel)}
 							className={cn(
 								'hover:bg-input rounded-t-md px-3 py-2 text-xs transition-colors',
-								activeProvider === cat
+								activeProvider === provider.ownerLabel
 									? 'text-foreground border-brand border-b-2'
 									: 'text-muted-foreground hover:text-foreground hover:rounded-md',
 							)}
 						>
-							{cat}
+							{provider.ownerLabel}
 						</button>
 					))}
 				</div>
 
-				{/* Content Grid */}
 				<div className='grid grid-cols-3 gap-2.5'>
-					{items.map((item) => (
+					{activeItems?.models.map((item) => (
 						<Link
 							href={item.href}
 							key={item.name}
 						>
-							<div
-								key={item.name}
-								className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'
-							>
+							<div className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'>
 								<div className='flex w-full items-center gap-2'>
-									<div className='size-6' />
+									<div className='bg-muted flex size-6 items-center justify-center overflow-hidden rounded-full'>
+										<Icon
+											src={getAIProxyOwnerIcon(activeItems.ownerKey)}
+											className='size-4'
+										/>
+									</div>
 									<p className='text-foreground text-xs'>{item.name}</p>
 								</div>
 
@@ -497,140 +561,81 @@ function AIProxyFeatures() {
 	);
 }
 
-function AppStoreFeatures() {
-	const [activeCategory, setActiveCategory] = React.useState('AI');
+function PanelAppIcon({ alt, src }: { alt: string; src?: string }) {
+	const [failedSrc, setFailedSrc] = React.useState<string | null>(null);
 
-	const categories = ['AI', '数据库', '应用', '工具', '低代码', '后端', 'DevOps', '游戏', '监控', '博客', '存储'];
+	if (!src || failedSrc === src) {
+		return (
+			<div className='bg-muted flex size-6 items-center justify-center overflow-hidden rounded-md'>
+				<Icon
+					src={AppIcon}
+					className='text-foreground size-3.5'
+				/>
+			</div>
+		);
+	}
 
-	const appsByCategory: Record<string, Array<{ name: string; icon: null; href: string }>> = {
-		AI: [
-			{ name: 'ChatGPT', icon: null, href: '/products/appstore' },
-			{ name: 'Claude', icon: null, href: '/products/appstore' },
-			{ name: 'Midjourney', icon: null, href: '/products/appstore' },
-			{ name: 'Stable Diffusion', icon: null, href: '/products/appstore' },
-			{ name: 'DALL-E', icon: null, href: '/products/appstore' },
-			{ name: 'GPT-4', icon: null, href: '/products/appstore' },
-		],
-		数据库: [
-			{ name: 'PostgreSQL', icon: null, href: '/products/appstore' },
-			{ name: 'MySQL', icon: null, href: '/products/appstore' },
-			{ name: 'MongoDB', icon: null, href: '/products/appstore' },
-			{ name: 'Redis', icon: null, href: '/products/appstore' },
-			{ name: 'Elasticsearch', icon: null, href: '/products/appstore' },
-			{ name: 'InfluxDB', icon: null, href: '/products/appstore' },
-		],
-		应用: [
-			{ name: 'AFFiNE', icon: null, href: '/products/appstore' },
-			{ name: 'WordPress', icon: null, href: '/products/appstore' },
-			{ name: 'Ghost', icon: null, href: '/products/appstore' },
-			{ name: 'Gitea', icon: null, href: '/products/appstore' },
-			{ name: 'Jupyter', icon: null, href: '/products/appstore' },
-			{ name: 'VS Code', icon: null, href: '/products/appstore' },
-		],
-		工具: [
-			{ name: 'Jenkins', icon: null, href: '/products/appstore' },
-			{ name: 'GitLab', icon: null, href: '/products/appstore' },
-			{ name: 'SonarQube', icon: null, href: '/products/appstore' },
-			{ name: 'Grafana', icon: null, href: '/products/appstore' },
-			{ name: 'Prometheus', icon: null, href: '/products/appstore' },
-			{ name: 'ELK Stack', icon: null, href: '/products/appstore' },
-		],
-		低代码: [
-			{ name: 'Appsmith', icon: null, href: '/products/appstore' },
-			{ name: 'Retool', icon: null, href: '/products/appstore' },
-			{ name: 'Budibase', icon: null, href: '/products/appstore' },
-			{ name: 'NocoDB', icon: null, href: '/products/appstore' },
-			{ name: 'ToolJet', icon: null, href: '/products/appstore' },
-			{ name: 'Metabase', icon: null, href: '/products/appstore' },
-		],
-		后端: [
-			{ name: 'Node.js', icon: null, href: '/products/appstore' },
-			{ name: 'Python', icon: null, href: '/products/appstore' },
-			{ name: 'Go', icon: null, href: '/products/appstore' },
-			{ name: 'Java', icon: null, href: '/products/appstore' },
-			{ name: 'PHP', icon: null, href: '/products/appstore' },
-			{ name: 'Ruby', icon: null, href: '/products/appstore' },
-		],
-		DevOps: [
-			{ name: 'Kubernetes', icon: null, href: '/products/appstore' },
-			{ name: 'Docker', icon: null, href: '/products/appstore' },
-			{ name: 'Terraform', icon: null, href: '/products/appstore' },
-			{ name: 'Ansible', icon: null, href: '/products/appstore' },
-			{ name: 'ArgoCD', icon: null, href: '/products/appstore' },
-			{ name: 'Helm', icon: null, href: '/products/appstore' },
-		],
-		游戏: [
-			{ name: 'Minecraft', icon: null, href: '/products/appstore' },
-			{ name: 'Terraria', icon: null, href: '/products/appstore' },
-			{ name: 'Factorio', icon: null, href: '/products/appstore' },
-			{ name: 'Valheim', icon: null, href: '/products/appstore' },
-			{ name: 'Rust', icon: null, href: '/products/appstore' },
-			{ name: 'ARK', icon: null, href: '/products/appstore' },
-		],
-		监控: [
-			{ name: 'Grafana', icon: null, href: '/products/appstore' },
-			{ name: 'Prometheus', icon: null, href: '/products/appstore' },
-			{ name: 'Loki', icon: null, href: '/products/appstore' },
-			{ name: 'Jaeger', icon: null, href: '/products/appstore' },
-			{ name: 'Zabbix', icon: null, href: '/products/appstore' },
-			{ name: 'Nagios', icon: null, href: '/products/appstore' },
-		],
-		博客: [
-			{ name: 'Ghost', icon: null, href: '/products/appstore' },
-			{ name: 'WordPress', icon: null, href: '/products/appstore' },
-			{ name: 'Hexo', icon: null, href: '/products/appstore' },
-			{ name: 'Hugo', icon: null, href: '/products/appstore' },
-			{ name: 'Jekyll', icon: null, href: '/products/appstore' },
-			{ name: 'Gatsby', icon: null, href: '/products/appstore' },
-		],
-		存储: [
-			{ name: 'MinIO', icon: null, href: '/products/appstore' },
-			{ name: 'Nextcloud', icon: null, href: '/products/appstore' },
-			{ name: 'SeaweedFS', icon: null, href: '/products/appstore' },
-			{ name: 'Ceph', icon: null, href: '/products/appstore' },
-			{ name: 'GlusterFS', icon: null, href: '/products/appstore' },
-			{ name: 'Longhorn', icon: null, href: '/products/appstore' },
-		],
-	};
+	return (
+		<div className='bg-muted flex size-6 items-center justify-center overflow-hidden rounded-md'>
+			{/* biome-ignore lint/performance/noImgElement: panel app icons are remote images from content frontmatter. */}
+			<img
+				alt={alt}
+				className='size-full object-cover'
+				onError={() => setFailedSrc(src)}
+				src={src}
+			/>
+		</div>
+	);
+}
 
-	const apps = appsByCategory[activeCategory] || [];
+function AppStoreFeatures({ categories }: { categories: AppStoreCategoryPanelData[] }) {
+	const defaultCategory = categories[0]?.slug ?? '';
+	const [activeCategory, setActiveCategory] = React.useState(defaultCategory);
+
+	React.useEffect(() => {
+		if (!categories.some((category) => category.slug === activeCategory)) {
+			setActiveCategory(defaultCategory);
+		}
+	}, [activeCategory, categories, defaultCategory]);
+
+	const activeItems = categories.find((category) => category.slug === activeCategory) ?? categories[0];
 
 	return (
 		<div className='px-8 pt-6 pb-8'>
 			<div className='flex flex-col gap-5'>
-				{/* Category Tabs */}
-				<div className='border-border flex'>
-					{categories.map((cat) => (
+				<div className='border-border flex flex-wrap gap-1'>
+					{categories.map((category) => (
 						<button
-							key={cat}
+							key={category.slug}
 							type='button'
-							onClick={() => setActiveCategory(cat)}
+							onClick={() => setActiveCategory(category.slug)}
 							className={cn(
 								'hover:bg-input rounded-t-md px-3 py-2 text-xs transition-colors',
-								activeCategory === cat
+								activeCategory === category.slug
 									? 'text-foreground border-brand border-b-2'
 									: 'text-muted-foreground hover:text-foreground hover:rounded-md',
 							)}
 						>
-							{cat}
+							{category.label}
 						</button>
 					))}
 				</div>
 
-				{/* Apps Grid */}
 				<div className='grid grid-cols-3 gap-2.5'>
-					{apps.map((app) => (
+					{activeItems?.apps.map((app) => (
 						<Link
 							href={app.href}
-							key={app.name}
+							key={app.href}
 						>
-							<div
-								key={app.name}
-								className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'
-							>
+							<div className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'>
 								<div className='flex w-full items-center gap-2'>
-									<div className='size-6' />
-									<p className='text-foreground text-xs'>{app.name}</p>
+									<PanelAppIcon
+										alt={app.title}
+										src={app.thumbnail}
+									/>
+									<div className='flex min-w-0 flex-col gap-0.5'>
+										<p className='text-foreground truncate text-xs'>{app.title}</p>
+									</div>
 								</div>
 
 								<div className='size-5'>
@@ -648,19 +653,26 @@ function AppStoreFeatures() {
 	);
 }
 
-export function ProductsPanel() {
+export function ProductsPanel({ aiproxyProviders, appStoreCategories }: ProductsPanelData) {
 	const pathname = usePathname();
+	const navMenuItems = React.useMemo(
+		() => getNavMenuItems({ aiproxyProviders, appStoreCategories }),
+		[aiproxyProviders, appStoreCategories],
+	);
 
-	const getMatchedItem = React.useCallback((path: string | null | undefined) => {
-		if (!path) return null;
-		// Prefer the longest matching href prefix
-		const withHref = navMenuItems.filter((i) => i.content?.href);
-		const matched = withHref
-			.filter((i) => path === i.content?.href || path.startsWith(`${i.content?.href}/`))
-			.sort((a, b) => b.content?.href?.length ?? 0 - (a.content?.href?.length ?? 1))
-			.at(0);
-		return matched ?? null;
-	}, []);
+	const getMatchedItem = React.useCallback(
+		(path: string | null | undefined) => {
+			if (!path) return null;
+			// Prefer the longest matching href prefix
+			const withHref = navMenuItems.filter((i) => i.content?.href);
+			const matched = withHref
+				.filter((i) => path === i.content?.href || path.startsWith(`${i.content?.href}/`))
+				.sort((a, b) => b.content?.href?.length ?? 0 - (a.content?.href?.length ?? 1))
+				.at(0);
+			return matched ?? null;
+		},
+		[navMenuItems],
+	);
 
 	const [selectedItem, setSelectedItem] = React.useState<NavMenuItem | null>(
 		getMatchedItem(pathname) || navMenuItems.find((item) => item.content) || null,

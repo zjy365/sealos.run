@@ -3,6 +3,7 @@ import type React from 'react';
 import { siDiscord, siGithub, siQq, siRss, siSinaweibo, siWechat, siX, siYoutube } from 'simple-icons';
 import { LinkIcon } from '@/assets/icons';
 import { ProductsPanel } from './components/Navbar/ProductsPanel';
+import { getProductsPanelData } from './components/Navbar/products-panel-data';
 import { Icon } from './components/ui/icon';
 import { SimpleIcon } from './components/ui/simple-icon';
 
@@ -18,6 +19,7 @@ import { SimpleIcon } from './components/ui/simple-icon';
 export const Config = (() => {
 	// For the editor plugin to recognize i18n keys
 	const t = <T,>(key: T) => key;
+	const productsPanelData = getProductsPanelData();
 
 	return {
 		pages: {
@@ -36,7 +38,7 @@ export const Config = (() => {
 					{
 						textI18nKey: t('components.navbar.links.products'),
 						href: '/products',
-						panel: <ProductsPanel />,
+						panel: <ProductsPanel {...productsPanelData} />,
 					},
 					{
 						textI18nKey: t('components.navbar.links.solutions'),
