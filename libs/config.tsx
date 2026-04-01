@@ -20,7 +20,14 @@ export const Config = (() => {
 	const t = <T,>(key: T) => key;
 
 	return {
-		pages: {},
+		pages: {
+			solutions: {
+				contactForm: {
+					endpoint: 'https://j2dpsclzou.sealosgzg.site/submit-contact-form',
+					version: 'b43916a5-73f5-4de9-984a-0339c958adcd',
+				},
+			},
+		},
 		components: {
 			navbar: {
 				contactLink: 'https://cloud.sealos.run/',

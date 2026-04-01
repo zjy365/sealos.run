@@ -6,6 +6,13 @@ import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import HeroBgImage from '../assets/hero-bg.svg';
 import { SolutionsLeadDialog } from '../components/SolutionsLeadDialog';
 
+type HeroSectionProps = {
+	contactFormConfig: {
+		endpoint: string;
+		version: string;
+	};
+};
+
 const VIEWBOX_WIDTH = 1247;
 const VIEWBOX_HEIGHT = 633;
 
@@ -46,7 +53,7 @@ function SolutionsHeroBg() {
 	);
 }
 
-export function HeroSection() {
+export function HeroSection({ contactFormConfig }: HeroSectionProps) {
 	const [open, setOpen] = React.useState(false);
 
 	return (
@@ -82,6 +89,8 @@ export function HeroSection() {
 			</div>
 
 			<SolutionsLeadDialog
+				endpoint={contactFormConfig.endpoint}
+				formVersion={contactFormConfig.version}
 				open={open}
 				onOpenChange={setOpen}
 			/>

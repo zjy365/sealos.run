@@ -454,8 +454,8 @@ function TagPill({ text }: { text: string }) {
 
 function SolutionCard({ data }: { data: SolutionCardData }) {
 	return (
-		<div className='border-brand border-b border-dashed py-10 nth-last-[-n+1]:border-none sm:nth-last-[-n+2]:border-none lg:nth-last-[-n+4]:border-none'>
-			<div className='border-brand flex flex-col gap-16 border-dashed px-8 sm:not-[&:nth-child(2n)>div]:border-r lg:not-[&:nth-child(4n)>div]:border-r'>
+		<div className='border-brand border-b border-dashed py-10 nth-last-[-n+1]:border-none sm:max-lg:nth-last-[-n+2]:border-none lg:border-b lg:nth-last-[-n+3]:border-none'>
+			<div className='border-brand flex flex-col gap-16 border-dashed px-8 sm:max-lg:not-[&:nth-child(2n)>div]:border-r lg:border-r-0 lg:not-[&:nth-child(3n)>div]:border-r'>
 				<div className='flex flex-col gap-5'>
 					<div className='flex items-center gap-2'>
 						<div className='size-6'>
@@ -484,11 +484,27 @@ function SolutionCard({ data }: { data: SolutionCardData }) {
 	);
 }
 
+function SolutionCardPlaceholder({ className }: { className?: string }) {
+	return (
+		<div
+			aria-hidden='true'
+			className={cn(
+				'border-brand border-b border-dashed py-10 nth-last-[-n+1]:border-none sm:max-lg:nth-last-[-n+2]:border-none lg:border-b lg:nth-last-[-n+3]:border-none',
+				className,
+			)}
+		>
+			<div className='border-brand h-full border-dashed px-8 sm:max-lg:not-[&:nth-child(2n)>div]:border-r lg:border-r-0 lg:not-[&:nth-child(3n)>div]:border-r' />
+		</div>
+	);
+}
+
 export function SolutionsGridSection() {
 	const [activeTab, setActiveTab] = React.useState<SolutionsTabKey>('app-dev');
 	const scrollRef = React.useRef<HTMLDivElement | null>(null);
 
 	const cards = dataByTab[activeTab] ?? [];
+	const smPlaceholderCount = (2 - (cards.length % 2)) % 2;
+	const lgPlaceholderCount = (3 - (cards.length % 3)) % 3;
 
 	return (
 		<div className='flex w-full flex-col items-center gap-10'>
@@ -516,12 +532,24 @@ export function SolutionsGridSection() {
 						'max-h-140 sm:max-h-155 lg:max-h-140',
 					)}
 				>
-					<div className={cn('w-full', 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4')}>
+					<div className={cn('w-full', 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3')}>
 						{cards.map((c, idx) => (
 							<SolutionCard
 								// eslint-disable-next-line react/no-array-index-key -- Figma content may be duplicated
 								key={`${c.title}-${idx}`}
 								data={c}
+							/>
+						))}
+						{Array.from({ length: smPlaceholderCount }).map((_, idx) => (
+							<SolutionCardPlaceholder
+								key={`sm-placeholder-${cards.length}-${idx}`}
+								className='hidden sm:block lg:hidden'
+							/>
+						))}
+						{Array.from({ length: lgPlaceholderCount }).map((_, idx) => (
+							<SolutionCardPlaceholder
+								key={`lg-placeholder-${cards.length}-${idx}`}
+								className='hidden lg:block'
 							/>
 						))}
 					</div>
