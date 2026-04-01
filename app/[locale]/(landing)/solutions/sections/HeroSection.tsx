@@ -1,6 +1,10 @@
+'use client';
+
 import Image from 'next/image';
+import React from 'react';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import HeroBgImage from '../assets/hero-bg.svg';
+import { SolutionsLeadDialog } from '../components/SolutionsLeadDialog';
 
 const VIEWBOX_WIDTH = 1247;
 const VIEWBOX_HEIGHT = 633;
@@ -43,29 +47,44 @@ function SolutionsHeroBg() {
 }
 
 export function HeroSection() {
+	const [open, setOpen] = React.useState(false);
+
 	return (
-		<div className='flex w-full flex-col items-center gap-6'>
-			<p className='text-muted-foreground text-center text-xl leading-normal font-normal'>企业级云原生解决方案</p>
+		<>
+			<div className='flex w-full flex-col items-center gap-6'>
+				<p className='text-muted-foreground text-center text-xl leading-normal font-normal'>
+					企业级云原生解决方案
+				</p>
 
-			<h1 className='text-foreground text-center text-4xl leading-none font-semibold sm:text-5xl'>
-				<span>{`"`}</span>
-				<span className='text-brand'>一键部署</span>
-				<span>，让复杂的 K8s 变得</span>
-				<span className='text-brand'>简单易用</span>
-				<span>{`"`}</span>
-			</h1>
+				<h1 className='text-foreground text-center text-4xl leading-none font-semibold sm:text-5xl'>
+					<span>{`"`}</span>
+					<span className='text-brand'>一键部署</span>
+					<span>，让复杂的 K8s 变得</span>
+					<span className='text-brand'>简单易用</span>
+					<span>{`"`}</span>
+				</h1>
 
-			<LandingOutlineButton
-				href='#solutions'
-				size='lg'
-				className='text-xl font-bold'
-			>
-				获取行业解决方案
-			</LandingOutlineButton>
+				<LandingOutlineButton
+					href='#solutions-lead-dialog'
+					size='lg'
+					className='text-xl font-bold'
+					onClick={(event) => {
+						event.preventDefault();
+						setOpen(true);
+					}}
+				>
+					获取行业解决方案
+				</LandingOutlineButton>
 
-			<div className='mt-6 w-full'>
-				<SolutionsHeroBg />
+				<div className='mt-6 w-full'>
+					<SolutionsHeroBg />
+				</div>
 			</div>
-		</div>
+
+			<SolutionsLeadDialog
+				open={open}
+				onOpenChange={setOpen}
+			/>
+		</>
 	);
 }
