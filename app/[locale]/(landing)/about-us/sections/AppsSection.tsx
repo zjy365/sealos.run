@@ -3,13 +3,35 @@
 import { motion, useAnimationFrame, useInView, useMotionValue, useTransform } from 'motion/react';
 import Image from 'next/image';
 import React from 'react';
-import { CubeIcon } from '@/assets/icons';
+import {
+	BytebaseIcon,
+	CozeIcon,
+	DifyIcon,
+	ElasticIcon,
+	EmqxIcon,
+	FastgptIcon,
+	GrafanaIcon,
+	HarborIcon,
+	HasuraIcon,
+	HeadscaleIcon,
+	MeilisearchIcon,
+	MinioIcon,
+	NacosIcon,
+	NexusIcon,
+	NocodbIcon,
+	OpenclawIcon,
+	OpenobserveIcon,
+	RedisIcon,
+	SupabaseIcon,
+} from '@/assets/app-icons';
+import { AiProxyIcon, AppLaunchpadIcon, DatabaseStackedIcon, DevboxIcon, ObjectStorageIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
+import type { InlinedSvgData } from '@/libs/types';
 import { AppsSectionImage } from '../assets';
 
 type AppIconData = {
 	name: string;
-	iconSrc: typeof CubeIcon;
+	iconSrc: InlinedSvgData;
 	x: number;
 	y: number;
 	orbitRadius?: number;
@@ -48,76 +70,76 @@ function mirrorFrameToNormalX(mirroredX: number) {
 }
 
 const LEFT_APPS: AppIconData[] = [
-	{ name: '应用 1', iconSrc: CubeIcon, x: 125.225, y: 27.826 },
-	{ name: '应用 2', iconSrc: CubeIcon, x: 216.326, y: 27.826 },
-	{ name: '应用 3', iconSrc: CubeIcon, x: 80.225, y: 106.826 },
-	{ name: '应用 4', iconSrc: CubeIcon, x: 171.326, y: 106.826 },
-	{ name: '应用 5', iconSrc: CubeIcon, x: 35.225, y: 185.826 },
-	{ name: '应用 6', iconSrc: CubeIcon, x: 126.326, y: 185.826 },
-	{ name: '应用 7', iconSrc: CubeIcon, x: 80.317, y: 264.809 },
-	{ name: '应用 8', iconSrc: CubeIcon, x: 171.418, y: 264.809 },
-	{ name: '应用 9', iconSrc: CubeIcon, x: 126.326, y: 343.37 },
-	{ name: '应用 10', iconSrc: CubeIcon, x: 217.427, y: 343.37 },
+	{ name: 'NocoDB', iconSrc: NocodbIcon, x: 125.225, y: 27.826 },
+	{ name: 'Supabase', iconSrc: SupabaseIcon, x: 216.326, y: 27.826 },
+	{ name: 'Hasura', iconSrc: HasuraIcon, x: 80.225, y: 106.826 },
+	{ name: 'Meilisearch', iconSrc: MeilisearchIcon, x: 171.326, y: 106.826 },
+	{ name: 'EMQX', iconSrc: EmqxIcon, x: 35.225, y: 185.826 },
+	{ name: 'Harbor', iconSrc: HarborIcon, x: 126.326, y: 185.826 },
+	{ name: 'Nexus', iconSrc: NexusIcon, x: 80.317, y: 264.809 },
+	{ name: 'MinIO', iconSrc: MinioIcon, x: 171.418, y: 264.809 },
+	{ name: 'RedisInsight', iconSrc: RedisIcon, x: 126.326, y: 343.37 },
+	{ name: 'OpenObserve', iconSrc: OpenobserveIcon, x: 217.427, y: 343.37 },
 ];
 
 const RIGHT_APPS: AppIconData[] = [
 	{
-		name: '应用 11',
-		iconSrc: CubeIcon,
+		name: 'OpenClaw',
+		iconSrc: OpenclawIcon,
 		x: mirrorFrameToNormalX(884.653),
 		y: 27.826,
 	},
 	{
-		name: '应用 12',
-		iconSrc: CubeIcon,
+		name: 'FastGPT',
+		iconSrc: FastgptIcon,
 		x: mirrorFrameToNormalX(793.552),
 		y: 27.826,
 	},
 	{
-		name: '应用 13',
-		iconSrc: CubeIcon,
+		name: 'Dify',
+		iconSrc: DifyIcon,
 		x: mirrorFrameToNormalX(929.653),
 		y: 106.826,
 	},
 	{
-		name: '应用 14',
-		iconSrc: CubeIcon,
+		name: 'Coze',
+		iconSrc: CozeIcon,
 		x: mirrorFrameToNormalX(838.552),
 		y: 106.826,
 	},
 	{
-		name: '应用 15',
-		iconSrc: CubeIcon,
+		name: 'Nacos',
+		iconSrc: NacosIcon,
 		x: mirrorFrameToNormalX(974.653),
 		y: 185.826,
 	},
 	{
-		name: '应用 16',
-		iconSrc: CubeIcon,
+		name: 'Grafana',
+		iconSrc: GrafanaIcon,
 		x: mirrorFrameToNormalX(883.552),
 		y: 185.826,
 	},
 	{
-		name: '应用 17',
-		iconSrc: CubeIcon,
+		name: 'Harbor',
+		iconSrc: HarborIcon,
 		x: mirrorFrameToNormalX(929.56),
 		y: 264.809,
 	},
 	{
-		name: '应用 18',
-		iconSrc: CubeIcon,
+		name: 'Bytebase',
+		iconSrc: BytebaseIcon,
 		x: mirrorFrameToNormalX(838.459),
 		y: 264.809,
 	},
 	{
-		name: '应用 19',
-		iconSrc: CubeIcon,
+		name: 'Headscale',
+		iconSrc: HeadscaleIcon,
 		x: mirrorFrameToNormalX(883.551),
 		y: 343.37,
 	},
 	{
-		name: '应用 20',
-		iconSrc: CubeIcon,
+		name: 'Elastic',
+		iconSrc: ElasticIcon,
 		x: mirrorFrameToNormalX(792.45),
 		y: 343.37,
 	},
@@ -125,36 +147,36 @@ const RIGHT_APPS: AppIconData[] = [
 
 const CENTER_APPS: AppIconData[] = [
 	{
-		name: '核心应用 1',
-		iconSrc: CubeIcon,
+		name: 'AI 网关',
+		iconSrc: AiProxyIcon,
 		x: 304.353,
 		y: 127.28,
 		orbitRadius: CENTER_ORBIT_RADIUS,
 	},
 	{
-		name: '核心应用 2',
-		iconSrc: CubeIcon,
+		name: '云开发',
+		iconSrc: DevboxIcon,
 		x: 479.521,
 		y: 11.237,
 		orbitRadius: CENTER_ORBIT_RADIUS,
 	},
 	{
-		name: '核心应用 3',
-		iconSrc: CubeIcon,
+		name: '对象存储',
+		iconSrc: ObjectStorageIcon,
 		x: 642.695,
 		y: 127.28,
 		orbitRadius: CENTER_ORBIT_RADIUS,
 	},
 	{
-		name: '核心应用 4',
-		iconSrc: CubeIcon,
+		name: '数据库',
+		iconSrc: DatabaseStackedIcon,
 		x: 588.537,
 		y: 299.875,
 		orbitRadius: CENTER_ORBIT_RADIUS,
 	},
 	{
-		name: '核心应用 5',
-		iconSrc: CubeIcon,
+		name: '应用管理',
+		iconSrc: AppLaunchpadIcon,
 		x: 372.766,
 		y: 299.875,
 		orbitRadius: CENTER_ORBIT_RADIUS,
@@ -198,7 +220,7 @@ function SideIconItem({ item, delay, visible }: { item: AppIconData; delay: numb
 					src={item.iconSrc}
 					className='text-brand size-3 sm:size-8'
 				/>
-				<p className='text-foreground mt-1 scale-75 text-[8px] leading-none whitespace-nowrap sm:scale-100 sm:text-[10px]'>
+				<p className='text-foreground mt-1 scale-75 text-center text-[8px] leading-none whitespace-nowrap sm:scale-100 sm:text-[10px]'>
 					{item.name}
 				</p>
 			</motion.div>
@@ -267,7 +289,7 @@ function CenterOrbitItem({
 						src={item.iconSrc}
 						className='text-brand size-full'
 					/>
-					<p className='text-foreground mt-2 scale-75 text-[10px] leading-none whitespace-nowrap sm:scale-100 sm:text-sm'>
+					<p className='text-foreground mt-2 scale-75 text-center text-[10px] leading-none whitespace-nowrap sm:scale-100 sm:text-sm'>
 						{item.name}
 					</p>
 				</motion.div>
@@ -358,8 +380,7 @@ export function AppsSection() {
 					>
 						{RIGHT_APPS.map((item, index) => (
 							<SideIconItem
-								// biome-ignore lint/suspicious/noArrayIndexKey: has index related delay
-								key={index}
+								key={item.name}
 								item={item}
 								visible={isInView}
 								delay={rightPopStart + index * SIDE_ICON_POP_STAGGER}
@@ -379,8 +400,7 @@ export function AppsSection() {
 					>
 						{LEFT_APPS.map((item, index) => (
 							<SideIconItem
-								// biome-ignore lint/suspicious/noArrayIndexKey: has index related delay
-								key={index}
+								key={item.name}
 								item={item}
 								visible={isInView}
 								delay={leftPopStart + index * SIDE_ICON_POP_STAGGER}
@@ -403,8 +423,7 @@ export function AppsSection() {
 
 							return (
 								<CenterOrbitItem
-									// biome-ignore lint/suspicious/noArrayIndexKey: has index related delay
-									key={index}
+									key={item.name}
 									item={item}
 									visible={isInView}
 									delay={centerDelay + 0.2 + index * 0.06}

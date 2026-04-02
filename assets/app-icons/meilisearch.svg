@@ -1,0 +1,55 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  data-colorful="true"
+  data-type="icon"
+  viewBox="0 0 41.15 25"
+>
+  <path
+    fill="url(#a)"
+    d="M0 24.497 7.603 5.045A7.15 7.15 0 0 1 14.259.5h4.584L11.24 19.952a7.15 7.15 0 0 1-6.657 4.545z"
+  />
+  <path
+    fill="url(#b)"
+    d="m11.153 24.497 7.603-19.452A7.15 7.15 0 0 1 25.412.5h4.584l-7.603 19.452a7.15 7.15 0 0 1-6.656 4.545z"
+  />
+  <path
+    fill="url(#c)"
+    d="M22.307 24.497 29.91 5.045A7.15 7.15 0 0 1 36.566.5h4.584l-7.603 19.452a7.15 7.15 0 0 1-6.656 4.545z"
+  />
+  <defs>
+    <linearGradient
+      id="a"
+      x1="41.15"
+      x2="0"
+      y1="-1.333"
+      y2="21.915"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ff5caa" />
+      <stop offset="1" stop-color="#ff4e62" />
+    </linearGradient>
+    <linearGradient
+      id="b"
+      x1="41.15"
+      x2="0"
+      y1="-1.333"
+      y2="21.915"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ff5caa" />
+      <stop offset="1" stop-color="#ff4e62" />
+    </linearGradient>
+    <linearGradient
+      id="c"
+      x1="41.15"
+      x2="0"
+      y1="-1.333"
+      y2="21.915"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ff5caa" />
+      <stop offset="1" stop-color="#ff4e62" />
+    </linearGradient>
+  </defs>
+</svg>
