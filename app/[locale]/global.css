@@ -6,6 +6,8 @@
 
 @import "./ayu-light.css";
 
+@source "../..";
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
