@@ -35,6 +35,7 @@ export const appstore = defineDocs({
 		schema: pageSchema.extend({
 			category: z.string().optional(),
 			deployCount: z.coerce.number().int().positive().optional(),
+			github: z.url().optional(),
 			starsText: z.string().optional(),
 			versionText: z.string().optional(),
 			trendDeltaText: z.string().optional(),
@@ -59,6 +60,67 @@ export const aiproxyModels = defineCollections({
 		outputPrice: z.coerce.number().nonnegative(),
 		capabilities: z.array(aiproxyCapabilitySchema).default([]),
 	}),
+});
+
+const githubUserSchema = z.looseObject({
+	login: z.string(),
+	id: z.coerce.number().int().nonnegative(),
+	node_id: z.string().optional(),
+	avatar_url: z.url().optional(),
+	html_url: z.url().optional(),
+	type: z.string().optional(),
+	site_admin: z.boolean().optional(),
+});
+
+const githubLicenseSchema = z.looseObject({
+	key: z.string().optional(),
+	name: z.string().optional(),
+	spdx_id: z.string().nullable().optional(),
+	url: z.url().nullable().optional(),
+	node_id: z.string().optional(),
+});
+
+const githubRepositorySchema = z.looseObject({
+	id: z.coerce.number().int().nonnegative(),
+	node_id: z.string(),
+	name: z.string(),
+	full_name: z.string(),
+	private: z.boolean(),
+	owner: githubUserSchema,
+	html_url: z.url(),
+	description: z.string().nullable().optional(),
+	fork: z.boolean().optional(),
+	url: z.string().optional(),
+	homepage: z.string().nullable().optional(),
+	language: z.string().nullable().optional(),
+	topics: z.array(z.string()).optional(),
+	visibility: z.string().optional(),
+	default_branch: z.string().optional(),
+	archived: z.boolean().optional(),
+	disabled: z.boolean().optional(),
+	open_issues_count: z.coerce.number().int().nonnegative().optional(),
+	stargazers_count: z.coerce.number().int().nonnegative().optional(),
+	watchers_count: z.coerce.number().int().nonnegative().optional(),
+	subscribers_count: z.coerce.number().int().nonnegative().optional(),
+	forks_count: z.coerce.number().int().nonnegative().optional(),
+	network_count: z.coerce.number().int().nonnegative().optional(),
+	size: z.coerce.number().int().nonnegative().optional(),
+	has_issues: z.boolean().optional(),
+	has_projects: z.boolean().optional(),
+	has_discussions: z.boolean().optional(),
+	has_wiki: z.boolean().optional(),
+	has_pages: z.boolean().optional(),
+	has_downloads: z.boolean().optional(),
+	pushed_at: z.iso.datetime().optional(),
+	updated_at: z.iso.datetime().optional(),
+	created_at: z.iso.datetime().optional(),
+	license: githubLicenseSchema.nullable().optional(),
+});
+
+export const githubMetadata = defineCollections({
+	type: 'meta',
+	dir: 'content/content/github-metadata',
+	schema: githubRepositorySchema,
 });
 
 export default defineConfig({
