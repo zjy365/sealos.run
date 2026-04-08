@@ -2,20 +2,59 @@ import Image from 'next/image';
 import {
 	AiproxyBoxImage,
 	AppstoreBoxImage,
-	BrainBoxImage,
 	DatabaseBoxImage,
 	DevboxBoxImage,
+	K8sBoxImage,
+	LaunchpadBoxImage,
 	OssBoxImage,
 } from '@/assets/app-boxes';
+import { Link } from '@/libs/i18n/navigation';
 import { HeroBgImage } from '../assets';
 
 const appBoxIcons = [
-	{ id: 'aiproxy', src: AiproxyBoxImage, x: 952.06, y: 319.58 },
-	{ id: 'appstore', src: AppstoreBoxImage, x: 583.56, y: 106.5 },
-	{ id: 'brain', src: BrainBoxImage, x: 276.56, y: 213.08 },
-	{ id: 'database', src: DatabaseBoxImage, x: 461.06, y: 319.08 },
-	{ id: 'devbox', src: DevboxBoxImage, x: 952.06, y: 107.58 },
-	{ id: 'oss', src: OssBoxImage, x: 767.86, y: 425.58 },
+	{ id: 'oss', src: OssBoxImage, href: '/products/oss', x: 952.06, y: 319.58 },
+	{
+		id: 'launchpad',
+		src: LaunchpadBoxImage,
+		href: '/products/launchpad',
+		x: 583.56,
+		y: 106.5,
+	},
+	{
+		id: 'aiproxy',
+		src: AiproxyBoxImage,
+		href: '/products/aiproxy',
+		x: 276.56,
+		y: 213.08,
+	},
+	{
+		id: 'database',
+		src: DatabaseBoxImage,
+		href: '/products/database',
+		x: 461.06,
+		y: 319.08,
+	},
+	{
+		id: 'appstore',
+		src: AppstoreBoxImage,
+		href: '/products/appstore',
+		x: 952.06,
+		y: 107.58,
+	},
+	{
+		id: 'devbox',
+		src: DevboxBoxImage,
+		href: '/products/devbox',
+		x: 767.6,
+		y: 213.38,
+	},
+	{
+		id: 'manage',
+		src: K8sBoxImage,
+		href: '#',
+		x: 767.86,
+		y: 425.98,
+	},
 ];
 
 const VIEWBOX_WIDTH = 1440;
@@ -62,6 +101,11 @@ export function HeroBg() {
 						height: 100%;
 						object-fit: contain;
 					}
+					.app-box-icon a {
+						display: block;
+						width: 100%;
+						height: 100%;
+					}
 				`}
 				</style>
 				{/* Background Image */}
@@ -87,10 +131,15 @@ export function HeroBg() {
 						height='142.68'
 						className='app-box-icon'
 					>
-						<Image
-							src={icon.src}
-							alt={icon.id}
-						/>
+						<Link
+							href={icon.href}
+							aria-label={icon.id}
+						>
+							<Image
+								src={icon.src}
+								alt={icon.id}
+							/>
+						</Link>
 					</foreignObject>
 				))}
 			</svg>

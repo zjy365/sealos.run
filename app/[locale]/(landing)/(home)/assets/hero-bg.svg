@@ -46,7 +46,7 @@
     letter-spacing="0em"
     style="white-space: pre"
   >
-    <tspan x="618.2" y="184.7">App Store</tspan>
+    <tspan x="621.2" y="184.7">应用部署</tspan>
   </text>
   <path
     stroke="#005BFF"
@@ -61,13 +61,19 @@
     letter-spacing="0em"
     style="white-space: pre"
   >
-    <tspan x="990.8" y="182">DevBox</tspan>
+    <tspan x="986.8" y="182">开源商店</tspan>
   </text>
   <path
     stroke="#005BFF"
     stroke-opacity=".3"
     stroke-width=".9"
     d="M1058.3 365.5v52.3L1013 444l-45.3-26.2v-52.3l45.3-26.1 45.3 26.1Z"
+  />
+  <path
+    stroke="#005BFF"
+    stroke-opacity=".3"
+    stroke-width=".9"
+    d="M874.5 258.5v52.3l-45.3 26.2-45.3-26.2v-52.3l45.3-26.1 45.3 26.1Z"
   />
   <text
     xml:space="preserve"
@@ -76,7 +82,7 @@
     letter-spacing="0em"
     style="white-space: pre"
   >
-    <tspan x="990" y="396">AI proxy</tspan>
+    <tspan x="987" y="396">OSS 存储</tspan>
   </text>
   <path
     stroke="#005BFF"
@@ -91,7 +97,16 @@
     letter-spacing="0em"
     style="white-space: pre"
   >
-    <tspan x="816.6" y="501.6">OSS</tspan>
+    <tspan x="802.6" y="501.6">集群管理</tspan>
+  </text>
+  <text
+    xml:space="preserve"
+    fill="#005BFF"
+    font-size="12.4"
+    letter-spacing="0em"
+    style="white-space: pre"
+  >
+    <tspan x="808.6" y="289.6">DevBox</tspan>
   </text>
   <path
     stroke="#005BFF"
@@ -106,7 +121,7 @@
     letter-spacing="0em"
     style="white-space: pre"
   >
-    <tspan x="495.8" y="396">Database</tspan>
+    <tspan x="503.2" y="396">数据库</tspan>
   </text>
   <path
     stroke="#005BFF"
@@ -122,93 +137,9 @@
     opacity=".5"
     style="white-space: pre"
   >
-    <tspan x="304.4" y="288.6">Sealos Brain</tspan>
+    <tspan x="319.4" y="288.6">AI 网关</tspan>
   </text>
-  <foreignObject width="64.8" height="109.7" x="766.6" y="211.8"
-    ><div
-      xmlns="http://www.w3.org/1999/xhtml"
-      style="
-        backdrop-filter: blur(0.44px);
-        clip-path: url(#k);
-        height: 100%;
-        width: 100%;
-      "
-  /></foreignObject>
-  <path
-    fill="#fff"
-    fill-opacity=".4"
-    stroke="url(#l)"
-    stroke-width=".9"
-    d="m768 248.9 61.4-35.4.7 71.6-62.2 34.7V249Z"
-    data-figma-bg-blur-radius=".9"
-  />
-  <path
-    fill="#EEF0F7"
-    stroke="url(#m)"
-    stroke-opacity=".3"
-    stroke-width=".4"
-    d="m829.4 285.4-61.9 35.2 61.7 35.5 61.7-36-61.5-34.7Z"
-  />
-  <path
-    stroke="url(#n)"
-    stroke-opacity=".3"
-    stroke-width=".9"
-    d="m876 258-46.7 26.3v52"
-  />
-  <path
-    fill="#F4F4F5"
-    fill-opacity=".4"
-    stroke="#CCDAFF"
-    stroke-width=".4"
-    d="m890.8 248.7-61.3-35 .3 71.8 61 34.5v-71.3Z"
-  />
-  <path
-    fill="#A3C4FF"
-    stroke="#005BFF"
-    stroke-width=".4"
-    d="m820.2 299.2-18.8-11v-10.5l18.8 11V244.7l-28.3 16.4v43.4l37.8 21.9 37.4-21.7v-43.6l-18.7-10.9-18.7 10.9v32.5l-9.5 5.5Z"
-  />
-  <path
-    stroke="#005BFF"
-    stroke-width=".4"
-    d="m829.6 261.3 18.7 10.8m0 0 18.8-10.8M848.3 272v32.6m-18.7 10.9 18.7-10.9m-18.7 10.9-37.7-21.8 9.4-5.5m28.3 27.3v11m0-32.8 18.7 10.9"
-  />
-  <foreignObject width="64.7" height="109.7" x="827.4" y="247.5"
-    ><div
-      xmlns="http://www.w3.org/1999/xhtml"
-      style="
-        backdrop-filter: blur(0.44px);
-        clip-path: url(#o);
-        height: 100%;
-        width: 100%;
-      "
-  /></foreignObject>
-  <path
-    fill="#C9D3EE"
-    fill-opacity=".4"
-    stroke="url(#p)"
-    stroke-width=".9"
-    d="m828.8 284.5 62-35.3V320l-61.2 35.5-.8-71.1Z"
-    data-figma-bg-blur-radius=".9"
-  />
-  <foreignObject width="125.9" height="74" x="766.6" y="212"
-    ><div
-      xmlns="http://www.w3.org/1999/xhtml"
-      style="
-        backdrop-filter: blur(0.44px);
-        clip-path: url(#q);
-        height: 100%;
-        width: 100%;
-      "
-  /></foreignObject>
-  <path
-    fill="#E4EAFB"
-    fill-opacity=".4"
-    stroke="url(#r)"
-    stroke-width=".9"
-    d="m829.5 213.4-61.1 35.2 60.7 36 61.6-35.6-61.2-35.6Z"
-    data-figma-bg-blur-radius=".9"
-  />
+
   <defs>
     <linearGradient
       id="a"
