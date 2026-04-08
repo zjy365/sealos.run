@@ -7,7 +7,7 @@ export function FeaturesSection() {
 	const { activeBoxIndex, setActiveBoxIndex } = useFeatures();
 
 	return (
-		<div className='flex w-full flex-col gap-16'>
+		<div className='flex w-full flex-col gap-16 pt-3'>
 			<div className='flex w-full flex-col justify-between gap-6 md:flex-row md:items-center'>
 				<div className='flex flex-col gap-4'>
 					<h2 className='text-xl font-semibold sm:text-3xl'>云基座</h2>
