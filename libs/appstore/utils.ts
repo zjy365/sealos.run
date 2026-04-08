@@ -1,6 +1,7 @@
 import 'server-only';
 
 import React from 'react';
+import { getGitHubRepositoryStatsForTemplate } from '@/libs/github-metadata/utils';
 import { APPSTORE_CATEGORIES, APPSTORE_TREND_RANKS } from './constants';
 import { appstore } from './source';
 import type {
@@ -50,6 +51,19 @@ function safeSlug(page: AppStorePage, locale: string): string {
 	return normalized.replace(/^\/products\/appstore\/?/, '').replace(/^\/+/, '');
 }
 
+function mergeTemplateGithubMetadata(template: AppStoreTemplate): AppStoreTemplate {
+	const githubStats = getGitHubRepositoryStatsForTemplate(template);
+	if (!githubStats) {
+		return template;
+	}
+
+	return {
+		...template,
+		github: githubStats.htmlUrl,
+		starsText: githubStats.starsText || template.starsText,
+	};
+}
+
 export function getAppStoreTemplates(locale: string = 'zh'): AppStoreTemplate[] {
 	return getAppStoreTemplatesCached(locale);
 }
@@ -66,7 +80,7 @@ const getAppStoreTemplatesCached = React.cache((locale: string): AppStoreTemplat
 		const description = data.description ?? '';
 		const category = (getCategory(data) ?? 'tool') as AppStoreTemplateCategory;
 
-		return {
+		return mergeTemplateGithubMetadata({
 			slug: safeSlug(p, locale),
 			title,
 			description,
@@ -77,7 +91,7 @@ const getAppStoreTemplatesCached = React.cache((locale: string): AppStoreTemplat
 			versionText: data.versionText,
 			trendDeltaText: data.trendDeltaText,
 			thumbnail: data.thumbnail,
-		};
+		});
 	});
 });
 

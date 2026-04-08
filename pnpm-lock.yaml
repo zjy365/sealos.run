@@ -55,6 +55,9 @@ importers:
       fumadocs-ui:
         specifier: ^16.4.1
         version: 16.4.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(lucide-react@0.562.0(react@19.2.3))(next@16.1.1(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(tailwindcss@4.1.18)(zod@4.3.6)
+      fuse.js:
+        specifier: ^7.3.0
+        version: 7.3.0
       highlight.js:
         specifier: ^11.11.1
         version: 11.11.1
@@ -2924,6 +2927,13 @@ packages:
         optional: true
       tailwindcss:
         optional: true
+
+  fuse.js@7.3.0:
+    resolution:
+      {
+        integrity: sha512-plz8RVjfcDedTGfVngWH1jmJvBvAwi1v2jecfDerbEnMcmOYUEEwKFTHbNoCiYyzaK2Ws8lABkTCcRSqCY1q4w==,
+      }
+    engines: { node: '>=10' }
 
   get-nonce@1.0.1:
     resolution:
@@ -6175,6 +6185,8 @@ snapshots:
       - supports-color
       - waku
       - zod
+
+  fuse.js@7.3.0: {}
 
   get-nonce@1.0.1: {}
 

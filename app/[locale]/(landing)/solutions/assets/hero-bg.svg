@@ -619,7 +619,7 @@
       letter-spacing="0em"
       style="white-space: pre"
     >
-      <tspan x="425.364" y="337.468">Database</tspan>
+      <tspan x="420.364" y="337.468">AI 模型调用</tspan>
     </text>
     <path
       fill="#fff"
@@ -639,7 +639,7 @@
       letter-spacing="0em"
       style="white-space: pre"
     >
-      <tspan x="290.305" y="180.322">APP Store</tspan>
+      <tspan x="295.305" y="180.322">应用部署</tspan>
     </text>
     <path
       fill="#fff"
@@ -659,7 +659,7 @@
       letter-spacing="0em"
       style="white-space: pre"
     >
-      <tspan x="1005.8" y="211.12">App Launchpad</tspan>
+      <tspan x="1026.8" y="219.12">集群管理</tspan>
     </text>
     <path
       fill="#fafafa"
@@ -699,7 +699,7 @@
       letter-spacing="0em"
       style="white-space: pre"
     >
-      <tspan x="108.792" y="296.997">OSS</tspan>
+      <tspan x="81.792" y="296.997">高可用数据库</tspan>
     </text>
     <path
       fill="#fafafa"
@@ -748,7 +748,7 @@
       letter-spacing="0em"
       style="white-space: pre"
     >
-      <tspan x="762.306" y="299.204">AI Proxy</tspan>
+      <tspan x="768.306" y="299.204">云开发</tspan>
     </text>
     <path
       fill="#fafafa"
@@ -778,7 +778,7 @@
       letter-spacing="0em"
       style="white-space: pre"
     >
-      <tspan x="948.17" y="417.244">Sealos Brain</tspan>
+      <tspan x="976.17" y="417.244">API</tspan>
     </text>
     <path
       fill="#fafafa"
@@ -817,7 +817,7 @@
       letter-spacing="0em"
       style="white-space: pre"
     >
-      <tspan x="565.5" y="497.342">DevBox</tspan>
+      <tspan x="560.2" y="497.342">集群运维</tspan>
     </text>
     <path
       stroke="#005bff"

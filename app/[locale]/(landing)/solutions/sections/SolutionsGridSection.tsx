@@ -430,7 +430,7 @@ function SolutionsTabPill({
 			className={cn(
 				'px-4 text-xs leading-normal transition-colors sm:text-xl',
 				active
-					? 'border-border text-foreground bg-white sm:font-semibold'
+					? 'text-brand border-brand hover:text-brand bg-white sm:font-semibold'
 					: 'border-border text-muted-foreground bg-transparent font-normal hover:bg-white/70',
 			)}
 		>

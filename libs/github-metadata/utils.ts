@@ -70,6 +70,15 @@ function formatGitHubCount(value?: number) {
 	return formatted.replace(/([KMBT])$/u, ' $1');
 }
 
+function formatGitHubStarsText(value?: number) {
+	const countText = formatGitHubCount(value);
+	if (countText === '-') {
+		return countText;
+	}
+
+	return `${countText} Stars`;
+}
+
 function getNormalizedFullName(entry: GitHubMetadataEntry) {
 	return entry.full_name.toLowerCase();
 }
@@ -85,7 +94,7 @@ function normalizeGitHubMetadataEntry(entry: GitHubMetadataEntry): GitHubReposit
 		htmlUrl: entry.html_url,
 		repo: getNormalizedFullName(entry),
 		starsCount,
-		starsText: formatGitHubCount(starsCount),
+		starsText: formatGitHubStarsText(starsCount),
 		watchersCount,
 		watchersText: formatGitHubCount(watchersCount),
 	};

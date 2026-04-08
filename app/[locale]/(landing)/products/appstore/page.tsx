@@ -1,33 +1,18 @@
 import Image from 'next/image';
-import { HeroBgImage, ReqBgImage } from './assets';
+import { getAppStoreTemplates } from '@/libs/appstore/utils';
+import { ReqBgImage } from './assets';
+import { AppStoreSearchExperience } from './sections/AppStoreSearchExperience';
 import { CTASection } from './sections/CTASection';
-import { HeroSection } from './sections/HeroSection';
 import { RequestSection } from './sections/RequestSection';
-import { TemplatesSection } from './sections/TemplatesSection';
 import { TrendsSection } from './sections/TrendsSection';
 
 export default async function AppStorePage({ params }: { params: Promise<{ locale: string }> }) {
 	const { locale } = await params;
+	const templates = getAppStoreTemplates(locale);
 
 	return (
 		<div className='flex w-full flex-col'>
-			<section className='relative w-full overflow-hidden pt-64 pb-6'>
-				<div className='pointer-events-none absolute inset-x-0 top-0 -z-10 select-none'>
-					<Image
-						src={HeroBgImage}
-						alt=''
-						priority
-						className='mx-auto h-auto w-full max-w-360 min-w-200'
-					/>
-				</div>
-				<div className='container mx-auto px-6'>
-					<HeroSection />
-				</div>
-			</section>
-
-			<section className='container mx-auto px-6 py-16 pt-36'>
-				<TemplatesSection locale={locale} />
-			</section>
+			<AppStoreSearchExperience templates={templates} />
 
 			<section className='container mx-auto px-6 py-16'>
 				<TrendsSection locale={locale} />

@@ -15,7 +15,15 @@ const categoryLabelKeyMap = Object.fromEntries(
 	APPSTORE_CATEGORY_META.map((item) => [item.slug, item.labelKey]),
 ) as Record<AppStoreCategory, string | undefined>;
 
-function CategoryPill({ active, children, onClick }: { active: boolean; children: string; onClick: () => void }) {
+const CategoryPill = React.memo(function CategoryPill({
+	active,
+	children,
+	onClick,
+}: {
+	active: boolean;
+	children: string;
+	onClick: () => void;
+}) {
 	return (
 		<Button
 			type='button'
@@ -24,15 +32,17 @@ function CategoryPill({ active, children, onClick }: { active: boolean; children
 			onClick={onClick}
 			className={cn(
 				'rounded-full px-4 py-2 text-xl leading-normal transition-colors',
-				active ? 'text-foreground bg-white font-semibold' : 'text-muted-foreground bg-transparent font-normal',
+				active
+					? 'text-brand border-brand hover:text-brand bg-white font-semibold'
+					: 'text-muted-foreground bg-transparent font-normal',
 			)}
 		>
 			{children}
 		</Button>
 	);
-}
+});
 
-function StackedHexagons({ text }: { text?: string }) {
+const StackedHexagons = React.memo(function StackedHexagons({ text }: { text?: string }) {
 	return (
 		<div className='flex items-center pr-1'>
 			<div className='text-brand relative z-30 -mr-3 flex size-7 items-center justify-center'>
@@ -56,9 +66,15 @@ function StackedHexagons({ text }: { text?: string }) {
 			</div>
 		</div>
 	);
-}
+});
 
-function TemplateCard({ data, categoryName }: { data: AppStoreTemplate; categoryName?: string }) {
+const TemplateCard = React.memo(function TemplateCard({
+	data,
+	categoryName,
+}: {
+	data: AppStoreTemplate;
+	categoryName?: string;
+}) {
 	return (
 		<div className='flex flex-col gap-2 rounded-lg border p-6'>
 			<div className='flex items-start justify-between'>
@@ -102,16 +118,34 @@ function TemplateCard({ data, categoryName }: { data: AppStoreTemplate; category
 			</div>
 		</div>
 	);
-}
+});
 
-export function TemplatesSectionClient({ templates }: { templates: AppStoreTemplate[] }) {
+type TemplatesSectionClientProps = {
+	templates: AppStoreTemplate[];
+	activeCategory?: AppStoreCategory | null;
+	onCategoryChange?: (category: AppStoreCategory) => void;
+	searchQuery?: string;
+	searchVersion?: number;
+};
+
+export const TemplatesSectionClient = React.memo(function TemplatesSectionClient({
+	templates,
+	activeCategory: controlledActiveCategory,
+	onCategoryChange,
+	searchQuery = '',
+	searchVersion = 0,
+}: TemplatesSectionClientProps) {
 	const t = useTranslations('pages.appstore.sections.templates');
-	const [activeCategory, setActiveCategory] = React.useState<AppStoreCategory>('all');
 	const scrollRef = React.useRef<HTMLDivElement | null>(null);
+	const [uncontrolledActiveCategory, setUncontrolledActiveCategory] = React.useState<AppStoreCategory>('all');
+	const activeCategory =
+		controlledActiveCategory === undefined ? uncontrolledActiveCategory : controlledActiveCategory;
+	const handleCategoryChange = onCategoryChange ?? setUncontrolledActiveCategory;
 
 	const filtered = React.useMemo(() => {
+		if (activeCategory === null) return templates;
 		if (activeCategory === 'all') return templates;
-		return templates.filter((t) => t.category === activeCategory);
+		return templates.filter((template) => template.category === activeCategory);
 	}, [templates, activeCategory]);
 
 	return (
@@ -122,8 +156,8 @@ export function TemplatesSectionClient({ templates }: { templates: AppStoreTempl
 						key={category.slug}
 						active={activeCategory === category.slug}
 						onClick={() => {
-							if (scrollRef.current) scrollRef.current.scrollTop = 0;
-							setActiveCategory(category.slug);
+							scrollRef.current?.scrollTo({ top: 0 });
+							handleCategoryChange(category.slug);
 						}}
 					>
 						{t(`categories.${category.labelKey}`)}
@@ -132,27 +166,33 @@ export function TemplatesSectionClient({ templates }: { templates: AppStoreTempl
 			</div>
 
 			<div
+				key={searchVersion}
 				ref={scrollRef}
 				className={cn(
 					'w-full overflow-y-auto bg-linear-to-b from-white to-zinc-50 px-5 py-10',
-					// show ~2 rows, scroll for the rest
 					'max-h-[60vh] lg:max-h-[55vh]',
 				)}
 			>
-				<div className='grid w-full grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3'>
-					{filtered.map((template) => (
-						<TemplateCard
-							key={template.slug}
-							categoryName={
-								categoryLabelKeyMap[template.category]
-									? t(`categories.${categoryLabelKeyMap[template.category]}`)
-									: undefined
-							}
-							data={template}
-						/>
-					))}
-				</div>
+				{filtered.length > 0 ? (
+					<div className='grid w-full grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3'>
+						{filtered.map((template) => (
+							<TemplateCard
+								key={template.slug}
+								categoryName={
+									categoryLabelKeyMap[template.category]
+										? t(`categories.${categoryLabelKeyMap[template.category]}`)
+										: undefined
+								}
+								data={template}
+							/>
+						))}
+					</div>
+				) : (
+					<div className='text-muted-foreground flex min-h-50 items-center justify-center text-center text-base'>
+						{searchQuery ? `未找到与 “${searchQuery}” 相关的应用` : '暂无应用'}
+					</div>
+				)}
 			</div>
 		</div>
 	);
-}
+});

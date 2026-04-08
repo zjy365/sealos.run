@@ -1,11 +1,23 @@
 import Image from 'next/image';
+import React from 'react';
 import { AppstoreBoxImage } from '@/assets/app-boxes';
 import { FireIcon, SubmitIcon } from '@/assets/icons';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { Icon } from '@/libs/components/ui/icon';
 import { Input } from '@/libs/components/ui/input';
 
-export function HeroSection() {
+type HeroSectionProps = {
+	query: string;
+	onQueryChange: (value: string) => void;
+	onSearch: () => void;
+};
+
+export const HeroSection = React.memo(function HeroSection({ query, onQueryChange, onSearch }: HeroSectionProps) {
+	function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+		event.preventDefault();
+		onSearch();
+	}
+
 	return (
 		<div className='text-foreground flex w-full flex-col items-center gap-10'>
 			<div className='flex flex-col items-center gap-14'>
@@ -28,20 +40,24 @@ export function HeroSection() {
 				</p>
 			</div>
 
-			<form className='bg-muted flex w-full max-w-4xl items-center justify-between py-2.5 pr-2 pl-5'>
+			<form
+				onSubmit={handleSubmit}
+				className='bg-muted flex w-full max-w-4xl items-center justify-between py-2.5 pr-2 pl-5'
+			>
 				<Input
 					className='min-w-0 flex-1 border-0 bg-transparent px-0 py-0 text-base shadow-none focus-visible:border-transparent focus-visible:ring-0'
 					placeholder='搜索项目名称、GitHub 仓库或关键词...'
 					name='q'
 					aria-label='搜索应用'
+					value={query}
+					onChange={(event) => onQueryChange(event.target.value)}
 				/>
-				<LandingOutlineButton
-					href='#templates'
-					size='md'
-					className='shrink-0 text-base font-semibold'
+				<button
+					type='submit'
+					className='border-foreground hover:text-brand hover:border-brand h-11 shrink-0 rounded-full border bg-transparent px-4 text-base font-semibold shadow-none backdrop-blur-sm transition-colors'
 				>
 					搜索
-				</LandingOutlineButton>
+				</button>
 			</form>
 
 			<div className='flex flex-wrap items-center justify-center gap-3'>
@@ -78,4 +94,4 @@ export function HeroSection() {
 			</div>
 		</div>
 	);
-}
+});
