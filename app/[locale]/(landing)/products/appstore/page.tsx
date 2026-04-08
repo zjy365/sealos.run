@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { getAppStoreTemplates } from '@/libs/appstore/utils';
+import { Config } from '@/libs/config';
 import { ReqBgImage } from './assets';
 import { AppStoreSearchExperience } from './sections/AppStoreSearchExperience';
 import { CTASection } from './sections/CTASection';
@@ -9,6 +10,7 @@ import { TrendsSection } from './sections/TrendsSection';
 export default async function AppStorePage({ params }: { params: Promise<{ locale: string }> }) {
 	const { locale } = await params;
 	const templates = getAppStoreTemplates(locale);
+	const templateRequestFormConfig = Config.pages.appstore.templateRequestForm;
 
 	return (
 		<div className='flex w-full flex-col'>
@@ -29,7 +31,7 @@ export default async function AppStorePage({ params }: { params: Promise<{ local
 					</div>
 				</div>
 				<div className='container mx-auto px-6'>
-					<RequestSection />
+					<RequestSection templateRequestFormConfig={templateRequestFormConfig} />
 				</div>
 			</section>
 

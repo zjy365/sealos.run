@@ -1,8 +1,53 @@
-import { CheckOverFrameIcon, FlatArrowRightIcon, LightningOverFrameIcon, QuestionIcon } from '@/assets/icons';
-import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
+'use client';
+
+import React from 'react';
+import { z } from 'zod';
+import { CheckOverFrameIcon, FramedCheckIcon, LightningOverFrameIcon, QuestionIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
 import { Input } from '@/libs/components/ui/input';
-import { Config } from '@/libs/config';
+
+const TemplateRequestFormInputSchema = z.object({
+	repoUrl: z
+		.string()
+		.trim()
+		.min(1, '请输入 GitHub 仓库地址')
+		.url('请输入有效的 GitHub 仓库地址')
+		.refine((value) => {
+			try {
+				return new URL(value).hostname === 'github.com';
+			} catch {
+				return false;
+			}
+		}, '请输入有效的 GitHub 仓库地址'),
+});
+
+const TemplateRequestFormSchema = z.object({
+	repoUrl: z.url(),
+});
+
+const SubmitTemplateRequestFormRequestSchema = z.object({
+	meta: z.object({
+		formVersion: z.string().min(1),
+	}),
+	formValues: TemplateRequestFormSchema,
+});
+
+type RequestSectionProps = {
+	templateRequestFormConfig: {
+		endpoint: string;
+		version: string;
+	};
+};
+
+type TemplateRequestFormValues = {
+	repoUrl: string;
+};
+
+type FormErrors = Partial<Record<keyof TemplateRequestFormValues | 'form', string>>;
+
+const initialValues: TemplateRequestFormValues = {
+	repoUrl: '',
+};
 
 function FeaturePill({ icon, text }: { icon: Parameters<typeof Icon>[0]['src']; text: string }) {
 	return (
@@ -18,8 +63,87 @@ function FeaturePill({ icon, text }: { icon: Parameters<typeof Icon>[0]['src']; 
 	);
 }
 
-export function RequestSection() {
-	const { contactLink } = Config.components.navbar;
+function buildRequestBody(values: TemplateRequestFormValues, formVersion: string) {
+	return {
+		meta: {
+			formVersion,
+		},
+		formValues: {
+			repoUrl: values.repoUrl.trim(),
+		},
+	};
+}
+
+export function RequestSection({ templateRequestFormConfig }: RequestSectionProps) {
+	const [values, setValues] = React.useState(initialValues);
+	const [errors, setErrors] = React.useState<FormErrors>({});
+	const [isSubmitting, setIsSubmitting] = React.useState(false);
+	const [isSubmitted, setIsSubmitted] = React.useState(false);
+
+	const handleSubmit = React.useCallback(
+		async (event: React.FormEvent<HTMLFormElement>) => {
+			event.preventDefault();
+
+			const parsedFormValues = TemplateRequestFormInputSchema.safeParse(values);
+
+			if (!parsedFormValues.success) {
+				setErrors({
+					repoUrl: parsedFormValues.error.flatten().fieldErrors.repoUrl?.[0],
+				});
+				return;
+			}
+
+			if (!templateRequestFormConfig.endpoint) {
+				setErrors({
+					form: '表单提交地址未配置，请先在 site config 中补充 endpoint。',
+				});
+				return;
+			}
+
+			const requestBody = buildRequestBody(parsedFormValues.data, templateRequestFormConfig.version);
+			const parsedRequest = SubmitTemplateRequestFormRequestSchema.safeParse(requestBody);
+
+			if (!parsedRequest.success) {
+				setErrors({ form: '表单配置异常，请稍后重试。' });
+				return;
+			}
+
+			setIsSubmitting(true);
+			setErrors({});
+
+			try {
+				const response = await fetch(templateRequestFormConfig.endpoint, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(parsedRequest.data),
+				});
+
+				const responseData = (await response.json().catch(() => null)) as {
+					error?: {
+						code?: string;
+						message?: string;
+					};
+				} | null;
+
+				if (!response.ok) {
+					setErrors({
+						form: responseData?.error?.message ?? '提交失败，请检查表单内容后重试。',
+					});
+					return;
+				}
+
+				setIsSubmitted(true);
+				setValues(initialValues);
+			} catch {
+				setErrors({ form: '网络异常，提交失败，请稍后重试。' });
+			} finally {
+				setIsSubmitting(false);
+			}
+		},
+		[templateRequestFormConfig.endpoint, templateRequestFormConfig.version, values],
+	);
 
 	return (
 		<div
@@ -43,22 +167,63 @@ export function RequestSection() {
 				</p>
 			</div>
 
-			<form className='bg-muted flex w-full max-w-4xl items-center justify-between py-2.5 pr-2 pl-5'>
-				<Input
-					className='min-w-0 flex-1 border-0 bg-transparent px-0 py-0 text-base shadow-none focus-visible:border-transparent focus-visible:ring-0'
-					placeholder='输入 GitHub 仓库地址'
-					name='repo'
-					aria-label='输入 GitHub 仓库地址'
-				/>
-				<LandingOutlineButton
-					href={contactLink}
-					size='md'
-					icon={FlatArrowRightIcon}
-					className='shrink-0 text-base font-semibold'
+			{isSubmitted ? (
+				<div className='bg-muted flex w-full max-w-4xl flex-col items-center gap-6 px-6 py-10 text-center'>
+					<div className='bg-brand/10 text-brand flex size-16 items-center justify-center rounded-full'>
+						<Icon
+							src={FramedCheckIcon}
+							className='size-8'
+						/>
+					</div>
+					<div className='flex max-w-md flex-col gap-3'>
+						<p className='text-foreground text-3xl leading-none font-semibold'>提交成功</p>
+						<p className='text-muted-foreground text-sm leading-6'>
+							我们已收到您的 GitHub 仓库地址，会尽快为您生成部署模板并与您联系。
+						</p>
+					</div>
+					<button
+						type='button'
+						className='border-foreground hover:text-brand hover:border-brand h-11 rounded-full border bg-transparent px-4 text-base font-semibold shadow-none backdrop-blur-sm transition-colors'
+						onClick={() => {
+							setIsSubmitted(false);
+							setErrors({});
+						}}
+					>
+						继续提交
+					</button>
+				</div>
+			) : (
+				<form
+					className='w-full max-w-4xl'
+					onSubmit={handleSubmit}
 				>
-					提交
-				</LandingOutlineButton>
-			</form>
+					<div className='bg-muted flex w-full flex-col gap-3 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:pr-2 sm:pl-5'>
+						<Input
+							className='min-w-0 flex-1 border-0 bg-transparent px-0 py-0 text-base shadow-none focus-visible:border-transparent focus-visible:ring-0'
+							placeholder='输入 GitHub 仓库地址'
+							name='repoUrl'
+							aria-label='输入 GitHub 仓库地址'
+							aria-invalid={Boolean(errors.repoUrl)}
+							value={values.repoUrl}
+							onChange={(event) => {
+								setValues({ repoUrl: event.target.value });
+								setErrors({});
+							}}
+						/>
+						<button
+							type='submit'
+							disabled={isSubmitting}
+							className='border-foreground hover:text-brand hover:border-brand h-11 shrink-0 rounded-full border bg-transparent px-4 text-base font-semibold shadow-none backdrop-blur-sm transition-colors disabled:pointer-events-none disabled:opacity-50'
+						>
+							{isSubmitting ? '提交中...' : '提交'}
+						</button>
+					</div>
+					{errors.repoUrl ? (
+						<p className='text-destructive mt-3 text-sm leading-5'>{errors.repoUrl}</p>
+					) : null}
+					{errors.form ? <p className='text-destructive mt-3 text-sm leading-5'>{errors.form}</p> : null}
+				</form>
+			)}
 
 			<div className='flex flex-wrap items-center justify-center gap-8'>
 				<FeaturePill

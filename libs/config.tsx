@@ -29,6 +29,12 @@ export const Config = (() => {
 					version: 'ff15c990-cf33-47bc-b5fc-b886cbc6e28e',
 				},
 			},
+			appstore: {
+				templateRequestForm: {
+					endpoint: 'https://j2dpsclzou.sealosgzg.site/submit-template-request-form',
+					version: 'f90db67d-8105-445b-8a2a-52fb2d33454c',
+				},
+			},
 		},
 		components: {
 			navbar: {
