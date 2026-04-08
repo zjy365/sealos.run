@@ -1,253 +1,96 @@
 'use client';
 
-import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import React from 'react';
-import {
-	Ai360Icon,
-	AlibabaIcon,
-	AnthropicIcon,
-	BaaiIcon,
-	BaichuanIcon,
-	BaiduIcon,
-	ChatglmIcon,
-	CohereIcon,
-	DeepseekIcon,
-	DefogIcon,
-	DoubaoIcon,
-	FishaudioIcon,
-	GoogleIcon,
-	HuggingfaceIcon,
-	LingyiwanwuIcon,
-	MetaIcon,
-	MicrosoftIcon,
-	MinimaxIcon,
-	MistralIcon,
-	MoonshotIcon,
-	NeteaseIcon,
-	NexusflowIcon,
-	OpenaiIcon,
-	OpenchatIcon,
-	StabilityaiIcon,
-	StepfunIcon,
-	StreamlakeIcon,
-	TencentIcon,
-	UnknownIcon,
-	XunfeiIcon,
-} from '@/assets/aiproxy-models';
-import {
-	AiproxyBoxImage,
-	AppstoreBoxImage,
-	DatabaseBoxImage,
-	DevboxBoxImage,
-	LaunchpadBoxImage,
-	OssBoxImage,
-} from '@/assets/app-boxes';
-import {
-	GolangIcon,
-	JavaIcon,
-	KafkaIcon,
-	MilvusIcon,
-	MongodbIcon,
-	MysqlIcon,
-	NodejsIcon,
-	PhpIcon,
-	PostgresIcon,
-	PythonIcon,
-	RedisIcon,
-	RustIcon,
-} from '@/assets/app-icons';
-import {
-	AppIcon,
-	BoxIcon,
-	ClockCounterIcon,
-	CubeIcon,
-	CubesIcon,
-	DatabaseIcon,
-	EditorIcon,
-	FlatArrowRightIcon,
-	FramedPlusIcon,
-	FramedPrivateIcon,
-	FramedReadIcon,
-	FramedWriteIcon,
-	GlobalIcon,
-	ModelIcon,
-	ObjectStorageIcon,
-	RocketIcon,
-} from '@/assets/icons';
+import { AppIcon, FlatArrowRightIcon, FramedPlusIcon } from '@/assets/icons';
+import { getAiproxyOwnerIcon } from '@/libs/aiproxy/icons';
 import { Icon } from '@/libs/components/ui/icon';
 import { Link, usePathname } from '@/libs/i18n/navigation';
 import { cn } from '@/libs/utils/styling';
-import type { AIProxyProviderPanelData, AppStoreCategoryPanelData, ProductsPanelData } from './products-panel.types';
+import type {
+	AIProxyProviderPanelData,
+	AppStoreCategoryPanelData,
+	NavMenuItem,
+	ProductsPanelData,
+} from './products-panel.types';
+import {
+	DATABASE_FEATURES,
+	DEVBOX_TEMPLATES,
+	LAUNCHPAD_FEATURES,
+	NAV_MENU_ITEMS_BASE,
+	OSS_STORAGE_TYPES,
+} from './products-panel-data';
 
-const AIPROXY_OWNER_ICONS = {
-	ai360: Ai360Icon,
-	alibaba: AlibabaIcon,
-	anthropic: AnthropicIcon,
-	baai: BaaiIcon,
-	baichuan: BaichuanIcon,
-	baidu: BaiduIcon,
-	chatglm: ChatglmIcon,
-	cohere: CohereIcon,
-	deepseek: DeepseekIcon,
-	defog: DefogIcon,
-	doubao: DoubaoIcon,
-	fishaudio: FishaudioIcon,
-	funaudiollm: AlibabaIcon,
-	google: GoogleIcon,
-	huggingface: HuggingfaceIcon,
-	jina: UnknownIcon,
-	lingyiwanwu: LingyiwanwuIcon,
-	meta: MetaIcon,
-	microsoft: MicrosoftIcon,
-	minimax: MinimaxIcon,
-	mistral: MistralIcon,
-	moonshot: MoonshotIcon,
-	netease: NeteaseIcon,
-	nexusflow: NexusflowIcon,
-	openai: OpenaiIcon,
-	openchat: OpenchatIcon,
-	stabilityai: StabilityaiIcon,
-	stepfun: StepfunIcon,
-	streamlake: StreamlakeIcon,
-	tencent: TencentIcon,
-	unknown: UnknownIcon,
-	xunfei: XunfeiIcon,
-} as const;
-
-function getAIProxyOwnerIcon(ownerKey: string) {
-	return AIPROXY_OWNER_ICONS[ownerKey as keyof typeof AIPROXY_OWNER_ICONS] ?? UnknownIcon;
-}
-
-interface NavMenuItem {
-	id: string;
-	label: string;
-	icon: StaticImageData;
-	largeImage?: StaticImageData;
-	largeImageAlt?: string;
-	content?: {
-		title: string;
-		description: string;
-		href?: string;
-		features?: React.ReactNode;
-	};
+function PanelTabsWithMore({ children, moreHref }: { children: React.ReactNode; moreHref: string }) {
+	return (
+		<div className='border-border flex items-start justify-between gap-4'>
+			<div className='max-w-full min-w-0 flex-1 overflow-x-auto'>
+				<div className='flex w-max gap-1'>{children}</div>
+			</div>
+			<Link
+				href={moreHref}
+				className='text-muted-foreground hover:text-foreground shrink-0 rounded-t-md px-3 py-2 text-xs transition-colors'
+			>
+				更多
+			</Link>
+		</div>
+	);
 }
 
 function getNavMenuItems({ aiproxyProviders, appStoreCategories }: ProductsPanelData): NavMenuItem[] {
-	return [
-		{
-			id: 'launchpad',
-			label: '应用管理',
-			icon: BoxIcon,
-			largeImage: LaunchpadBoxImage,
-			largeImageAlt: '应用管理',
-			content: {
-				title: '应用管理',
-				description: '原生 K8s 架构，可视化页面配置',
-				href: '/products/launchpad',
-				features: <LaunchpadFeatures />,
-			},
-		},
-		{
-			id: 'database',
-			label: '数据库',
-			icon: DatabaseIcon,
-			largeImage: DatabaseBoxImage,
-			largeImageAlt: '数据库服务',
-			content: {
-				title: '数据库服务',
-				description: '提供多种数据库类型，一键部署和管理',
-				href: '/products/database',
-				features: <DatabaseFeatures />,
-			},
-		},
-		{
-			id: 'oss',
-			label: '对象存储',
-			icon: ObjectStorageIcon,
-			largeImage: OssBoxImage,
-			largeImageAlt: '对象存储',
-			content: {
-				title: '对象存储',
-				description: '高性能、可扩展的对象存储服务',
-				href: '/products/oss',
-				features: <OSSFeatures />,
-			},
-		},
-		{
-			id: 'devbox',
-			label: 'DevBox',
-			icon: RocketIcon,
-			largeImage: DevboxBoxImage,
-			largeImageAlt: 'DevBox',
-			content: {
-				title: 'DevBox',
-				description: '云端开发环境，支持多种编程语言和框架',
-				href: '/products/devbox',
-				features: <DevBoxFeatures />,
-			},
-		},
-		{
-			id: 'aiproxy',
-			label: 'AI 网关',
-			icon: ModelIcon,
-			largeImage: AiproxyBoxImage,
-			largeImageAlt: 'AI Proxy',
-			content: {
-				title: 'AI Proxy',
-				description: '统一的 AI 模型代理服务',
-				href: '/products/aiproxy',
-				features: <AIProxyFeatures providers={aiproxyProviders} />,
-			},
-		},
-		{
-			id: 'app',
-			label: '开源应用',
-			icon: CubesIcon,
-			largeImage: AppstoreBoxImage,
-			largeImageAlt: '应用商店',
-			content: {
-				title: '应用商店',
-				description: '丰富的应用模板，快速部署',
-				href: '/products/appstore',
-				features: <AppStoreFeatures categories={appStoreCategories} />,
-			},
-		},
-	];
+	return NAV_MENU_ITEMS_BASE.map((item) => {
+		switch (item.id) {
+			case 'launchpad':
+				return {
+					...item,
+					content: item.content ? { ...item.content, features: <LaunchpadFeatures /> } : item.content,
+				};
+			case 'database':
+				return {
+					...item,
+					content: item.content ? { ...item.content, features: <DatabaseFeatures /> } : item.content,
+				};
+			case 'oss':
+				return {
+					...item,
+					content: item.content ? { ...item.content, features: <OSSFeatures /> } : item.content,
+				};
+			case 'devbox':
+				return {
+					...item,
+					content: item.content ? { ...item.content, features: <DevBoxFeatures /> } : item.content,
+				};
+			case 'aiproxy':
+				return {
+					...item,
+					content: item.content
+						? {
+								...item.content,
+								features: <AIProxyFeatures providers={aiproxyProviders} />,
+							}
+						: item.content,
+				};
+			case 'app':
+				return {
+					...item,
+					content: item.content
+						? {
+								...item.content,
+								features: <AppStoreFeatures categories={appStoreCategories} />,
+							}
+						: item.content,
+				};
+			default:
+				return item;
+		}
+	});
 }
 
 function LaunchpadFeatures() {
-	const features = [
-		{
-			title: '容器服务',
-			description: '提供高性能可伸缩的容器应用管理能力',
-			icon: CubeIcon,
-			href: '/products/launchpad',
-		},
-		{
-			title: '定时任务',
-			description: '可视化创建和管理 Kubernetes 资源、状态',
-			icon: ClockCounterIcon,
-			href: '/products/launchpad',
-		},
-		{
-			title: '免费域名',
-			description: '分配公网域名，自动配置 HTTPS、TLS',
-			icon: GlobalIcon,
-			href: '/products/launchpad',
-		},
-		{
-			title: '终端',
-			description: '基于 Web 的容器终端访问',
-			icon: EditorIcon,
-			href: '/products/launchpad',
-		},
-	];
-
 	return (
 		<div className='px-8 pt-6 pb-8'>
 			<div className='grid grid-cols-2 gap-6'>
-				{features.map((feature) => (
+				{LAUNCHPAD_FEATURES.map((feature) => (
 					<Link
 						href={feature.href}
 						key={feature.title}
@@ -280,43 +123,10 @@ function LaunchpadFeatures() {
 }
 
 function DatabaseFeatures() {
-	const databases = [
-		{
-			name: 'PostgreSQL',
-			icon: PostgresIcon,
-			href: '/products/database',
-		},
-		{
-			name: 'MongoDB',
-			icon: MongodbIcon,
-			href: '/products/database',
-		},
-		{
-			name: 'MySQL',
-			icon: MysqlIcon,
-			href: '/products/database',
-		},
-		{
-			name: 'Redis',
-			icon: RedisIcon,
-			href: '/products/database',
-		},
-		{
-			name: 'Kafka',
-			icon: KafkaIcon,
-			href: '/products/database',
-		},
-		{
-			name: 'Milvus',
-			icon: MilvusIcon,
-			href: '/products/database',
-		},
-	];
-
 	return (
 		<div className='px-8 pt-6 pb-8'>
 			<div className='grid grid-cols-3 gap-2.5'>
-				{databases.map((db) => (
+				{DATABASE_FEATURES.map((db) => (
 					<Link
 						href={db.href}
 						key={db.name}
@@ -349,28 +159,10 @@ function DatabaseFeatures() {
 }
 
 function OSSFeatures() {
-	const storageTypes = [
-		{
-			title: '私有存储桶｜Private',
-			description: '仅允许授权用户访问，保护数据安全',
-			icon: FramedPrivateIcon,
-		},
-		{
-			title: '公开读存储桶｜Public-Read',
-			description: '允许公开读取，适合静态资源分发',
-			icon: FramedReadIcon,
-		},
-		{
-			title: '公开读写存储桶｜Public-Read-Write',
-			description: '允许公开读写，适合协作场景',
-			icon: FramedWriteIcon,
-		},
-	];
-
 	return (
 		<div className='px-8 pt-6 pb-8'>
 			<div className='grid grid-cols-2 gap-6 py-3'>
-				{storageTypes.map((type) => (
+				{OSS_STORAGE_TYPES.map((type) => (
 					<div
 						key={type.title}
 						className='flex items-start gap-3'
@@ -393,93 +185,30 @@ function OSSFeatures() {
 }
 
 function DevBoxFeatures() {
-	const languages = [
-		{
-			name: 'Java',
-			icon: JavaIcon,
-			href: '/products/devbox',
-		},
-		{
-			name: 'Python',
-			icon: PythonIcon,
-			href: '/products/devbox',
-		},
-		{
-			name: 'Node.js',
-			icon: NodejsIcon,
-			href: '/products/devbox',
-		},
-		{
-			name: 'Node.js 2',
-			icon: NodejsIcon,
-			href: '/products/devbox',
-		},
-		{
-			name: 'Node.js 3',
-			icon: NodejsIcon,
-			href: '/products/devbox',
-		},
-		{
-			name: 'Node.js 4',
-			icon: NodejsIcon,
-			href: '/products/devbox',
-		},
-		{
-			name: 'Go',
-			icon: GolangIcon,
-			href: '/products/devbox',
-		},
-		{
-			name: 'Rust',
-			icon: RustIcon,
-			href: '/products/devbox',
-		},
-		{
-			name: 'C++',
-			icon: null,
-			href: '/products/devbox',
-		},
-		{
-			name: 'PHP',
-			icon: PhpIcon,
-			href: '/products/devbox',
-		},
-		{
-			name: 'Ruby',
-			icon: null,
-			href: '/products/devbox',
-		},
-		{
-			name: '更多',
-			icon: FramedPlusIcon,
-			href: '/products/devbox',
-		},
-	];
-
 	return (
 		<div className='px-8 pt-6 pb-8'>
 			<div className='grid grid-cols-4 gap-2.5'>
-				{languages.map((lang) => (
+				{DEVBOX_TEMPLATES.map((template) => (
 					<Link
-						href={lang.href}
-						key={lang.name}
+						href={template.href}
+						key={template.name}
 					>
 						<div
-							key={lang.name}
+							key={template.name}
 							className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'
 						>
 							<div className='flex w-full items-center gap-2'>
-								{lang.icon ? (
+								{template.icon ? (
 									<div className='flex size-6 items-center justify-center'>
 										<Icon
-											src={lang.icon}
-											className={lang.name === '更多' ? 'text-brand size-6' : 'size-6'}
+											src={template.icon}
+											className={template.name === '更多' ? 'text-brand size-6' : 'size-6'}
 										/>
 									</div>
 								) : (
 									<div className='size-6' />
 								)}
-								<p className='text-foreground text-xs'>{lang.name}</p>
+								<p className='text-foreground text-xs'>{template.name}</p>
 							</div>
 
 							<div className='size-5'>
@@ -511,14 +240,14 @@ function AIProxyFeatures({ providers }: { providers: AIProxyProviderPanelData[] 
 	return (
 		<div className='px-8 pt-6 pb-8'>
 			<div className='flex flex-col gap-5'>
-				<div className='border-border flex flex-wrap gap-1'>
+				<PanelTabsWithMore moreHref='/products/aiproxy'>
 					{providers.map((provider) => (
 						<button
 							key={provider.ownerKey}
 							type='button'
 							onClick={() => setActiveProvider(provider.ownerLabel)}
 							className={cn(
-								'hover:bg-input rounded-t-md px-3 py-2 text-xs transition-colors',
+								'hover:bg-input shrink-0 rounded-t-md px-3 py-2 text-xs transition-colors',
 								activeProvider === provider.ownerLabel
 									? 'text-foreground border-brand border-b-2'
 									: 'text-muted-foreground hover:text-foreground hover:rounded-md',
@@ -527,7 +256,7 @@ function AIProxyFeatures({ providers }: { providers: AIProxyProviderPanelData[] 
 							{provider.ownerLabel}
 						</button>
 					))}
-				</div>
+				</PanelTabsWithMore>
 
 				<div className='grid grid-cols-3 gap-2.5'>
 					{activeItems?.models.map((item) => (
@@ -539,7 +268,7 @@ function AIProxyFeatures({ providers }: { providers: AIProxyProviderPanelData[] 
 								<div className='flex w-full items-center gap-2'>
 									<div className='bg-muted flex size-6 items-center justify-center overflow-hidden rounded-full'>
 										<Icon
-											src={getAIProxyOwnerIcon(activeItems.ownerKey)}
+											src={getAiproxyOwnerIcon(activeItems.ownerKey)}
 											className='size-4'
 										/>
 									</div>
@@ -588,6 +317,56 @@ function PanelAppIcon({ alt, src }: { alt: string; src?: string }) {
 	);
 }
 
+function AppStoreAppCard({ href, thumbnail, title }: { href: string; thumbnail?: string; title: string }) {
+	return (
+		<Link href={href}>
+			<div className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'>
+				<div className='flex w-full items-center gap-2'>
+					<PanelAppIcon
+						alt={title}
+						src={thumbnail}
+					/>
+					<div className='flex min-w-0 flex-col gap-0.5'>
+						<p className='text-foreground truncate text-xs'>{title}</p>
+					</div>
+				</div>
+
+				<div className='size-5'>
+					<Icon
+						src={FramedPlusIcon}
+						className='group-hover:text-brand size-full'
+					/>
+				</div>
+			</div>
+		</Link>
+	);
+}
+
+function AppStoreMoreCard() {
+	return (
+		<Link href='/products/appstore'>
+			<div className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'>
+				<div className='flex w-full items-center gap-2'>
+					<div className='bg-muted flex size-6 items-center justify-center overflow-hidden rounded-md'>
+						<Icon
+							src={FramedPlusIcon}
+							className='text-brand size-4'
+						/>
+					</div>
+					<p className='text-foreground text-xs'>更多</p>
+				</div>
+
+				<div className='size-5'>
+					<Icon
+						src={FramedPlusIcon}
+						className='group-hover:text-brand size-full'
+					/>
+				</div>
+			</div>
+		</Link>
+	);
+}
+
 function AppStoreFeatures({ categories }: { categories: AppStoreCategoryPanelData[] }) {
 	const defaultCategory = categories[0]?.slug ?? '';
 	const [activeCategory, setActiveCategory] = React.useState(defaultCategory);
@@ -599,18 +378,20 @@ function AppStoreFeatures({ categories }: { categories: AppStoreCategoryPanelDat
 	}, [activeCategory, categories, defaultCategory]);
 
 	const activeItems = categories.find((category) => category.slug === activeCategory) ?? categories[0];
+	const compactApps = activeItems?.apps.slice(0, 5) ?? [];
+	const expandedApps = activeItems?.apps.slice(0, 9) ?? [];
 
 	return (
 		<div className='px-8 pt-6 pb-8'>
 			<div className='flex flex-col gap-5'>
-				<div className='border-border flex flex-wrap gap-1'>
+				<PanelTabsWithMore moreHref='/products/appstore'>
 					{categories.map((category) => (
 						<button
 							key={category.slug}
 							type='button'
 							onClick={() => setActiveCategory(category.slug)}
 							className={cn(
-								'hover:bg-input rounded-t-md px-3 py-2 text-xs transition-colors',
+								'hover:bg-input shrink-0 rounded-t-md px-3 py-2 text-xs transition-colors',
 								activeCategory === category.slug
 									? 'text-foreground border-brand border-b-2'
 									: 'text-muted-foreground hover:text-foreground hover:rounded-md',
@@ -619,34 +400,30 @@ function AppStoreFeatures({ categories }: { categories: AppStoreCategoryPanelDat
 							{category.label}
 						</button>
 					))}
+				</PanelTabsWithMore>
+
+				<div className='grid grid-cols-3 gap-2.5 xl:hidden'>
+					{compactApps.map((app) => (
+						<AppStoreAppCard
+							key={app.href}
+							href={app.href}
+							thumbnail={app.thumbnail}
+							title={app.title}
+						/>
+					))}
+					<AppStoreMoreCard />
 				</div>
 
-				<div className='grid grid-cols-3 gap-2.5'>
-					{activeItems?.apps.map((app) => (
-						<Link
-							href={app.href}
+				<div className='hidden grid-cols-5 gap-2.5 xl:grid'>
+					{expandedApps.map((app) => (
+						<AppStoreAppCard
 							key={app.href}
-						>
-							<div className='border-border group flex items-center border bg-linear-to-r from-white via-white to-white px-3 py-4 transition-colors hover:via-blue-100'>
-								<div className='flex w-full items-center gap-2'>
-									<PanelAppIcon
-										alt={app.title}
-										src={app.thumbnail}
-									/>
-									<div className='flex min-w-0 flex-col gap-0.5'>
-										<p className='text-foreground truncate text-xs'>{app.title}</p>
-									</div>
-								</div>
-
-								<div className='size-5'>
-									<Icon
-										src={FramedPlusIcon}
-										className='group-hover:text-brand size-full'
-									/>
-								</div>
-							</div>
-						</Link>
+							href={app.href}
+							thumbnail={app.thumbnail}
+							title={app.title}
+						/>
 					))}
+					<AppStoreMoreCard />
 				</div>
 			</div>
 		</div>
@@ -687,9 +464,9 @@ export function ProductsPanel({ aiproxyProviders, appStoreCategories }: Products
 	}, [getMatchedItem, pathname]);
 
 	return (
-		<div className='border-hairline border-brand container m-2 flex w-full border-dashed p-0'>
+		<div className='container flex w-full border-dashed p-0'>
 			{/* Left Sidebar */}
-			<div className='border-r-hairline border-brand flex w-64 flex-col gap-2 border-dashed px-6 py-8'>
+			<div className='flex w-64 flex-col gap-2 border-dashed px-6 py-8'>
 				{navMenuItems.map((item) => {
 					const href = item.content?.href;
 					const isActive = !!href && (pathname === href || (pathname?.startsWith(`${href}/`) ?? false));
@@ -702,16 +479,16 @@ export function ProductsPanel({ aiproxyProviders, appStoreCategories }: Products
 							className={cn(
 								'flex cursor-pointer items-center gap-2.5 rounded-md px-2 py-2 text-sm transition-colors',
 								isSelected
-									? 'text-foreground bg-input font-medium'
+									? 'text-brand bg-blue-100 font-medium'
 									: isActive
 										? 'text-foreground'
-										: 'text-muted-foreground hover:text-foreground hover:bg-input',
+										: 'text-muted-foreground hover:bg-blue-100',
 							)}
 						>
 							<div
 								className={cn(
 									'flex size-5 items-center justify-center',
-									isSelected || isActive ? 'text-primary' : 'text-muted-foreground',
+									isSelected || isActive ? 'text-brand' : 'text-muted-foreground',
 								)}
 							>
 								<Icon
@@ -727,7 +504,7 @@ export function ProductsPanel({ aiproxyProviders, appStoreCategories }: Products
 
 			{/* Right Content */}
 			{selectedItem?.content && (
-				<div className='flex flex-1 flex-col'>
+				<div className='bg-card flex min-w-0 flex-1 flex-col overflow-hidden'>
 					<Link href={selectedItem.content.href ?? '#'}>
 						{/* Header */}
 						<div

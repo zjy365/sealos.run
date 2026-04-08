@@ -3,7 +3,7 @@ import type React from 'react';
 import { siDiscord, siGithub, siQq, siRss, siSinaweibo, siWechat, siX, siYoutube } from 'simple-icons';
 import { LinkIcon } from '@/assets/icons';
 import { ProductsPanel } from './components/Navbar/ProductsPanel';
-import { getProductsPanelData } from './components/Navbar/products-panel-data';
+import { getProductsPanelData } from './components/Navbar/products-panel.server';
 import { Icon } from './components/ui/icon';
 import { SimpleIcon } from './components/ui/simple-icon';
 

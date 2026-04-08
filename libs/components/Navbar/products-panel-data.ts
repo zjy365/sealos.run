@@ -1,76 +1,265 @@
-import 'server-only';
+import {
+	AiproxyBoxImage,
+	AppstoreBoxImage,
+	DatabaseBoxImage,
+	DevboxBoxImage,
+	LaunchpadBoxImage,
+	OssBoxImage,
+} from '@/assets/app-boxes';
+import {
+	ClaudeCodeIcon,
+	CppIcon,
+	DotnetIcon,
+	JavaIcon,
+	KafkaIcon,
+	MilvusIcon,
+	MongodbIcon,
+	MysqlIcon,
+	NextjsIcon,
+	NodejsIcon,
+	OpenclawIcon,
+	PostgresIcon,
+	PythonIcon,
+	RedisIcon,
+	SpringbootIcon,
+	UbuntuIcon,
+	VueIcon,
+} from '@/assets/app-icons';
+import {
+	BoxIcon,
+	ClockCounterIcon,
+	CubeIcon,
+	CubesIcon,
+	DatabaseIcon,
+	EditorIcon,
+	FramedPlusIcon,
+	FramedPrivateIcon,
+	FramedReadIcon,
+	FramedWriteIcon,
+	GlobalIcon,
+	ModelIcon,
+	ObjectStorageIcon,
+	RocketIcon,
+} from '@/assets/icons';
+import type {
+	NavMenuItem,
+	ProductIconFeatureItem,
+	ProductLinkFeatureItem,
+	StorageFeatureItem,
+} from './products-panel.types';
 
-import React from 'react';
-import { getAiproxyModels } from '@/libs/aiproxy/utils';
-import { APPSTORE_CATEGORY_META } from '@/libs/appstore/constants';
-import type { AppStoreTemplateCategory } from '@/libs/appstore/types';
-import { getAppStoreTemplates } from '@/libs/appstore/utils';
-import type { ProductsPanelData } from './products-panel.types';
+export const NAV_MENU_ITEMS_BASE: NavMenuItem[] = [
+	{
+		id: 'launchpad',
+		label: '应用管理',
+		icon: BoxIcon,
+		largeImage: LaunchpadBoxImage,
+		largeImageAlt: '应用管理',
+		content: {
+			title: '应用管理',
+			description: '原生 K8s 架构，可视化页面配置',
+			href: '/products/launchpad',
+		},
+	},
+	{
+		id: 'database',
+		label: '数据库',
+		icon: DatabaseIcon,
+		largeImage: DatabaseBoxImage,
+		largeImageAlt: '数据库服务',
+		content: {
+			title: '数据库服务',
+			description: '提供多种数据库类型，一键部署和管理',
+			href: '/products/database',
+		},
+	},
+	{
+		id: 'oss',
+		label: '对象存储',
+		icon: ObjectStorageIcon,
+		largeImage: OssBoxImage,
+		largeImageAlt: '对象存储',
+		content: {
+			title: '对象存储',
+			description: '高性能、可扩展的对象存储服务',
+			href: '/products/oss',
+		},
+	},
+	{
+		id: 'devbox',
+		label: 'DevBox',
+		icon: RocketIcon,
+		largeImage: DevboxBoxImage,
+		largeImageAlt: 'DevBox',
+		content: {
+			title: 'DevBox',
+			description: '云端开发环境，支持多种编程语言和框架',
+			href: '/products/devbox',
+		},
+	},
+	{
+		id: 'aiproxy',
+		label: 'AI 网关',
+		icon: ModelIcon,
+		largeImage: AiproxyBoxImage,
+		largeImageAlt: 'AI Proxy',
+		content: {
+			title: 'AI Proxy',
+			description: '统一的 AI 模型代理服务',
+			href: '/products/aiproxy',
+		},
+	},
+	{
+		id: 'app',
+		label: '开源应用',
+		icon: CubesIcon,
+		largeImage: AppstoreBoxImage,
+		largeImageAlt: '应用商店',
+		content: {
+			title: '应用商店',
+			description: '丰富的应用模板，快速部署',
+			href: '/products/appstore',
+		},
+	},
+];
 
-const APPSTORE_CATEGORY_LABELS: Record<AppStoreTemplateCategory, string> = {
-	ai: 'AI',
-	backend: '后端',
-	blog: '博客',
-	database: '数据库',
-	'dev-ops': 'DevOps',
-	game: '游戏',
-	'low-code': '低代码',
-	monitor: '监控',
-	storage: '存储',
-	tool: '工具',
-};
+export const LAUNCHPAD_FEATURES: ProductLinkFeatureItem[] = [
+	{
+		title: '容器服务',
+		description: '提供高性能可伸缩的容器应用管理能力',
+		icon: CubeIcon,
+		href: '/products/launchpad',
+	},
+	{
+		title: '定时任务',
+		description: '可视化创建和管理 Kubernetes 资源、状态',
+		icon: ClockCounterIcon,
+		href: '/products/launchpad',
+	},
+	{
+		title: '免费域名',
+		description: '分配公网域名，自动配置 HTTPS、TLS',
+		icon: GlobalIcon,
+		href: '/products/launchpad',
+	},
+	{
+		title: '终端',
+		description: '基于 Web 的容器终端访问',
+		icon: EditorIcon,
+		href: '/products/launchpad',
+	},
+];
 
-const NAV_APPSTORE_CATEGORIES = APPSTORE_CATEGORY_META.flatMap((item) =>
-	item.slug === 'all' ? [] : [item.slug as AppStoreTemplateCategory],
-);
+export const DATABASE_FEATURES: ProductIconFeatureItem[] = [
+	{
+		name: 'PostgreSQL',
+		icon: PostgresIcon,
+		href: '/products/database',
+	},
+	{
+		name: 'MongoDB',
+		icon: MongodbIcon,
+		href: '/products/database',
+	},
+	{
+		name: 'MySQL',
+		icon: MysqlIcon,
+		href: '/products/database',
+	},
+	{
+		name: 'Redis',
+		icon: RedisIcon,
+		href: '/products/database',
+	},
+	{
+		name: 'Kafka',
+		icon: KafkaIcon,
+		href: '/products/database',
+	},
+	{
+		name: 'Milvus',
+		icon: MilvusIcon,
+		href: '/products/database',
+	},
+];
 
-export function getProductsPanelData() {
-	return getProductsPanelDataCached();
-}
+export const OSS_STORAGE_TYPES: StorageFeatureItem[] = [
+	{
+		title: '私有存储桶｜Private',
+		description: '仅允许授权用户访问，保护数据安全',
+		icon: FramedPrivateIcon,
+	},
+	{
+		title: '公开读存储桶｜Public-Read',
+		description: '允许公开读取，适合静态资源分发',
+		icon: FramedReadIcon,
+	},
+	{
+		title: '公开读写存储桶｜Public-Read-Write',
+		description: '允许公开读写，适合协作场景',
+		icon: FramedWriteIcon,
+	},
+];
 
-const getProductsPanelDataCached = React.cache((): ProductsPanelData => {
-	const models = getAiproxyModels();
-	const templates = getAppStoreTemplates('zh');
-
-	const providerMap = new Map<string, ProductsPanelData['aiproxyProviders'][number]>();
-	for (const model of models) {
-		const existing = providerMap.get(model.ownerKey);
-		if (existing) {
-			if (existing.models.length < 6) {
-				existing.models.push({ href: '/products/aiproxy', name: model.name });
-			}
-			continue;
-		}
-
-		providerMap.set(model.ownerKey, {
-			ownerKey: model.ownerKey,
-			ownerLabel: model.ownerLabel,
-			models: [{ href: '/products/aiproxy', name: model.name }],
-		});
-	}
-
-	const templateMap = new Map<AppStoreTemplateCategory, ProductsPanelData['appStoreCategories'][number]['apps']>();
-	for (const template of templates) {
-		const list = templateMap.get(template.category) ?? [];
-		list.push({
-			deployCount: template.deployCount,
-			href: `/products/appstore/${template.slug}`,
-			thumbnail: template.thumbnail,
-			title: template.title,
-		});
-		templateMap.set(template.category, list);
-	}
-
-	const appStoreCategories = NAV_APPSTORE_CATEGORIES.map((category) => ({
-		apps: (templateMap.get(category) ?? [])
-			.toSorted((a, b) => (b.deployCount ?? 0) - (a.deployCount ?? 0) || a.title.localeCompare(b.title, 'zh-CN'))
-			.slice(0, 6),
-		label: APPSTORE_CATEGORY_LABELS[category],
-		slug: category,
-	})).filter((category) => category.apps.length > 0);
-
-	return {
-		aiproxyProviders: Array.from(providerMap.values()),
-		appStoreCategories,
-	};
-});
+export const DEVBOX_TEMPLATES: ProductIconFeatureItem[] = [
+	{
+		name: 'Claude Code',
+		icon: ClaudeCodeIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: 'Node.js',
+		icon: NodejsIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: 'Spring Boot',
+		icon: SpringbootIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: 'Python',
+		icon: PythonIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: 'Vue.js',
+		icon: VueIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: 'Ubuntu',
+		icon: UbuntuIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: '.NET',
+		icon: DotnetIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: 'C++',
+		icon: CppIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: 'Next.js',
+		icon: NextjsIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: 'Java',
+		icon: JavaIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: 'OpenClaw',
+		icon: OpenclawIcon,
+		href: '/products/devbox',
+	},
+	{
+		name: '更多',
+		icon: FramedPlusIcon,
+		href: '/products/devbox',
+	},
+];

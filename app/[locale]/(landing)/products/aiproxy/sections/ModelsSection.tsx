@@ -1,39 +1,8 @@
 'use client';
 
 import React from 'react';
-import {
-	Ai360Icon,
-	AlibabaIcon,
-	AnthropicIcon,
-	BaaiIcon,
-	BaichuanIcon,
-	BaiduIcon,
-	ChatglmIcon,
-	CohereIcon,
-	DeepseekIcon,
-	DefogIcon,
-	DoubaoIcon,
-	FishaudioIcon,
-	GoogleIcon,
-	HuggingfaceIcon,
-	LingyiwanwuIcon,
-	MetaIcon,
-	MicrosoftIcon,
-	MinimaxIcon,
-	MistralIcon,
-	MoonshotIcon,
-	NeteaseIcon,
-	NexusflowIcon,
-	OpenaiIcon,
-	OpenchatIcon,
-	StabilityaiIcon,
-	StepfunIcon,
-	StreamlakeIcon,
-	TencentIcon,
-	UnknownIcon,
-	XunfeiIcon,
-} from '@/assets/aiproxy-models';
 import { ChevronDownIcon, ChevronUpIcon, EyeIcon, FramedCodeIcon, SearchIcon, ToolIcon, XIcon } from '@/assets/icons';
+import { getAiproxyOwnerIcon } from '@/libs/aiproxy/icons';
 import type { AiproxyModel, AiproxyModelCapability } from '@/libs/aiproxy/types';
 import { Badge } from '@/libs/components/ui/badge';
 import { Icon } from '@/libs/components/ui/icon';
@@ -47,42 +16,6 @@ const TABLE_ROW_HEIGHT = 64;
 const VISIBLE_ROW_COUNT = 8;
 const TABLE_BODY_HEIGHT = TABLE_ROW_HEIGHT * VISIBLE_ROW_COUNT;
 const TABLE_COLUMNS = [400, 180, 120, 220, 220] as const;
-
-const OWNER_ICONS = {
-	ai360: Ai360Icon,
-	alibaba: AlibabaIcon,
-	anthropic: AnthropicIcon,
-	baai: BaaiIcon,
-	baichuan: BaichuanIcon,
-	baidu: BaiduIcon,
-	chatglm: ChatglmIcon,
-	cohere: CohereIcon,
-	deepseek: DeepseekIcon,
-	defog: DefogIcon,
-	doubao: DoubaoIcon,
-	fishaudio: FishaudioIcon,
-	funaudiollm: AlibabaIcon,
-	google: GoogleIcon,
-	huggingface: HuggingfaceIcon,
-	jina: UnknownIcon,
-	lingyiwanwu: LingyiwanwuIcon,
-	meta: MetaIcon,
-	microsoft: MicrosoftIcon,
-	minimax: MinimaxIcon,
-	mistral: MistralIcon,
-	moonshot: MoonshotIcon,
-	netease: NeteaseIcon,
-	nexusflow: NexusflowIcon,
-	openai: OpenaiIcon,
-	openchat: OpenchatIcon,
-	stabilityai: StabilityaiIcon,
-	stepfun: StepfunIcon,
-	streamlake: StreamlakeIcon,
-	tencent: TencentIcon,
-	default: UnknownIcon,
-	unknown: UnknownIcon,
-	xunfei: XunfeiIcon,
-} as const;
 
 const CAPABILITY_ICONS: Record<AiproxyModelCapability, InlinedSvgData> = {
 	coder: FramedCodeIcon,
@@ -109,10 +42,6 @@ function formatPrice(value: number) {
 		maximumFractionDigits: 6,
 		minimumFractionDigits: value > 0 && value < 0.01 ? 4 : 2,
 	}).format(value);
-}
-
-function getOwnerIcon(ownerKey: string) {
-	return OWNER_ICONS[ownerKey as keyof typeof OWNER_ICONS] ?? UnknownIcon;
 }
 
 function normalizeSearchValue(value: string) {
@@ -158,7 +87,7 @@ function OwnerIcon({ ownerKey, ownerLabel, className }: { ownerKey: string; owne
 	return (
 		<div className={cn('flex shrink-0 items-center justify-center rounded-full bg-white', className)}>
 			<Icon
-				src={getOwnerIcon(ownerKey)}
+				src={getAiproxyOwnerIcon(ownerKey)}
 				alt={`${ownerLabel} icon`}
 				className='size-full'
 			/>

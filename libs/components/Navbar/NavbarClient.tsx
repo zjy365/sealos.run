@@ -113,9 +113,11 @@ export function NavbarClient({ links }: NavbarClientProps) {
 									animate={{ height: 'auto' }}
 									exit={{ height: 0 }}
 									transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
-									className='bg-card border-hairline fixed inset-x-0 top-16 z-50 hidden w-screen overflow-hidden border-t lg:block'
+									className='bg-card fixed inset-x-0 top-16 z-50 hidden w-screen overflow-hidden border-t lg:block'
 								>
-									{openedItem.panel}
+									<div className='bg-linear-to-r from-blue-100/30 from-50% to-card to-50%'>
+										{openedItem.panel}
+									</div>
 								</motion.div>
 							)}
 						</AnimatePresence>
