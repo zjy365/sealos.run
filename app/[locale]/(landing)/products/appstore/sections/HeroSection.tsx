@@ -3,6 +3,7 @@ import React from 'react';
 import { AppstoreBoxImage } from '@/assets/app-boxes';
 import { FireIcon, SubmitIcon } from '@/assets/icons';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
+import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
 import { Input } from '@/libs/components/ui/input';
 
@@ -52,12 +53,12 @@ export const HeroSection = React.memo(function HeroSection({ query, onQueryChang
 					value={query}
 					onChange={(event) => onQueryChange(event.target.value)}
 				/>
-				<button
+				<Button
 					type='submit'
-					className='border-foreground hover:text-brand hover:border-brand h-11 shrink-0 rounded-full border bg-transparent px-4 text-base font-semibold shadow-none backdrop-blur-sm transition-colors'
+					variant='outline'
 				>
 					搜索
-				</button>
+				</Button>
 			</form>
 
 			<div className='flex flex-wrap items-center justify-center gap-3'>

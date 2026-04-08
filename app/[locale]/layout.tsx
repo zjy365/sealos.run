@@ -4,6 +4,7 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import type React from 'react';
 import { i18nUIProvider } from '@/libs/i18n/fumadocs';
 import { routing } from '@/libs/i18n/routing';
+import { cn } from '@/libs/utils/styling';
 
 import './global.css';
 
@@ -28,7 +29,7 @@ export default async function RootLayout({ children, params }: Props) {
 	return (
 		<html
 			lang={actualLoacle}
-			className={inter.className}
+			className={cn(inter.className, 'light')}
 			style={{
 				colorScheme: 'light',
 			}}

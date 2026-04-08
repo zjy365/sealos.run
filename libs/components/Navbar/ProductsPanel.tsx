@@ -464,7 +464,7 @@ export function ProductsPanel({ aiproxyProviders, appStoreCategories }: Products
 	}, [getMatchedItem, pathname]);
 
 	return (
-		<div className='container flex w-full border-dashed p-0'>
+		<div className='container flex h-full w-full border-dashed p-0'>
 			{/* Left Sidebar */}
 			<div className='flex w-64 flex-col gap-2 border-dashed px-6 py-8'>
 				{navMenuItems.map((item) => {

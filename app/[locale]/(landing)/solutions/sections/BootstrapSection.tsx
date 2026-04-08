@@ -88,7 +88,7 @@ function LinkActionPill({ href, children }: { href: string; children: string }) 
 			asChild
 			variant='outline'
 			size='sm'
-			className='group text-foreground hover:border-brand hover:text-brand w-[16ch] shrink-0 bg-white px-0 hover:bg-white'
+			className='group w-[16ch] shrink-0 bg-white px-0 hover:bg-white'
 		>
 			<a
 				href={href}
@@ -109,7 +109,7 @@ function DialogActionPill({ children, onClick }: { children: string; onClick: ()
 			variant='outline'
 			size='sm'
 			onClick={onClick}
-			className='group text-foreground hover:border-brand hover:text-brand w-[16ch] shrink-0 bg-white px-0 hover:bg-white'
+			className='group text-foreground w-[16ch] shrink-0 bg-white px-0 hover:bg-white'
 		>
 			<span className='relative inline-flex items-center justify-center'>
 				<ActionPillInner>{children}</ActionPillInner>

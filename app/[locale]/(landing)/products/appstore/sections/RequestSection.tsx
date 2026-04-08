@@ -3,6 +3,7 @@
 import React from 'react';
 import { z } from 'zod';
 import { CheckOverFrameIcon, FramedCheckIcon, LightningOverFrameIcon, QuestionIcon } from '@/assets/icons';
+import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
 import { Input } from '@/libs/components/ui/input';
 
@@ -181,16 +182,16 @@ export function RequestSection({ templateRequestFormConfig }: RequestSectionProp
 							我们已收到您的 GitHub 仓库地址，会尽快为您生成部署模板并与您联系。
 						</p>
 					</div>
-					<button
+					<Button
 						type='button'
-						className='border-foreground hover:text-brand hover:border-brand h-11 rounded-full border bg-transparent px-4 text-base font-semibold shadow-none backdrop-blur-sm transition-colors'
+						variant='outline'
 						onClick={() => {
 							setIsSubmitted(false);
 							setErrors({});
 						}}
 					>
 						继续提交
-					</button>
+					</Button>
 				</div>
 			) : (
 				<form
@@ -210,13 +211,13 @@ export function RequestSection({ templateRequestFormConfig }: RequestSectionProp
 								setErrors({});
 							}}
 						/>
-						<button
+						<Button
 							type='submit'
+							variant='outline'
 							disabled={isSubmitting}
-							className='border-foreground hover:text-brand hover:border-brand h-11 shrink-0 rounded-full border bg-transparent px-4 text-base font-semibold shadow-none backdrop-blur-sm transition-colors disabled:pointer-events-none disabled:opacity-50'
 						>
 							{isSubmitting ? '提交中...' : '提交'}
-						</button>
+						</Button>
 					</div>
 					{errors.repoUrl ? (
 						<p className='text-destructive mt-3 text-sm leading-5'>{errors.repoUrl}</p>
