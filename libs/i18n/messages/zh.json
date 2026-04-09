@@ -43,6 +43,17 @@
 				"categoriesAndList": {
 					"searchPlaceholder": "搜索文章...",
 					"allCategories": "全部",
+					"categories": {
+						"kubernetes": "Kubernetes 教程",
+						"docker": "Docker 容器技术",
+						"devops": "DevOps 实践",
+						"microservices": "微服务架构",
+						"databases": "数据库管理",
+						"monitoring": "监控告警",
+						"security": "安全加固",
+						"performance": "性能优化",
+						"troubleshooting": "故障排查"
+					},
 					"noResultsFound": "没有找到与 \"{query}\" 相关的文章",
 					"noPostsInCategory": "该分类下暂无文章",
 					"tryDifferentKeywords": "尝试使用不同的关键词或清除搜索",

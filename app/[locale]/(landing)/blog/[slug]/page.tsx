@@ -8,7 +8,7 @@ import { EyeIcon, FramedCalendarIcon, FramedClockIcon, PersonIcon } from '@/asse
 import { formatDate } from '@/libs/blog/date-utils';
 import { blog } from '@/libs/blog/source';
 import type { BlogPost } from '@/libs/blog/types';
-import { getPostPageByLocaleFallback } from '@/libs/blog/utils';
+import { getPostPageByLocaleFallback, resolveBlogCategorySlug } from '@/libs/blog/utils';
 import { Icon } from '@/libs/components/ui/icon';
 import { getTranslations } from '@/libs/i18n/server';
 import { getMDXComponents } from '@/mdx-components';
@@ -83,6 +83,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 		date: date || '',
 		author: author || '',
 		category: category || '',
+		categorySlug: resolveBlogCategorySlug(category || ''),
 		tags: tags || [],
 		readingTime: readingTime || 0,
 		views: views || 0,

@@ -31,7 +31,7 @@ export function useCategoriesAndList({
 
 	const filteredPosts = React.useMemo(() => {
 		if (!selectedCategory) return initialPosts;
-		return initialPosts.filter((post) => post.category === selectedCategory);
+		return initialPosts.filter((post) => post.categorySlug === selectedCategory);
 	}, [selectedCategory, initialPosts]);
 
 	const isSearching = searchQuery.trim().length > 0;

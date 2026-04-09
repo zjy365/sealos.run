@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 400 276">
+  <foreignObject width="394.97" height="228.88" x="2.86" y="44.23">
+    <div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style="
+        backdrop-filter: blur(0.5px);
+        clip-path: url(#a);
+        height: 100%;
+        width: 100%;
+      "
+    />
+  </foreignObject>
+  <path
+    fill="#e4eafb"
+    fill-opacity=".37"
+    stroke="url(#b)"
+    d="M0 0h225.88v225.88H0z"
+    data-figma-bg-blur-radius="1"
+    transform="matrix(-.87 -.5 -.87 .5 395.97 158.67)"
+  />
+  <foreignObject width="394.97" height="228.88" x="2.86" y="2.79">
+    <div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style="
+        backdrop-filter: blur(0.5px);
+        clip-path: url(#c);
+        height: 100%;
+        width: 100%;
+      "
+    />
+  </foreignObject>
+  <path
+    fill="#e4eafb"
+    fill-opacity=".37"
+    stroke="url(#d)"
+    d="M0 0h225.88v225.88H0z"
+    data-figma-bg-blur-radius="1"
+    transform="matrix(-.87 -.5 -.87 .5 395.97 117.23)"
+  />
+  <foreignObject width="196.69" height="156.45" x="199.89" y="115.39">
+    <div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style="
+        backdrop-filter: blur(0.5px);
+        clip-path: url(#e);
+        height: 100%;
+        width: 100%;
+      "
+    />
+  </foreignObject>
+  <path
+    fill="#e4eafb"
+    fill-opacity=".37"
+    stroke="url(#f)"
+    d="M0 0h223.81v41.04H0z"
+    data-figma-bg-blur-radius="1"
+    transform="matrix(-.87 .5 0 1 395.14 117.14)"
+  />
+  <foreignObject width="197.52" height="156.68" x="4.32" y="115.75">
+    <div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style="
+        backdrop-filter: blur(0.5px);
+        clip-path: url(#g);
+        height: 100%;
+        width: 100%;
+      "
+    />
+  </foreignObject>
+  <path
+    fill="#e4eafb"
+    fill-opacity=".37"
+    stroke="url(#h)"
+    d="M0 0h224.76v40.8H0z"
+    data-figma-bg-blur-radius="1"
+    transform="matrix(-.87 -.5 0 1 200.4 229.88)"
+  />
+  <path
+    fill="#a3c4ff"
+    stroke="#005bff"
+    stroke-width=".5"
+    d="m394.65 153.57-4.63 2.68v5.35l4.63 2.67 4.63-2.67v-5.35zm-389.3 0-4.63 2.68v5.35l4.63 2.67 4.63-2.67v-5.35zM200.1 264.92l-4.64 2.67v5.35l4.63 2.68 4.64-2.68v-5.35zM5.35 110.83l-4.63 2.68v5.35l4.63 2.67 4.63-2.67v-5.35zM200 .29l-4.63 2.67v5.35L200 11l4.63-2.68V2.96zm194.65 110.54-4.63 2.68v5.35l4.63 2.67 4.63-2.67v-5.35zM200 223l-4.63 2.68v5.35l4.63 2.67 4.63-2.67v-5.35z"
+  />
+  <defs>
+    <linearGradient
+      id="b"
+      x1="112.67"
+      x2="112.67"
+      y1="0"
+      y2="225.88"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".42" stop-color="#a3c4ff" />
+      <stop offset="1" stop-color="#005bff" />
+    </linearGradient>
+    <linearGradient
+      id="d"
+      x1="112.67"
+      x2="112.67"
+      y1="0"
+      y2="225.88"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".42" stop-color="#a3c4ff" />
+      <stop offset="1" stop-color="#005bff" />
+    </linearGradient>
+    <linearGradient
+      id="f"
+      x1="111.63"
+      x2="111.63"
+      y1="0"
+      y2="41.04"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".42" stop-color="#a3c4ff" />
+      <stop offset="1" stop-color="#005bff" />
+    </linearGradient>
+    <linearGradient
+      id="h"
+      x1="112.11"
+      x2="112.11"
+      y1="0"
+      y2="40.8"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".42" stop-color="#a3c4ff" />
+      <stop offset="1" stop-color="#005bff" />
+    </linearGradient>
+    <clipPath id="a" transform="translate(-2.86 -44.23)">
+      <path d="M395.97 158.67 200.35 45.73 4.73 158.67l195.62 112.94z" />
+    </clipPath>
+    <clipPath id="c" transform="translate(-2.86 -2.79)">
+      <path d="M395.97 117.23 200.35 4.29 4.73 117.23l195.62 112.94z" />
+    </clipPath>
+    <clipPath id="e" transform="translate(-199.89 -115.4)">
+      <path d="m395.14 117.14-193.82 111.9v41.05l193.82-111.9z" />
+    </clipPath>
+    <clipPath id="g" transform="translate(-4.32 -115.75)">
+      <path d="M200.4 229.88 5.75 117.5v40.8L200.4 270.68z" />
+    </clipPath>
+  </defs>
+</svg>

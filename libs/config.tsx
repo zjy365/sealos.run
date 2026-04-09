@@ -20,6 +20,47 @@ export const Config = (() => {
 	// For the editor plugin to recognize i18n keys
 	const t = <T,>(key: T) => key;
 	const productsPanelData = getProductsPanelData();
+	const blogCategoryCatalog = [
+		{
+			slug: 'kubernetes',
+			aliases: ['kubernetes', 'kubernetes-教程'],
+		},
+		{
+			slug: 'docker',
+			aliases: ['docker', 'docker-容器技术'],
+		},
+		{
+			slug: 'devops',
+			aliases: ['devops', 'devops-实践'],
+		},
+		{
+			slug: 'microservices',
+			aliases: ['microservices', '微服务架构'],
+		},
+		{
+			slug: 'databases',
+			aliases: ['databases', '数据库管理'],
+		},
+		{
+			slug: 'monitoring',
+			aliases: ['monitoring', '监控告警'],
+		},
+		{
+			slug: 'security',
+			aliases: ['security', '安全加固'],
+		},
+		{
+			slug: 'performance',
+			aliases: ['performance', '性能优化'],
+		},
+		{
+			slug: 'troubleshooting',
+			aliases: ['troubleshooting', '故障排查'],
+		},
+	] satisfies Array<{
+		slug: string;
+		aliases: string[];
+	}>;
 
 	return {
 		pages: {
@@ -187,30 +228,7 @@ export const Config = (() => {
 				],
 			},
 			blog: {
-				categories: {
-					zh: [
-						'Kubernetes 教程',
-						'Docker 容器技术',
-						'DevOps 实践',
-						'微服务架构',
-						'数据库管理',
-						'监控告警',
-						'安全加固',
-						'性能优化',
-						'故障排查',
-					],
-					en: [
-						'Kubernetes',
-						'Docker',
-						'DevOps',
-						'Microservices',
-						'Databases',
-						'Monitoring',
-						'Security',
-						'Performance',
-						'Troubleshooting',
-					],
-				} satisfies Record<string, string[]>,
+				categories: blogCategoryCatalog,
 				shareButtons: [
 					{
 						icon: <SimpleIcon d={siSinaweibo.path} />,

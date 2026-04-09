@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 105 121">
+  <foreignObject width="54.679" height="92.239" x="-.548" y="-.888"
+    ><div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style="
+        backdrop-filter: blur(0.44px);
+        clip-path: url(#a);
+        height: 100%;
+        width: 100%;
+      "
+  /></foreignObject>
+  <path
+    fill="#fff"
+    fill-opacity=".37"
+    stroke="url(#b)"
+    stroke-width=".888"
+    d="M.783 30.384 52.251.764l.546 59.872L.783 89.707z"
+    data-figma-bg-blur-radius=".888"
+  />
+  <path
+    fill="#eef0f7"
+    stroke="url(#c)"
+    stroke-opacity=".3"
+    stroke-width=".444"
+    d="M52.223 60.953.446 90.315 52.07 120.04l51.645-30.134z"
+  />
+  <path
+    fill="url(#d)"
+    d="m52.026 23.653 34.766 20.23v40.46l-34.766 20.23-34.766-20.23v-40.46z"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width=".5"
+    d="m86.792 43.883-34.766-20.23-34.766 20.23m69.532 0v40.46l-34.766 20.23m34.766-60.69L52.026 63.656m0 40.917L17.26 84.343v-40.46m34.766 60.69V63.656M17.26 43.883l34.766 19.773"
+  />
+  <path
+    fill="url(#e)"
+    d="M51.504 63.617 17.508 44.314 17.51 84.2l34.437 20.02z"
+  />
+  <g clip-path="url(#f)">
+    <path
+      fill="#fff"
+      d="m40.153 63.563.314.219.075.063c.147.126.171.168.359.494l-.002.014.042.072-.022.165q-.03.21-.087.4l-.21-.138c-1.004-.63-1.553-.59-2.317-.315l.314.38c2.45 3.004 4.188 6.398 5.008 9.976l.06.29.263.138.173.096c.79.443 1.31.82 1.962 1.825.467.91.515 1.54.501 2.344-.092.865-.38 1.546-.996 1.806-.378.108-.622.069-1.08-.19l-.348-.2-.072-.047c-.185-.12-.206-.144-.402-.37l-.037.225c-.536 2.618-2.227 4.576-4.409 4.975l-.544.085-.221.031-.237.028c-.28.026-.432.011-.59-.052l-.092-.041-.085-.044-.157-.091v2.514l-2.198-1.269V84.56l-.33-.065q-.264-.14-.529-.29l-.555-.32-.26-.167-.111-.08q-.208-.167-.412-.347v2.388l-2.197-1.269v-2.514l-.55-.442c-2.565-2.784-4.361-6.531-5.41-10.038a16 16 0 0 1-.413-1.994l-.22-.001-.119-.055c-.489-.23-.892-.48-1.35-1.007-.691-1.094-1.092-2.133-1.21-3.254-.025-.82.037-1.463.482-1.853.58-.205 1.012-.057 1.726.36l.419.246.272.16.114-.312c.495-1.32 1.12-2.374 2.062-3.133l.434-.33c.745-.494 1.774-.707 2.775-.654l-.106-.154c-.604-.888-1.072-1.516-1.872-1.993l-.33-.199-.22-.119-.012-.059-.094-.106c-.143-.163-.246-.324 0-.494l-.003-.031a.65.65 0 0 1 .408-.078c.154.017.318.078.483.178.72.41 1.515 1.476 2.062 2.208.199.277.397.56.574.852q.503.25.99.39c.681.214 1.344.554 2.03.946l.759.437c.84.495 1.6.998 2.41 1.737.305.253.489.349.77.412l.136-.069.087-.04c.664-.304 1.432-.46 2.345.157m-9.39.548c-.352-.204-.69-.237-.94-.093s-.39.454-.39.861c0 .408.14.88.39 1.312s.588.79.94.993c.354.204.692.237.942.094.25-.145.39-.455.39-.862s-.14-.88-.39-1.311c-.25-.433-.588-.79-.941-.994m6.656 3.843c-.353-.204-.692-.238-.941-.094-.25.144-.39.454-.39.862 0 .407.14.88.39 1.311.25.433.588.79.94.994.354.203.692.237.942.093s.39-.454.39-.862c0-.407-.14-.879-.39-1.311s-.588-.79-.941-.993"
+    />
+  </g>
+  <path
+    fill="#f4f4f5"
+    fill-opacity=".37"
+    stroke="#ccdaff"
+    stroke-width=".444"
+    d="M103.596 30.238 52.293.893l.275 60.096 51.028 28.879z"
+  />
+  <foreignObject width="54.563" height="92.305" x="50.367" y="28.972"
+    ><div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style="
+        backdrop-filter: blur(0.44px);
+        clip-path: url(#g);
+        height: 100%;
+        width: 100%;
+      "
+  /></foreignObject>
+  <path
+    fill="#c9d3ee"
+    fill-opacity=".37"
+    stroke="url(#h)"
+    stroke-width=".888"
+    d="m51.701 60.146 51.897-29.523v59.304l-51.18 29.697z"
+    data-figma-bg-blur-radius=".888"
+  />
+  <foreignObject width="105.968" height="62.329" x="-.596" y="-.682"
+    ><div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style="
+        backdrop-filter: blur(0.44px);
+        clip-path: url(#i);
+        height: 100%;
+        width: 100%;
+      "
+  /></foreignObject>
+  <path
+    fill="#e4eafb"
+    fill-opacity=".37"
+    stroke="url(#j)"
+    stroke-width=".888"
+    d="M52.33.719 1.173 30.17l50.773 30.074 51.653-29.759z"
+    data-figma-bg-blur-radius=".888"
+  />
+  <text
+    xml:space="preserve"
+    fill="#005bff"
+    font-size="16"
+    letter-spacing="0em"
+    style="white-space: pre"
+    transform="matrix(1 0 -.5 .86603 21.447 19.718)"
+  >
+    <tspan x="0" y="17.68">Openclaw</tspan>
+  </text>
+  <defs>
+    <linearGradient
+      id="b"
+      x1="53.062"
+      x2=".983"
+      y1="58.885"
+      y2="31.735"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".499" stop-color="#a3afff" />
+      <stop offset="1" stop-color="#005bff" />
+    </linearGradient>
+    <linearGradient
+      id="c"
+      x1="52.444"
+      x2="13.271"
+      y1="62.646"
+      y2="92.252"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#83afff" />
+      <stop offset=".981" stop-color="#0042ba" />
+    </linearGradient>
+    <linearGradient
+      id="d"
+      x1="86.947"
+      x2="46.947"
+      y1="82.801"
+      y2="39.301"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#a3c4ff" />
+      <stop offset="1" stop-color="#e2ecff" />
+    </linearGradient>
+    <linearGradient
+      id="e"
+      x1="52.447"
+      x2="17.688"
+      y1="64.46"
+      y2="84.659"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#ffc892" />
+      <stop offset="1" stop-color="#ff3d07" />
+    </linearGradient>
+    <linearGradient
+      id="h"
+      x1="103.598"
+      x2="52.043"
+      y1="88.256"
+      y2="61.205"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".499" stop-color="#a3afff" />
+      <stop offset="1" stop-color="#005bff" />
+    </linearGradient>
+    <linearGradient
+      id="j"
+      x1="52.319"
+      x2="52.319"
+      y1="1.001"
+      y2="60.245"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".416" stop-color="#a3c4ff" />
+      <stop offset="1" stop-color="#005bff" />
+    </linearGradient>
+    <clipPath id="a" transform="translate(.548 .888)">
+      <path d="M.783 30.384 52.251.764l.546 59.872L.783 89.707z" />
+    </clipPath>
+    <clipPath id="g" transform="translate(-50.367 -28.972)">
+      <path d="m51.701 60.146 51.897-29.523v59.304l-51.18 29.697z" />
+    </clipPath>
+    <clipPath id="i" transform="translate(.596 .682)">
+      <path d="M52.33.719 1.173 30.17l50.773 30.074 51.653-29.759z" />
+    </clipPath>
+    <clipPath id="f">
+      <path fill="#fff" d="m21.447 51.719 25.141 14.514v29.03L21.448 80.75z" />
+    </clipPath>
+  </defs>
+</svg>

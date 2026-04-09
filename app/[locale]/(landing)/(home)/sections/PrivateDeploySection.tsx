@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { CheckIcon, CloudBoxIcon, FlatArrowRightIcon, PrivateCloudIcon } from '@/assets/icons';
 import { Button } from '@/libs/components/ui/button';
 import { Icon } from '@/libs/components/ui/icon';
+import { Link } from '@/libs/i18n/navigation';
 import { SealosPrivateDeployBoxImage } from '../assets';
 
 const publicCloudFeatures = ['完全托管的 Kubernetes 服务', '完善的开发者生态支持', '零运维门槛，可视化操作界面'];
@@ -10,7 +11,7 @@ const privateCloudFeatures = ['支持离线环境部署', '数据本地化，满
 
 export function PrivateDeploySection() {
 	return (
-		<div className='relative min-h-screen w-full'>
+		<div className='relative w-full max-xl:min-h-screen'>
 			{/* Left content */}
 			<div className='top-0 flex flex-col items-start gap-6 xl:absolute xl:top-1/2 xl:max-w-lg xl:-translate-y-1/2'>
 				<div className='flex flex-col items-start gap-3'>
@@ -24,7 +25,7 @@ export function PrivateDeploySection() {
 			</div>
 
 			{/* Right content area */}
-			<div className='right-0 bottom-0 flex w-full justify-center overflow-x-scroll overflow-y-hidden xl:-mt-[25%] xl:justify-end xl:pt-[25%]'>
+			<div className='right-0 bottom-0 flex w-full justify-center overflow-x-scroll overflow-y-hidden xl:justify-end'>
 				<div className='relative ml-24 flex min-w-max flex-col gap-6 p-8'>
 					{/* Card area - above the image */}
 					<div className='flex'>
@@ -106,14 +107,17 @@ export function PrivateDeploySection() {
 									<div className='flex w-full items-center justify-between'>
 										<h3 className='text-xl font-medium'>私有云</h3>
 										<Button
+											asChild
 											variant='outline'
 											size='sm'
 										>
-											详情
-											<Icon
-												src={FlatArrowRightIcon}
-												className='size-4'
-											/>
+											<Link href='/solutions'>
+												详情
+												<Icon
+													src={FlatArrowRightIcon}
+													className='size-4'
+												/>
+											</Link>
 										</Button>
 									</div>
 									<p className='text-muted-foreground text-base'>自主可控的数据资产堡垒</p>

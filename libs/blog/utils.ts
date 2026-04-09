@@ -5,7 +5,6 @@ import { getLocaleFallbackChain, resolveLocale, routing } from '@/libs/i18n/rout
 import DefaultBlogCoverImage from '../../assets/default-blog-cover.svg';
 import { blog } from './source';
 import type { BlogCategory, BlogPost } from './types';
-import { BLOG_CATEGORIES } from './types';
 
 /**
  * Convert StaticImageData or string to string
@@ -18,7 +17,7 @@ function getImageSrc(src: string | StaticImageData | undefined): string {
 
 /**
  * Get all blog posts for a specific locale.
- * Filters posts by file extension to ensure only posts for the specified locale are returned.
+ * Filters posts by `page.locale` and normalizes category slugs.
  *
  * @param locale - The locale to filter posts by
  * @returns Array of blog posts sorted by date (newest first)
@@ -28,6 +27,7 @@ export function getAllPosts(locale: string = routing.defaultLocale): BlogPost[] 
 }
 
 const getAllPostsCached = React.cache((locale: string): BlogPost[] => {
+	const categoryAliasMap = getCategoryAliasMap();
 	const pages = blog.getPages(locale).filter((page) => {
 		const pageLocale = resolveLocale(page.locale);
 		return pageLocale === locale;
@@ -50,6 +50,7 @@ const getAllPostsCached = React.cache((locale: string): BlogPost[] => {
 				date: date || '',
 				author: author || '',
 				category: category || '',
+				categorySlug: resolveBlogCategorySlug(category || '', categoryAliasMap),
 				tags: tags || [],
 				readingTime: readingTime || 0,
 				views: views || 0,
@@ -89,13 +90,13 @@ export function getFeaturedPosts(locale: string = routing.defaultLocale, limit: 
 /**
  * Get posts by category.
  *
- * @param category - The category name to filter by
+ * @param category - The category slug to filter by
  * @param locale - The locale to filter posts by
  * @returns Array of posts in the specified category
  */
 export function getPostsByCategory(category: string, locale: string = routing.defaultLocale): BlogPost[] {
 	const posts = getAllPosts(resolveLocale(locale));
-	return posts.filter((post) => post.category === category);
+	return posts.filter((post) => post.categorySlug === category);
 }
 
 /**
@@ -110,18 +111,18 @@ export function getAllCategories(locale: string = routing.defaultLocale): BlogCa
 	const categoryCount = new Map<string, number>();
 
 	for (const post of posts) {
-		if (post.category) {
-			categoryCount.set(post.category, (categoryCount.get(post.category) || 0) + 1);
+		if (post.categorySlug) {
+			categoryCount.set(post.categorySlug, (categoryCount.get(post.categorySlug) || 0) + 1);
 		}
 	}
 
-	const categoriesMap = Config.components.blog?.categories as Record<string, string[]> | undefined;
-	const configuredNames: string[] = categoriesMap?.[resolvedLocale] ?? [...BLOG_CATEGORIES];
+	const configuredCategorySlugs = (Config.components.blog?.categories ?? []).map((item) => item.slug);
+	const categorySlugs = mergeCategorySlugs(configuredCategorySlugs, Array.from(categoryCount.keys()), resolvedLocale);
 
-	return configuredNames.map((name) => ({
-		name,
-		slug: slugify(name),
-		count: categoryCount.get(name) || 0,
+	return categorySlugs.map((slug) => ({
+		name: slug,
+		slug,
+		count: categoryCount.get(slug) || 0,
 	}));
 }
 
@@ -223,4 +224,28 @@ export function getPostPageByLocaleFallback(slug: string, locale: string) {
 	}
 
 	return null;
+}
+
+export function resolveBlogCategorySlug(categoryName: string, aliasMap = getCategoryAliasMap()): string {
+	if (!categoryName) {
+		return '';
+	}
+
+	const categorySlug = slugify(categoryName);
+	return aliasMap.get(categorySlug) ?? categorySlug;
+}
+
+function getCategoryAliasMap(): Map<string, string> {
+	const categories = Config.components.blog?.categories ?? [];
+	const entries = categories.flatMap((item) => item.aliases.map((alias) => [slugify(alias), item.slug] as const));
+
+	return new Map(entries);
+}
+
+function mergeCategorySlugs(configured: string[], discovered: string[], locale: string): string[] {
+	const configuredSet = new Set(configured);
+	const rest = discovered.filter((slug) => !configuredSet.has(slug));
+	const collator = new Intl.Collator(locale);
+
+	return [...configured, ...rest.toSorted((left, right) => collator.compare(left, right))];
 }

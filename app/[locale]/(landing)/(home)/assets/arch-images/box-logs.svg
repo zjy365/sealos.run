@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 105 121">
+  <foreignObject width="54.679" height="92.239" x="-.548" y="-.888"
+    ><div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style="
+        backdrop-filter: blur(0.44px);
+        clip-path: url(#a);
+        height: 100%;
+        width: 100%;
+      "
+  /></foreignObject>
+  <path
+    fill="#fff"
+    fill-opacity=".37"
+    stroke="url(#b)"
+    stroke-width=".888"
+    d="M.783 30.384 52.251.764l.546 59.872L.783 89.707z"
+    data-figma-bg-blur-radius=".888"
+  />
+  <path
+    fill="#eef0f7"
+    stroke="url(#c)"
+    stroke-opacity=".3"
+    stroke-width=".444"
+    d="M52.223 60.953.446 90.315 52.07 120.04l51.645-30.134z"
+  />
+  <path
+    fill="url(#d)"
+    d="m52.026 23.653 34.766 20.23v40.46l-34.766 20.23-34.767-20.23v-40.46z"
+  />
+  <path
+    stroke="#005bff"
+    stroke-width=".5"
+    d="m86.792 43.883-34.766-20.23-34.767 20.23m69.533 0v40.46l-34.766 20.23m34.766-60.69L52.026 63.656m0 40.917-34.767-20.23v-40.46m34.767 60.69V63.656M17.259 43.883l34.767 19.773"
+  />
+  <g clip-path="url(#e)">
+    <path
+      stroke="#005bff"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="1.33"
+      d="M36.602 63.969v5c0 .663.229 1.43.635 2.133s.956 1.285 1.53 1.617l4.33 2.5m-10.825-5-2.165-1.25m8.66 10-8.66-5m8.66 10-8.66-5m7.578-14.375-9.743-5.625c-.574-.332-1.125-.387-1.53-.152-.407.234-.635.739-.635 1.401v20c0 .663.228 1.431.634 2.134.406.704.957 1.285 1.531 1.617l12.99 7.5c.575.331 1.125.386 1.532.151.406-.234.634-.739.634-1.401v-16.25z"
+    />
+  </g>
+  <path
+    fill="#f4f4f5"
+    fill-opacity=".37"
+    stroke="#ccdaff"
+    stroke-width=".444"
+    d="M103.596 30.238 52.293.893l.275 60.096 51.028 28.879z"
+  />
+  <foreignObject width="54.563" height="92.305" x="50.367" y="28.972"
+    ><div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style="
+        backdrop-filter: blur(0.44px);
+        clip-path: url(#f);
+        height: 100%;
+        width: 100%;
+      "
+  /></foreignObject>
+  <path
+    fill="#c9d3ee"
+    fill-opacity=".37"
+    stroke="url(#g)"
+    stroke-width=".888"
+    d="m51.701 60.146 51.897-29.523v59.304l-51.18 29.697z"
+    data-figma-bg-blur-radius=".888"
+  />
+  <foreignObject width="105.968" height="62.329" x="-.596" y="-.682"
+    ><div
+      xmlns="http://www.w3.org/1999/xhtml"
+      style="
+        backdrop-filter: blur(0.44px);
+        clip-path: url(#h);
+        height: 100%;
+        width: 100%;
+      "
+  /></foreignObject>
+  <path
+    fill="#e4eafb"
+    fill-opacity=".37"
+    stroke="url(#i)"
+    stroke-width=".888"
+    d="M52.33.719 1.173 30.17l50.773 30.074 51.653-29.759z"
+    data-figma-bg-blur-radius=".888"
+  />
+  <text
+    xml:space="preserve"
+    fill="#005bff"
+    font-size="16"
+    letter-spacing="0em"
+    style="white-space: pre"
+    transform="matrix(1 0 -.5 .86603 42.447 19.718)"
+  >
+    <tspan x="0" y="17.68">日志</tspan>
+  </text>
+  <defs>
+    <linearGradient
+      id="b"
+      x1="53.062"
+      x2=".983"
+      y1="58.885"
+      y2="31.735"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".499" stop-color="#a3afff" />
+      <stop offset="1" stop-color="#005bff" />
+    </linearGradient>
+    <linearGradient
+      id="c"
+      x1="52.444"
+      x2="13.271"
+      y1="62.646"
+      y2="92.252"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#83afff" />
+      <stop offset=".981" stop-color="#0042ba" />
+    </linearGradient>
+    <linearGradient
+      id="d"
+      x1="86.947"
+      x2="46.947"
+      y1="82.801"
+      y2="39.301"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#a3c4ff" />
+      <stop offset="1" stop-color="#e2ecff" />
+    </linearGradient>
+    <linearGradient
+      id="g"
+      x1="103.598"
+      x2="52.043"
+      y1="88.256"
+      y2="61.205"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".499" stop-color="#a3afff" />
+      <stop offset="1" stop-color="#005bff" />
+    </linearGradient>
+    <linearGradient
+      id="i"
+      x1="52.319"
+      x2="52.319"
+      y1="1.001"
+      y2="60.245"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".416" stop-color="#a3c4ff" />
+      <stop offset="1" stop-color="#005bff" />
+    </linearGradient>
+    <clipPath id="a" transform="translate(.548 .888)">
+      <path d="M.783 30.384 52.251.764l.546 59.872L.783 89.707z" />
+    </clipPath>
+    <clipPath id="f" transform="translate(-50.367 -28.972)">
+      <path d="m51.701 60.146 51.897-29.523v59.304l-51.18 29.697z" />
+    </clipPath>
+    <clipPath id="h" transform="translate(.596 .682)">
+      <path d="M52.33.719 1.173 30.17l50.773 30.074 51.653-29.759z" />
+    </clipPath>
+    <clipPath id="e">
+      <path fill="#fff" d="m21.447 52.719 25.98 15v30l-25.98-15z" />
+    </clipPath>
+  </defs>
+</svg>

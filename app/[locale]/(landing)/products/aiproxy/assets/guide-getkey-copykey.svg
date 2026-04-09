@@ -5,7 +5,6 @@
     <text
       xml:space="preserve"
       fill="#000"
-      font-family="PingFang SC"
       font-size="27.3"
       letter-spacing=".2"
       style="white-space: pre"
@@ -21,7 +20,6 @@
     <text
       xml:space="preserve"
       fill="#111824"
-      font-family="PingFang SC"
       font-size="19.1"
       letter-spacing=".1"
       style="white-space: pre"
@@ -31,7 +29,6 @@
     <text
       xml:space="preserve"
       fill="#0884dd"
-      font-family="PingFang SC"
       font-size="19.1"
       letter-spacing=".1"
       style="white-space: pre"
@@ -49,7 +46,6 @@
     <text
       xml:space="preserve"
       fill="#485264"
-      font-family="PingFang SC"
       font-size="16.4"
       letter-spacing=".7"
       style="white-space: pre"
@@ -59,7 +55,6 @@
     <text
       xml:space="preserve"
       fill="#485264"
-      font-family="PingFang SC"
       font-size="16.4"
       letter-spacing=".7"
       style="white-space: pre"
@@ -69,7 +64,6 @@
     <text
       xml:space="preserve"
       fill="#485264"
-      font-family="PingFang SC"
       font-size="16.4"
       letter-spacing=".7"
       style="white-space: pre"
@@ -87,7 +81,6 @@
     <text
       xml:space="preserve"
       fill="#111824"
-      font-family="PingFang SC"
       font-size="19.1"
       letter-spacing=".1"
       style="white-space: pre"
@@ -97,7 +90,6 @@
     <text
       xml:space="preserve"
       fill="#485264"
-      font-family="PingFang SC"
       font-size="16.4"
       letter-spacing=".7"
       style="white-space: pre"
@@ -107,7 +99,6 @@
     <text
       xml:space="preserve"
       fill="#005bff"
-      font-family="PingFang SC"
       font-size="16.4"
       letter-spacing=".7"
       style="white-space: pre"
@@ -126,7 +117,6 @@
     <text
       xml:space="preserve"
       fill="#111824"
-      font-family="PingFang SC"
       font-size="19.1"
       letter-spacing=".1"
       style="white-space: pre"
@@ -136,7 +126,6 @@
     <text
       xml:space="preserve"
       fill="#485264"
-      font-family="PingFang SC"
       font-size="16.4"
       letter-spacing=".7"
       style="white-space: pre"
@@ -146,7 +135,6 @@
     <text
       xml:space="preserve"
       fill="#71717a"
-      font-family="PingFang SC"
       font-size="16.4"
       letter-spacing=".7"
       style="white-space: pre"
@@ -173,7 +161,6 @@
       <text
         xml:space="preserve"
         fill="#24282c"
-        font-family="PingFang SC"
         font-size="19.3"
         letter-spacing="0em"
         style="white-space: pre"

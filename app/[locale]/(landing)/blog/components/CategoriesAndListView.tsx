@@ -79,6 +79,12 @@ function CategoryFilter({
 	onSelectCategory: (category: string | null) => void;
 }) {
 	const t = useTranslations('pages.blog.sections.categoriesAndList');
+
+	const getCategoryLabel = (slug: string) => {
+		const key = `categories.${slug}`;
+		return t.has(key) ? t(key) : slug;
+	};
+
 	return (
 		<aside className='w-40 shrink-0'>
 			<nav className='sticky top-20 flex flex-col gap-5'>
@@ -97,16 +103,16 @@ function CategoryFilter({
 				{categories.map((category) => (
 					<button
 						key={category.slug}
-						onClick={() => onSelectCategory(category.name)}
+						onClick={() => onSelectCategory(category.slug)}
 						className={cn(
 							'flex items-center justify-center rounded-full border px-4 py-2 text-base transition-colors',
-							selectedCategory === category.name
+							selectedCategory === category.slug
 								? 'border-primary bg-muted text-primary font-medium'
 								: 'text-muted-foreground border-border bg-primary-foreground hover:border-primary',
 						)}
 						type='button'
 					>
-						{category.name}
+						{getCategoryLabel(category.slug)}
 					</button>
 				))}
 			</nav>

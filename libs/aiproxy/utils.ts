@@ -1,6 +1,7 @@
 import 'server-only';
 
 import React from 'react';
+import { routing } from '@/libs/i18n/routing';
 import { AIPROXY_CAPABILITY_LABELS, AIPROXY_MODEL_TYPE_LABELS, AIPROXY_OWNER_LABELS } from './constants';
 import { aiproxyModels } from './source';
 import type { AiproxyModel, AiproxyModelMeta, AiproxyOwnerKey } from './types';
@@ -41,7 +42,9 @@ export function getAiproxyModels() {
 }
 
 const getAiproxyModelsCached = React.cache((): AiproxyModel[] => {
+	const collator = new Intl.Collator(routing.defaultLocale);
+
 	return aiproxyModels
 		.map(normalizeModel)
-		.sort((a, b) => a.ownerLabel.localeCompare(b.ownerLabel, 'zh-CN') || a.name.localeCompare(b.name));
+		.sort((a, b) => collator.compare(a.ownerLabel, b.ownerLabel) || collator.compare(a.name, b.name));
 });

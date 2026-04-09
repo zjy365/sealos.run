@@ -439,10 +439,7 @@ export function SolutionsLeadDialog({ endpoint, formVersion, open, onOpenChange 
 										value={values.contactDate}
 										onChange={(event) => updateField('contactDate', event.target.value)}
 										aria-invalid={Boolean(errors.contactDate)}
-										className={cn(
-											'border-border h-10 rounded-md pr-3 pl-10 text-sm shadow-none',
-											'[color-scheme:light]',
-										)}
+										className={cn('border-border h-10 rounded-md pr-3 pl-10 text-sm shadow-none')}
 									/>
 								</div>
 							</Field>

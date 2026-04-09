@@ -43,6 +43,17 @@
 				"categoriesAndList": {
 					"searchPlaceholder": "搜索文章...",
 					"allCategories": "全部",
+					"categories": {
+						"kubernetes": "Kubernetes",
+						"docker": "Docker",
+						"devops": "DevOps",
+						"microservices": "Microservices",
+						"databases": "Databases",
+						"monitoring": "Monitoring",
+						"security": "Security",
+						"performance": "Performance",
+						"troubleshooting": "Troubleshooting"
+					},
 					"noResultsFound": "没有找到与 \"{query}\" 相关的文章",
 					"noPostsInCategory": "该分类下暂无文章",
 					"tryDifferentKeywords": "尝试使用不同的关键词或清除搜索",

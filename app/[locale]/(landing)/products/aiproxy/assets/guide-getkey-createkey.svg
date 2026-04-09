@@ -19,7 +19,6 @@
         <text
           xml:space="preserve"
           fill="#24282c"
-          font-family="PingFang SC"
           font-size="22.8"
           letter-spacing=".2"
           style="white-space: pre"
@@ -35,7 +34,6 @@
         <text
           xml:space="preserve"
           fill="#111824"
-          font-family="PingFang SC"
           font-size="20"
           letter-spacing=".1"
           style="white-space: pre"
@@ -54,7 +52,6 @@
         <text
           xml:space="preserve"
           fill="#667085"
-          font-family="PingFang SC"
           font-size="17.1"
           letter-spacing="0em"
           style="white-space: pre"
@@ -76,7 +73,6 @@
           <text
             xml:space="preserve"
             fill="#485264"
-            font-family="PingFang SC"
             font-size="17.1"
             letter-spacing=".7"
             style="white-space: pre"
@@ -92,7 +88,6 @@
           <text
             xml:space="preserve"
             fill="#fff"
-            font-family="PingFang SC"
             font-size="17.1"
             letter-spacing=".7"
             style="white-space: pre"

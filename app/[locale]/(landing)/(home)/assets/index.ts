@@ -1,3 +1,4 @@
+export * from './arch-images';
 export * from './features-appicons';
 export { default as HeroBgImage } from './hero-bg.svg';
 export { default as HighIsolationImage } from './high-isolation.svg';

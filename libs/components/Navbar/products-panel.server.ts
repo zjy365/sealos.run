@@ -5,6 +5,7 @@ import { getAiproxyModels } from '@/libs/aiproxy/utils';
 import { APPSTORE_CATEGORY_META } from '@/libs/appstore/constants';
 import type { AppStoreTemplateCategory } from '@/libs/appstore/types';
 import { getAppStoreTemplates } from '@/libs/appstore/utils';
+import { getPrimaryLocale, routing } from '@/libs/i18n/routing';
 import type { ProductsPanelData } from './products-panel.types';
 
 const APPSTORE_CATEGORY_LABELS: Record<AppStoreTemplateCategory, string> = {
@@ -24,13 +25,15 @@ const NAV_APPSTORE_CATEGORIES = APPSTORE_CATEGORY_META.flatMap((item) =>
 	item.slug === 'all' ? [] : [item.slug as AppStoreTemplateCategory],
 );
 
-export function getProductsPanelData() {
-	return getProductsPanelDataCached();
+export function getProductsPanelData(locale: string = routing.defaultLocale) {
+	return getProductsPanelDataCached(getPrimaryLocale(locale));
 }
 
-const getProductsPanelDataCached = React.cache((): ProductsPanelData => {
+const getProductsPanelDataCached = React.cache((locale: string): ProductsPanelData => {
+	const normalizedLocale = getPrimaryLocale(locale);
+	const localeCollator = new Intl.Collator(normalizedLocale);
 	const models = getAiproxyModels();
-	const templates = getAppStoreTemplates('zh');
+	const templates = getAppStoreTemplates(normalizedLocale);
 
 	const providerMap = new Map<string, ProductsPanelData['aiproxyProviders'][number]>();
 	for (const model of models) {
@@ -63,7 +66,7 @@ const getProductsPanelDataCached = React.cache((): ProductsPanelData => {
 
 	const appStoreCategories = NAV_APPSTORE_CATEGORIES.map((category) => ({
 		apps: (templateMap.get(category) ?? [])
-			.toSorted((a, b) => (b.deployCount ?? 0) - (a.deployCount ?? 0) || a.title.localeCompare(b.title, 'zh-CN'))
+			.toSorted((a, b) => (b.deployCount ?? 0) - (a.deployCount ?? 0) || localeCollator.compare(a.title, b.title))
 			.slice(0, 9),
 		label: APPSTORE_CATEGORY_LABELS[category],
 		slug: category,
