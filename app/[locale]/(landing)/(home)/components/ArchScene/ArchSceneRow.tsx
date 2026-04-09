@@ -5,12 +5,12 @@ import React from 'react';
 import { Number01Icon, Number02Icon, Number03Icon, Number04Icon, Number05Icon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
 import { cn } from '@/libs/utils/styling';
-import { ArchScene, type ArchSceneBoxConfig, type ArchSceneBoxes, type ArchSceneBoxKey } from '../components/ArchScene';
-import { ArchSceneDecoLine } from '../components/ArchScene/ArchSceneDecoLine';
+import { ArchScene, type ArchSceneBoxConfig, type ArchSceneBoxes, type ArchSceneBoxKey } from './ArchScene';
+import { ArchSceneDecoLine } from './ArchSceneDecoLine';
 
 const BOX_KEYS: ArchSceneBoxKey[] = ['t', 'l', 'c', 'r', 'b'];
 const DESC_NUMBER_ICONS = [Number01Icon, Number02Icon, Number03Icon, Number04Icon, Number05Icon];
-const CAROUSEL_INTERVAL = 5000;
+const CAROUSEL_INTERVAL = 500000;
 
 interface ArchSceneRowProps {
 	item: {
@@ -62,7 +62,7 @@ function ArchSceneDetail({ box, variant }: { box: ArchSceneBoxConfig; variant: '
 				<div className={cn('flex items-center gap-2', !isLeftVariant && 'lg:flex-row-reverse')}>
 					<Icon
 						src={box.icon}
-						className='size-8'
+						className='size-8 rounded-sm'
 					/>
 					<span className='text-lg font-medium'>{box.label}</span>
 				</div>

@@ -12,7 +12,6 @@ import type { AppStoreTrendItem } from '@/libs/appstore/types';
 import { getAppStoreTrends } from '@/libs/appstore/utils';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
 import { Icon } from '@/libs/components/ui/icon';
-import { Config } from '@/libs/config';
 import { AppStoreIcon } from '../components/AppStoreIcon';
 
 const rankIconMap = {
@@ -23,9 +22,13 @@ const rankIconMap = {
 	5: Number05Icon,
 } as const;
 
-function TrendRow({ data }: { data: AppStoreTrendItem }) {
+function buildTemplateDeployUrl(templateDeployUrlTemplate: string, templateName: string): string {
+	return templateDeployUrlTemplate.replace('<template_name>', encodeURIComponent(templateName));
+}
+
+function TrendRow({ data, templateDeployUrlTemplate }: { data: AppStoreTrendItem; templateDeployUrlTemplate: string }) {
 	const rankIcon = rankIconMap[data.rank] ?? Number01Icon;
-	const { signinLink } = Config.components.navbar;
+	const deployUrl = buildTemplateDeployUrl(templateDeployUrlTemplate, data.slug);
 
 	return (
 		<div className='flex flex-col gap-4 border-b border-white p-6 last:border-b-0 sm:flex-row sm:items-center sm:justify-between md:gap-8 md:px-9 md:py-8'>
@@ -84,7 +87,7 @@ function TrendRow({ data }: { data: AppStoreTrendItem }) {
 				</div>
 
 				<LandingOutlineButton
-					href={signinLink}
+					href={deployUrl}
 					size='md'
 					icon={FlatArrowRightIcon}
 					className='order-1 sm:order-2'
@@ -96,7 +99,13 @@ function TrendRow({ data }: { data: AppStoreTrendItem }) {
 	);
 }
 
-export function TrendsSection({ locale }: { locale: string }) {
+export function TrendsSection({
+	locale,
+	templateDeployUrlTemplate,
+}: {
+	locale: string;
+	templateDeployUrlTemplate: string;
+}) {
 	const trends = getAppStoreTrends(locale).slice(0, 5);
 
 	return (
@@ -119,6 +128,7 @@ export function TrendsSection({ locale }: { locale: string }) {
 					<TrendRow
 						key={t.slug}
 						data={t}
+						templateDeployUrlTemplate={templateDeployUrlTemplate}
 					/>
 				))}
 			</div>

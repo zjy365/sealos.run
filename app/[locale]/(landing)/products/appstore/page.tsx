@@ -21,7 +21,10 @@ export default async function AppStorePage({ params }: { params: Promise<{ local
 			/>
 
 			<section className='container mx-auto px-6 py-16'>
-				<TrendsSection locale={locale} />
+				<TrendsSection
+					locale={locale}
+					templateDeployUrlTemplate={templateDeployUrlTemplate}
+				/>
 			</section>
 
 			<section className='relative w-full overflow-hidden py-16'>

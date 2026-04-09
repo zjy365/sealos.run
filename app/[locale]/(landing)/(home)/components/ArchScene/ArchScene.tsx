@@ -41,7 +41,7 @@ interface ArchSceneProps {
 
 export function ArchScene({ alt, boxes, activeBoxKey, hoveredBoxKey, onBoxClick, onBoxHover }: ArchSceneProps) {
 	return (
-		<div className='relative aspect-400/331 w-full max-w-[25rem] shrink-0'>
+		<div className='relative aspect-400/331 w-full max-w-100 shrink-0'>
 			<svg
 				viewBox='0 0 400 331'
 				className='absolute inset-0 size-full'

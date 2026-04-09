@@ -1,0 +1,29 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  data-colorful="true"
+  data-type="icon"
+  viewBox="0 0 40 40"
+>
+  <path fill="url(#paint0_linear_5360_13538)" d="M0 0h40v40H0z" />
+  <path
+    stroke="#fff"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.33"
+    d="M17.5 20.625 15 23.75l2.5 3.125m5-6.25L25 23.75l-2.5 3.125m0-19.375v5A2.5 2.5 0 0 0 25 15h5m-6.25-7.5H12.5A2.5 2.5 0 0 0 10 10v20a2.5 2.5 0 0 0 2.5 2.5h15A2.5 2.5 0 0 0 30 30V13.75z"
+  />
+  <defs>
+    <linearGradient
+      id="paint0_linear_5360_13538"
+      x1="40.704"
+      x2="1.065"
+      y1=".296"
+      y2="41.054"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#636363" />
+      <stop offset="1" />
+    </linearGradient>
+  </defs>
+</svg>

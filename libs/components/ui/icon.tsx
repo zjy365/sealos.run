@@ -109,7 +109,8 @@ export function Icon({ src, width, height, style, strokeWidth, vectorEffect, sca
 	const uri = resolveUri(src, strokeWidth, vectorEffect, scaling);
 
 	// colorful: render actual image src (but patched)
-	if (src.flags?.colorful) {
+	// [FIXME] Oversized images are also considered colorful, we need to replicate url-loader for SVG images later.
+	if (src.flags?.colorful || !src.flags) {
 		return (
 			// biome-ignore lint/a11y/useAltText: this is for icon only.
 			// biome-ignore lint/performance/noImgElement: SVGs are inlined here.

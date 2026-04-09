@@ -1,0 +1,76 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  data-colorful="true"
+  data-type="icon"
+  viewBox="0 0 40 40"
+>
+  <path fill="url(#paint0_linear_5360_13401)" d="M0 0h40v40H0z" />
+  <g filter="url(#filter0_f_5360_13401)">
+    <path
+      fill="#fff"
+      d="M33.577 14.686a7.487 7.487 0 0 1 0 10.628c-2.95 2.934-7.733 2.934-10.683 0a7.487 7.487 0 0 1 0-10.628c2.95-2.934 7.733-2.934 10.683 0"
+    />
+  </g>
+  <path
+    fill="url(#paint1_linear_5360_13401)"
+    d="M13.576 13.566a1.01 1.01 0 0 1 1.013-1.007h12.24a7.48 7.48 0 0 1 5.491 2.177 7.416 7.416 0 0 1 0 10.527 7.48 7.48 0 0 1-5.588 2.173H12.076a1.01 1.01 0 0 1-1.014-1.007v-1.635c0-.557.454-1.009 1.014-1.009h8.508a7.4 7.4 0 0 1-.94-2.582H9.756a1.01 1.01 0 0 1-1.014-1.008V18.93a1.01 1.01 0 0 1 1.013-1.008h10.087c.233-.8.603-1.567 1.11-2.268H14.59a1.01 1.01 0 0 1-1.013-1.007z"
+  />
+  <path
+    fill="url(#paint2_linear_5360_13401)"
+    d="M4.21 24.793a1.01 1.01 0 0 1 1.014-1.008h2.497c.56 0 1.013.452 1.013 1.008v1.636c0 .556-.454 1.007-1.013 1.008H5.224a1.01 1.01 0 0 1-1.013-1.009z"
+  />
+  <defs>
+    <linearGradient
+      id="paint0_linear_5360_13401"
+      x1="-.065"
+      x2="40.236"
+      y1="20.356"
+      y2="23.023"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#0f0f0f" />
+      <stop offset="1" stop-color="#444" />
+    </linearGradient>
+    <linearGradient
+      id="paint1_linear_5360_13401"
+      x1="35.354"
+      x2="7.236"
+      y1="20.484"
+      y2="25.734"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fff" />
+      <stop offset=".442" stop-color="#fff" />
+      <stop offset="1" stop-color="#fff" stop-opacity=".2" />
+    </linearGradient>
+    <linearGradient
+      id="paint2_linear_5360_13401"
+      x1="35.355"
+      x2="7.236"
+      y1="20.484"
+      y2="25.733"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#fff" />
+      <stop offset=".442" stop-color="#fff" />
+      <stop offset="1" stop-color="#fff" stop-opacity=".2" />
+    </linearGradient>
+    <filter
+      id="filter0_f_5360_13401"
+      width="32.507"
+      height="32.429"
+      x="11.982"
+      y="3.785"
+      color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur
+        result="effect1_foregroundBlur_5360_13401"
+        stdDeviation="4.35"
+      />
+    </filter>
+  </defs>
+</svg>
