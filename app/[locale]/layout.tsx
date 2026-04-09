@@ -1,9 +1,9 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { Inter } from 'next/font/google';
-import { hasLocale, NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
 import type React from 'react';
 import { i18nUIProvider } from '@/libs/i18n/fumadocs';
-import { routing } from '@/libs/i18n/routing';
+import { getPrimaryLocale } from '@/libs/i18n/routing';
 import { cn } from '@/libs/utils/styling';
 
 import './global.css';
@@ -24,11 +24,11 @@ type Props = {
 
 export default async function RootLayout({ children, params }: Props) {
 	const { locale } = await params;
-	const actualLoacle = hasLocale(routing.locales, locale) ? locale : routing.defaultLocale;
+	const actualLocale = getPrimaryLocale(locale);
 
 	return (
 		<html
-			lang={actualLoacle}
+			lang={actualLocale}
 			className={cn(inter.className, 'light')}
 			style={{
 				colorScheme: 'light',
@@ -141,12 +141,12 @@ export default async function RootLayout({ children, params }: Props) {
 				{/* Language and Locale */}
 				<meta
 					httpEquiv='Content-Language'
-					content={actualLoacle}
+					content={actualLocale}
 				/>
 			</head>
 			<body className='bg-background flex min-h-screen flex-col overflow-x-hidden'>
 				<NextIntlClientProvider>
-					<RootProvider i18n={i18nUIProvider(actualLoacle)}>{children}</RootProvider>
+					<RootProvider i18n={i18nUIProvider(actualLocale)}>{children}</RootProvider>
 				</NextIntlClientProvider>
 			</body>
 		</html>

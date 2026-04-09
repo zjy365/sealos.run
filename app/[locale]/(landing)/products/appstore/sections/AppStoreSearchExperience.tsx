@@ -11,9 +11,10 @@ import { TemplatesSectionClient } from './TemplatesSectionClient';
 
 type AppStoreSearchExperienceProps = {
 	templates: AppStoreTemplate[];
+	templateDeployUrlTemplate: string;
 };
 
-export function AppStoreSearchExperience({ templates }: AppStoreSearchExperienceProps) {
+export function AppStoreSearchExperience({ templates, templateDeployUrlTemplate }: AppStoreSearchExperienceProps) {
 	const [query, setQuery] = React.useState('');
 	const [settledQuery, setSettledQuery] = React.useState('');
 	const [activeCategory, setActiveCategory] = React.useState<AppStoreCategory | null>('all');
@@ -150,6 +151,7 @@ export function AppStoreSearchExperience({ templates }: AppStoreSearchExperience
 
 					<TemplatesSectionClient
 						templates={searchedTemplates}
+						templateDeployUrlTemplate={templateDeployUrlTemplate}
 						activeCategory={activeCategory}
 						onCategoryChange={handleCategoryChange}
 						searchQuery={settledQuery}

@@ -1,8 +1,10 @@
 import { getAppStoreTemplates } from '@/libs/appstore/utils';
+import { Config } from '@/libs/config';
 import { TemplatesSectionClient } from './TemplatesSectionClient';
 
 export function TemplatesSection({ locale }: { locale: string }) {
 	const templates = getAppStoreTemplates(locale);
+	const templateDeployUrlTemplate = Config.pages.appstore.templateDeployUrlTemplate;
 
 	return (
 		<div
@@ -24,7 +26,10 @@ export function TemplatesSection({ locale }: { locale: string }) {
 				</div>
 			</div>
 
-			<TemplatesSectionClient templates={templates} />
+			<TemplatesSectionClient
+				templates={templates}
+				templateDeployUrlTemplate={templateDeployUrlTemplate}
+			/>
 		</div>
 	);
 }

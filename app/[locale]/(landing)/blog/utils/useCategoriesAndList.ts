@@ -3,6 +3,7 @@
 import { debounce } from 'radash';
 import React from 'react';
 import type { BlogCategory, BlogPost } from '@/libs/blog/types';
+import { isRoutingLocale } from '@/libs/i18n/routing';
 
 interface UseCategoriesAndListProps {
 	initialCategories: BlogCategory[];
@@ -36,7 +37,16 @@ export function useCategoriesAndList({
 	const isSearching = searchQuery.trim().length > 0;
 	const displayPosts = isSearching ? searchResults : filteredPosts;
 
-	const stripLocalePrefix = React.useCallback((url: string): string => url.replace(/^\/(zh|en)(?=\/)/, ''), []);
+	const stripLocalePrefix = React.useCallback((url: string): string => {
+		const segments = url.split('/');
+		const maybeLocale = segments[1];
+
+		if (isRoutingLocale(maybeLocale)) {
+			return `/${segments.slice(2).join('/')}`;
+		}
+
+		return url;
+	}, []);
 
 	const searchParamsRef = React.useRef({
 		locale,

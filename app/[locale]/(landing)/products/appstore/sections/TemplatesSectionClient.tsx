@@ -1,12 +1,10 @@
 'use client';
 
 import React from 'react';
-import { HexagonIcon } from '@/assets/icons';
 import { APPSTORE_CATEGORY_META } from '@/libs/appstore/constants';
 import type { AppStoreCategory, AppStoreTemplate } from '@/libs/appstore/types';
 import { Badge } from '@/libs/components/ui/badge';
 import { Button } from '@/libs/components/ui/button';
-import { Icon } from '@/libs/components/ui/icon';
 import { useTranslations } from '@/libs/i18n/client';
 import { cn } from '@/libs/utils/styling';
 import { AppStoreIcon } from '../components/AppStoreIcon';
@@ -14,6 +12,28 @@ import { AppStoreIcon } from '../components/AppStoreIcon';
 const categoryLabelKeyMap = Object.fromEntries(
 	APPSTORE_CATEGORY_META.map((item) => [item.slug, item.labelKey]),
 ) as Record<AppStoreCategory, string | undefined>;
+
+const A_CHAR_CODE = 'A'.charCodeAt(0);
+const LETTER_COUNT = 26;
+
+function hashString(seed: string): number {
+	let hash = 2166136261;
+	for (let index = 0; index < seed.length; index += 1) {
+		hash ^= seed.charCodeAt(index);
+		hash = Math.imul(hash, 16777619);
+	}
+	return hash >>> 0;
+}
+
+function getTemplateMarkerLetter(template: Pick<AppStoreTemplate, 'slug' | 'deployCount'>): string {
+	const seed = `${template.slug}:${template.deployCount ?? 0}`;
+	const letterIndex = hashString(seed) % LETTER_COUNT;
+	return String.fromCharCode(A_CHAR_CODE + letterIndex);
+}
+
+function buildTemplateDeployUrl(templateDeployUrlTemplate: string, templateName: string): string {
+	return templateDeployUrlTemplate.replace('<template_name>', encodeURIComponent(templateName));
+}
 
 const CategoryPill = React.memo(function CategoryPill({
 	active,
@@ -45,25 +65,44 @@ const CategoryPill = React.memo(function CategoryPill({
 const StackedHexagons = React.memo(function StackedHexagons({ text }: { text?: string }) {
 	return (
 		<div className='flex items-center pr-1'>
-			<div className='text-brand relative z-30 -mr-3 flex size-7 items-center justify-center'>
-				<Icon
-					src={HexagonIcon}
-					className='size-full'
+			<svg
+				xmlns='http://www.w3.org/2000/svg'
+				fill='none'
+				width='57'
+				height='28'
+				role='graphics-symbol'
+			>
+				<path
+					fill='#e1ecff'
+					stroke='#fafafa'
+					strokeWidth='2'
+					d='M54.2 7.6v12.35l-10.7 6.17-10.7-6.17V7.6l10.7-6.17z'
 				/>
-				{text && <span className='text-brand absolute text-xs leading-none font-medium'>{text}</span>}
-			</div>
-			<div className='relative z-20 -mr-3 size-7 text-zinc-300'>
-				<Icon
-					src={HexagonIcon}
-					className='size-full'
+				<path
+					fill='#ccdeff'
+					stroke='#fafafa'
+					strokeWidth='2'
+					d='M39.2 7.6v12.35l-10.7 6.17-10.7-6.17V7.6l10.7-6.17z'
 				/>
-			</div>
-			<div className='relative z-10 size-7 text-zinc-200'>
-				<Icon
-					src={HexagonIcon}
-					className='size-full'
+				<path
+					fill='#005bff'
+					stroke='#fafafa'
+					strokeWidth='2'
+					d='M24.2 7.33v12.34l-10.7 6.17-10.7-6.17V7.33l10.7-6.18z'
 				/>
-			</div>
+				<text
+					fill='#fff'
+					fontSize='10'
+					letterSpacing='0em'
+				>
+					<tspan
+						x='10.5'
+						y='17.6'
+					>
+						{text}
+					</tspan>
+				</text>
+			</svg>
 		</div>
 	);
 });
@@ -71,12 +110,22 @@ const StackedHexagons = React.memo(function StackedHexagons({ text }: { text?: s
 const TemplateCard = React.memo(function TemplateCard({
 	data,
 	categoryName,
+	templateDeployUrlTemplate,
 }: {
 	data: AppStoreTemplate;
 	categoryName?: string;
+	templateDeployUrlTemplate: string;
 }) {
+	const deployUrl = buildTemplateDeployUrl(templateDeployUrlTemplate, data.slug);
+	const markerLetter = getTemplateMarkerLetter(data);
+
 	return (
-		<div className='flex flex-col gap-2 rounded-lg border p-6'>
+		<a
+			href={deployUrl}
+			target='_blank'
+			rel='noopener noreferrer'
+			className='hover:border-brand flex flex-col gap-2 rounded-lg border p-6 transition-colors hover:shadow-xs'
+		>
 			<div className='flex items-start justify-between'>
 				<div className='flex items-center gap-3'>
 					<div className='flex size-16 items-center justify-center overflow-hidden rounded-2xl bg-zinc-50'>
@@ -98,7 +147,7 @@ const TemplateCard = React.memo(function TemplateCard({
 				</div>
 
 				<div className='text-muted-foreground flex items-center text-sm leading-normal font-normal'>
-					<StackedHexagons text='S' />
+					<StackedHexagons text={markerLetter} />
 					{data.deployCount && <span>+{data.deployCount}</span>}
 				</div>
 			</div>
@@ -116,12 +165,13 @@ const TemplateCard = React.memo(function TemplateCard({
 					{categoryName ?? data.category}
 				</Badge>
 			</div>
-		</div>
+		</a>
 	);
 });
 
 type TemplatesSectionClientProps = {
 	templates: AppStoreTemplate[];
+	templateDeployUrlTemplate: string;
 	activeCategory?: AppStoreCategory | null;
 	onCategoryChange?: (category: AppStoreCategory) => void;
 	searchQuery?: string;
@@ -130,6 +180,7 @@ type TemplatesSectionClientProps = {
 
 export const TemplatesSectionClient = React.memo(function TemplatesSectionClient({
 	templates,
+	templateDeployUrlTemplate,
 	activeCategory: controlledActiveCategory,
 	onCategoryChange,
 	searchQuery = '',
@@ -178,6 +229,7 @@ export const TemplatesSectionClient = React.memo(function TemplatesSectionClient
 						{filtered.map((template) => (
 							<TemplateCard
 								key={template.slug}
+								templateDeployUrlTemplate={templateDeployUrlTemplate}
 								categoryName={
 									categoryLabelKeyMap[template.category]
 										? t(`categories.${categoryLabelKeyMap[template.category]}`)

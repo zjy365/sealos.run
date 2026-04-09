@@ -8,13 +8,19 @@ export const i18n = defineI18n({
 	defaultLanguage: routing.defaultLocale,
 });
 
+const languageDisplayNames = new Intl.DisplayNames(['en'], {
+	type: 'language',
+});
+
+const localeTranslations = Object.fromEntries(
+	routing.locales.map((locale) => [
+		locale,
+		{
+			displayName: languageDisplayNames.of(locale) ?? locale,
+		},
+	]),
+);
+
 export const { provider: i18nUIProvider } = defineI18nUI(i18n, {
-	translations: {
-		en: {
-			displayName: 'English',
-		},
-		zh: {
-			displayName: 'Chinese',
-		},
-	},
+	translations: localeTranslations,
 });

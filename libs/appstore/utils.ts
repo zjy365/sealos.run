@@ -2,6 +2,7 @@ import 'server-only';
 
 import React from 'react';
 import { getGitHubRepositoryStatsForTemplate } from '@/libs/github-metadata/utils';
+import { resolveLocale, routing } from '@/libs/i18n/routing';
 import { APPSTORE_CATEGORIES, APPSTORE_TREND_RANKS } from './constants';
 import { appstore } from './source';
 import type {
@@ -29,17 +30,9 @@ function getCategory(data: AppStorePageData): AppStoreCategory | undefined {
 	return isAppStoreCategory(raw) ? raw : undefined;
 }
 
-/**
- * `fumadocs` i18n currently may include both `.en` and `.zh` pages.
- * We follow the project's blog filtering strategy to ensure locale-correct results.
- */
 function isLocaleMatch(page: AppStorePage, locale: string): boolean {
-	const slug = page.slugs[page.slugs.length - 1] || '';
-	const url = page.url;
-	const isEn = url.includes('.en') || slug.includes('.en');
-
-	if (locale === 'en') return isEn;
-	return !isEn;
+	const pageLocale = resolveLocale(page.locale);
+	return pageLocale === locale;
 }
 
 function normalizeUrl(page: AppStorePage, locale: string): string {
@@ -49,6 +42,10 @@ function normalizeUrl(page: AppStorePage, locale: string): string {
 function safeSlug(page: AppStorePage, locale: string): string {
 	const normalized = normalizeUrl(page, locale);
 	return normalized.replace(/^\/products\/appstore\/?/, '').replace(/^\/+/, '');
+}
+
+function stripTemplatesPrefix(slug: string): string {
+	return slug.replace(/^templates\/?/, '');
 }
 
 function mergeTemplateGithubMetadata(template: AppStoreTemplate): AppStoreTemplate {
@@ -64,8 +61,8 @@ function mergeTemplateGithubMetadata(template: AppStoreTemplate): AppStoreTempla
 	};
 }
 
-export function getAppStoreTemplates(locale: string = 'zh'): AppStoreTemplate[] {
-	return getAppStoreTemplatesCached(locale);
+export function getAppStoreTemplates(locale: string = routing.defaultLocale): AppStoreTemplate[] {
+	return getAppStoreTemplatesCached(resolveLocale(locale));
 }
 
 const getAppStoreTemplatesCached = React.cache((locale: string): AppStoreTemplate[] => {
@@ -81,7 +78,7 @@ const getAppStoreTemplatesCached = React.cache((locale: string): AppStoreTemplat
 		const category = (getCategory(data) ?? 'tool') as AppStoreTemplateCategory;
 
 		return mergeTemplateGithubMetadata({
-			slug: safeSlug(p, locale),
+			slug: stripTemplatesPrefix(safeSlug(p, locale)),
 			title,
 			description,
 			category,
@@ -95,8 +92,8 @@ const getAppStoreTemplatesCached = React.cache((locale: string): AppStoreTemplat
 	});
 });
 
-export function getAppStoreTrends(locale: string = 'zh'): AppStoreTrendItem[] {
-	return getAppStoreTrendsCached(locale);
+export function getAppStoreTrends(locale: string = routing.defaultLocale): AppStoreTrendItem[] {
+	return getAppStoreTrendsCached(resolveLocale(locale));
 }
 
 const getAppStoreTrendsCached = React.cache((locale: string): AppStoreTrendItem[] => {

@@ -4,6 +4,7 @@ import { stopwords as mandarinStopwords } from '@orama/stopwords/mandarin';
 import { createTokenizer } from '@orama/tokenizers/mandarin';
 import type { NextRequest } from 'next/server';
 import { blog } from '@/libs/blog/source';
+import { getPrimaryLocale } from '@/libs/i18n/routing';
 
 export const revalidate = false;
 
@@ -47,7 +48,7 @@ async function getSearchDB() {
 			title: page.data.title,
 			description: page.data.description ?? '',
 			url: page.url,
-			locale: page.locale ?? 'zh',
+			locale: getPrimaryLocale(page.locale),
 			category: (page.data as { category?: string }).category ?? '',
 		});
 	}
@@ -66,7 +67,7 @@ async function getSearchDB() {
 export async function GET(request: NextRequest) {
 	const searchParams = request.nextUrl.searchParams;
 	const query = searchParams.get('q');
-	const locale = searchParams.get('locale') || 'zh';
+	const locale = getPrimaryLocale(searchParams.get('locale'));
 	const category = searchParams.get('category');
 	const debug = searchParams.get('debug');
 

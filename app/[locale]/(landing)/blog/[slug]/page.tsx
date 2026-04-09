@@ -4,6 +4,16 @@ import type { StaticImageData } from 'next/image';
 import { notFound } from 'next/navigation';
 import type React from 'react';
 import { DefaultBlogCoverImage } from '@/assets';
+import { EyeIcon, FramedCalendarIcon, FramedClockIcon, PersonIcon } from '@/assets/icons';
+import { formatDate } from '@/libs/blog/date-utils';
+import { blog } from '@/libs/blog/source';
+import type { BlogPost } from '@/libs/blog/types';
+import { getPostPageByLocaleFallback } from '@/libs/blog/utils';
+import { Icon } from '@/libs/components/ui/icon';
+import { getTranslations } from '@/libs/i18n/server';
+import { getMDXComponents } from '@/mdx-components';
+import { BlogSidebar } from './components/BlogSidebar';
+import { TableOfContents } from './components/TableOfContents';
 
 /**
  * Convert StaticImageData or string to string
@@ -13,16 +23,6 @@ function getImageSrc(src: string | StaticImageData | undefined): string {
 	if (typeof src === 'string') return src;
 	return src.src;
 }
-
-import { EyeIcon, FramedCalendarIcon, FramedClockIcon, PersonIcon } from '@/assets/icons';
-import { formatDate } from '@/libs/blog/date-utils';
-import { blog } from '@/libs/blog/source';
-import type { BlogPost } from '@/libs/blog/types';
-import { Icon } from '@/libs/components/ui/icon';
-import { getTranslations } from '@/libs/i18n/server';
-import { getMDXComponents } from '@/mdx-components';
-import { BlogSidebar } from './components/BlogSidebar';
-import { TableOfContents } from './components/TableOfContents';
 
 export const dynamic = 'force-dynamic';
 
@@ -41,14 +41,9 @@ export async function generateMetadata({
 	params: Promise<{ slug: string; locale: string }>;
 }): Promise<Metadata> {
 	const { slug, locale } = await params;
-	let page = blog.getPage([slug], locale);
-
+	const page = getPostPageByLocaleFallback(slug, locale);
 	if (!page) {
-		const altLocale = locale === 'zh' ? 'en' : 'zh';
-		page = blog.getPage([slug], altLocale);
-		if (!page) {
-			return {};
-		}
+		return {};
 	}
 
 	const { title, description, date, author } = page.data as Partial<BlogPageData>;
@@ -68,14 +63,9 @@ export async function generateMetadata({
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
 	const { slug, locale } = await params;
-	let page = blog.getPage([slug], locale);
-
+	const page = getPostPageByLocaleFallback(slug, locale);
 	if (!page) {
-		const altLocale = locale === 'zh' ? 'en' : 'zh';
-		page = blog.getPage([slug], altLocale);
-		if (!page) {
-			notFound();
-		}
+		notFound();
 	}
 
 	const { title, date, author, tags, readingTime, views, body, category, description, thumbnail, featured } =

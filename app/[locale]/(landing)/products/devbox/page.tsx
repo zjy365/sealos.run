@@ -2,7 +2,6 @@ import { ClockCounterIcon, CloudBoxIcon, CubesIcon } from '@/assets/icons';
 import { Icon } from '@/libs/components/ui/icon';
 import { VerticalDashedLine } from '@/libs/components/VerticalDashedLine';
 import { StepsSectionLine } from './components/StepsSectionLine';
-import { BestPracticesSection } from './sections/BestPracticesSection';
 import { CTASection } from './sections/CTASection';
 import { CloudCollaborationSection, QuickReleaseSection, UnifiedEnvironmentSection } from './sections/FeaturesSection';
 import { HeroSection } from './sections/HeroSection';
@@ -58,10 +57,6 @@ export default async function DevBoxPage() {
 					/>
 				</VerticalDashedLine>
 				<QuickReleaseSection />
-			</section>
-
-			<section className='container mx-auto px-6 py-16'>
-				<BestPracticesSection />
 			</section>
 
 			<section className='flex w-full flex-col items-center bg-zinc-100 py-12'>

@@ -11,10 +11,14 @@ export default async function AppStorePage({ params }: { params: Promise<{ local
 	const { locale } = await params;
 	const templates = getAppStoreTemplates(locale);
 	const templateRequestFormConfig = Config.pages.appstore.templateRequestForm;
+	const templateDeployUrlTemplate = Config.pages.appstore.templateDeployUrlTemplate;
 
 	return (
 		<div className='flex w-full flex-col'>
-			<AppStoreSearchExperience templates={templates} />
+			<AppStoreSearchExperience
+				templates={templates}
+				templateDeployUrlTemplate={templateDeployUrlTemplate}
+			/>
 
 			<section className='container mx-auto px-6 py-16'>
 				<TrendsSection locale={locale} />

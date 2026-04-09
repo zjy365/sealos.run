@@ -34,6 +34,7 @@ export const Config = (() => {
 					endpoint: 'https://j2dpsclzou.sealosgzg.site/submit-template-request-form',
 					version: 'f90db67d-8105-445b-8a2a-52fb2d33454c',
 				},
+				templateDeployUrlTemplate: 'https://template.hzh.sealos.run/deploy?templateName=<template_name>',
 			},
 		},
 		components: {
