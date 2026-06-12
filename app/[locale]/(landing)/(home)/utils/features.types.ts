@@ -32,6 +32,7 @@ export type EngineFeature =
 
 export type FeaturesConfig = {
 	title: string;
+	href: string;
 	description: React.ReactNode;
 	features: FeatureItem[];
 	engineFeatures: EngineFeature[];

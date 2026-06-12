@@ -6,7 +6,8 @@ const HERO_CONTENT = {
 		highlight: 'Sealos',
 	},
 	description: [
-		'Sealos 是一款以应用为中心的智能云操作系统。',
+
+		
 		'可以帮助业务快速开发，快速迭代，以最快速度上线，并保证业务的稳定高可用运行，全面保障业务数据安全。',
 	],
 	stats: [

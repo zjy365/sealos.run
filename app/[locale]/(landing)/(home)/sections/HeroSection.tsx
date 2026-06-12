@@ -44,7 +44,7 @@ export function HeroSection() {
 			<div className='container flex flex-col justify-between gap-6 px-6 lg:flex-row'>
 				<div className='relative z-10 flex flex-1 flex-col gap-3'>
 					<div className='flex flex-col-reverse items-start gap-3 sm:flex-row sm:items-center sm:gap-6'>
-						<p className='text-2xl leading-none font-semibold md:text-3xl xl:text-4xl'>Sealos Cloud</p>
+						<p className='text-2xl leading-none font-semibold md:text-3xl xl:text-4xl'>Sealos AIOS</p>
 						<div className='flex items-center gap-4'>
 							{cloudProviders.map((provider) => (
 								<span
@@ -61,7 +61,7 @@ export function HeroSection() {
 						</div>
 					</div>
 					<h1 className='text-4xl leading-tight font-semibold sm:text-5xl'>
-						应用为中心的智能<span className='text-brand'>云操作系统</span>
+						应用为中心的 AI <span className='text-brand'>云操作系统</span>
 					</h1>
 				</div>
 
@@ -88,7 +88,7 @@ export function HeroSection() {
 						href={signinLink}
 						size='lg'
 					>
-						立即上云
+						免费试用
 					</LandingOutlineButton>
 				</div>
 			</div>

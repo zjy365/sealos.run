@@ -46,28 +46,28 @@ const archImages = [
 		variant: 'left',
 		boxes: {
 			t: {
-				label: '智能运维',
+				label: 'Brain · AI 运维',
 				image: ArchBrainBoxImage,
 				icon: ArchBrainIcon,
-				desc: ['交互式对话工作', '低门槛自动构建部署服务', '智能补全代码所需的依赖关系'],
+				desc: ['AI 运维辅助巡检、排障与操作', '可编辑应用拓扑，资源关系更直观', '交付、资源与运维统一收口'],
 			},
 			l: {
-				label: 'Grafana',
+				label: 'Grafana · 监控看板',
 				image: ArchGrafanaBoxImage,
 				icon: ArchGrafanaIcon,
-				desc: ['统一监控集群状态', '观察资源与应用指标', '快速定位异常波动'],
+				desc: ['统一展示集群运行状态', '快速发现异常与性能瓶颈', '为稳定性治理提供数据依据'],
 			},
 			b: {
-				label: 'Kite',
+				label: 'Kite · 集群管理',
 				image: ArchKiteBoxImage,
 				icon: ArchKiteIcon,
-				desc: ['自动收敛告警流程', '关联任务与执行链路', '减少重复运维操作'],
+				desc: ['统一管理 Kubernetes 集群资源', '提升集群运维与配置效率', '让集群管理更加可视化'],
 			},
 		} satisfies ArchSceneBoxes,
 	},
 	{
-		tag: '应用商店',
-		alt: '应用商店架构图',
+		tag: '第三方生态层',
+		alt: '第三方生态层架构图',
 		variant: 'right',
 		boxes: {
 			t: {
@@ -196,6 +196,25 @@ export function ArchSection() {
 						key={item.alt}
 						item={item}
 					/>
+				))}
+			</div>
+
+			{/* Visually hidden, machine-readable summary so every layer/component is indexable (the interactive scene only renders the active box) */}
+			<div className='sr-only'>
+				<h3>Sealos 系统架构组成</h3>
+				{archImages.map((layer) => (
+					<section key={layer.tag}>
+						<h4>{layer.tag}</h4>
+						<ul>
+							{Object.values(layer.boxes)
+								.filter((box) => box != null)
+								.map((box) => (
+									<li key={box.label}>
+										<strong>{box.label}</strong>：{box.desc.join('；')}。
+									</li>
+								))}
+						</ul>
+					</section>
 				))}
 			</div>
 		</div>

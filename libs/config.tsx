@@ -89,20 +89,20 @@ export const Config = (() => {
 						panel: <ProductsPanel {...productsPanelData} />,
 					},
 					{
-						textI18nKey: t('components.navbar.links.solutions'),
-						href: '/solutions',
-					},
-					{
-						textI18nKey: t('components.navbar.links.pricing'),
-						href: '/pricing/payg',
-					},
-					{
 						textI18nKey: t('components.navbar.links.docs'),
 						href: '/docs',
 					},
 					{
 						textI18nKey: t('components.navbar.links.appstore'),
 						href: '/products/appstore',
+					},
+					{
+						textI18nKey: t('components.navbar.links.pricing'),
+						href: '/pricing/payg',
+					},
+					{
+						textI18nKey: t('components.navbar.links.private-cloud'),
+						href: '/private-cloud',
 					},
 					{
 						textI18nKey: t('components.navbar.links.about-us'),

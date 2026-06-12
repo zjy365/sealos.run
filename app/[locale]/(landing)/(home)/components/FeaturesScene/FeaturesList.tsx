@@ -11,7 +11,7 @@ export function FeaturesList({ config }: FeaturesListProps) {
 			{config.features.map((feature) => (
 				<div
 					key={feature.title}
-					className='flex flex-col gap-1'
+					className='flex flex-col gap-2'
 				>
 					<div className='flex items-center gap-2'>
 						<Icon
@@ -20,7 +20,7 @@ export function FeaturesList({ config }: FeaturesListProps) {
 						/>
 						<h3 className='text-sm font-medium lg:text-base'>{feature.title}</h3>
 					</div>
-					<p className='text-sm text-zinc-500'>{feature.description}</p>
+					<p className='text-sm leading-6 text-zinc-500'>{feature.description}</p>
 				</div>
 			))}
 		</div>

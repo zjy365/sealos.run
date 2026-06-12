@@ -5,7 +5,7 @@ export function Table({ children, className, ...props }: React.HTMLAttributes<HT
 	return (
 		<div className='overflow-hidden rounded-lg'>
 			<table
-				className={cn('mt-0 mb-0 w-full text-sm', className)}
+				className={cn('mt-0 mb-0 w-full border-collapse text-sm', className)}
 				{...props}
 			>
 				{children}

@@ -13,10 +13,10 @@ const orgLogos = [
 ];
 
 export function OrgsSection() {
-	// duplicate for seamless animation
+	// duplicate for seamless animation; the second set is decorative (hidden from a11y/SEO)
 	const duplicatedLogos = [
-		...orgLogos.map((i) => ({ ...i, name: `${i.name}_1` })),
-		...orgLogos.map((i) => ({ ...i, name: `${i.name}_2` })),
+		...orgLogos.map((org) => ({ ...org, key: `${org.name}_1`, decorative: false })),
+		...orgLogos.map((org) => ({ ...org, key: `${org.name}_2`, decorative: true })),
 	];
 
 	return (
@@ -29,12 +29,13 @@ export function OrgsSection() {
 				<div className='animate-scroll-left flex gap-20 opacity-80 saturate-0'>
 					{duplicatedLogos.map((org) => (
 						<div
-							key={org.name}
+							key={org.key}
 							className='flex h-9 shrink-0 items-center justify-center'
+							aria-hidden={org.decorative}
 						>
 							<Image
 								src={org.logo}
-								alt={org.name}
+								alt={org.decorative ? '' : org.name}
 								className='h-full w-auto object-contain'
 							/>
 						</div>
