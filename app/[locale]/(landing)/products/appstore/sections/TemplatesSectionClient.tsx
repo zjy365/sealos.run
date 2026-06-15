@@ -153,9 +153,7 @@ const TemplateCard = React.memo(function TemplateCard({
 				</div>
 			</div>
 
-			<p className='text-foreground line-clamp-3 h-[3lh] text-xs leading-snug font-normal'>
-				{data.description}
-			</p>
+			<p className='text-foreground line-clamp-3 h-[3lh] text-xs leading-snug font-normal'>{data.description}</p>
 
 			<div className='mt-2 flex gap-2'>
 				<Badge

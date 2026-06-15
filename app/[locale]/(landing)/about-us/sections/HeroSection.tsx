@@ -5,11 +5,7 @@ const HERO_CONTENT = {
 		prefix: '只需专注业务，其它交给',
 		highlight: 'Sealos',
 	},
-	description: [
-
-		
-		'可以帮助业务快速开发，快速迭代，以最快速度上线，并保证业务的稳定高可用运行，全面保障业务数据安全。',
-	],
+	description: ['可以帮助业务快速开发，快速迭代，以最快速度上线，并保证业务的稳定高可用运行，全面保障业务数据安全。'],
 	stats: [
 		{ value: '7年+', label: '稳定运行' },
 		{ value: '200万台+', label: '装机量' },

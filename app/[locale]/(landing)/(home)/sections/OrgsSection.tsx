@@ -15,8 +15,16 @@ const orgLogos = [
 export function OrgsSection() {
 	// duplicate for seamless animation; the second set is decorative (hidden from a11y/SEO)
 	const duplicatedLogos = [
-		...orgLogos.map((org) => ({ ...org, key: `${org.name}_1`, decorative: false })),
-		...orgLogos.map((org) => ({ ...org, key: `${org.name}_2`, decorative: true })),
+		...orgLogos.map((org) => ({
+			...org,
+			key: `${org.name}_1`,
+			decorative: false,
+		})),
+		...orgLogos.map((org) => ({
+			...org,
+			key: `${org.name}_2`,
+			decorative: true,
+		})),
 	];
 
 	return (

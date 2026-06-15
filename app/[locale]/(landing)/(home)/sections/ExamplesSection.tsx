@@ -51,7 +51,7 @@ export function ExamplesSection() {
 									src={example.icon}
 									className='text-brand size-6'
 								/>
-								<h3 className='text-sm group-hover:text-brand md:text-base 2xl:text-lg'>
+								<h3 className='group-hover:text-brand text-sm md:text-base 2xl:text-lg'>
 									{example.title}
 								</h3>
 							</div>
