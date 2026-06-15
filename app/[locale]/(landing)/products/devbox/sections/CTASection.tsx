@@ -1,25 +1,38 @@
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
-import { Config } from '@/libs/config';
 
-export function CTASection() {
-	const { signinLink } = Config.components.navbar;
+type CTASectionProps = {
+	createHref: string;
+	docHref: string;
+};
 
+export function CTASection({ createHref, docHref }: CTASectionProps) {
 	return (
 		<div className='flex w-full flex-col items-start justify-between gap-12 lg:flex-row lg:items-end'>
 			<div className='flex flex-col items-start justify-between gap-4'>
-				<p className='text-xl font-medium whitespace-pre-wrap'>Sealos</p>
+				<p className='text-xl font-medium whitespace-pre-wrap'>现在开始开发</p>
 				<div className='flex flex-col justify-center'>
 					<p className='text-2xl font-semibold text-balance whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
-						一键部署企业服务，全托管零运维集群
+						创建专属 <span className='text-brand'>DevBox 云开发环境</span>，从编码到发布一站完成
 					</p>
 				</div>
 			</div>
-			<LandingOutlineButton
-				href={signinLink}
-				size='lg'
-			>
-				立即体验
-			</LandingOutlineButton>
+			<div className='flex w-full flex-col gap-5 sm:w-auto sm:flex-row'>
+				<LandingOutlineButton
+					href={docHref}
+					size='lg'
+					borderStyle='dashed'
+					className='w-full sm:w-auto'
+				>
+					查看文档
+				</LandingOutlineButton>
+				<LandingOutlineButton
+					href={createHref}
+					size='lg'
+					className='w-full sm:w-auto'
+				>
+					立即体验
+				</LandingOutlineButton>
+			</div>
 		</div>
 	);
 }

@@ -46,11 +46,11 @@ type ArchLayer = {
 
 const archLayers: ArchLayer[] = [
 	{
-		label: '访问层',
+		label: '运维层',
 		content: {
 			type: 'simple',
-			title: '多类型入口',
-			items: ['管理控制台', 'CLI / API'],
+			title: '统一运维与观测',
+			items: ['Brain', 'Grafana'],
 			border: {
 				bl: [true, true],
 				br: [true, true],
@@ -63,107 +63,114 @@ const archLayers: ArchLayer[] = [
 	{
 		label: '应用层',
 		content: {
-			type: 'columns',
+			type: 'grid',
 			items: [
 				{
-					title: '应用治理',
-					items: [
-						['应用管理', 'DevBox', '数据库'],
-						['对象存储', '应用商店'],
-					],
+					title: '应用能力',
+					items: ['应用管理', 'DevBox', 'FastGPT', '数据库', '对象存储', '应用商店', 'AI Proxy'],
+					columns: 4,
 					border: {
 						bl: [true, true],
-						br: [true, false],
-						tl: [false, true],
-						tr: [true, false],
-					},
-					className: 'pl-6 pr-1 pt-3 pb-8',
-				},
-				{
-					title: '通用组件',
-					items: [
-						['多租户', '终端', '日志'],
-						['监控', '告警'],
-					],
-					border: {
-						bl: [true, false],
 						br: [true, true],
 						tl: [true, true],
-						tr: [false, true],
+						tr: [true, true],
 					},
-					className: 'pr-6 pl-1 pt-3 pb-8',
+					className: 'px-6 pt-3 pb-8',
 				},
 			],
 		},
 	},
 	{
-		label: 'K8S 底座',
+		label: '组件层',
 		content: {
-			type: 'columns',
+			type: 'grid',
 			items: [
 				{
-					title: 'Kubernetes 集群',
-					items: [
-						['Kubernetes', 'Containerd'],
-						['CNI', 'CSI'],
-					],
+					title: '平台公共组件',
+					items: ['多租户', '日志', '监控', '告警', '网关', '负载均衡'],
+					columns: 3,
 					border: {
 						bl: [true, true],
-						br: [true, false],
-						tl: [false, true],
-						tr: [true, false],
-					},
-					className: 'pl-6 pr-1 pt-3 pb-8',
-				},
-				{
-					title: '运行环境',
-					items: [
-						['麒麟 V10', '统信 UOS'],
-						['CentOS 7+', 'Ubuntu 20.04+'],
-					],
-					border: {
-						bl: [true, false],
 						br: [true, true],
-						tl: [true, false],
-						tr: [false, true],
+						tl: [true, true],
+						tr: [true, true],
 					},
-					className: 'pr-6 pl-1 pt-3 pb-8',
+					className: 'px-6 pt-3 pb-8',
 				},
 			],
 		},
 	},
 	{
-		label: '基础设施',
+		label: '调度层',
 		content: {
-			type: 'columns',
+			type: 'simple',
+			title: '统一调度底座',
+			items: ['Kubernetes'],
+			border: {
+				bl: [true, true],
+				br: [true, true],
+				tl: [true, true],
+				tr: [true, true],
+			},
+			className: 'px-6 pt-3 pb-8',
+		},
+	},
+	{
+		label: '驱动层',
+		content: {
+			type: 'grid',
 			items: [
 				{
-					title: '计算架构',
-					items: [
-						['X86', 'C86'],
-						['ARM', 'GPU'],
-					],
+					title: '运行时与网络驱动',
+					items: ['OpenI', 'Containerd', 'Firecracker', 'BSC', 'Cilium', 'Nvidia'],
+					columns: 3,
 					border: {
 						bl: [true, true],
-						br: [true, false],
-						tl: [false, true],
-						tr: [true, false],
-					},
-					className: 'pl-6 pr-1 pt-3 pb-8',
-				},
-				{
-					title: '部署资源',
-					items: [
-						['裸金属服务器', '虚拟化平台'],
-						['企业内网', '混合云资源'],
-					],
-					border: {
-						bl: [true, false],
 						br: [true, true],
 						tl: [true, true],
-						tr: [false, true],
+						tr: [true, true],
 					},
-					className: 'pr-6 pl-1 pt-3 pb-8',
+					className: 'px-6 pt-3 pb-8',
+				},
+			],
+		},
+	},
+	{
+		label: '操作系统',
+		content: {
+			type: 'grid',
+			items: [
+				{
+					title: '支持国产操作系统',
+					items: ['麒麟 V10', '统信 UOS', 'Ubuntu', 'CentOS'],
+					columns: 2,
+					border: {
+						bl: [true, true],
+						br: [true, true],
+						tl: [true, true],
+						tr: [true, true],
+					},
+					className: 'px-6 pt-3 pb-8',
+				},
+			],
+		},
+	},
+	{
+		label: '服务器',
+		content: {
+			type: 'grid',
+			items: [
+				{
+					title: '支持混合云统一管理',
+					items: ['虚拟机', '物理机', '裸金属'],
+					columns: 3,
+					border: {
+						bl: [true, true],
+						br: [true, true],
+						tl: [true, true],
+						tr: [true, true],
+					},
+					className: 'px-6 pt-3 pb-8',
 				},
 			],
 		},
@@ -412,7 +419,7 @@ export function ArchSection() {
 					<span className='text-brand'>架构</span>
 				</h2>
 				<p className='text-muted-foreground text-base'>
-					基于云原生技术栈构建,支持所有混合云部署,采用云操作系统理念,提供统一的资源抽象和动态管理
+					基于云原生技术栈构建，支持所有混合云部署，采用云操作系统理念，提供统一的资源抽象和动态管理。
 				</p>
 			</div>
 			<div className='w-full max-w-full overflow-x-scroll'>

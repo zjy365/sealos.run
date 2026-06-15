@@ -19,11 +19,30 @@ type MilestoneYear = {
 };
 
 const MILESTONES: MilestoneYear[] = [
-	{ year: '2021', content: 'AAAAA AAAAA AAAAA AAAAA AAAAA AAAA AAA' },
-	{ year: '2022', content: 'BBBBB BBBBB BBBBB BBBBB BBBBB BBBB BBB' },
-	{ year: '2023', content: 'CCCCC CCCCC CCCCC CCCCC CCCCC CCCC CCC' },
-	{ year: '2024', content: 'DDDDD DDDDD DDDDD DDDDD DDDDD DDDD DDD' },
-	{ year: '2025', content: 'EEEEE EEEEE EEEEE EEEEE EEEEE EEEE EEE' },
+	{
+		year: '2018',
+		content: '2018 年 8 月，提交第一行代码，解决 Kubernetes 高可用安装复杂、缺乏文档的问题。',
+	},
+	{
+		year: '2021',
+		content: '2021 年，项目霸榜 GitHub 趋势榜，并获得奇绩创坛（陆奇团队）投资。',
+	},
+	{
+		year: '2022',
+		content: '2022 年 3 月，推出 v4.0 版本，引入集群镜像能力，实现“一次构建，到处运行”。',
+	},
+	{
+		year: '2023',
+		content: '2023 年 6 月，Sealos 公有云版本正式上线。',
+	},
+	{
+		year: '2024',
+		content: '2024 年 12 月，获得阿里云战略投资，并发布 Sealos 5.0。',
+	},
+	{
+		year: '2025',
+		content: '2025 年，累计注册用户超 30 万，在线应用服务超 5 万。',
+	},
 ];
 
 type DialLayoutConfig = {

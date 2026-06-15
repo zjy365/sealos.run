@@ -1,6 +1,21 @@
+import Image from 'next/image';
+import {
+	CertCmaCnasReportImage,
+	CertHighTechEnterpriseImage,
+	CertInnovationAwardImage,
+	CertMlpsLevel3Image,
+	CertSoftwareCopyrightImage,
+} from '../assets';
+
 const CERTS_CONTENT = {
 	title: { prefix: '我们获得的', highlight: '权威认证' },
-	items: ['CNAS测试报告', 'CMA测试报告', '等保三级', '软件著作权'],
+	items: [
+		{ name: 'CMA + CNAS 测试报告', image: CertCmaCnasReportImage },
+		{ name: '软件著作权', image: CertSoftwareCopyrightImage },
+		{ name: '等保三级', image: CertMlpsLevel3Image },
+		{ name: '创客广东一等奖', image: CertInnovationAwardImage },
+		{ name: '高新技术企业证书', image: CertHighTechEnterpriseImage },
+	],
 } as const;
 
 export function CertsSection() {
@@ -14,15 +29,19 @@ export function CertsSection() {
 			</h2>
 
 			<div className='grid w-full grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-5'>
-				{certs.items.map((name) => (
+				{certs.items.map((item) => (
 					<div
-						key={name}
+						key={item.name}
 						className='flex flex-col items-center gap-6'
 					>
-						<div className='text-muted-foreground flex size-40 items-center justify-center rounded-xl bg-zinc-100 text-sm'>
-							图片占位
+						<div className='flex h-52 w-full items-center justify-center overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50 p-3'>
+							<Image
+								src={item.image}
+								alt={item.name}
+								className='h-full w-full object-contain'
+							/>
 						</div>
-						<p className='text-center text-base leading-normal font-medium'>{name}</p>
+						<p className='text-center text-base leading-normal font-medium'>{item.name}</p>
 					</div>
 				))}
 			</div>

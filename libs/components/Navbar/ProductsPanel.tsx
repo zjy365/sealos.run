@@ -163,7 +163,8 @@ function OSSFeatures() {
 		<div className='px-8 pt-6 pb-8'>
 			<div className='grid grid-cols-2 gap-6 py-3'>
 				{OSS_STORAGE_TYPES.map((type) => (
-					<div
+					<Link
+						href={type.href}
 						key={type.title}
 						className='flex items-start gap-3'
 					>
@@ -177,7 +178,7 @@ function OSSFeatures() {
 							<h4 className='text-foreground text-sm font-normal'>{type.title}</h4>
 							<p className='text-muted-foreground text-xs'>{type.description}</p>
 						</div>
-					</div>
+					</Link>
 				))}
 			</div>
 		</div>
