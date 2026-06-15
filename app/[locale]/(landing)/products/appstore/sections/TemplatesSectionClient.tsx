@@ -15,6 +15,7 @@ const categoryLabelKeyMap = Object.fromEntries(
 
 const A_CHAR_CODE = 'A'.charCodeAt(0);
 const LETTER_COUNT = 26;
+const PAGE_SIZE = 16;
 
 function hashString(seed: string): number {
 	let hash = 2166136261;
@@ -48,10 +49,10 @@ const CategoryPill = React.memo(function CategoryPill({
 		<Button
 			type='button'
 			variant='outline'
-			size='default'
+			size='sm'
 			onClick={onClick}
 			className={cn(
-				'rounded-full px-4 py-2 text-xl leading-normal transition-colors',
+				'rounded-full px-3 py-1.5 text-xs leading-normal transition-colors sm:text-sm',
 				active
 					? 'text-brand border-brand hover:text-brand bg-white font-semibold'
 					: 'text-muted-foreground bg-transparent font-normal',
@@ -124,39 +125,37 @@ const TemplateCard = React.memo(function TemplateCard({
 			href={deployUrl}
 			target='_blank'
 			rel='noopener noreferrer'
-			className='hover:border-brand flex flex-col gap-2 rounded-lg border p-6 transition-colors hover:shadow-xs'
+			className='hover:border-brand flex flex-col gap-2 rounded-lg border p-4 transition-colors hover:shadow-xs'
 		>
-			<div className='flex items-start justify-between'>
-				<div className='flex items-center gap-3'>
-					<div className='flex size-16 items-center justify-center overflow-hidden rounded-2xl bg-zinc-50'>
+			<div className='flex items-start justify-between gap-2'>
+				<div className='flex min-w-0 flex-1 items-center gap-2.5'>
+					<div className='flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-zinc-50'>
 						<AppStoreIcon
 							alt={data.title}
-							fallbackClassName='size-12'
+							fallbackClassName='size-8'
 							imageClassName='object-contain'
 							src={data.thumbnail}
-							className='size-12'
+							className='size-8'
 						/>
 					</div>
 
-					<div className='flex min-w-0 flex-col gap-0.5'>
-						<p className='text-foreground truncate text-lg leading-normal font-medium'>{data.title}</p>
-						<p className='text-muted-foreground truncate text-sm leading-normal font-normal'>
+					<div className='flex min-w-0 flex-1 flex-col gap-0.5'>
+						<p className='text-foreground truncate text-sm leading-snug font-medium'>{data.title}</p>
+						<p className='text-muted-foreground truncate text-xs leading-snug font-normal'>
 							{[data.starsText, data.versionText].filter(Boolean).join(' / ')}
 						</p>
 					</div>
 				</div>
 
-				<div className='text-muted-foreground flex items-center text-sm leading-normal font-normal'>
+				<div className='text-muted-foreground flex shrink-0 items-center text-xs leading-normal font-normal'>
 					<StackedHexagons text={markerLetter} />
 					{data.deployCount && <span>+{data.deployCount}</span>}
 				</div>
 			</div>
 
-			<p className='text-foreground line-clamp-3 h-[3lh] text-sm leading-normal font-normal'>
-				{data.description}
-			</p>
+			<p className='text-foreground line-clamp-3 h-[3lh] text-xs leading-snug font-normal'>{data.description}</p>
 
-			<div className='mt-4 flex gap-2'>
+			<div className='mt-2 flex gap-2'>
 				<Badge
 					className='bg-accent text-muted-foreground rounded-sm border-none'
 					size='sm'
@@ -166,6 +165,101 @@ const TemplateCard = React.memo(function TemplateCard({
 				</Badge>
 			</div>
 		</a>
+	);
+});
+
+function getPageItems(currentPage: number, pageCount: number): Array<number | 'ellipsis'> {
+	if (pageCount <= 7) {
+		return Array.from({ length: pageCount }, (_, index) => index + 1);
+	}
+
+	const items: Array<number | 'ellipsis'> = [1];
+	const start = Math.max(2, currentPage - 1);
+	const end = Math.min(pageCount - 1, currentPage + 1);
+
+	if (start > 2) {
+		items.push('ellipsis');
+	}
+	for (let page = start; page <= end; page += 1) {
+		items.push(page);
+	}
+	if (end < pageCount - 1) {
+		items.push('ellipsis');
+	}
+	items.push(pageCount);
+
+	return items;
+}
+
+const Pagination = React.memo(function Pagination({
+	currentPage,
+	pageCount,
+	onPageChange,
+}: {
+	currentPage: number;
+	pageCount: number;
+	onPageChange: (page: number) => void;
+}) {
+	const items = getPageItems(currentPage, pageCount);
+
+	return (
+		<nav
+			aria-label='分页导航'
+			className='flex w-full flex-wrap items-center justify-center gap-1.5 sm:gap-2'
+		>
+			<Button
+				type='button'
+				variant='outline'
+				size='sm'
+				disabled={currentPage <= 1}
+				onClick={() => onPageChange(currentPage - 1)}
+				className='rounded-full px-3'
+				aria-label='上一页'
+			>
+				上一页
+			</Button>
+
+			{items.map((item, index) =>
+				item === 'ellipsis' ? (
+					<span
+						// biome-ignore lint/suspicious/noArrayIndexKey: ellipsis positions are static within a render
+						key={`ellipsis-${index}`}
+						className='text-muted-foreground px-1 text-sm select-none'
+					>
+						…
+					</span>
+				) : (
+					<Button
+						key={item}
+						type='button'
+						variant='outline'
+						size='sm'
+						onClick={() => onPageChange(item)}
+						aria-current={item === currentPage ? 'page' : undefined}
+						className={cn(
+							'size-9 rounded-full p-0 text-sm',
+							item === currentPage
+								? 'text-brand border-brand bg-white font-semibold'
+								: 'text-muted-foreground font-normal',
+						)}
+					>
+						{item}
+					</Button>
+				),
+			)}
+
+			<Button
+				type='button'
+				variant='outline'
+				size='sm'
+				disabled={currentPage >= pageCount}
+				onClick={() => onPageChange(currentPage + 1)}
+				className='rounded-full px-3'
+				aria-label='下一页'
+			>
+				下一页
+			</Button>
+		</nav>
 	);
 });
 
@@ -199,6 +293,26 @@ export const TemplatesSectionClient = React.memo(function TemplatesSectionClient
 		return templates.filter((template) => template.category === activeCategory);
 	}, [templates, activeCategory]);
 
+	const [page, setPage] = React.useState(1);
+	const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+	const currentPage = Math.min(page, pageCount);
+
+	// Reset to first page whenever the result set changes (search / category switch).
+	// biome-ignore lint/correctness/useExhaustiveDependencies: searchVersion/activeCategory are the signals that the result set changed
+	React.useEffect(() => {
+		setPage(1);
+	}, [searchVersion, activeCategory]);
+
+	const paged = React.useMemo(
+		() => filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
+		[filtered, currentPage],
+	);
+
+	const goToPage = React.useCallback((next: number) => {
+		setPage(next);
+		scrollRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}, []);
+
 	return (
 		<div className='flex w-full flex-col gap-12'>
 			<div className='flex w-full flex-wrap items-center justify-center gap-2'>
@@ -217,16 +331,12 @@ export const TemplatesSectionClient = React.memo(function TemplatesSectionClient
 			</div>
 
 			<div
-				key={searchVersion}
 				ref={scrollRef}
-				className={cn(
-					'w-full overflow-y-auto bg-linear-to-b from-white to-zinc-50 px-5 py-10',
-					'max-h-[60vh] lg:max-h-[55vh]',
-				)}
+				className='w-full scroll-mt-24 bg-linear-to-b from-white to-zinc-50 px-5 py-10'
 			>
 				{filtered.length > 0 ? (
-					<div className='grid w-full grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3'>
-						{filtered.map((template) => (
+					<div className='grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+						{paged.map((template) => (
 							<TemplateCard
 								key={template.slug}
 								templateDeployUrlTemplate={templateDeployUrlTemplate}
@@ -245,6 +355,14 @@ export const TemplatesSectionClient = React.memo(function TemplatesSectionClient
 					</div>
 				)}
 			</div>
+
+			{pageCount > 1 && (
+				<Pagination
+					currentPage={currentPage}
+					pageCount={pageCount}
+					onPageChange={goToPage}
+				/>
+			)}
 		</div>
 	);
 });

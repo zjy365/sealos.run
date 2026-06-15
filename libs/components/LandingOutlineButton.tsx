@@ -85,6 +85,8 @@ export interface LandingOutlineButtonProps {
 	iconColor?: string;
 	className?: string;
 	onClick?: React.ComponentProps<typeof Link>['onClick'];
+	target?: React.ComponentProps<typeof Link>['target'];
+	rel?: React.ComponentProps<typeof Link>['rel'];
 }
 
 export function LandingOutlineButton({
@@ -98,6 +100,8 @@ export function LandingOutlineButton({
 	iconColor,
 	className,
 	onClick,
+	target,
+	rel,
 }: LandingOutlineButtonProps) {
 	const displayIcon = icon ?? FlatArrowRightIcon;
 
@@ -110,6 +114,8 @@ export function LandingOutlineButton({
 			<Link
 				href={href}
 				onClick={onClick}
+				target={target}
+				rel={rel}
 			>
 				<span className='w-full text-center'>{children}</span>
 				{showIcon && (

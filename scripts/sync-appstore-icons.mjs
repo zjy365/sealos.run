@@ -32,7 +32,9 @@ export async function syncAppstoreIcons({
 				};
 			}
 
-			throw new Error(`appstore icons source does not exist: ${sourceDir}`, { cause: error });
+			throw new Error(`appstore icons source does not exist: ${sourceDir}`, {
+				cause: error,
+			});
 		}
 
 		throw error;
@@ -41,7 +43,9 @@ export async function syncAppstoreIcons({
 	await rm(targetDir, { force: true, recursive: true });
 	await mkdir(path.dirname(targetDir), { recursive: true });
 	await cp(sourceDir, targetDir, { recursive: true });
-	await writeFile(path.join(targetDir, '.gitignore'), '*\n!.gitignore\n', { encoding: 'utf8' });
+	await writeFile(path.join(targetDir, '.gitignore'), '*\n!.gitignore\n', {
+		encoding: 'utf8',
+	});
 
 	return {
 		sourceDir,

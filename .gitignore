@@ -31,3 +31,9 @@ next-env.d.ts
 .cursorrules
 
 content/
+
+.cursor/
+.agents/
+skills-lock.json
+.codex/
+.omx/

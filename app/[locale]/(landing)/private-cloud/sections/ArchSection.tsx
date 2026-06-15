@@ -44,20 +44,13 @@ type ArchLayer = {
 	content: ArchLayerItem;
 };
 
-const fullBorder: BorderConfig = {
-	bl: [true, true],
-	br: [true, true],
-	tl: [true, true],
-	tr: [true, true],
-};
-
 const archLayers: ArchLayer[] = [
 	{
-		label: '访问',
+		label: '访问层',
 		content: {
 			type: 'simple',
-			title: '用户访问',
-			items: ['命令行界面 (CLI)', '图形用户界面 (GUI)'],
+			title: '多类型入口',
+			items: ['管理控制台', 'CLI / API'],
 			border: {
 				bl: [true, true],
 				br: [true, true],
@@ -73,10 +66,10 @@ const archLayers: ArchLayer[] = [
 			type: 'columns',
 			items: [
 				{
-					title: '应用管理',
+					title: '应用治理',
 					items: [
-						['创建', '更新', '预览', '删除'],
-						['调试', 'AI 分析'],
+						['应用管理', 'DevBox', '数据库'],
+						['对象存储', '应用商店'],
 					],
 					border: {
 						bl: [true, true],
@@ -87,22 +80,11 @@ const archLayers: ArchLayer[] = [
 					className: 'pl-6 pr-1 pt-3 pb-8',
 				},
 				{
-					title: '终端',
+					title: '通用组件',
 					items: [
-						['kubectl', 'sealos', 'helm'],
-						['go', 'vim', 'node'],
+						['多租户', '终端', '日志'],
+						['监控', '告警'],
 					],
-					border: {
-						bl: [true, true],
-						br: [true, true],
-						tl: [true, true],
-						tr: [true, false],
-					},
-					className: 'px-1 pt-3 pb-8',
-				},
-				{
-					title: '数据库提供商',
-					items: [['Mongo', 'MySQL'], ['PostgreSQL']],
 					border: {
 						bl: [true, false],
 						br: [true, true],
@@ -115,15 +97,15 @@ const archLayers: ArchLayer[] = [
 		},
 	},
 	{
-		label: '控制器',
+		label: 'K8S 底座',
 		content: {
 			type: 'columns',
 			items: [
 				{
-					title: '网络',
+					title: 'Kubernetes 集群',
 					items: [
-						['Http/WS/GRPC', '自动证书'],
-						['TCP/UDP', '流量调度'],
+						['Kubernetes', 'Containerd'],
+						['CNI', 'CSI'],
 					],
 					border: {
 						bl: [true, true],
@@ -134,57 +116,14 @@ const archLayers: ArchLayer[] = [
 					className: 'pl-6 pr-1 pt-3 pb-8',
 				},
 				{
-					title: '多租户',
-					items: ['基于角色的访问控制', '暂停/停止'],
-					border: {
-						bl: [true, true],
-						br: [true, true],
-						tl: [true, true],
-						tr: [true, true],
-					},
-					className: 'px-1 pt-3 pb-8',
-				},
-				{
-					title: '存储',
+					title: '运行环境',
 					items: [
-						['备份/恢复', '持久卷'],
-						['扩容', '到期删除'],
+						['麒麟 V10', '统信 UOS'],
+						['CentOS 7+', 'Ubuntu 20.04+'],
 					],
 					border: {
 						bl: [true, false],
 						br: [true, true],
-						tl: [true, false],
-						tr: [false, true],
-					},
-					className: 'pr-6 pl-1 pt-3 pb-8',
-				},
-			],
-		},
-	},
-	{
-		label: '集群',
-		content: {
-			type: 'grid',
-			items: [
-				{
-					title: 'Sealos Kubernetes 集群 SG',
-					items: ['CN', 'CRI', 'CSI', '网关', '监控', '通知', '计量'],
-					columns: 3,
-					border: {
-						bl: [false, true],
-						br: [true, false],
-						tl: [false, true],
-						tr: [true, true],
-					},
-					className: 'pl-6 pr-1 pt-3 pb-8',
-				},
-				{
-					title: 'Sealos Kubernetes 集群 CN',
-					items: ['CN', 'CRI', 'CSI', '网关', '监控', '通知', '计量'],
-					columns: 3,
-					border: {
-						bl: [true, true],
-						br: [false, true],
 						tl: [true, false],
 						tr: [false, true],
 					},
@@ -196,18 +135,45 @@ const archLayers: ArchLayer[] = [
 	{
 		label: '基础设施',
 		content: {
-			type: 'simple',
-			items: ['阿里云', '谷歌云', '亚马逊云', '裸金属服务器'],
-			border: fullBorder,
-			className: 'px-6 py-3',
+			type: 'columns',
+			items: [
+				{
+					title: '计算架构',
+					items: [
+						['X86', 'C86'],
+						['ARM', 'GPU'],
+					],
+					border: {
+						bl: [true, true],
+						br: [true, false],
+						tl: [false, true],
+						tr: [true, false],
+					},
+					className: 'pl-6 pr-1 pt-3 pb-8',
+				},
+				{
+					title: '部署资源',
+					items: [
+						['裸金属服务器', '虚拟化平台'],
+						['企业内网', '混合云资源'],
+					],
+					border: {
+						bl: [true, false],
+						br: [true, true],
+						tl: [true, true],
+						tr: [false, true],
+					},
+					className: 'pr-6 pl-1 pt-3 pb-8',
+				},
+			],
 		},
 	},
 ];
 
 function ItemBox({ children }: { children: React.ReactNode }) {
 	return (
-		<div className='flex min-w-0 flex-1 items-center justify-center border border-zinc-300 px-4 py-1'>
-			<span className='text-sidebar-foreground text-center text-base leading-6 break-all'>{children}</span>
+		<div className='flex min-w-0 flex-1 items-center justify-center border border-zinc-300 px-3 py-1.5'>
+			<span className='text-sidebar-foreground text-center text-sm leading-5 break-all'>{children}</span>
 		</div>
 	);
 }
@@ -336,7 +302,7 @@ function renderContent(decoration: ArchLayerItem) {
 				)}
 			>
 				{decoration.title && (
-					<p className='text-base leading-6 font-medium whitespace-nowrap'>{decoration.title}</p>
+					<p className='text-sm leading-5 font-medium whitespace-nowrap'>{decoration.title}</p>
 				)}
 				<div className='flex w-full items-stretch gap-3'>
 					{decoration.items.map((item) => (
@@ -360,18 +326,18 @@ function renderContent(decoration: ArchLayerItem) {
 						<div
 							key={column.title}
 							className={cn(
-								'flex min-w-0 flex-1 flex-col items-center gap-1.5',
+								'flex min-w-0 flex-1 flex-col items-center gap-2',
 								column.border && 'relative',
 								column.className,
 							)}
 						>
-							<p className='text-center text-base leading-6 font-medium'>{column.title}</p>
-							<div className='flex w-full flex-1 flex-col items-stretch gap-2'>
+							<p className='text-center text-sm leading-5 font-medium'>{column.title}</p>
+							<div className='flex w-full flex-1 flex-col items-stretch gap-2.5'>
 								{rows.map((row, rowIdx) => (
 									<div
 										// biome-ignore lint/suspicious/noArrayIndexKey: static content
 										key={rowIdx}
-										className='flex w-full flex-1 gap-2'
+										className='flex w-full flex-1 gap-2.5'
 									>
 										{row.map((item) => (
 											<ItemBox key={item}>{item}</ItemBox>
@@ -406,18 +372,18 @@ function renderContent(decoration: ArchLayerItem) {
 						<div
 							key={item.title}
 							className={cn(
-								'flex flex-1 flex-col items-center gap-1.5',
+								'flex flex-1 flex-col items-center gap-2',
 								item.border && 'relative',
 								item.className,
 							)}
 						>
-							<p className='text-base leading-6 font-medium'>{item.title}</p>
-							<div className='flex w-full flex-1 flex-col items-stretch gap-2'>
+							<p className='text-sm leading-5 font-medium'>{item.title}</p>
+							<div className='flex w-full flex-1 flex-col items-stretch gap-2.5'>
 								{rows.map((row, rowIdx) => (
 									<div
 										// biome-ignore lint/suspicious/noArrayIndexKey: static content
 										key={rowIdx}
-										className='flex w-full flex-1 items-stretch gap-2'
+										className='flex w-full flex-1 items-stretch gap-2.5'
 									>
 										{row.map((subItem) => (
 											<ItemBox key={subItem}>{subItem}</ItemBox>
@@ -439,7 +405,7 @@ function renderContent(decoration: ArchLayerItem) {
 
 export function ArchSection() {
 	return (
-		<div className='flex w-full flex-col items-start gap-14'>
+		<div className='flex w-full flex-col items-start gap-10'>
 			<div className='flex w-full flex-col gap-4'>
 				<h2 className='text-3xl font-semibold'>
 					<span>技术</span>
@@ -456,7 +422,9 @@ export function ArchSection() {
 							key={layer.label}
 							className='grid w-full grid-cols-[max-content_1fr] items-center gap-0'
 						>
-							<p className='w-20 pr-36 text-xl font-medium whitespace-nowrap'>{layer.label}</p>
+							<p className='text-muted-foreground w-16 pr-8 text-base font-medium whitespace-nowrap'>
+								{layer.label}
+							</p>
 							<div className={cn('w-full', layer.content.border && 'relative')}>
 								{renderContent(layer.content)}
 								{layer.content.border && <CornerBorder border={layer.content.border} />}

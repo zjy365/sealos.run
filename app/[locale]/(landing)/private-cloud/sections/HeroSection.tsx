@@ -1,13 +1,10 @@
 import Image from 'next/image';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
-import { Config } from '@/libs/config';
 import { HeroBgImage } from '../assets';
 
 export function HeroSection() {
-	const { contactLink } = Config.components.navbar;
-
 	return (
-		<div className='relative flex min-h-180 flex-col items-end gap-6 py-12 text-right'>
+		<div className='relative flex min-h-140 flex-col items-end gap-6 py-12 text-right sm:min-h-160'>
 			<div className='pointer-events-none absolute inset-0 z-0'>
 				<Image
 					src={HeroBgImage}
@@ -17,7 +14,7 @@ export function HeroSection() {
 				/>
 			</div>
 
-			<div className='relative z-10 flex flex-col items-end lg:pt-40'>
+			<div className='relative z-10 flex flex-col items-end lg:pt-28'>
 				<h1 className='text-5xl font-semibold'>
 					企业级云原生
 					<span className='text-brand'>私有云</span>
@@ -26,12 +23,14 @@ export function HeroSection() {
 					<p className='text-lg'>基于 Sealos 云操作系统,为企业提供安全可控、开箱即用的私有云平台。</p>
 					<p className='text-lg'>一键部署 Kubernetes,让云原生触手可及</p>
 				</div>
-				<div className='mt-40 flex items-center'>
+				<div className='mt-20 flex items-center sm:mt-28'>
 					<LandingOutlineButton
-						href={contactLink}
+						href='https://fael3z0zfze.feishu.cn/share/base/form/shrcnamY6ULVuhDVLtPeA2izC5f'
 						size='lg'
+						target='_blank'
+						rel='noreferrer'
 					>
-						获取报价
+						获取场景解决方案
 					</LandingOutlineButton>
 				</div>
 			</div>

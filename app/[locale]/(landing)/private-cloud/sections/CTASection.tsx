@@ -19,7 +19,7 @@ export function CTASection() {
 				href={signinLink}
 				size='lg'
 			>
-				立即体验
+				立即体验公有云
 			</LandingOutlineButton>
 		</div>
 	);

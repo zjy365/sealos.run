@@ -111,7 +111,7 @@ export function PrivateDeploySection() {
 											variant='outline'
 											size='sm'
 										>
-											<Link href='/solutions'>
+											<Link href='/private-cloud'>
 												详情
 												<Icon
 													src={FlatArrowRightIcon}
