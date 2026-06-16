@@ -19,8 +19,7 @@ const scenarios = [
 	},
 	{
 		title: '标准化交付',
-		description:
-			'统一 X86、C86、ARM 等不同环境的部署模板、组件供给和运维入口，支撑批量交付与快速复制。',
+		description: '统一 X86、C86、ARM 等不同环境的部署模板、组件供给和运维入口，支撑批量交付与快速复制。',
 		icon: AppLaunchpadIcon,
 	},
 ];
