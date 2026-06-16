@@ -1,9 +1,7 @@
 'use client';
 
-import { AnimatePresence, motion, useInView } from 'motion/react';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
-import React from 'react';
 import {
 	FramedCodeIcon,
 	FramedSaveIcon,
@@ -94,85 +92,15 @@ const featureSectionsData: FeatureSectionData[] = [
 ];
 
 function AnimatedImage({ src, alt }: { src: StaticImageData; alt: string }) {
-	const imageContainerRef = React.useRef<HTMLDivElement>(null);
-	const hasExpandedRef = React.useRef(false);
-	const isInViewRaw = useInView(imageContainerRef, {
-		margin: '-40% 0px 0px 0px',
-		amount: 0,
-	});
-	const [isInView, setIsInView] = React.useState(false);
-
-	React.useEffect(() => {
-		if (!imageContainerRef.current) return;
-
-		const checkInView = () => {
-			if (!isInViewRaw) {
-				return;
-			}
-
-			const rect = imageContainerRef.current?.getBoundingClientRect();
-			if (!rect) {
-				return;
-			}
-
-			const viewportHeight = window.innerHeight;
-			const topThreshold = viewportHeight * 0.6;
-
-			const isInTop60Percent = rect.top >= 0 && rect.top <= topThreshold && rect.bottom > 0;
-			if (isInTop60Percent) {
-				hasExpandedRef.current = true;
-				setIsInView(true);
-			} else if (!hasExpandedRef.current) {
-				setIsInView(false);
-			}
-		};
-
-		checkInView();
-		window.addEventListener('scroll', checkInView, { passive: true });
-		window.addEventListener('resize', checkInView, { passive: true });
-
-		return () => {
-			window.removeEventListener('scroll', checkInView);
-			window.removeEventListener('resize', checkInView);
-		};
-	}, [isInViewRaw]);
-
 	return (
-		<div
-			ref={imageContainerRef}
-			className='min-h-px w-full'
-		>
-			<AnimatePresence initial={false}>
-				{isInView && (
-					<motion.div
-						className='border-brand w-full border border-dashed p-3'
-						initial={{
-							height: 0,
-							opacity: 0,
-						}}
-						animate={{
-							height: 'auto',
-							opacity: 1,
-						}}
-						exit={{
-							height: 0,
-							opacity: 0,
-						}}
-						transition={{
-							duration: 0.3,
-							ease: 'easeInOut',
-						}}
-					>
-						<div className='relative w-full overflow-hidden'>
-							<Image
-								src={src}
-								alt={alt}
-								className='w-full object-contain'
-							/>
-						</div>
-					</motion.div>
-				)}
-			</AnimatePresence>
+		<div className='border-brand w-full border border-dashed p-3'>
+			<div className='relative w-full overflow-hidden'>
+				<Image
+					src={src}
+					alt={alt}
+					className='w-full object-contain'
+				/>
+			</div>
 		</div>
 	);
 }

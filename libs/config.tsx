@@ -75,11 +75,13 @@ export const Config = (() => {
 					endpoint: 'https://j2dpsclzou.sealosgzg.site/submit-template-request-form',
 					version: 'f90db67d-8105-445b-8a2a-52fb2d33454c',
 				},
-				templateDeployUrlTemplate: 'https://template.hzh.sealos.run/deploy?templateName=<template_name>',
+				templateDeployUrlTemplate:
+					'https://cloud.sealos.run/?openapp=system-template%3FtemplateName%3D<template_name>',
 			},
 		},
 		components: {
 			navbar: {
+				contactButtonLink: 'https://fael3z0zfze.feishu.cn/share/base/form/shrcnamY6ULVuhDVLtPeA2izC5f',
 				contactLink: 'https://cloud.sealos.run/',
 				signinLink: 'https://cloud.sealos.run/',
 				links: [
@@ -89,20 +91,20 @@ export const Config = (() => {
 						panel: <ProductsPanel {...productsPanelData} />,
 					},
 					{
-						textI18nKey: t('components.navbar.links.docs'),
-						href: '/docs',
-					},
-					{
-						textI18nKey: t('components.navbar.links.appstore'),
-						href: '/products/appstore',
-					},
-					{
 						textI18nKey: t('components.navbar.links.pricing'),
 						href: '/pricing/payg',
 					},
 					{
+						textI18nKey: t('components.navbar.links.docs'),
+						href: '/docs',
+					},
+					{
 						textI18nKey: t('components.navbar.links.private-cloud'),
 						href: '/private-cloud',
+					},
+					{
+						textI18nKey: t('components.navbar.links.appstore'),
+						href: '/products/appstore',
 					},
 					{
 						textI18nKey: t('components.navbar.links.about-us'),

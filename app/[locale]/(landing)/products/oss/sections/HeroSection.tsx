@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import { OssBoxImage } from '@/assets/app-boxes';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
-import { Config } from '@/libs/config';
 import { HeroBgImage } from '../assets';
 
-export function HeroSection() {
-	const { signinLink } = Config.components.navbar;
+type HeroSectionProps = {
+	createHref: string;
+};
 
+export function HeroSection({ createHref }: HeroSectionProps) {
 	return (
 		<div className='flex flex-col py-12'>
 			<div className='flex flex-col items-start lg:flex-row lg:items-center'>
@@ -15,13 +16,14 @@ export function HeroSection() {
 						兼容
 						<span className='text-brand'> S3 </span>协议
 					</p>
-					<h1 className='mt-8 text-4xl font-semibold lg:text-5xl'>云原生对象存储</h1>
+					<h1 className='mt-8 text-4xl font-semibold lg:text-5xl'>S3 对象存储</h1>
 
-					<p className='text-muted-foreground mt-12 text-xl lg:text-2xl'>
-						按需付费，从 GB 到 PB 无缝扩展，成本降低 70%。
+					<p className='text-muted-foreground mt-12 max-w-3xl text-xl lg:text-2xl'>
+						兼容主流 S3 协议与工具链，适用于静态资源托管、数据备份归档和 AI 数据集存储。按需付费，从 GB 到
+						PB 无缝扩展。
 					</p>
 					<LandingOutlineButton
-						href={signinLink}
+						href={createHref}
 						size='lg'
 						className='mt-12 w-fit'
 					>

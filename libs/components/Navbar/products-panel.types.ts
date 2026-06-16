@@ -59,4 +59,5 @@ export type StorageFeatureItem = {
 	title: string;
 	description: string;
 	icon: StaticImageData;
+	href: string;
 };

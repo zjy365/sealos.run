@@ -22,8 +22,11 @@ import {
 	type AppTypeId,
 	appTypes,
 	calculatorDefaults,
+	cpuCoreOptions,
 	GiB_BYTES,
+	memoryOptions,
 	type RegionId,
+	type RuntimeUnit,
 	regions,
 	unitPricesByRegion,
 	unitPriceTable,
@@ -31,7 +34,7 @@ import {
 
 function clampInt(value: number, min: number, max: number) {
 	if (!Number.isFinite(value)) return min;
-	return Math.min(max, Math.max(min, Math.trunc(value)));
+	return Math.min(max, Math.max(min, Math.round(value)));
 }
 
 function toGiB(bytes: number) {
@@ -40,6 +43,24 @@ function toGiB(bytes: number) {
 
 function fromGiB(gib: number) {
 	return gib * GiB_BYTES;
+}
+
+function getClosestOptionIndex(value: number, options: readonly number[]) {
+	if (!Number.isFinite(value) || options.length === 0) return 0;
+
+	return options.reduce((closestIndex, option, index) => {
+		const currentClosest = options[closestIndex] ?? option;
+		return Math.abs(option - value) < Math.abs(currentClosest - value) ? index : closestIndex;
+	}, 0);
+}
+
+function getMemoryIndexByBytes(bytes: number) {
+	const index = memoryOptions.findIndex((option) => option.bytes === bytes);
+	return index >= 0 ? index : 0;
+}
+
+function getMemoryBytesByIndex(index: number) {
+	return memoryOptions[Math.min(memoryOptions.length - 1, Math.max(0, index))]?.bytes ?? memoryOptions[0].bytes;
 }
 
 function useCnyFormatter(maximumFractionDigits: number) {
@@ -71,7 +92,7 @@ function SliderWithLabels({
 	min: number;
 	max: number;
 	step: number;
-	labels: number[];
+	labels: ReadonlyArray<number | string>;
 	unit: string;
 	inputAriaLabel: string;
 }) {
@@ -79,7 +100,7 @@ function SliderWithLabels({
 		<div className='flex w-full flex-col gap-1'>
 			<Slider
 				value={[value]}
-				onValueChange={(v) => onChange(clampInt(v[0] ?? min, min, max))}
+				onValueChange={(v) => onChange(Math.min(max, Math.max(min, v[0] ?? min)))}
 				min={min}
 				max={max}
 				step={step}
@@ -116,8 +137,6 @@ function FieldLabel({ icon, label }: { icon: Parameters<typeof Icon>[0]['src']; 
 		</div>
 	);
 }
-
-type RuntimeUnit = 'hour' | 'day' | 'week' | 'month' | 'year';
 
 const runtimeUnitConfig: Record<RuntimeUnit, { hours: number; min: number; max: number; label: string }> = {
 	hour: {
@@ -183,6 +202,7 @@ function RegionVendorIcon({ icon, name }: { icon: StaticImageData; name: string 
 export function CalculatorSection({ signinHref }: { signinHref: string }) {
 	const preciseCny = useCnyFormatter(6);
 	const totalCny = useCnyFormatter(2);
+	const appTypePresetMap = React.useMemo(() => new Map(appTypes.map((appType) => [appType.id, appType])), []);
 
 	const [regionId, setRegionId] = React.useState<RegionId>(calculatorDefaults.regionId);
 	const [appTypeId, setAppTypeId] = React.useState<AppTypeId>(calculatorDefaults.appTypeId);
@@ -192,8 +212,8 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 	const [memoryBytes, setMemoryBytes] = React.useState<number>(calculatorDefaults.memoryBytes);
 	const [storageBytes, setStorageBytes] = React.useState<number>(calculatorDefaults.storageBytes);
 	const [ports, setPorts] = React.useState<number>(calculatorDefaults.ports);
-	const [runtimeUnit, setRuntimeUnit] = React.useState<RuntimeUnit>('hour');
-	const [runtimeValue, setRuntimeValue] = React.useState<number>(calculatorDefaults.runtimeHoursPerDay);
+	const [runtimeUnit, setRuntimeUnit] = React.useState<RuntimeUnit>(calculatorDefaults.runtimeUnit);
+	const [runtimeValue, setRuntimeValue] = React.useState<number>(calculatorDefaults.runtimeValue);
 
 	const unitPrices = unitPricesByRegion[regionId];
 	const runtimeHours = runtimeValueToHours(runtimeValue, runtimeUnit);
@@ -201,8 +221,11 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 	const runtimeDisplayLabel = `${runtimeValue}${runtimeConstraints.unitLabel}`;
 	const shouldShowSelectedPeriodEstimate = runtimeUnit !== 'day' || runtimeValue > 1;
 
-	const memoryGiB = toGiB(memoryBytes);
+	const memoryGiB = memoryBytes / GiB_BYTES;
 	const storageGiB = toGiB(storageBytes);
+	const selectedAppType = appTypePresetMap.get(appTypeId) ?? appTypes[0];
+	const cpuIndex = getClosestOptionIndex(cpuCores, cpuCoreOptions);
+	const memoryIndex = getMemoryIndexByBytes(memoryBytes);
 
 	const costs = React.useMemo(() => {
 		const cpuPerHour = cpuCores * unitPrices.cpuCoreHour;
@@ -290,7 +313,7 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 						</div>
 
 						<div className='overflow-hidden rounded-lg'>
-							<div className='grid grid-cols-[1fr_auto_auto] items-center border-b border-zinc-200 px-4 py-2 text-sm text-zinc-600'>
+							<div className='grid grid-cols-[1fr_auto_auto] items-center border-b border-zinc-200 px-4 py-3 text-sm text-zinc-600'>
 								<span>资源名</span>
 								<span className='w-28 text-zinc-500'>单位</span>
 								<span className='w-24 text-right text-zinc-500'>价格</span>
@@ -298,7 +321,7 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 							{unitPriceTable.map((row) => (
 								<div
 									key={row.key}
-									className='grid grid-cols-[1fr_auto_auto] items-center border-b border-zinc-100 px-4 py-2 text-sm last:border-b-0'
+									className='grid grid-cols-[1fr_auto_auto] items-center border-b border-zinc-100 px-4 py-3.5 text-sm last:border-b-0'
 								>
 									<span className='min-w-16 text-zinc-900'>{row.name}</span>
 									<span className='w-28 text-zinc-900'>{row.unit}</span>
@@ -336,7 +359,20 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 								/>
 								<Select
 									value={appTypeId}
-									onValueChange={(v) => setAppTypeId(v as AppTypeId)}
+									onValueChange={(v) => {
+										const nextAppTypeId = v as AppTypeId;
+										const preset = appTypePresetMap.get(nextAppTypeId);
+
+										if (!preset) return;
+
+										setAppTypeId(nextAppTypeId);
+										setCpuCores(preset.cpuCores);
+										setMemoryBytes(preset.memoryBytes);
+										setStorageBytes(preset.storageBytes);
+										setPorts(preset.ports);
+										setRuntimeUnit(preset.runtimeUnit);
+										setRuntimeValue(preset.runtimeValue);
+									}}
 								>
 									<SelectTrigger className='h-10 w-48 rounded-lg'>
 										<SelectValue placeholder='选择应用类型' />
@@ -353,6 +389,7 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 									</SelectContent>
 								</Select>
 							</div>
+							<p className='text-muted-foreground pl-0 text-sm sm:pl-42'>{selectedAppType.description}</p>
 
 							{/* CPU */}
 							<div className='flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-10'>
@@ -360,29 +397,22 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 									icon={CpuIcon}
 									label='CPU'
 								/>
-								<div className='flex min-w-0 flex-1 flex-col gap-2'>
+								<div className='min-w-0 flex-1'>
 									<SliderWithLabels
-										value={cpuCores}
-										onChange={(n) => setCpuCores(clampInt(n, 1, 32))}
-										min={1}
-										max={32}
+										value={cpuIndex}
+										onChange={(n) =>
+											setCpuCores(
+												cpuCoreOptions[clampInt(n, 0, cpuCoreOptions.length - 1)] ??
+													cpuCoreOptions[0],
+											)
+										}
+										min={0}
+										max={cpuCoreOptions.length - 1}
 										step={1}
-										labels={[1, 8, 16, 24, 32]}
-										unit='C'
+										labels={cpuCoreOptions}
+										unit='(Cores)'
 										inputAriaLabel='CPU 核数'
 									/>
-								</div>
-								<div className='flex items-center gap-3'>
-									<NumberInput
-										value={cpuCores}
-										onValueChange={(v) => setCpuCores(clampInt(v ?? 1, 1, 32))}
-										min={1}
-										max={32}
-										stepper={1}
-										decimalScale={0}
-										className='h-10 w-20 text-center'
-									/>
-									<span className='text-muted-foreground w-8 text-sm'>C</span>
 								</div>
 							</div>
 
@@ -392,29 +422,21 @@ export function CalculatorSection({ signinHref }: { signinHref: string }) {
 									icon={MemoryIcon}
 									label='内存'
 								/>
-								<div className='flex min-w-0 flex-1 flex-col gap-2'>
+								<div className='min-w-0 flex-1'>
 									<SliderWithLabels
-										value={memoryGiB}
-										onChange={(n) => setMemoryBytes(fromGiB(clampInt(n, 1, 32)))}
-										min={1}
-										max={32}
+										value={memoryIndex}
+										onChange={(n) =>
+											setMemoryBytes(
+												getMemoryBytesByIndex(clampInt(n, 0, memoryOptions.length - 1)),
+											)
+										}
+										min={0}
+										max={memoryOptions.length - 1}
 										step={1}
-										labels={[1, 8, 16, 24, 32]}
-										unit='GiB'
+										labels={memoryOptions.map((option) => option.label)}
+										unit=''
 										inputAriaLabel='内存容量（GiB）'
 									/>
-								</div>
-								<div className='flex items-center gap-3'>
-									<NumberInput
-										value={memoryGiB}
-										onValueChange={(v) => setMemoryBytes(fromGiB(clampInt(v ?? 1, 1, 32)))}
-										min={1}
-										max={32}
-										stepper={1}
-										decimalScale={0}
-										className='h-10 w-20 text-center'
-									/>
-									<span className='text-muted-foreground w-8 text-sm'>GiB</span>
 								</div>
 							</div>
 

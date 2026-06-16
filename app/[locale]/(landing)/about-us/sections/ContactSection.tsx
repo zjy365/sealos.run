@@ -7,7 +7,7 @@ const CONTACT_CONTENT = {
 		{
 			type: 'address',
 			label: '地址',
-			value: '余杭区五常街道阿里巴巴数字生态创新园6幢4楼W405（西五电梯4楼）',
+			value: '余杭区五常街道阿里巴巴数字创新生态园 6 幢 4 楼 W405（西五电梯 4 楼）',
 			iconImage: LocationIcon,
 		},
 		{

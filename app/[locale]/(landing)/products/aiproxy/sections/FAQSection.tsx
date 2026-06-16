@@ -1,6 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/libs/components/ui/accordion';
 
-const faqs = [
+export const faqs = [
 	{
 		question: '是否支持 Claude Code / GPT?',
 		answer: '是，全模型支持 claude-opus-4-6-thinking、gpt-5.4等，受区域影响，国外模型请访问 Selos.io。',

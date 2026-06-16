@@ -35,7 +35,7 @@ export function HeroSection() {
 					获取 API Key
 				</LandingOutlineButton>
 				<LandingOutlineButton
-					href={signinLink}
+					href='#models-section'
 					size='lg'
 					borderStyle='dashed'
 					showIcon={false}

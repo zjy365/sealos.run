@@ -1,2 +1,10 @@
 export { default as AppsSectionImage } from './apps-section.svg';
+export { default as CertCmaCnasReportImage } from './cert-cma-cnas-report.png';
+export { default as CertHighTechEnterpriseImage } from './cert-high-tech-enterprise.png';
+export { default as CertInnovationAwardImage } from './cert-innovation-award.png';
+export { default as CertMlpsLevel3Image } from './cert-mlps-level3.png';
+export { default as CertSoftwareCopyrightImage } from './cert-software-copyright.png';
+export { default as CultureCafeteriaImage } from './culture-cafeteria.png';
+export { default as CultureOfficeImage } from './culture-office.png';
+export { default as CultureParkImage } from './culture-park.jpg';
 export { default as TickedDiskImage } from './ticked-disk.svg';

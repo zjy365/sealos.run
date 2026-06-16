@@ -19,9 +19,12 @@ export function HeroSection() {
 
 			<div className='relative z-10 flex flex-col gap-6'>
 				<h1 className='text-5xl leading-none font-semibold'>
-					小时计费，
+					低成本云服务器，
 					<span className='text-brand'>用多少付多少</span>
 				</h1>
+				<p className='max-w-xl text-lg text-muted-foreground'>
+					按小时计费，CPU 低至 ¥0.017/核·小时，0.5 核轻量配置即可起步，暂停不计费。
+				</p>
 
 				<div className='flex flex-wrap items-center gap-2'>
 					{highlights.map((text) => (

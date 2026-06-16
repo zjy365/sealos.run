@@ -1,7 +1,14 @@
+import Image from 'next/image';
+import { CultureCafeteriaImage, CultureOfficeImage, CultureParkImage } from '../assets';
+
 const CULTURE_CONTENT = {
 	title: { prefix: '企业', highlight: '文化' },
-	address: '余杭区五常街道阿里巴巴数字生态创新园6幢4楼W405（西五电梯4楼）',
-	items: [{ title: '园区环境' }, { title: '员工食堂' }, { title: '办公环境' }],
+	address: '余杭区五常街道阿里巴巴数字创新生态园 6 幢 4 楼 W405（西五电梯 4 楼）',
+	items: [
+		{ title: '园区环境', image: CultureParkImage },
+		{ title: '员工食堂', image: CultureCafeteriaImage },
+		{ title: '办公环境', image: CultureOfficeImage },
+	],
 } as const;
 
 export function CultureSection() {
@@ -20,8 +27,13 @@ export function CultureSection() {
 						key={item.title}
 						className='overflow-hidden border border-zinc-100 bg-zinc-50'
 					>
-						<div className='text-muted-foreground flex h-64 items-center justify-center bg-zinc-200 text-sm'>
-							图片占位
+						<div className='relative h-64 w-full overflow-hidden bg-zinc-200'>
+							<Image
+								src={item.image}
+								alt={item.title}
+								fill
+								className='object-cover'
+							/>
 						</div>
 						<div className='flex flex-col gap-2 px-8 pt-3 pb-8'>
 							<p className='text-foreground text-xl leading-normal font-medium'>{item.title}</p>

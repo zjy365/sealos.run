@@ -221,7 +221,10 @@ export function ModelsSection({ models }: { models: AiproxyModel[] }) {
 	}, [models, searchQuery, selectedOwner, selectedType, sortInput, sortOutput]);
 
 	return (
-		<div className='flex flex-col gap-8'>
+		<div
+			id='models-section'
+			className='flex flex-col gap-8'
+		>
 			<div className='flex flex-col gap-3'>
 				<div className='flex items-center gap-3'>
 					<h2 className='text-4xl font-semibold'>模型广场</h2>

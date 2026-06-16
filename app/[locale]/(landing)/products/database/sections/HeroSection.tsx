@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import { LandingOutlineButton } from '@/libs/components/LandingOutlineButton';
-import { Config } from '@/libs/config';
 import { HeroBgImage } from '../assets';
 
-export function HeroSection() {
-	const { signinLink } = Config.components.navbar;
+type HeroSectionProps = {
+	createHref: string;
+};
 
+export function HeroSection({ createHref }: HeroSectionProps) {
 	return (
 		<div className='relative flex min-h-80 flex-col gap-12 py-12 lg:flex-row lg:items-center'>
 			<div className='pointer-events-none absolute right-0 h-[150%] w-full lg:h-[200%]'>
@@ -18,12 +19,13 @@ export function HeroSection() {
 			</div>
 
 			<div className='flex flex-1 flex-col gap-6'>
-				<h1 className='text-4xl font-semibold'>高可用数据库</h1>
+				<h1 className='text-4xl font-semibold'>云数据库</h1>
 				<p className='text-muted-foreground max-w-2xl text-base sm:text-lg'>
-					内置自动备份、故障自愈与监控告警，告别繁琐的主从配置与集群维护。
+					一键部署 MySQL、PostgreSQL、Redis、MongoDB 等数据库服务，内置自动备份、故障自愈、
+					监控告警与按量计费，适合生产环境快速上线。
 				</p>
 				<LandingOutlineButton
-					href={signinLink}
+					href={createHref}
 					size='lg'
 					className='w-fit'
 				>

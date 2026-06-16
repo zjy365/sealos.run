@@ -48,6 +48,10 @@ import type {
 	StorageFeatureItem,
 } from './products-panel.types';
 
+const DATABASE_CREATE_URL = 'https://cloud.sealos.run/?openapp=system-dbprovider%3F%2Fdb%2Fedit%3F';
+const DEVBOX_CREATE_URL = 'https://cloud.sealos.run/?openapp=system-devbox';
+const OSS_CREATE_URL = 'https://cloud.sealos.run/?openapp=system-objectstorage%3F%2FbucketConfig%3F';
+
 export const NAV_MENU_ITEMS_BASE: NavMenuItem[] = [
 	{
 		id: 'launchpad',
@@ -134,7 +138,7 @@ export const LAUNCHPAD_FEATURES: ProductLinkFeatureItem[] = [
 		title: '定时任务',
 		description: '可视化创建和管理 Kubernetes 资源、状态',
 		icon: ClockCounterIcon,
-		href: '/products/launchpad',
+		href: '/docs/guides/cron-jobs',
 	},
 	{
 		title: '免费域名',
@@ -146,7 +150,7 @@ export const LAUNCHPAD_FEATURES: ProductLinkFeatureItem[] = [
 		title: '终端',
 		description: '基于 Web 的容器终端访问',
 		icon: EditorIcon,
-		href: '/products/launchpad',
+		href: '/docs/guides/terminal',
 	},
 ];
 
@@ -154,32 +158,32 @@ export const DATABASE_FEATURES: ProductIconFeatureItem[] = [
 	{
 		name: 'PostgreSQL',
 		icon: PostgresIcon,
-		href: '/products/database',
+		href: DATABASE_CREATE_URL,
 	},
 	{
 		name: 'MongoDB',
 		icon: MongodbIcon,
-		href: '/products/database',
+		href: DATABASE_CREATE_URL,
 	},
 	{
 		name: 'MySQL',
 		icon: MysqlIcon,
-		href: '/products/database',
+		href: DATABASE_CREATE_URL,
 	},
 	{
 		name: 'Redis',
 		icon: RedisIcon,
-		href: '/products/database',
+		href: DATABASE_CREATE_URL,
 	},
 	{
 		name: 'Kafka',
 		icon: KafkaIcon,
-		href: '/products/database',
+		href: DATABASE_CREATE_URL,
 	},
 	{
 		name: 'Milvus',
 		icon: MilvusIcon,
-		href: '/products/database',
+		href: DATABASE_CREATE_URL,
 	},
 ];
 
@@ -188,16 +192,19 @@ export const OSS_STORAGE_TYPES: StorageFeatureItem[] = [
 		title: '私有存储桶｜Private',
 		description: '仅允许授权用户访问，保护数据安全',
 		icon: FramedPrivateIcon,
+		href: OSS_CREATE_URL,
 	},
 	{
 		title: '公开读存储桶｜Public-Read',
 		description: '允许公开读取，适合静态资源分发',
 		icon: FramedReadIcon,
+		href: OSS_CREATE_URL,
 	},
 	{
 		title: '公开读写存储桶｜Public-Read-Write',
 		description: '允许公开读写，适合协作场景',
 		icon: FramedWriteIcon,
+		href: OSS_CREATE_URL,
 	},
 ];
 
@@ -205,61 +212,61 @@ export const DEVBOX_TEMPLATES: ProductIconFeatureItem[] = [
 	{
 		name: 'Claude Code',
 		icon: ClaudeCodeIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: 'Node.js',
 		icon: NodejsIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: 'Spring Boot',
 		icon: SpringbootIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: 'Python',
 		icon: PythonIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: 'Vue.js',
 		icon: VueIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: 'Ubuntu',
 		icon: UbuntuIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: '.NET',
 		icon: DotnetIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: 'C++',
 		icon: CppIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: 'Next.js',
 		icon: NextjsIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: 'Java',
 		icon: JavaIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: 'OpenClaw',
 		icon: OpenclawIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 	{
 		name: '更多',
 		icon: FramedPlusIcon,
-		href: '/products/devbox',
+		href: DEVBOX_CREATE_URL,
 	},
 ];

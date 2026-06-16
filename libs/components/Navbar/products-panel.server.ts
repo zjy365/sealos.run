@@ -57,7 +57,7 @@ const getProductsPanelDataCached = React.cache((locale: string): ProductsPanelDa
 		const list = templateMap.get(template.category) ?? [];
 		list.push({
 			deployCount: template.deployCount,
-			href: `/products/appstore/${template.slug}`,
+			href: `https://cloud.sealos.run/?openapp=system-template%3FtemplateName%3D${template.slug}`,
 			thumbnail: template.thumbnail,
 			title: template.title,
 		});
