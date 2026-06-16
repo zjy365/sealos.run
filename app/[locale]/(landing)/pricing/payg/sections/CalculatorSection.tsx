@@ -46,10 +46,11 @@ function fromGiB(gib: number) {
 }
 
 function getClosestOptionIndex(value: number, options: readonly number[]) {
-	if (!Number.isFinite(value)) return 0;
+	if (!Number.isFinite(value) || options.length === 0) return 0;
 
 	return options.reduce((closestIndex, option, index) => {
-		return Math.abs(option - value) < Math.abs(options[closestIndex] - value) ? index : closestIndex;
+		const currentClosest = options[closestIndex] ?? option;
+		return Math.abs(option - value) < Math.abs(currentClosest - value) ? index : closestIndex;
 	}, 0);
 }
 
@@ -91,7 +92,7 @@ function SliderWithLabels({
 	min: number;
 	max: number;
 	step: number;
-	labels: Array<number | string>;
+	labels: ReadonlyArray<number | string>;
 	unit: string;
 	inputAriaLabel: string;
 }) {
