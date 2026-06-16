@@ -16,6 +16,17 @@ type ArchLayerItem =
 			className?: string;
 	  }
 	| {
+			type: 'cards';
+			items: Array<{
+				title: string;
+				descriptionItems: string[];
+				border?: BorderConfig;
+				className?: string;
+			}>;
+			border?: BorderConfig;
+			className?: string;
+	  }
+	| {
 			type: 'columns';
 			items: Array<{
 				title: string;
@@ -63,21 +74,68 @@ const archLayers: ArchLayer[] = [
 	{
 		label: '应用层',
 		content: {
-			type: 'grid',
+			type: 'cards',
 			items: [
 				{
-					title: '应用能力',
-					items: ['应用管理', 'DevBox', 'FastGPT', '数据库', '对象存储', '应用商店', 'AI Proxy'],
-					columns: 4,
+					title: '应用部署',
+					descriptionItems: ['支持所有 Docker 镜像部署', '支持传统 CI/CD 流程', '弹性伸缩、负载均衡与多副本'],
 					border: {
 						bl: [true, true],
 						br: [true, true],
 						tl: [true, true],
 						tr: [true, true],
 					},
-					className: 'px-6 pt-3 pb-8',
+				},
+				{
+					title: '应用开发 - DevBox',
+					descriptionItems: [
+						'支持所有项目在线开发',
+						'内置 Claude Code 与 Codex',
+						'自动构建镜像，内置版本管理',
+					],
+					border: {
+						bl: [true, true],
+						br: [true, true],
+						tl: [true, true],
+						tr: [true, true],
+					},
+				},
+				{
+					title: 'AI Agent - FastGPT',
+					descriptionItems: ['支持 AI 工作流编排', '支持 RAG 引擎检索', '支持主流大模型接入'],
+					border: {
+						bl: [true, true],
+						br: [true, true],
+						tl: [true, true],
+						tr: [true, true],
+					},
+				},
+				{
+					title: 'AI 网关 - AI Proxy',
+					descriptionItems: ['一个 Key 调用所有模型', '精准计费与额度限制', '负载均衡与日志追踪'],
+					border: {
+						bl: [true, true],
+						br: [true, true],
+						tl: [true, true],
+						tr: [true, true],
+					},
+				},
+				{
+					title: '数据库',
+					descriptionItems: [
+						'支持 MySQL、PostgreSQL、Redis、Kafka 等',
+						'支持多副本容灾与秒级主从切换',
+						'支持手动与自动备份',
+					],
+					border: {
+						bl: [true, true],
+						br: [true, true],
+						tl: [true, true],
+						tr: [true, true],
+					},
 				},
 			],
+			className: 'gap-4',
 		},
 	},
 	{
@@ -356,6 +414,40 @@ function renderContent(decoration: ArchLayerItem) {
 						</div>
 					);
 				})}
+				{decoration.border && <CornerBorder border={decoration.border} />}
+			</div>
+		);
+	}
+
+	if (decoration.type === 'cards') {
+		return (
+			<div
+				className={cn(
+					'grid w-full grid-cols-1 gap-3 xl:grid-cols-5',
+					decoration.border && 'relative',
+					decoration.className,
+				)}
+			>
+				{decoration.items.map((item) => (
+					<div
+						key={item.title}
+						className={cn('flex min-h-52 flex-col gap-4 p-4', item.border && 'relative', item.className)}
+					>
+						<p className='text-sm leading-5 font-medium'>{item.title}</p>
+						<div className='flex flex-1 flex-col gap-3'>
+							{item.descriptionItems.map((description) => (
+								<div
+									key={description}
+									className='flex items-start gap-2 border border-zinc-300 px-3 py-2'
+								>
+									<span className='text-brand text-xs leading-5'>•</span>
+									<span className='text-sidebar-foreground text-sm leading-5'>{description}</span>
+								</div>
+							))}
+						</div>
+						{item.border && <CornerBorder border={item.border} />}
+					</div>
+				))}
 				{decoration.border && <CornerBorder border={decoration.border} />}
 			</div>
 		);
