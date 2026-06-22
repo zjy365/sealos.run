@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { z } from 'zod';
-import { FramedCalendarIcon, FramedCheckIcon } from '@/assets/icons';
+import { FramedCheckIcon } from '@/assets/icons';
 import { Button } from '@/libs/components/ui/button';
 import {
 	Dialog,
@@ -16,11 +16,10 @@ import {
 import { Icon } from '@/libs/components/ui/icon';
 import { Input } from '@/libs/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/libs/components/ui/select';
-import { cn } from '@/libs/utils/styling';
 
 const scenarioOptions = [
 	{ label: '集群管理', value: 'cluster_management' },
-	{ label: '应用管理', value: 'app_management' },
+	{ label: '国产化适配', value: 'app_management' },
 	{ label: 'GPU调度', value: 'gpu_scheduling' },
 ] as const;
 
@@ -41,11 +40,6 @@ const ContactFormInputSchema = z.object({
 	scenario: z.enum(scenarioValues, { message: '请选择应用场景' }),
 	contactName: z.string().trim().min(1, '请输入联系人姓名').max(127, '联系人姓名不能超过 127 个字符'),
 	contactTel: z.string().trim().min(1, '请输入联系人电话').max(127, '联系人电话不能超过 127 个字符'),
-	contactDate: z
-		.string()
-		.trim()
-		.min(1, '请选择时间')
-		.refine((value) => !Number.isNaN(Date.parse(value)), '请输入有效时间'),
 });
 
 const ContactFormSchema = z.object({
@@ -70,7 +64,6 @@ type ContactFormValues = {
 	scenario: (typeof scenarioOptions)[number]['value'];
 	contactName: string;
 	contactTel: string;
-	contactDate: string;
 };
 
 type SolutionsLeadDialogProps = {
@@ -89,7 +82,6 @@ const initialValues: ContactFormValues = {
 	scenario: scenarioOptions[0].value,
 	contactName: '',
 	contactTel: '',
-	contactDate: '',
 };
 
 function Field({
@@ -127,7 +119,6 @@ function parseFieldErrors(error: z.ZodError<ContactFormValues>) {
 		scenario: fieldErrors.scenario?.[0],
 		contactName: fieldErrors.contactName?.[0],
 		contactTel: fieldErrors.contactTel?.[0],
-		contactDate: fieldErrors.contactDate?.[0],
 	} satisfies Partial<Record<FormFieldName, string | undefined>>;
 }
 
@@ -142,7 +133,7 @@ function buildRequestBody(values: ContactFormValues, formVersion: string) {
 			scenario: values.scenario,
 			contactName: values.contactName.trim(),
 			contactTel: values.contactTel.trim(),
-			contactDate: new Date(values.contactDate),
+			contactDate: new Date(),
 		},
 	};
 }
@@ -253,7 +244,7 @@ export function SolutionsLeadDialog({ endpoint, formVersion, open, onOpenChange 
 		>
 			<DialogContent
 				id='solutions-lead-dialog'
-				className='max-h-[calc(100svh-2rem)] w-6xl overflow-y-auto p-6 shadow-lg lg:min-w-4xl'
+				className='max-h-[calc(100svh-2rem)] w-full max-w-2xl overflow-y-auto p-6 shadow-lg sm:p-7'
 			>
 				{isSubmitted ? (
 					<div className='flex flex-col items-center gap-6 py-8 text-center sm:py-12'>
@@ -288,14 +279,18 @@ export function SolutionsLeadDialog({ endpoint, formVersion, open, onOpenChange 
 						className='flex flex-col gap-6'
 						onSubmit={handleSubmit}
 					>
-						<DialogHeader className='gap-3'>
+						<DialogHeader className='items-center gap-3 text-center'>
 							<DialogTitle className='text-foreground text-3xl leading-none font-semibold tracking-tight'>
-								获取 Sealos 私有化解决方案
+								获取解决方案
 							</DialogTitle>
 							<DialogDescription asChild>
-								<div className='text-muted-foreground space-y-5 text-sm leading-5'>
+								<div className='text-muted-foreground max-w-xl space-y-5 text-sm leading-5'>
 									<p>
-										如果您的团队/企业有兴趣在私有云/公有云环境中完全拥有 Sealos cloud（
+										Sealos 历经 9年研发，公有云稳定运行 5年，30W
+										开发者验证，满足企业所有部门的用云诉求。
+									</p>
+									<p>
+										如果您的团队有兴趣在 私有云 / 公有云 环境中完全拥有 Sealos cloud（
 										<a
 											href='https://cloud.sealos.run'
 											target='_blank'
@@ -306,20 +301,13 @@ export function SolutionsLeadDialog({ endpoint, formVersion, open, onOpenChange 
 										</a>
 										）的能力，请填写如下表单联系我们，Sealos 商务会在 2小时内与您联系。
 									</p>
-									<p>
-										Sealos历经9年研发，公有云运行5年，30W开发者验证，具备K8S集群管理、容器应用快速托管，高可用数据库，对象存储，多集群管理，多租户管理等能力，同时拥有了近百款应用能力，满足企业所有部门的用云诉求。
-									</p>
-									<p>
-										极高的性能和资源利用率，可以帮助企业减少沟通协调成本、资源成本等，同时 Sealos
-										支持全国产化集群、GPU，支持纯离线交付，是企业上云的不二之选。
-									</p>
 								</div>
 							</DialogDescription>
 						</DialogHeader>
 
 						{errors.form ? <p className='text-destructive text-sm leading-5'>{errors.form}</p> : null}
 
-						<div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+						<div className='mx-auto grid w-full max-w-lg grid-cols-1 gap-4'>
 							<Field
 								htmlFor='solutions-company-name'
 								label='企业名称'
@@ -338,7 +326,7 @@ export function SolutionsLeadDialog({ endpoint, formVersion, open, onOpenChange 
 
 							<Field
 								htmlFor='solutions-server-count'
-								label='服务器数量'
+								label='集群规模（节点数）'
 								error={errors.serverCount}
 							>
 								<Input
@@ -405,7 +393,7 @@ export function SolutionsLeadDialog({ endpoint, formVersion, open, onOpenChange 
 
 							<Field
 								htmlFor='solutions-contact-tel'
-								label='联系人电话'
+								label='联系电话'
 								error={errors.contactTel}
 							>
 								<Input
@@ -418,30 +406,6 @@ export function SolutionsLeadDialog({ endpoint, formVersion, open, onOpenChange 
 									aria-invalid={Boolean(errors.contactTel)}
 									className='border-border h-10 rounded-md px-3 text-sm shadow-none'
 								/>
-							</Field>
-
-							<Field
-								htmlFor='solutions-contact-date'
-								label='时间'
-								error={errors.contactDate}
-							>
-								<div className='relative'>
-									<div className='text-muted-foreground pointer-events-none absolute top-1/2 left-4 -translate-y-1/2'>
-										<Icon
-											src={FramedCalendarIcon}
-											className='size-4'
-										/>
-									</div>
-									<Input
-										id='solutions-contact-date'
-										name='contactDate'
-										type='date'
-										value={values.contactDate}
-										onChange={(event) => updateField('contactDate', event.target.value)}
-										aria-invalid={Boolean(errors.contactDate)}
-										className={cn('border-border h-10 rounded-md pr-3 pl-10 text-sm shadow-none')}
-									/>
-								</div>
 							</Field>
 						</div>
 

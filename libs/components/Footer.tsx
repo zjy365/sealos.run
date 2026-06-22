@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type React from 'react';
 import { FooterHexagonalPattern } from '@/assets';
+import { Link } from '@/libs/i18n/navigation';
 import { getTranslations } from '@/libs/i18n/server';
 import { Logo } from './Logo';
 
@@ -40,6 +41,7 @@ export async function Footer({ config }: { config: FooterConfig }) {
 
 	const footerTagline = t(config.taglineI18nKey);
 	const footerCopyright = t(config.copyrightI18nKey);
+	const isExternalUrl = (url: string) => /^https?:\/\//.test(url);
 
 	return (
 		<section className='relative container px-4 pb-8'>
@@ -81,12 +83,16 @@ export async function Footer({ config }: { config: FooterConfig }) {
 									key={link.textI18nKey}
 									className='text-sm leading-normal font-normal hover:underline'
 								>
-									<a
-										href={link.url}
-										target='_blank'
-									>
-										{t(link.textI18nKey)}
-									</a>
+									{isExternalUrl(link.url) ? (
+										<a
+											href={link.url}
+											target='_blank'
+										>
+											{t(link.textI18nKey)}
+										</a>
+									) : (
+										<Link href={link.url}>{t(link.textI18nKey)}</Link>
+									)}
 								</li>
 							))}
 						</ul>
@@ -100,12 +106,16 @@ export async function Footer({ config }: { config: FooterConfig }) {
 							key={link.textI18nKey}
 							className='hover:text-primary underline'
 						>
-							<a
-								href={link.url}
-								target='_blank'
-							>
-								{t(link.textI18nKey)}
-							</a>
+							{isExternalUrl(link.url) ? (
+								<a
+									href={link.url}
+									target='_blank'
+								>
+									{t(link.textI18nKey)}
+								</a>
+							) : (
+								<Link href={link.url}>{t(link.textI18nKey)}</Link>
+							)}
 						</li>
 					))}
 				</ul>

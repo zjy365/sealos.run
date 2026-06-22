@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Config } from '@/libs/config';
 import { getPrimaryLocale } from '@/libs/i18n/routing';
 import { ArchSection } from './sections/ArchSection';
 import { ComparisonSection } from './sections/ComparisonSection';
@@ -54,6 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function PrivateCloudPage() {
+	const contactFormConfig = Config.pages.solutions.contactForm;
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@graph': [
@@ -104,7 +106,7 @@ export default async function PrivateCloudPage() {
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<section className='container mx-auto px-6 pt-12 pb-4'>
-				<HeroSection />
+				<HeroSection contactFormConfig={contactFormConfig} />
 			</section>
 
 			<section className='container mx-auto px-6 pb-24'>

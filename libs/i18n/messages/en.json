@@ -104,15 +104,17 @@
 					"title": "资源",
 					"links": {
 						"docs": "文档",
-						"education": "教育",
 						"blog": "博客"
 					}
 				},
 				"products": {
 					"title": "产品",
 					"links": {
+						"launchpad": "应用管理",
+						"database": "数据库",
+						"oss": "对象存储",
 						"devbox": "DevBox",
-						"databases": "数据库",
+						"aiproxy": "AI 网关",
 						"appstore": "应用商店"
 					}
 				},
@@ -120,14 +122,15 @@
 					"title": "服务",
 					"links": {
 						"pricing": "定价",
-						"fastgpt": "FastGPT"
+						"privateCloud": "私有化",
+						"solutions": "解决方案"
 					}
 				},
 				"support": {
 					"title": "支持",
 					"links": {
-						"contactUs": "联系我们",
-						"customers": "客户"
+						"aboutUs": "关于我们",
+						"contactUs": "联系我们"
 					}
 				}
 			},
