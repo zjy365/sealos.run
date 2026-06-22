@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from 'motion/react';
 import React from 'react';
+import { SolutionsLeadDialog } from '@/app/[locale]/(landing)/solutions/components/SolutionsLeadDialog';
 import {
 	BoxIcon,
 	ChevronUpIcon,
@@ -35,8 +36,11 @@ interface NavLink {
 
 interface NavbarMobileNavProps {
 	links: NavLink[];
-	contactHref: string;
 	contactLabel: string;
+	contactFormConfig: {
+		endpoint: string;
+		version: string;
+	};
 	signinHref: string;
 	signinLabel: string;
 }
@@ -65,12 +69,19 @@ const productItems = [
 	{ id: 'app', label: '应用', href: '/products/appstore', icon: CubesIcon },
 ] as const;
 
-export function NavbarMobileNav({ links, contactHref, contactLabel, signinHref, signinLabel }: NavbarMobileNavProps) {
+export function NavbarMobileNav({
+	links,
+	contactLabel,
+	contactFormConfig,
+	signinHref,
+	signinLabel,
+}: NavbarMobileNavProps) {
 	const t = useTranslations();
 	const pathname = usePathname();
 	const { open, setOpen } = React.useContext(NavbarMobileContext);
 
 	const [productsOpen, setProductsOpen] = React.useState(true);
+	const [contactOpen, setContactOpen] = React.useState(false);
 	const prevPathnameRef = React.useRef(pathname);
 
 	React.useEffect(() => {
@@ -234,17 +245,19 @@ export function NavbarMobileNav({ links, contactHref, contactLabel, signinHref, 
 														'bg-accent text-foreground hover:bg-accent/80 h-9 w-full flex-row justify-center',
 													)}
 												>
-													<a
-														href={contactHref}
-														target='_blank'
-														rel='noreferrer'
+													<button
+														type='button'
+														onClick={() => {
+															setOpen(false);
+															setContactOpen(true);
+														}}
 													>
 														<Icon
 															src={ContactIcon}
 															className='size-4'
 														/>
 														{contactLabel}
-													</a>
+													</button>
 												</NavigationMenuLink>
 											</NavigationMenuItem>
 
@@ -267,6 +280,13 @@ export function NavbarMobileNav({ links, contactHref, contactLabel, signinHref, 
 					</motion.div>
 				)}
 			</AnimatePresence>
+
+			<SolutionsLeadDialog
+				endpoint={contactFormConfig.endpoint}
+				formVersion={contactFormConfig.version}
+				open={contactOpen}
+				onOpenChange={setContactOpen}
+			/>
 		</div>
 	);
 }

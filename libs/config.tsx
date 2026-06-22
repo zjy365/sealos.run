@@ -126,15 +126,7 @@ export const Config = (() => {
 						links: [
 							{
 								textI18nKey: t('components.footer.menuItems.resources.links.docs'),
-								url: 'https://sealos.io/docs/quick-start',
-							},
-							{
-								textI18nKey: t('components.footer.menuItems.resources.links.education'),
-								url: 'https://sealos.io/education',
-							},
-							{
-								textI18nKey: t('components.footer.menuItems.resources.links.blog'),
-								url: 'https://sealos.io/blog',
+								url: '/docs',
 							},
 						],
 					},
@@ -142,16 +134,28 @@ export const Config = (() => {
 						titleI18nKey: t('components.footer.menuItems.products.title'),
 						links: [
 							{
-								textI18nKey: t('components.footer.menuItems.products.links.devbox'),
-								url: 'https://sealos.io/products/devbox',
+								textI18nKey: t('components.footer.menuItems.products.links.launchpad'),
+								url: '/products/launchpad',
 							},
 							{
-								textI18nKey: t('components.footer.menuItems.products.links.databases'),
-								url: 'https://sealos.io/products/databases',
+								textI18nKey: t('components.footer.menuItems.products.links.database'),
+								url: '/products/database',
+							},
+							{
+								textI18nKey: t('components.footer.menuItems.products.links.oss'),
+								url: '/products/oss',
+							},
+							{
+								textI18nKey: t('components.footer.menuItems.products.links.devbox'),
+								url: '/products/devbox',
+							},
+							{
+								textI18nKey: t('components.footer.menuItems.products.links.aiproxy'),
+								url: '/products/aiproxy',
 							},
 							{
 								textI18nKey: t('components.footer.menuItems.products.links.appstore'),
-								url: 'https://sealos.io/products/app-store',
+								url: '/products/appstore',
 							},
 						],
 					},
@@ -160,11 +164,11 @@ export const Config = (() => {
 						links: [
 							{
 								textI18nKey: t('components.footer.menuItems.services.links.pricing'),
-								url: 'https://sealos.io/pricing',
+								url: '/pricing/payg',
 							},
 							{
-								textI18nKey: t('components.footer.menuItems.services.links.fastgpt'),
-								url: 'https://tryfastgpt.ai/',
+								textI18nKey: t('components.footer.menuItems.services.links.privateCloud'),
+								url: '/private-cloud',
 							},
 						],
 					},
@@ -172,12 +176,12 @@ export const Config = (() => {
 						titleI18nKey: t('components.footer.menuItems.support.title'),
 						links: [
 							{
-								textI18nKey: t('components.footer.menuItems.support.links.contactUs'),
-								url: 'https://sealos.io/contact',
+								textI18nKey: t('components.footer.menuItems.support.links.aboutUs'),
+								url: '/about-us',
 							},
 							{
-								textI18nKey: t('components.footer.menuItems.support.links.customers'),
-								url: 'https://sealos.io/',
+								textI18nKey: t('components.footer.menuItems.support.links.contactUs'),
+								url: 'https://fael3z0zfze.feishu.cn/share/base/form/shrcnamY6ULVuhDVLtPeA2izC5f',
 							},
 						],
 					},
@@ -185,15 +189,15 @@ export const Config = (() => {
 				bottomLinks: [
 					{
 						textI18nKey: t('components.footer.bottomLinks.termsOfService'),
-						url: 'https://sealos.io/docs/msa/terms-of-service',
+						url: '/legal/terms-of-service',
 					},
 					{
 						textI18nKey: t('components.footer.bottomLinks.privacyPolicy'),
-						url: 'https://sealos.io/docs/msa/privacy-policy',
+						url: '/legal/privacy-policy',
 					},
 					{
 						textI18nKey: t('components.footer.bottomLinks.cookiePolicy'),
-						url: 'https://sealos.io/legal/cookie-policy',
+						url: '/legal/cookie-policy',
 					},
 				],
 				socialLinks: [

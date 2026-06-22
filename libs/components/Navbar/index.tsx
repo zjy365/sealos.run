@@ -29,8 +29,8 @@ export async function Navbar() {
 				<div className='flex items-center justify-end'>
 					<div className='hidden lg:flex'>
 						<NavbarActions
-							contactHref={Config.components.navbar.contactButtonLink}
 							contactLabel={t('components.navbar.buttons.contact')}
+							contactFormConfig={Config.pages.solutions.contactForm}
 							signinHref={Config.components.navbar.signinLink}
 							signinLabel={t('components.navbar.buttons.signin')}
 						/>
@@ -38,8 +38,8 @@ export async function Navbar() {
 					<div className='lg:hidden'>
 						<NavbarMobileNav
 							links={Config.components.navbar.links}
-							contactHref={Config.components.navbar.contactButtonLink}
 							contactLabel={t('components.navbar.buttons.contact')}
+							contactFormConfig={Config.pages.solutions.contactForm}
 							signinHref={Config.components.navbar.signinLink}
 							signinLabel={t('components.navbar.buttons.signin')}
 						/>

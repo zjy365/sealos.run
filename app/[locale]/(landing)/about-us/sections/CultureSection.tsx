@@ -3,11 +3,23 @@ import { CultureCafeteriaImage, CultureOfficeImage, CultureParkImage } from '../
 
 const CULTURE_CONTENT = {
 	title: { prefix: '企业', highlight: '文化' },
-	address: '余杭区五常街道阿里巴巴数字创新生态园 6 幢 4 楼 W405（西五电梯 4 楼）',
 	items: [
-		{ title: '园区环境', image: CultureParkImage },
-		{ title: '员工食堂', image: CultureCafeteriaImage },
-		{ title: '办公环境', image: CultureOfficeImage },
+		{
+			title: '园区环境',
+			description: '办公区配套 300 平+室外花园，兼顾开放交流与放松休憩，让团队在自然舒展的环境中高效协作。',
+			image: CultureParkImage,
+		},
+		{
+			title: '员工食堂',
+			description: '园区食堂共 2 层，汇集数十家商贩，全部可享 85 折优惠，日常用餐选择丰富又方便。',
+			image: CultureCafeteriaImage,
+		},
+		{
+			title: '办公环境',
+			description:
+				'办公空间清晰划分为 Sealos 区、FastGPT 区和中台区，既支持各业务线高效协同，也方便跨团队快速联动。',
+			image: CultureOfficeImage,
+		},
 	],
 } as const;
 
@@ -37,7 +49,7 @@ export function CultureSection() {
 						</div>
 						<div className='flex flex-col gap-2 px-8 pt-3 pb-8'>
 							<p className='text-foreground text-xl leading-normal font-medium'>{item.title}</p>
-							<p className='text-muted-foreground text-sm leading-normal'>{culture.address}</p>
+							<p className='text-muted-foreground text-sm leading-normal'>{item.description}</p>
 						</div>
 					</div>
 				))}

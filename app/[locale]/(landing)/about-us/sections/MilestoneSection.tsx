@@ -64,8 +64,10 @@ type Dial3dConfig = {
 };
 
 type DialScrollConfig = {
-	pageStepProgress: number;
+	activeEndProgress: number;
 	rotateStepDeg: number;
+	scrollVhPerMilestone: number;
+	extraScrollVh: number;
 };
 
 const DIAL_LAYOUT_CONFIG: DialLayoutConfig = {
@@ -80,10 +82,10 @@ const DIAL_LAYOUT_CONFIG: DialLayoutConfig = {
 };
 
 const DIAL_SCROLL_CONFIG: DialScrollConfig = {
-	// Milestones occupy 0..(len-1) steps, with an extra empty step at 1.00.
-	// So each milestone step should happen before the end: stepProgress = 1 / len.
-	pageStepProgress: 1 / MILESTONES.length,
+	activeEndProgress: 0.88,
 	rotateStepDeg: 18,
+	scrollVhPerMilestone: 56,
+	extraScrollVh: 72,
 };
 
 const DIAL_3D_CONFIG: Dial3dConfig = {
@@ -110,12 +112,6 @@ function getDialTranslatePx(params: { angleDeg: number; radiusPx: number }) {
 }
 
 const HEX_CLIP_PATH = 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%)';
-
-const DIAL_ROTATE_TRANSITION = {
-	type: 'spring',
-	stiffness: 90,
-	damping: 18,
-} as const;
 
 const CALLOUT_LINE_CONFIG = {
 	kinkDxPx: 28.26,
@@ -152,31 +148,37 @@ function MilestoneGraphic() {
 		 */
 		offset: ['start end', 'end start'],
 	});
+	const continuousStep = useTransform(
+		scrollYProgress,
+		[0, DIAL_SCROLL_CONFIG.activeEndProgress],
+		[0, MILESTONES.length - 1],
+		{
+			clamp: true,
+		},
+	);
+	const dialRotateZ = useTransform(
+		continuousStep,
+		(value) => DIAL_3D_CONFIG.tiltZDeg + value * DIAL_SCROLL_CONFIG.rotateStepDeg,
+	);
 
 	useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-		const { pageStepProgress } = DIAL_SCROLL_CONFIG;
-		if (!Number.isFinite(latest) || !Number.isFinite(pageStepProgress) || pageStepProgress <= 0) {
+		const { activeEndProgress } = DIAL_SCROLL_CONFIG;
+		if (!Number.isFinite(latest) || !Number.isFinite(activeEndProgress) || activeEndProgress <= 0) {
 			return;
 		}
 
-		// Reserve an extra empty step at the end:
-		// step 0..(MILESTONES.length-1) => milestones
-		// step MILESTONES.length => empty (scrollYProgress ~ 1.00)
-		const maxStep = Math.max(0, MILESTONES.length);
-
-		// Motion's scroll progress often never reaches exactly 1 due to rounding.
-		// We treat "near 1" as the final empty step instead of the last milestone step.
-		const nearEnd = latest >= 1 - 1e-4;
-		const nextStep = nearEnd
-			? maxStep
-			: Math.min(maxStep, Math.max(0, Math.floor((latest + 1e-6) / pageStepProgress)));
+		const nextStep =
+			latest >= activeEndProgress
+				? MILESTONES.length
+				: Math.min(
+						MILESTONES.length - 1,
+						Math.max(0, Math.round((latest / activeEndProgress) * (MILESTONES.length - 1))),
+					);
 
 		setScrollStep((prev) => (prev === nextStep ? prev : nextStep));
 	});
 
-	const dialRotateZDeg = scrollStep * DIAL_SCROLL_CONFIG.rotateStepDeg;
 	const activeMilestoneIndex = scrollStep >= MILESTONES.length ? null : Math.max(0, scrollStep);
-	const dialRotateZ = DIAL_3D_CONFIG.tiltZDeg + dialRotateZDeg;
 
 	const measureActiveMarker = React.useCallback(() => {
 		if (activeMilestoneIndex == null) {
@@ -232,6 +234,12 @@ function MilestoneGraphic() {
 		raf = requestAnimationFrame(tick);
 		return () => cancelAnimationFrame(raf);
 	}, [activeMilestoneIndex, measureActiveMarker]);
+
+	useMotionValueEvent(dialRotateZ, 'change', () => {
+		requestAnimationFrame(() => {
+			measureActiveMarker();
+		});
+	});
 
 	React.useEffect(() => {
 		const el = dialRef.current;
@@ -373,8 +381,7 @@ function MilestoneGraphic() {
 			ref={scrollWrapRef}
 			className='relative w-full'
 			style={{
-				// Reserve an extra viewport for the final empty step.
-				height: `${(MILESTONES.length + 1) * 100}vh`,
+				height: `${MILESTONES.length * DIAL_SCROLL_CONFIG.scrollVhPerMilestone + DIAL_SCROLL_CONFIG.extraScrollVh}vh`,
 			}}
 		>
 			<div
@@ -411,11 +418,10 @@ function MilestoneGraphic() {
 								transformStyle: 'preserve-3d',
 								rotateX: DIAL_3D_CONFIG.tiltXDeg,
 								rotateY: DIAL_3D_CONFIG.tiltYDeg,
+								rotateZ: dialRotateZ,
 								willChange: 'transform',
 								backfaceVisibility: 'hidden',
 							}}
-							animate={{ rotateZ: dialRotateZ }}
-							transition={DIAL_ROTATE_TRANSITION}
 						>
 							<Image
 								src={TickedDiskImage}
@@ -432,12 +438,11 @@ function MilestoneGraphic() {
 							transformStyle: 'preserve-3d',
 							rotateX: DIAL_3D_CONFIG.tiltXDeg,
 							rotateY: DIAL_3D_CONFIG.tiltYDeg,
+							rotateZ: dialRotateZ,
 							pointerEvents: 'none',
 							willChange: 'transform',
 							backfaceVisibility: 'hidden',
 						}}
-						animate={{ rotateZ: dialRotateZ }}
-						transition={DIAL_ROTATE_TRANSITION}
 					>
 						<div className='relative h-full w-full'>{yearNodes}</div>
 					</motion.div>
@@ -520,34 +525,15 @@ function MilestoneGraphic() {
 
 export function MilestoneSection() {
 	const milestone = MILESTONE_CONTENT;
-	const sectionRef = React.useRef<HTMLDivElement | null>(null);
-	const { scrollYProgress } = useScroll({
-		target: sectionRef,
-		offset: ['start end', 'end start'],
-	});
-	/**
-	 * Make header visible only in a middle band:
-	 * 1. fade in 0 -> 1
-	 * 2. keep 1
-	 * 3. fade out 1 -> 0
-	 * 4. 0
-	 */
-	const headerOpacity = useTransform(scrollYProgress, [0, 0.125, 0.15, 0.85, 0.875, 1], [0, 0, 1, 1, 0, 0]);
 
 	return (
-		<div
-			ref={sectionRef}
-			className='pointer-events-none -mt-96 flex w-full flex-col items-center gap-16'
-		>
-			<motion.div
-				className='sticky top-96 flex max-w-2xl flex-col items-center gap-4 text-center'
-				style={{ opacity: headerOpacity }}
-			>
+		<div className='pointer-events-none flex w-full flex-col items-center gap-4'>
+			<div className='flex max-w-2xl flex-col items-center gap-4 text-center'>
 				<h2 className='text-3xl leading-none font-semibold'>
 					{milestone.title.prefix} <span className='text-brand'>{milestone.title.highlight}</span>
 				</h2>
 				<p className='text-muted-foreground text-base leading-normal'>{milestone.subtitle}</p>
-			</motion.div>
+			</div>
 
 			<div className='w-full'>
 				<div className='mx-auto w-full max-w-7xl'>
