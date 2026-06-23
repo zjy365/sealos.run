@@ -66,13 +66,13 @@ export const Config = (() => {
 		pages: {
 			solutions: {
 				contactForm: {
-					endpoint: 'https://j2dpsclzou.sealosgzg.site/submit-contact-form',
+					endpoint: 'https://ksfxpfyz65.sealoshzh.site/submit-contact-form',
 					version: 'ff15c990-cf33-47bc-b5fc-b886cbc6e28e',
 				},
 			},
 			appstore: {
 				templateRequestForm: {
-					endpoint: 'https://j2dpsclzou.sealosgzg.site/submit-template-request-form',
+					endpoint: 'https://ksfxpfyz65.sealoshzh.site/submit-template-request-form',
 					version: 'f90db67d-8105-445b-8a2a-52fb2d33454c',
 				},
 				templateDeployUrlTemplate:
