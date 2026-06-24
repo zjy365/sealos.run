@@ -146,7 +146,16 @@ export default async function RootLayout({ children, params }: Props) {
 			</head>
 			<body className='bg-background flex min-h-screen flex-col overflow-x-hidden'>
 				<NextIntlClientProvider>
-					<RootProvider i18n={i18nUIProvider(actualLocale)}>{children}</RootProvider>
+					<RootProvider
+						i18n={i18nUIProvider(actualLocale)}
+						theme={{
+							defaultTheme: 'light',
+							enableSystem: false,
+							forcedTheme: 'light',
+						}}
+					>
+						{children}
+					</RootProvider>
 				</NextIntlClientProvider>
 			</body>
 		</html>
