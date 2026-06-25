@@ -8,6 +8,7 @@
 		"dev": "pnpm sync:appstore-icons && next dev",
 		"start": "next start",
 		"sync:appstore-icons": "node scripts/sync-appstore-icons.mjs",
+		"baidu:submit": "node scripts/submit-baidu-urls.mjs",
 		"typecheck": "tsc --noEmit",
 		"lint:check": "biome check",
 		"lint:fix": "biome check --write",

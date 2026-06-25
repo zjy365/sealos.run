@@ -6,6 +6,20 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const config: NextConfig = {
 	reactStrictMode: true,
 	pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+	async redirects() {
+		return [
+			{
+				source: '/docs/overview/intro',
+				destination: '/docs/guides/devbox',
+				statusCode: 301,
+			},
+			{
+				source: '/docs/guides/app-launchpad',
+				destination: '/docs/guides/app-management',
+				statusCode: 301,
+			},
+		];
+	},
 	compiler: {
 		removeConsole:
 			process.env.NODE_ENV === 'production'

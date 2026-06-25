@@ -3,7 +3,21 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 export const faqs = [
 	{
 		question: '是否支持 Claude Code / GPT?',
-		answer: '是，全模型支持 claude-opus-4-6-thinking、gpt-5.4等，受区域影响，国外模型请访问 Selos.io。',
+		answer: '是，全模型支持 claude-opus-4.8、gpt-5.5等，受区域影响，国外模型请访问 Sealos.io。',
+		answerContent: (
+			<>
+				是，全模型支持 claude-opus-4.8、gpt-5.5等，受区域影响，国外模型请访问{' '}
+				<a
+					href='https://sealos.io'
+					target='_blank'
+					rel='noopener noreferrer'
+					className='text-brand underline underline-offset-2'
+				>
+					Sealos.io
+				</a>
+				。
+			</>
+		),
 	},
 	{
 		question: '如何接入？需要修改现有代码吗？',
@@ -43,7 +57,7 @@ export function FAQSection() {
 								<span className='text-base font-medium'>{faq.question}</span>
 							</AccordionTrigger>
 							<AccordionContent>
-								<p className='text-muted-foreground text-sm'>{faq.answer}</p>
+								<p className='text-muted-foreground text-sm'>{faq.answerContent ?? faq.answer}</p>
 							</AccordionContent>
 						</AccordionItem>
 					))}

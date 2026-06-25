@@ -1,6 +1,7 @@
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/page';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { ProseImage } from '@/libs/components/prose';
 import { source } from '@/libs/docs/source';
 import { getMDXComponents } from '@/mdx-components';
 
@@ -25,7 +26,7 @@ export default async function Page(props: DocsParams) {
 			<DocsTitle>{page.data.title}</DocsTitle>
 			<DocsDescription>{page.data.description}</DocsDescription>
 			<DocsBody>
-				<MDX components={getMDXComponents()} />
+				<MDX components={getMDXComponents({ img: ProseImage })} />
 			</DocsBody>
 		</DocsPage>
 	);
