@@ -1,4 +1,5 @@
 export { Callout } from './Callout';
+export { ProseImage } from './Image';
 export {
 	Table,
 	TableBody,

@@ -41,6 +41,22 @@ export default async function Layout({
 					#nd-sidebar-mobile {
 						top: var(--fd-docs-row-1);
 					}
+
+					#nd-docs-layout {
+						min-width: 0;
+					}
+
+					#nd-docs-layout :is(h1, h2, h3, h4, h5, h6, p, li, a),
+					#nd-docs-layout #nd-toc a {
+						overflow-wrap: anywhere;
+						word-break: break-word;
+					}
+
+					#nd-docs-layout :is(h1, h2, h3, h4, h5, h6) > a {
+						min-width: 0;
+						max-width: 100%;
+						white-space: normal;
+					}
 					`}
 				</style>
 				<DocsLayout
