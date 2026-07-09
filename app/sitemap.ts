@@ -28,23 +28,63 @@ const docsRoutes: Array<{
 	changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
 	priority: number;
 }> = [
-	{ path: '/docs/getting-started/deploy-docker-image', changeFrequency: 'monthly', priority: 0.7 },
-	{ path: '/docs/getting-started/deploy-github-repo', changeFrequency: 'monthly', priority: 0.7 },
-	{ path: '/docs/getting-started/create-database', changeFrequency: 'monthly', priority: 0.7 },
-	{ path: '/docs/getting-started/create-object-storage', changeFrequency: 'monthly', priority: 0.7 },
-	{ path: '/docs/guides/feature-list', changeFrequency: 'monthly', priority: 0.7 },
-	{ path: '/docs/guides/account-workspace', changeFrequency: 'monthly', priority: 0.7 },
-	{ path: '/docs/guides/app-management', changeFrequency: 'monthly', priority: 0.7 },
+	{
+		path: '/docs/getting-started/deploy-docker-image',
+		changeFrequency: 'monthly',
+		priority: 0.7,
+	},
+	{
+		path: '/docs/getting-started/deploy-github-repo',
+		changeFrequency: 'monthly',
+		priority: 0.7,
+	},
+	{
+		path: '/docs/getting-started/create-database',
+		changeFrequency: 'monthly',
+		priority: 0.7,
+	},
+	{
+		path: '/docs/getting-started/create-object-storage',
+		changeFrequency: 'monthly',
+		priority: 0.7,
+	},
+	{
+		path: '/docs/guides/feature-list',
+		changeFrequency: 'monthly',
+		priority: 0.7,
+	},
+	{
+		path: '/docs/guides/account-workspace',
+		changeFrequency: 'monthly',
+		priority: 0.7,
+	},
+	{
+		path: '/docs/guides/app-management',
+		changeFrequency: 'monthly',
+		priority: 0.7,
+	},
 	{ path: '/docs/guides/devbox', changeFrequency: 'monthly', priority: 0.7 },
 	{ path: '/docs/guides/ai-proxy', changeFrequency: 'monthly', priority: 0.7 },
 	{ path: '/docs/guides/appstore', changeFrequency: 'monthly', priority: 0.7 },
 	{ path: '/docs/guides/databases', changeFrequency: 'monthly', priority: 0.7 },
-	{ path: '/docs/guides/object-storage', changeFrequency: 'monthly', priority: 0.7 },
+	{
+		path: '/docs/guides/object-storage',
+		changeFrequency: 'monthly',
+		priority: 0.7,
+	},
 	{ path: '/docs/guides/cron-jobs', changeFrequency: 'monthly', priority: 0.7 },
 	{ path: '/docs/guides/terminal', changeFrequency: 'monthly', priority: 0.7 },
 	{ path: '/docs/private-cloud', changeFrequency: 'monthly', priority: 0.7 },
-	{ path: '/docs/private-cloud/deployment', changeFrequency: 'monthly', priority: 0.7 },
-	{ path: '/docs/private-cloud/operations', changeFrequency: 'monthly', priority: 0.7 },
+	{
+		path: '/docs/private-cloud/deployment',
+		changeFrequency: 'monthly',
+		priority: 0.7,
+	},
+	{
+		path: '/docs/private-cloud/operations',
+		changeFrequency: 'monthly',
+		priority: 0.7,
+	},
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

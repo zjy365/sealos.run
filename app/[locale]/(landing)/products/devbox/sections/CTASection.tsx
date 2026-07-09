@@ -12,7 +12,8 @@ export function CTASection({ createHref, docHref }: CTASectionProps) {
 				<p className='text-xl font-medium whitespace-pre-wrap'>现在开始开发</p>
 				<div className='flex flex-col justify-center'>
 					<p className='text-2xl font-semibold text-balance whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
-						创建专属 <span className='text-brand'>DevBox 云开发环境</span>，从编码到发布一站完成
+						创建专属 <span className='text-brand'>DevBox 云开发环境</span>
+						，从编码到发布一站完成
 					</p>
 				</div>
 			</div>

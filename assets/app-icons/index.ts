@@ -20,6 +20,7 @@ export { default as HasuraIcon } from './hasura.svg';
 export { default as HeadscaleIcon } from './headscale.svg';
 export { default as JavaIcon } from './java.svg';
 export { default as KafkaIcon } from './kafka.svg';
+export { default as LarkIcon } from './lark.svg';
 export { default as McpIcon } from './mcp.svg';
 export { default as MeilisearchIcon } from './meilisearch.svg';
 export { default as MilvusIcon } from './milvus.svg';

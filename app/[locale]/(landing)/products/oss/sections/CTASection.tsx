@@ -12,7 +12,8 @@ export function CTASection({ createHref, docHref }: CTASectionProps) {
 				<p className='text-xl font-medium whitespace-pre-wrap'>现在开始构建</p>
 				<div className='flex flex-col justify-center'>
 					<p className='text-2xl font-semibold text-balance whitespace-pre-wrap sm:text-3xl lg:text-4xl'>
-						无需预付费与<span className='text-brand'>预估容量</span>，低成本构建您的对象存储基座
+						无需预付费与<span className='text-brand'>预估容量</span>
+						，低成本构建您的对象存储基座
 					</p>
 				</div>
 			</div>

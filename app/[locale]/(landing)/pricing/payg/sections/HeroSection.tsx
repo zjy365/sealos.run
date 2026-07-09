@@ -22,7 +22,7 @@ export function HeroSection() {
 					低成本云服务器，
 					<span className='text-brand'>用多少付多少</span>
 				</h1>
-				<p className='max-w-xl text-lg text-muted-foreground'>
+				<p className='text-muted-foreground max-w-xl text-lg'>
 					按小时计费，CPU 低至 ¥0.017/核·小时，0.5 核轻量配置即可起步，暂停不计费。
 				</p>
 

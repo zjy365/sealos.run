@@ -1,6 +1,7 @@
 import 'server-only';
 import type React from 'react';
-import { siDiscord, siGithub, siQq, siRss, siSinaweibo, siWechat, siX, siYoutube } from 'simple-icons';
+import { siBilibili, siDiscord, siGithub, siQq, siRss, siSinaweibo, siWechat } from 'simple-icons';
+import { LarkIcon } from '@/assets/app-icons';
 import { LinkIcon } from '@/assets/icons';
 import { ProductsPanel } from './components/Navbar/ProductsPanel';
 import { getProductsPanelData } from './components/Navbar/products-panel.server';
@@ -208,22 +209,22 @@ export const Config = (() => {
 						url: 'https://github.com/labring/sealos',
 					},
 					{
-						name: 'Discord',
-						brandColor: `#${siDiscord.hex}`,
-						icon: <SimpleIcon d={siDiscord.path} />,
-						url: 'https://discord.gg/wdUn538zVP',
+						name: 'Feishu',
+						brandColor: '#3370ff',
+						icon: <Icon src={LarkIcon} />,
+						url: 'https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=e69j1d6b-689a-4417-8f99-37f474ca961a',
 					},
 					{
-						name: 'X',
-						brandColor: `#${siX.hex}`,
-						icon: <SimpleIcon d={siX.path} />,
-						url: 'https://x.com/Sealos_io',
+						name: 'Bilibili',
+						brandColor: `#${siBilibili.hex}`,
+						icon: <SimpleIcon d={siBilibili.path} />,
+						url: 'https://space.bilibili.com/1803388873',
 					},
 					{
-						name: 'Youtube',
-						brandColor: `#${siYoutube.hex}`,
-						icon: <SimpleIcon d={siYoutube.path} />,
-						url: 'https://www.youtube.com/@sealos_io',
+						name: 'WeChat',
+						brandColor: `#${siWechat.hex}`,
+						icon: <SimpleIcon d={siWechat.path} />,
+						url: 'https://mp.weixin.qq.com/s/kDOR9YmlpwRByYBhSH_bQA',
 					},
 					{
 						name: 'RSS',
