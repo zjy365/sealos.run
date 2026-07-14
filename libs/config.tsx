@@ -1,6 +1,6 @@
 import 'server-only';
 import type React from 'react';
-import { siBilibili, siDiscord, siGithub, siQq, siRss, siSinaweibo, siWechat } from 'simple-icons';
+import { siBilibili, siGithub, siQq, siRss, siSinaweibo, siWechat } from 'simple-icons';
 import { LarkIcon } from '@/assets/app-icons';
 import { LinkIcon } from '@/assets/icons';
 import { ProductsPanel } from './components/Navbar/ProductsPanel';
