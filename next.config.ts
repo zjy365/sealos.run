@@ -6,6 +6,19 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const config: NextConfig = {
 	reactStrictMode: true,
 	pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+	async headers() {
+		return [
+			{
+				source: '/:path*',
+				headers: [
+					{
+						key: 'Permissions-Policy',
+						value: 'unload=(self)',
+					},
+				],
+			},
+		];
+	},
 	async redirects() {
 		return [
 			{
@@ -16,6 +29,11 @@ const config: NextConfig = {
 			{
 				source: '/docs/guides/app-launchpad',
 				destination: '/docs/guides/app-management',
+				statusCode: 301,
+			},
+			{
+				source: '/docs/guides/fundamentals/entrypoint-sh',
+				destination: '/docs/guides/devbox/entrypoint-sh',
 				statusCode: 301,
 			},
 		];
