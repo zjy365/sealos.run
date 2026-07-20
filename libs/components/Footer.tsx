@@ -1,9 +1,34 @@
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import type React from 'react';
 import { FooterHexagonalPattern } from '@/assets';
 import { Link } from '@/libs/i18n/navigation';
 import { getTranslations } from '@/libs/i18n/server';
 import { Logo } from './Logo';
+
+const RUN_ICP_FILING = '粤ICP备2023048773号-3';
+const CN_ICP_FILING = '粤ICP备2023048773号-1';
+
+function getIcpFiling(host: string | null) {
+	const hostname = host
+		?.split(',')[0]
+		?.trim()
+		.split(':')[0]
+		?.replace(/^www\./, '')
+		.toLowerCase();
+
+	switch (hostname) {
+		case 'sealos.run':
+		case 'sealosgzg.site':
+			return RUN_ICP_FILING;
+		case 'sealos.cn':
+			return CN_ICP_FILING;
+		case 'localhost':
+			return process.env.NODE_ENV === 'development' ? RUN_ICP_FILING : undefined;
+		default:
+			return undefined;
+	}
+}
 
 export interface MenuLink {
 	textI18nKey: string;
@@ -38,9 +63,11 @@ interface FooterConfig {
 
 export async function Footer({ config }: { config: FooterConfig }) {
 	const t = await getTranslations();
+	const requestHeaders = await headers();
 
 	const footerTagline = t(config.taglineI18nKey);
 	const footerCopyright = t(config.copyrightI18nKey);
+	const icpFiling = getIcpFiling(requestHeaders.get('x-forwarded-host') ?? requestHeaders.get('host'));
 	const isExternalUrl = (url: string) => /^https?:\/\//.test(url);
 
 	return (
@@ -122,15 +149,19 @@ export async function Footer({ config }: { config: FooterConfig }) {
 
 				<p className='max-w-full text-center text-xs leading-relaxed'>
 					<span className='block sm:inline'>{footerCopyright}</span>
-					<span aria-hidden='true'> · </span>
-					<a
-						href='https://beian.miit.gov.cn/'
-						target='_blank'
-						rel='noopener noreferrer'
-						className='whitespace-nowrap hover:text-primary hover:underline'
-					>
-						粤ICP备2023048773号-3
-					</a>
+					{icpFiling ? (
+						<>
+							<span aria-hidden='true'> · </span>
+							<a
+								href='https://beian.miit.gov.cn/'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='whitespace-nowrap hover:text-primary hover:underline'
+							>
+								{icpFiling}
+							</a>
+						</>
+					) : null}
 				</p>
 
 				<ul className='flex justify-center gap-8'>
