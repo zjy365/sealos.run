@@ -44,7 +44,7 @@ export async function Footer({ config }: { config: FooterConfig }) {
 	const isExternalUrl = (url: string) => /^https?:\/\//.test(url);
 
 	return (
-		<section className='relative container px-4 pb-8'>
+		<section className='relative container px-4 pb-8 text-center'>
 			<div className='pointer-events-none absolute right-0 bottom-0 left-0 flex h-96 items-end px-4'>
 				<Image
 					src={FooterHexagonalPattern}
@@ -66,7 +66,7 @@ export async function Footer({ config }: { config: FooterConfig }) {
 
 			<div className='grid grid-cols-4 gap-6 lg:grid-cols-7'>
 				<div className='col-span-4 lg:col-span-3 lg:mb-0'>
-					<div className='flex items-center gap-2 lg:justify-start'>
+					<div className='flex items-center justify-center gap-2'>
 						<Logo withLogotype />
 					</div>
 					<p className='mt-2 leading-relaxed text-gray-500'>{footerTagline}</p>
@@ -99,8 +99,8 @@ export async function Footer({ config }: { config: FooterConfig }) {
 					</div>
 				))}
 			</div>
-			<div className='mt-24 grid grid-cols-1 gap-4 pt-8 text-sm text-gray-500 md:grid-cols-2 lg:grid-cols-3'>
-				<ul className='flex gap-4'>
+			<div className='mt-24 flex flex-col items-center gap-4 pt-8 text-sm text-gray-500'>
+				<ul className='flex flex-wrap justify-center gap-x-4 gap-y-2'>
 					{config.bottomLinks.map((link) => (
 						<li
 							key={link.textI18nKey}
@@ -120,8 +120,8 @@ export async function Footer({ config }: { config: FooterConfig }) {
 					))}
 				</ul>
 
-				<p className='text-start md:text-end lg:text-center'>
-					<span>{footerCopyright}</span>
+				<p className='max-w-full text-center text-xs leading-relaxed'>
+					<span className='block sm:inline'>{footerCopyright}</span>
 					<span aria-hidden='true'> · </span>
 					<a
 						href='https://beian.miit.gov.cn/'
@@ -133,7 +133,7 @@ export async function Footer({ config }: { config: FooterConfig }) {
 					</a>
 				</p>
 
-				<ul className='col-span-1 flex justify-start gap-8 md:col-span-2 md:justify-end lg:col-span-1'>
+				<ul className='flex justify-center gap-8'>
 					{config.socialLinks.map((link) => (
 						<a
 							key={link.name}
