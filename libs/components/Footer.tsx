@@ -120,7 +120,18 @@ export async function Footer({ config }: { config: FooterConfig }) {
 					))}
 				</ul>
 
-				<p className='text-start md:text-end lg:text-center'>{footerCopyright}</p>
+				<p className='text-start md:text-end lg:text-center'>
+					<span>{footerCopyright}</span>
+					<span aria-hidden='true'> · </span>
+					<a
+						href='https://beian.miit.gov.cn/'
+						target='_blank'
+						rel='noopener noreferrer'
+						className='whitespace-nowrap hover:text-primary hover:underline'
+					>
+						粤ICP备2023048773号-3
+					</a>
+				</p>
 
 				<ul className='col-span-1 flex justify-start gap-8 md:col-span-2 md:justify-end lg:col-span-1'>
 					{config.socialLinks.map((link) => (
