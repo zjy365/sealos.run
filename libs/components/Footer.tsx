@@ -19,7 +19,6 @@ function getIcpFiling(host: string | null) {
 	switch (hostname) {
 		case 'sealos.run':
 		case 'sealos.cn':
-		case 'sealosgzg.site':
 			return ICP_FILING;
 		case 'localhost':
 			return process.env.NODE_ENV === 'development' ? ICP_FILING : undefined;
