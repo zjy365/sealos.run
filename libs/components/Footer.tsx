@@ -6,9 +6,7 @@ import { Link } from '@/libs/i18n/navigation';
 import { getTranslations } from '@/libs/i18n/server';
 import { Logo } from './Logo';
 
-const RUN_ICP_FILING = '粤ICP备2023048773号-3';
-const CN_ICP_FILING = '粤ICP备2023048773号-1';
-const GZG_ICP_FILING = '粤ICP备2023048773号-15';
+const ICP_FILING = '粤ICP备2023048773号';
 
 function getIcpFiling(host: string | null) {
 	const hostname = host
@@ -20,13 +18,10 @@ function getIcpFiling(host: string | null) {
 
 	switch (hostname) {
 		case 'sealos.run':
-			return RUN_ICP_FILING;
 		case 'sealos.cn':
-			return CN_ICP_FILING;
-		case 'sealosgzg.site':
-			return GZG_ICP_FILING;
+			return ICP_FILING;
 		case 'localhost':
-			return process.env.NODE_ENV === 'development' ? RUN_ICP_FILING : undefined;
+			return process.env.NODE_ENV === 'development' ? ICP_FILING : undefined;
 		default:
 			return undefined;
 	}
