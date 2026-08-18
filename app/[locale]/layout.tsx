@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import type React from 'react';
 import { BaiduAnalytics } from '@/libs/components/BaiduAnalytics';
+import { RybbitAnalytics } from '@/libs/components/RybbitAnalytics';
 import { i18nUIProvider } from '@/libs/i18n/fumadocs';
 import { getPrimaryLocale } from '@/libs/i18n/routing';
 import { cn } from '@/libs/utils/styling';
@@ -148,6 +149,7 @@ export default async function RootLayout({ children, params }: Props) {
 			<body className='bg-background flex min-h-screen flex-col overflow-x-hidden'>
 				<NextIntlClientProvider>
 					<BaiduAnalytics />
+					<RybbitAnalytics />
 					<RootProvider
 						i18n={i18nUIProvider(actualLocale)}
 						theme={{
